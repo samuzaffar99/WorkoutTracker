@@ -1,0 +1,33 @@
+Features:
+User Account:
+	Username
+	Password
+	DisplayName
+	DateofBirth
+	Bio
+
+Body Type:
+	Age
+	Weight
+	Height
+	Gender
+	Medical()
+	BodyFat
+	Measurements()
+
+Workout:
+	WorkoutDay:
+		Exercise:
+			Name
+			Muscle
+			Description
+			
+
+Diet:
+	Calories
+	Food()
+	
+Tracker:
+	Body
+	Workout
+	Diet
