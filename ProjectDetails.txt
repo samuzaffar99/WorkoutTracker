@@ -1,0 +1,32 @@
+2. Project Detail
+ 2.1 Project Goals
+We expect to be able to produce an application which will be able to provide the user with a suitable diet plan based on their body and health.
+The application will also be able to provide with a full body work out routine fetched from the database based on the users requirement.
+
+Function goals: Allows the user to choose their gender and provide body and health details and then provides options for both exercise and diet plan.
+                Allows the user to navigate and choose from selected diet plans and exercise routines and swap out according to his/her convenience.
+                Allows the user to keep a track of daily activities and gives reminders to follow the routine set by the user.
+
+Technological goals: The application is mobile based, and will work on both Android and iOS platforms.
+
+Quality goals: Easy and friendly to use.
+               Customizable theme.
+               Qualitative aesthetics.
+
+Organizational goals:
+
+Other goals: Mobile based so portable.
+             Not dependent on the internet.
+
+Constraints: Cannot cover all possible health concerns rather only the general ones.
+
+ 2.2 Project Scope
+The application will provide with exercise routines which will cover exercises for all body types and muscles and will tell the number of reps or exercises suitable for your body type.
+The application will provide with diet plans based on your health concerns to help and normalize your eating routines. There will be a number of diet plans to help you choose based on your preferences.
+
+ 2.3 Existing Work
+Our application will cover both workout and dietary routines. In previous applications, these two routines were seperated and not brought together however our application is dependent on both routines and will provide the most efficient health plan.
+
+ 2.4 User Stories
+
+ 2.5 Domain Model
