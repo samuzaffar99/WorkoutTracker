@@ -1,7 +1,31 @@
 #include<iostream>
 #include<vector>
+#include <ctime>
+
 using namespace std;
+
 //#DEFINE CMTOI 0.393701
+
+class UserAccount{
+private:
+    int UserID;
+    string UserLogin;
+    string Password;
+    string Email;
+public:
+    struct tm BirthDate;
+    string DisplayName;
+    string Bio;
+    enum Gender;
+    int Age;
+    float Weight;
+    float Height;
+    float BF;
+    float BMI;
+    float FFMI;
+};
+
+
 
 class WorkoutTracker{
     bool Gender;
