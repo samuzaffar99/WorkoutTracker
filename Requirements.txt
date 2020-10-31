@@ -1,0 +1,14 @@
+Hardware Requirements:
+Hosting Server
+Mobile Client Device(Android/IOS)
+Storage Capacity(For Database)
+Network Bandwidth
+
+Software Requirements:
+For Development(Testing):
+	SQL Database Management Software/MongoDB as Backend
+	Flutter(Dart) as Framework
+	Android Studio as IDE	
+	AVD(Android Virtual Device)
+For Client(Release):
+	Android/IOS Operating System
