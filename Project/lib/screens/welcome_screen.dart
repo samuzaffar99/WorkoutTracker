@@ -28,18 +28,27 @@ class WelcomeScreen extends StatelessWidget {
                       fontSize: 100,
                       color: Colors.white.withAlpha(200),
                       fontWeight: FontWeight.w500,
+                        letterSpacing: 1.25,
                     ),
-                  )),
+                    ),
+                  ),
               SizedBox(height: 230.0),
               Text(
                 "Let's get you in shape",
                 style: TextStyle(
                     fontSize: 28,
                     color: Colors.white.withAlpha(220),
-                    fontStyle: FontStyle.italic,
+                    //fontStyle: FontStyle.italic,
                     fontWeight: FontWeight.w600,
+                    letterSpacing: 0.5,
+                    shadows: <Shadow>[
+                      Shadow(
+                          offset: Offset(1.5, 1.5),
+                          blurRadius: 5.0,
+                          color: Color.fromARGB(255, 0, 0, 0))
+                    ],
                 ),
-              ),
+                ),
               SizedBox(height: 20.0),
               ButtonTheme(
                 height: 45.0,
@@ -67,6 +76,12 @@ class WelcomeScreen extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 23,
                             color: Colors.white.withAlpha(230),
+                          shadows: <Shadow>[
+                            Shadow(
+                                offset: Offset(1.5, 1.5),
+                                blurRadius: 5.0,
+                                color: Color.fromARGB(255, 0, 0, 0))
+                          ],
                             ),
                       ),
                       SizedBox(width: 2.0),

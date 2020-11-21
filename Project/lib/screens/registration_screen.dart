@@ -31,7 +31,7 @@ class RegistrationScreen extends StatelessWidget {
                     child: Card(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(13.0)),
-                      color: Colors.white.withAlpha(200),
+                      color: Colors.white.withAlpha(190),
                       child: Padding(
                         padding: const EdgeInsets.all(20.0)
                             .copyWith(left: 15, right: 30, top: 25, bottom: 30),
@@ -114,7 +114,7 @@ class RegistrationScreen extends StatelessWidget {
                                     ],
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(),
-                                      hintText: 'Enter height in ft',
+                                      hintText: 'Enter height in cm',
                                     ),
                                     keyboardType: TextInputType.number,
                                   ),

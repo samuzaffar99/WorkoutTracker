@@ -7,21 +7,22 @@ class MaleFemale extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/mtf.jpg"),
-              fit: BoxFit.cover,
-            ),
-            // gradient: LinearGradient(
-            //   begin: Alignment.topCenter,
-            //   end: Alignment.bottomCenter,
-            //   colors: [Color(0xFFe52165), Color(0xFF0d1137)],
-            // ),
+      child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/mtf.jpg"),
+            fit: BoxFit.cover,
           ),
-          child: Column(
+          // gradient: LinearGradient(
+          //   begin: Alignment.topCenter,
+          //   end: Alignment.bottomCenter,
+          //   colors: [Color(0xFFe52165), Color(0xFF0d1137)],
+          // ),
+        ),
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: Colors.transparent,
+          body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
