@@ -110,7 +110,7 @@ class RegistrationScreen extends StatelessWidget {
                                   ),
                                   TextFormField(
                                     inputFormatters: [
-                                      LengthLimitingTextInputFormatter(4)
+                                      LengthLimitingTextInputFormatter(3)
                                     ],
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(),

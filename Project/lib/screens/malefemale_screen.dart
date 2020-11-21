@@ -9,15 +9,15 @@ class MaleFemale extends StatelessWidget {
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("images/mtf.jpg"),
-            fit: BoxFit.cover,
-          ),
-          // gradient: LinearGradient(
-          //   begin: Alignment.topCenter,
-          //   end: Alignment.bottomCenter,
-          //   colors: [Color(0xFFe52165), Color(0xFF0d1137)],
+          // image: DecorationImage(
+          //   image: AssetImage("images/mtf.jpg"),
+          //   fit: BoxFit.cover,
           // ),
+          gradient: LinearGradient(
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: [Color(0xFF711132), Color(0xFF07091c)],
+          ),
         ),
         child: Scaffold(
           resizeToAvoidBottomInset: false,
@@ -32,7 +32,7 @@ class MaleFemale extends StatelessWidget {
                     color: Colors.white.withAlpha(220),
                     fontFamily: "AdobeCleanL",
                     fontWeight: FontWeight.bold,
-                    letterSpacing: 1.25,
+                    letterSpacing: 1.0,
                     shadows: <Shadow>[
                       Shadow(
                           offset: Offset(1.5, 1.5),
@@ -40,72 +40,102 @@ class MaleFemale extends StatelessWidget {
                           color: Color.fromARGB(255, 0, 0, 0))
                     ]),
               ),
-              Padding(padding: EdgeInsets.all(38.0).copyWith(bottom: 0)),
+              Padding(padding: EdgeInsets.all(80.0).copyWith(bottom: 0)),
               Center(
                 child: Row(
                   children: [
-                    SizedBox(
-                      width: 29.0,
-                    ),
-                    Column(
+                    Stack(
                       children: [
-                        ButtonTheme(
-                          height: 146.0,
-                          minWidth: 146.0,
-                          child: MaterialButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return RegistrationScreen();
+                        Column(
+                          children: [
+                            ButtonTheme(
+                              height: 220.0,
+                              minWidth: 220.0,
+                              child: Opacity(
+                                opacity: 0.6,
+                                child: MaterialButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) {
+                                          return RegistrationScreen();
+                                        },
+                                      ),
+                                    );
                                   },
+                                  elevation: 200,
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        'images/fbutton.png',
+                                        height: 246.0,
+                                        width: 150.0,
+                                      ),
+                                    ],
+                                  ),
+                                  shape: CircleBorder(
+                                    // side: BorderSide(
+                                    //   width: 3,
+                                    //   color: Colors.transparent,
+                                    //   //color: Colors.white.withAlpha(200),
+                                    // ),
+                                  ),
+                                  color: Colors.transparent,
+                                  //color: Colors.pink.withAlpha(100),
                                 ),
-                              );
-                            },
-                            elevation: 200,
-                            shape: CircleBorder(
-                              side: BorderSide(
-                                width: 3,
-                                color: Colors.white.withAlpha(200),
                               ),
                             ),
-                            color: Colors.pink.withAlpha(100),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 15.0,
-                    ),
-                    Column(
-                      children: [
-                        SizedBox(
-                          height: 97.0,
-                        ),
-                        ButtonTheme(
-                          height: 146.0,
-                          minWidth: 146.0,
-                          child: MaterialButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return RegistrationScreen();
-                                  },
+                        Column(
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 175,
                                 ),
-                              );
-                            },
-                            elevation: 200,
-                            shape: CircleBorder(
-                              side: BorderSide(
-                                width: 3,
-                                color: Colors.white.withAlpha(200),
-                              ),
+                                ButtonTheme(
+                                  height: 220.0,
+                                  minWidth: 220.0,
+                                  child: Opacity(
+                                    opacity: 0.6,
+                                    child: MaterialButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) {
+                                              return RegistrationScreen();
+                                            },
+                                          ),
+                                        );
+                                      },
+                                      elevation: 200,
+                                      child: Column(
+                                        children: [
+                                          Image.asset(
+                                            'images/mbutton.png',
+                                            height: 246.0,
+                                            width: 189.0,
+                                          ),
+                                        ],
+                                      ),
+                                      shape: CircleBorder(
+                                        // side: BorderSide(
+                                        //   width: 3,
+                                        //   color: Colors.transparent,
+                                        //   //color: Colors.white.withAlpha(200),
+                                        // ),
+                                      ),
+                                      color: Colors.transparent,
+                                      //color: Colors.blue.withAlpha(100),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                            color: Colors.blue.withAlpha(100),
-                          ),
+                          ],
                         ),
                       ],
                     ),

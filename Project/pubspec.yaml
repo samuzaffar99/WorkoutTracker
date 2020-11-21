@@ -51,9 +51,9 @@ flutter:
   assets:
     - images/homenext.jpg
     - images/registration.jpg
-    - images/male.jpg
-    - images/female.jpg
     - images/mtf.jpg
+    - images/fbutton.png
+    - images/mbutton.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
