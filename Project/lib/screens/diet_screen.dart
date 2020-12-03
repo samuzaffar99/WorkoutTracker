@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
+import 'exercise_screen.dart';
 
-class ExerciseDietScreen extends StatelessWidget {
+class DietScreen extends StatelessWidget {
   var _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.white.withAlpha(190),
+          child: Icon(Icons.map),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return ExerciseScreen();
+                },
+              ),
+            );
+          },
+        ),
         appBar: AppBar(
           title: Text('<Name>'),
           backgroundColor: Color(0xFF07091c).withAlpha(250),
@@ -45,7 +60,7 @@ class ExerciseDietScreen extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Text(
-                                    "Name",
+                                    "Diet Plan",
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500),

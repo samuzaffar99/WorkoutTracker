@@ -1,9 +1,17 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'exercise_screen.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class RegistrationScreen extends StatelessWidget {
+class RegistrationScreen extends StatefulWidget {
+  @override
+  _RegistrationScreenState createState() => _RegistrationScreenState();
+}
+
+class _RegistrationScreenState extends State<RegistrationScreen> {
   var _formKey = GlobalKey<FormState>();
+  var maskFormatter = new MaskTextInputFormatter(mask: '##/##/####', filter: { "#": RegExp(r'[0-9]') });
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -141,8 +149,9 @@ class RegistrationScreen extends StatelessWidget {
                             TextFormField(
                               inputFormatters: [
                                 LengthLimitingTextInputFormatter(10),
+                                maskFormatter
                               ],
-                                decoration: InputDecoration(
+                              decoration: InputDecoration(
                                 border: OutlineInputBorder(),
                                 hintText: 'DD/MM/YYYY',
                               ),
@@ -155,7 +164,16 @@ class RegistrationScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 OutlineButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) {
+                                          return ExerciseScreen();
+                                        },
+                                      ),
+                                    );
+                                  },
                                   shape: RoundedRectangleBorder(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(30.0)),
@@ -166,8 +184,7 @@ class RegistrationScreen extends StatelessWidget {
                                       color: Colors.grey.withAlpha(200),
                                       width: 1.25),
                                   highlightedBorderColor: Colors.grey,
-                                  child:
-                                  Text(
+                                  child: Text(
                                     "Go",
                                     style: TextStyle(
                                       fontSize: 18,

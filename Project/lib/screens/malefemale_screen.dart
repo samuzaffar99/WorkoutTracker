@@ -49,8 +49,8 @@ class MaleFemale extends StatelessWidget {
                         Column(
                           children: [
                             ButtonTheme(
-                              height: 220.0,
-                              minWidth: 220.0,
+                              height: 200.0,
+                              minWidth: 200.0,
                               child: Opacity(
                                 opacity: 0.6,
                                 child: MaterialButton(
@@ -70,7 +70,7 @@ class MaleFemale extends StatelessWidget {
                                       Image.asset(
                                         'images/fbutton.png',
                                         height: 246.0,
-                                        width: 150.0,
+                                        width: 130.0,
                                       ),
                                     ],
                                   ),
@@ -93,11 +93,11 @@ class MaleFemale extends StatelessWidget {
                             Row(
                               children: [
                                 SizedBox(
-                                  width: 175,
+                                  width: 195,
                                 ),
                                 ButtonTheme(
-                                  height: 220.0,
-                                  minWidth: 220.0,
+                                  height: 200.0,
+                                  minWidth: 200.0,
                                   child: Opacity(
                                     opacity: 0.6,
                                     child: MaterialButton(
@@ -117,7 +117,7 @@ class MaleFemale extends StatelessWidget {
                                           Image.asset(
                                             'images/mbutton.png',
                                             height: 246.0,
-                                            width: 189.0,
+                                            width: 169.0,
                                           ),
                                         ],
                                       ),
