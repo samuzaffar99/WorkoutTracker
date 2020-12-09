@@ -1,0 +1,2 @@
+
+db.createCollection( 'Workouts', {validator: {$jsonSchema: {bsonType: 'object',required: [         'WorkoutID'],properties: {WorkoutID: {bsonType: 'objectId'},Days: {bsonType: 'string'}}         }      }});  

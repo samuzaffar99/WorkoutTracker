@@ -1,0 +1,2 @@
+
+db.createCollection( 'Diet', {validator: {$jsonSchema: {bsonType: 'object',required: [         'UserID',          'Day',          'Index',          'FoodID',          'Quantity'],properties: {UserID: {bsonType: 'objectId'},Day: {bsonType: 'string'},Index: {bsonType: 'int'},FoodID: {bsonType: 'objectId'},Quantity: {bsonType: 'int'}}         }      }});  

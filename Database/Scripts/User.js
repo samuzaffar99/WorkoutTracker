@@ -1,0 +1,5 @@
+
+db.createCollection( 'User', {validator: {$jsonSchema: {bsonType: 'object',required: [         'UserID',          'Username',          'FullName',          'DateOfBirth',          'Gender'],properties: {UserID: {bsonType: 'objectId'},Username: {bsonType: 'string'},FullName: {bsonType: 'string'},DateOfBirth: {bsonType: 'date'},Gender: {bsonType: 'string'},Measurements: {bsonType: 'object',
+required: [],properties: {Shoulders: {bsonType: 'double'},Arms: {bsonType: 'double'},Forearms: {bsonType: 'double'},Chest: {bsonType: 'double'},Waist: {bsonType: 'double'},Hips: {bsonType: 'double'},Thighs: {bsonType: 'double'},Calves: {bsonType: 'double'},Ankle: {bsonType: 'double'},Wrist: {bsonType: 'double'}}},Stats: {bsonType: 'object',
+required: [],properties: {Height: {bsonType: 'double'},Weight: {bsonType: 'double'},BodyFat: {bsonType: 'double'}}},Goals: {bsonType: 'object',
+required: [],properties: {Date: {bsonType: 'date'},Weight: {bsonType: 'double'},BodyFat: {bsonType: 'double'}}}}         }      }});  

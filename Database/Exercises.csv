@@ -1,0 +1,8 @@
+ExerciseID,ExerciseName,TargetMuscle,Category,Alias,Difficulty
+E0000,Pushup,Chest,Isometric,,1
+E0001,Pullup,Back,Isometric,,3
+E0002,Dips,Triceps,Isometric,,2
+E0003,Ab Curls,Abdominals,Isometric,,2
+E0004,Wall Press,Chest,Isometric,,0
+E0005,Squats,Glutes,Isometric,,3
+E0006,Incline Pushup,Chest,Isometric,,2

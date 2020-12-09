@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "5fc9bde17d6ac037cc97c121"
+  },
+  "UserID": "U0001",
+  "Username": "Sam",
+  "FullName": "Syed Abdullah Muzaffar",
+  "DateOfBirth": "06/11/1999",
+  "Gender": "M"
+},{
+  "_id": {
+    "$oid": "5fc9bde17d6ac037cc97c122"
+  },
+  "UserID": "U0002",
+  "Username": "Remolox",
+  "FullName": "Rahim Muhammad Syed",
+  "DateOfBirth": "07/11/1999",
+  "Gender": "M"
+},{
+  "_id": {
+    "$oid": "5fc9bde17d6ac037cc97c123"
+  },
+  "UserID": "U0003",
+  "Username": "MegasXG",
+  "FullName": "Muhammad Ahmed Khan",
+  "DateOfBirth": "08/11/1999",
+  "Gender": "F"
+},{
+  "_id": {
+    "$oid": "5fc9bde17d6ac037cc97c124"
+  },
+  "UserID": "U0004",
+  "Username": "LotusOrb",
+  "FullName": "Lotus Orb",
+  "DateOfBirth": "09/11/1999",
+  "Gender": "F"
+},{
+  "_id": {
+    "$oid": "5fc9bde17d6ac037cc97c125"
+  },
+  "UserID": "U0005",
+  "Username": "neet",
+  "FullName": "Kazuma Sato",
+  "DateOfBirth": "10/11/1999",
+  "Gender": "M"
+},{
+  "_id": {
+    "$oid": "5fc9bde17d6ac037cc97c126"
+  },
+  "UserID": "U0006",
+  "Username": "exxproshun",
+  "FullName": "Megumin",
+  "DateOfBirth": "11/11/1999",
+  "Gender": "F"
+},{
+  "_id": {
+    "$oid": "5fc9bde17d6ac037cc97c141"
+  },
+  "Username": "Sam",
+  "FullName": "Syed Abdullah Muzaffar",
+  "DateOfBirth": "06/11/1999",
+  "Gender": "M",
+  "Stats": [
+    {
+      "UserID": "U0001",
+      "Height": "171",
+      "Weight": "80",
+      "BodyFat": "25",
+      "BMI": ""
+    }
+  ]
+}]

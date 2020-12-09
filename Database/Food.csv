@@ -1,0 +1,62 @@
+_id,Food, Servings,Calories,Calories from Fat,Total Fat (g),Total Fat (%DV) ,Sodium (g),Sodium (%DV) ,Potassium (g),Potassium (%DV),Total Carbo-hydrate (g) ,Total Carbo-hydrate (%DV) ,Dietary Fiber (g) ,Dietary Fiber (%DV) ,Sugars (g) ,Protein (g) ,Vitamin A (%DV),Vitamin C (%DV) ,Calcium (%DV) 
+5fc8e8f12f687d34c0db0121,Green Cabbage, 1/12 medium head (84 g/3.0 oz),25,false,false,false,20,true,190,5,5,2,2,8,3,true,false,70,4
+5fc8e8f12f687d34c0db0122,Green Onion, 1/4 cup chopped (25 g/0.9 oz),10,false,false,false,10,false,70,2,2,true,true,4,true,false,2,8,2
+5fc8e8f12f687d34c0db011c,Carrot," 1 carrot  7"" long  1 1/4"" diameter (78 g/2.8 oz)",30,false,false,false,60,3,250,7,7,2,2,8,5,true,110,10,2
+5fc8e8f12f687d34c0db011e,Celery, 2 medium stalks (110 g/3.9 oz),15,false,false,false,115,5,260,7,4,true,2,8,2,false,10,15,4
+5fc8e8f12f687d34c0db0125,Mushrooms, 5 medium (84 g/3.0 oz),20,false,false,false,15,false,300,9,3,true,true,4,false,3,false,2,false
+5fc8e8f12f687d34c0db013b,Pineapple," 2 slices  3"" diameter  3/4"" thick",50,false,false,false,10,false,120,3,13,4,true,4,10,true,2,50,2
+5fc8e8f12f687d34c0db0124,Leaf Lettuce, 1 1/2 cups shredded (85 g/3.0 oz),15,false,false,false,35,true,170,5,2,true,true,4,true,true,130,6,2
+5fc8e8f12f687d34c0db012c,Tomato, 1 medium (148 g/5.3 oz),25,false,false,false,20,true,340,10,5,2,true,4,3,true,20,40,2
+5fc8e8f12f687d34c0db012f,Banana, 1 medium (126 g/4.5 oz),110,false,false,false,false,false,450,13,30,10,3,12,19,true,2,15,false
+5fc8e8f12f687d34c0db013e,Sweet Cherries , 21 cherries; 1 cup,100,false,false,false,false,false,350,10,26,9,true,4,16,true,2,15,2
+5fc8e8f12f687d34c0db011a,Bell Pepper, 1 medium (148 g/5.3 oz),25,false,false,false,40,2,220,6,6,2,2,8,4,true,4,190,2
+5fc8e8f12f687d34c0db012d,Apple, 1 large (242 g/8 oz),130,false,false,false,false,false,260,7,34,11,5,20,25,true,2,8,2
+5fc8e8f12f687d34c0db0134,Kiwifruit, 2 medium (148 g/5.3 oz),90,10,true,2,false,false,450,13,20,7,4,16,13,true,2,240,4
+5fc8e8f12f687d34c0db013d,Strawberries, 8 medium (147 g/5.3 oz),50,false,false,false,false,false,170,5,11,4,2,8,8,true,false,160,2
+5fc8e8f12f687d34c0db0126,Onion, 1 medium (148 g/5.3 oz),45,false,false,false,5,false,190,5,11,4,3,12,9,true,false,20,4
+5fc8e8f12f687d34c0db0141,Blue Crab,false,100,10,true,2,330,14,300,9,false,false,false,false,false,20,false,4,10
+5fc8e8f12f687d34c0db0146,Haddock,false,100,10,true,2,85,4,340,10,false,false,false,false,false,21,2,false,2
+5fc8e8f12f687d34c0db014c,Pollock,false,90,10,true,2,110,5,370,11,false,false,false,false,false,20,2,false,false
+5fc8e8f12f687d34c0db0153,Swordfish,false,120,50,6,9,100,4,310,9,false,false,false,false,false,16,2,2,false
+5fc8e8f12f687d34c0db013a,Pear, 1 medium (166 g/5.9 oz),100,false,false,false,false,false,190,5,26,9,6,24,16,true,false,10,2
+5fc8e8f12f687d34c0db0131,Grapefruit, 1/2 medium (98 g/3.5 oz),60,false,false,false,false,false,160,5,15,5,2,8,11,true,35,100,4
+5fc8e8f12f687d34c0db0149,Ocean Perch,false,110,20,2,3,95,4,290,8,false,false,false,false,false,21,false,2,10
+5fc8e8f12f687d34c0db014d,Rainbow Trout,false,140,50,6,9,35,true,370,11,false,false,false,false,false,20,4,4,8
+5fc8e8f12f687d34c0db0140,Watermelon, 1/18 medium melon; 2 cups diced pieces(280 g/,80,false,false,false,false,false,270,8,21,7,true,4,20,true,30,25,2
+5fc8e8f12f687d34c0db014e,Rockfish,false,110,15,2,3,70,3,440,13,false,false,false,false,false,21,4,false,2
+5fc8e8f12f687d34c0db012e,Avocado, California 1/5 medium (30 g/1.1 oz),50,35,4.5,7,false,false,140,4,3,true,true,4,false,true,false,4,false
+5fc8e8f12f687d34c0db014f,Salmon, Atlantic/Coho/Sockeye /Chinook,200,90,10,15,55,2,430,12,false,false,false,false,false,24,4,4,2
+5fc8e8f12f687d34c0db0123,Iceberg Lettuce, 1/6 medium head (89 g/3.2 oz),10,false,false,false,10,false,125,4,2,true,true,4,2,true,6,6,2
+5fc8e8f12f687d34c0db0119,Asparagus, 5 spears (93 g/3.3 oz),20,false,false,false,false,false,230,7,4,true,2,8,2,2,10,15,2
+5fc8e8f12f687d34c0db0138,Orange, 1 medium (154 g/5.5 oz),80,false,false,false,false,false,250,7,19,6,3,12,14,true,2,130,6
+5fc8e8f12f687d34c0db0127,Potato, 1 medium (148 g/5.3 oz),110,false,false,false,false,false,620,18,26,9,2,8,true,3,false,45,2
+5fc8e8f12f687d34c0db0130,Cantaloupe, 1/4 medium (134 g/4.8 oz),50,false,false,false,20,true,240,7,12,4,true,4,11,true,120,80,2
+5fc8e8f12f687d34c0db0137,Nectarine, 1 medium (140 g/5.0 oz),60,5,0.5,true,false,false,250,7,15,5,2,8,11,true,8,15,false
+5fc8e8f12f687d34c0db0151,Scallops, about 6 large or 14 small,140,10,true,2,310,13,430,12,5,2,false,false,false,27,2,false,4
+5fc8e8f12f687d34c0db011d,Cauliflower, 1/6 medium head (99 g/3.5 oz),25,false,false,false,30,true,270,8,5,2,2,8,2,2,false,100,2
+5fc8e8f12f687d34c0db011f,Cucumber, 1/3 medium (99 g/3.5 oz),10,false,false,false,false,false,140,4,2,true,true,4,true,true,4,10,2
+5fc8e8f12f687d34c0db0133,Honeydew Melon , 1/10 medium melon  (134 g/4.8 oz),50,false,false,false,30,true,210,6,12,4,true,4,11,true,2,45,2
+5fc8e8f12f687d34c0db0135,Lemon, 1 medium (58 g/2.1 oz),15,false,false,false,false,false,75,2,5,2,2,8,2,false,false,40,2
+5fc8e8f12f687d34c0db0143,Clams, about 12 small,110,15,1.5,2,95,4,470,13,6,2,false,false,false,17,10,false,8
+5fc8e8f12f687d34c0db0145,Flounder/Sole,false,100,15,1.5,2,100,4,390,11,false,false,false,false,false,19,false,false,2
+5fc8e8f12f687d34c0db014a,Orange Roughy,false,80,5,true,2,70,3,340,10,false,false,false,false,false,16,2,false,4
+5fc8e8f12f687d34c0db0155,Tuna,false,130,15,1.5,2,40,2,480,14,false,false,false,false,false,26,2,2,2
+5fc8e8f12f687d34c0db011b,Broccoli, 1 medium stalk (148 g/5.3 oz),45,false,0.5,true,80,3,460,13,8,3,3,12,2,4,6,220,6
+5fc8e8f12f687d34c0db0128,Radishes, 7 radishes (85 g/3.0 oz),10,false,false,false,55,2,190,5,3,true,true,4,2,false,false,30,2
+5fc8e8f12f687d34c0db012a,Sweet Corn, kernels from 1 medium ear (90 g/3.2 oz),90,20,2.5,4,false,false,250,7,18,6,2,8,5,4,2,10,false
+5fc8e8f12f687d34c0db0144,Cod,false,90,5,true,2,65,3,460,13,false,false,false,false,false,20,false,2,2
+5fc8e8f12f687d34c0db0120,Green (Snap) Beans, 3/4 cup cut (83 g/3.0 oz),20,false,false,false,false,false,200,6,5,2,3,12,2,true,4,10,4
+5fc8e8f12f687d34c0db0139,Peach, 1 medium (147 g/5.3 oz),60,false,0.5,true,false,false,230,7,15,5,2,8,13,true,6,15,false
+5fc8e8f12f687d34c0db0142,Catfish,false,130,60,6,9,40,2,230,7,false,false,false,false,false,17,false,false,false
+5fc8e8f12f687d34c0db0154,Tilapia,false,110,20,2.5,4,30,true,360,10,false,false,false,false,false,22,false,2,false
+5fc8e8f12f687d34c0db013f,Tangerine, 1 medium (109 g/3.9 oz),50,false,false,false,false,false,160,5,13,4,2,8,9,true,6,45,4
+5fc8e8f12f687d34c0db0148,Lobster,false,80,false,0.5,true,320,13,300,9,true,false,false,false,false,17,2,false,6
+5fc8e8f12f687d34c0db0152,Shrimp,false,100,10,1.5,2,240,10,220,6,false,false,false,false,false,21,4,4,6
+5fc8e8f12f687d34c0db0136,Lime, 1 medium (67 g/2.4 oz),20,false,false,false,false,false,75,2,7,2,2,8,false,false,false,35,false
+5fc8e8f12f687d34c0db0129,Summer Squash, 1/2 medium (98 g/3.5 oz),20,false,false,false,false,false,260,7,4,true,2,8,2,true,6,30,2
+5fc8e8f12f687d34c0db012b,Sweet Potato," 1 medium  5"" long  2"" diameter (130 g/4.6 oz)",100,false,false,false,70,3,440,13,23,8,4,16,7,2,120,30,4
+5fc8e8f12f687d34c0db0132,Grapes, 3/4 cup (126 g/4.5 oz),90,false,false,false,15,true,240,7,23,8,true,4,20,false,false,2,2
+5fc8e8f12f687d34c0db0147,Halibut,false,120,15,2,3,60,3,500,14,false,false,false,false,false,23,4,false,2
+5fc8e8f12f687d34c0db014b,Oysters, about 12 medium,100,35,4,6,300,13,220,6,6,2,false,false,false,10,false,6,6
+5fc8e8f12f687d34c0db013c,Plums, 2 medium (151 g/5.4 oz),70,false,false,false,false,false,230,7,19,6,2,8,16,true,8,10,false
+5fc8e8f12f687d34c0db0150,Salmon, Chum/Pink,130,40,4,6,65,3,420,12,false,false,false,false,false,22,2,false,2

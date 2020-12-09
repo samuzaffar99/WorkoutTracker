@@ -1,0 +1,2 @@
+
+db.createCollection( 'Exercises', {validator: {$jsonSchema: {bsonType: 'object',required: [         'ExerciseID',          'ExerciseName',          'TargetMuscle',          'Category',          'Alias',          'Difficulty'],properties: {ExerciseID: {bsonType: 'objectId'},ExerciseName: {bsonType: 'string'},TargetMuscle: {bsonType: 'string'},Category: {bsonType: 'string'},Alias: {bsonType: 'string'},Difficulty: {bsonType: 'double'}}         }      }});  
