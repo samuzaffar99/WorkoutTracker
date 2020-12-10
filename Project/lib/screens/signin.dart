@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:mongo_dart/mongo_dart.dart' as mongo;
 import 'dart:convert';
 
-Future<String> calldb() async {
+Future<Map> calldb() async {
   // void displayExercise(Map Exercises) {
   //   print(
   //       'Username: ${Users["username"]}, Muscles: ${Exercises["TargetMuscle"]}, Category: ${Exercises["id"]}, Alias: ${Exercises["pop"]}, Difficulty: ${Exercises["Difficulty"]}');
@@ -13,10 +13,10 @@ Future<String> calldb() async {
       "mongodb+srv://Admin:admin@cluster0.ejodh.mongodb.net/WorkoutTracker");
   var Currentuser = db.collection('Users');
   await db.open();
-  // print('\n******************** Find ZIP for code 78829 (BATESVILLE)');
-  var username = await Currentuser.findOne(mongo.where.eq('UserID', 'U0001'));
+  var username = await Currentuser.findOne(mongo.where.eq('UserID', 'U0002'));
   await db.close();
-  return username["Username"];
+  return username;
+  //return username["Username"];
 }
 
 Widget getUsername() {
@@ -34,8 +34,12 @@ Widget getUsername() {
           );
         } else {
           return Container(
-            child: Center(
-              child: Text('${snapshot.data}'),
+            child: Row(
+              children: [
+                Text('${snapshot.data["Username"]}'),
+                SizedBox(width:2),
+                Text('${snapshot.data["Gender"]}'),
+              ],
             ),
           );
         }
