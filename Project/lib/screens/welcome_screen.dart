@@ -1,3 +1,4 @@
+import 'package:Project/screens/signin.dart';
 import 'package:flutter/material.dart';
 import 'malefemale_screen.dart';
 
@@ -60,7 +61,7 @@ class WelcomeScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                             context, MaterialPageRoute(builder: (context) {
-                          return MaleFemale();
+                          return SignInPage();
                         }));
                       },
                       shape: RoundedRectangleBorder(
