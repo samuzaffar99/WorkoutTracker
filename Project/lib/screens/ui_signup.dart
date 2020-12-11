@@ -1,92 +1,40 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mongo_dart/mongo_dart.dart' as mongo;
-import 'diet_screen.dart';
-import 'dart:convert';
 
-Future<Map> getUserInfo() async {
-  // void displayExercise(Map Exercises) {
-  //   print(
-  //       'Username: ${Users["username"]}, Muscles: ${Exercises["TargetMuscle"]}, Category: ${Exercises["id"]}, Alias: ${Exercises["pop"]}, Difficulty: ${Exercises["Difficulty"]}');
-  // }
-  //var db = mongo.Db("mongodb+srv://Admin:admin@cluster0.ejodh.mongodb.net/WorkoutTracker");
+Future<Map> getUserExist(String user) async {
   var db = await mongo.Db.create(
       "mongodb+srv://Admin:admin@cluster0.ejodh.mongodb.net/WorkoutTracker");
-  var Currentuser = db.collection('Users');
+  var currentUser = db.collection('Users');
   await db.open();
-  var username = await Currentuser.findOne(mongo.where.eq('UserID', 'U0002'));
+  var username = await currentUser.findOne(mongo.where.eq('Username', user));
   await db.close();
   return username;
-  //return username["Username"];
 }
 
-Widget getUsername() {
-  return FutureBuilder(
-      future: getUserInfo(),
-      builder: (buildContext, AsyncSnapshot snapshot) {
-        if (snapshot.hasError)
-          throw snapshot.error;
-        else if (!snapshot.hasData) {
-          return Container(
-            child: Center(
-              //child: Text("Waiting..."),
-              child: CircularProgressIndicator(),
-            ),
-          );
-        } else {
-          return Container(
-            child: Row(
-              children: [
-                Text('${snapshot.data["Username"]}'),
-                SizedBox(width: 2),
-                Text('${snapshot.data["Gender"]}'),
-              ],
-            ),
-          );
-        }
-      });
-  // return FutureBuilder(
-  //   builder: (context, projectSnap) {
-  //     if (projectSnap.connectionState == ConnectionState.none &&
-  //         projectSnap.hasData == null) {
-  //       //print('project snapshot data is: ${projectSnap.data}');
-  //       return Container();
-  //     }
-  //     return ListView.builder(
-  //       itemCount: projectSnap.data.length,
-  //       itemBuilder: (context, index) {
-  //         ProjectModel project = projectSnap.data[index];
-  //         return Column(
-  //           children: <Widget>[
-  //             // Widget to display the list of project
-  //           ],
-  //         );
-  //       },
-  //     );
-  //   },
-  // );
-}
-
-class SignInPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   var _formKey = GlobalKey<FormState>();
-  // Create a text controller and use it to retrieve the current value
-// of the TextField.
-  final myController = TextEditingController();
+
+  final controllerUN = TextEditingController();
+  final controllerPW = TextEditingController();
+
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
-    myController.dispose();
+    controllerUN.dispose();
+    controllerPW.dispose();
     super.dispose();
   }
 
-  Widget trySignIn() {
+  Widget trySignUp() {
     return FutureBuilder(
-        future: getUserInfo(),
+        future: getUserExist(controllerUN.text),
         builder: (buildContext, AsyncSnapshot snapshot) {
           if (snapshot.hasError)
             throw snapshot.error;
@@ -96,12 +44,16 @@ class _SignInPageState extends State<SignInPage> {
                 child: CircularProgressIndicator(),
               ),
             );
-          } else if (snapshot.data["Username"] == myController.text) {
-            return DietScreen();
+          } else if (snapshot.data["Username"] == controllerUN.text) {
+            return Container(
+              child: Center(
+                child: Text("User Already Exists"),
+              ),
+            );
           } else {
             return Container(
               child: Center(
-                child: Text("Wrong User"),
+                child: Text("Success"),
               ),
             );
           }
@@ -156,6 +108,7 @@ class _SignInPageState extends State<SignInPage> {
                                     height: 6,
                                   ),
                                   TextFormField(
+                                    controller: controllerUN,
                                     inputFormatters: [
                                       LengthLimitingTextInputFormatter(30)
                                     ],
@@ -186,7 +139,7 @@ class _SignInPageState extends State<SignInPage> {
                             ),
                             TextFormField(
                               obscureText: true,
-                              controller: myController,
+                              controller: controllerPW,
                               inputFormatters: [
                                 LengthLimitingTextInputFormatter(10),
                               ],
@@ -207,14 +160,14 @@ class _SignInPageState extends State<SignInPage> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) {
-                                          return trySignIn();
+                                          return trySignUp();
                                         },
                                       ),
                                     );
                                   },
                                   shape: RoundedRectangleBorder(
                                     borderRadius:
-                                        BorderRadius.all(Radius.circular(30.0)),
+                                    BorderRadius.all(Radius.circular(30.0)),
                                   ),
                                   color: Colors.transparent,
                                   textColor: Colors.white,
@@ -223,7 +176,7 @@ class _SignInPageState extends State<SignInPage> {
                                       width: 1.25),
                                   highlightedBorderColor: Colors.grey,
                                   child: Text(
-                                    "Sign in",
+                                    "Sign up",
                                     style: TextStyle(
                                       fontSize: 18,
                                       color: Colors.black.withAlpha(230),

@@ -1,6 +1,5 @@
-import 'package:Project/screens/signin.dart';
+import 'package:Project/screens/ui_signin.dart';
 import 'package:flutter/material.dart';
-import 'malefemale_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
