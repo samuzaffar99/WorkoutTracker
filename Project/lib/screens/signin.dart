@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mongo_dart/mongo_dart.dart' as mongo;
+import 'diet_screen.dart';
 import 'dart:convert';
 
-Future<Map> calldb() async {
+Future<Map> getUserInfo() async {
   // void displayExercise(Map Exercises) {
   //   print(
   //       'Username: ${Users["username"]}, Muscles: ${Exercises["TargetMuscle"]}, Category: ${Exercises["id"]}, Alias: ${Exercises["pop"]}, Difficulty: ${Exercises["Difficulty"]}');
@@ -21,7 +22,7 @@ Future<Map> calldb() async {
 
 Widget getUsername() {
   return FutureBuilder(
-      future: calldb(),
+      future: getUserInfo(),
       builder: (buildContext, AsyncSnapshot snapshot) {
         if (snapshot.hasError)
           throw snapshot.error;
@@ -37,7 +38,7 @@ Widget getUsername() {
             child: Row(
               children: [
                 Text('${snapshot.data["Username"]}'),
-                SizedBox(width:2),
+                SizedBox(width: 2),
                 Text('${snapshot.data["Gender"]}'),
               ],
             ),
@@ -73,6 +74,39 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   var _formKey = GlobalKey<FormState>();
+  // Create a text controller and use it to retrieve the current value
+// of the TextField.
+  final myController = TextEditingController();
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myController.dispose();
+    super.dispose();
+  }
+
+  Widget trySignIn() {
+    return FutureBuilder(
+        future: getUserInfo(),
+        builder: (buildContext, AsyncSnapshot snapshot) {
+          if (snapshot.hasError)
+            throw snapshot.error;
+          else if (!snapshot.hasData) {
+            return Container(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          } else if (snapshot.data["Username"] == myController.text) {
+            return DietScreen();
+          } else {
+            return Container(
+              child: Center(
+                child: Text("Wrong User"),
+              ),
+            );
+          }
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -151,6 +185,8 @@ class _SignInPageState extends State<SignInPage> {
                               height: 6,
                             ),
                             TextFormField(
+                              obscureText: true,
+                              controller: myController,
                               inputFormatters: [
                                 LengthLimitingTextInputFormatter(10),
                               ],
@@ -171,7 +207,7 @@ class _SignInPageState extends State<SignInPage> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) {
-                                          //return HomePage();
+                                          return trySignIn();
                                         },
                                       ),
                                     );
@@ -186,14 +222,13 @@ class _SignInPageState extends State<SignInPage> {
                                       color: Colors.grey.withAlpha(200),
                                       width: 1.25),
                                   highlightedBorderColor: Colors.grey,
-                                  // child: Text(
-                                  //   "Sign in",
-                                  //   style: TextStyle(
-                                  //     fontSize: 18,
-                                  //     color: Colors.black.withAlpha(230),
-                                  //   ),
-                                  // ),
-                                  child: getUsername(),
+                                  child: Text(
+                                    "Sign in",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.black.withAlpha(230),
+                                    ),
+                                  ),
                                 ),
                               ],
                             )
