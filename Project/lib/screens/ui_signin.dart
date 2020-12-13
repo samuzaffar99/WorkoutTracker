@@ -12,8 +12,8 @@ Future<Map> getUserInfo(String user) async {
   await db.open();
   var userdetails = await currentUser.findOne(mongo.where.eq('Username', user));
   await db.close();
-  if(userdetails==null){
-    userdetails={'Username':null};
+  if (userdetails == null) {
+    userdetails = {'Username': null};
   }
   return userdetails;
 }
@@ -53,7 +53,7 @@ class _SignInPageState extends State<SignInPage> {
             );
           } else if (snapshot.data["Username"] == controllerUN.text) {
             return DietScreen();
-          } else if(snapshot.data["Username"] == null) {
+          } else if (snapshot.data["Username"] == null) {
             return Container(
               child: Center(
                 child: Text("Wrong User"),
