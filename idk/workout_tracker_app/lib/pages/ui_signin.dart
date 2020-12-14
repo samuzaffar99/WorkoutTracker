@@ -61,17 +61,17 @@ class _SignInState extends State<SignIn> {
                       child: TextFormField(
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )),
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                            ),
+                          ),
                           enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )),
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                            ),
+                          ),
                           hintText: 'Username',
                           filled: true,
                           fillColor: Colors.white.withAlpha(200),
@@ -97,17 +97,17 @@ class _SignInState extends State<SignIn> {
                         obscureText: true,
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )),
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                            ),
+                          ),
                           enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )),
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                            ),
+                          ),
                           hintText: 'Password',
                           filled: true,
                           fillColor: Colors.white.withAlpha(200),
@@ -129,10 +129,14 @@ class _SignInState extends State<SignIn> {
                   minWidth: 200.0,
                   child: OutlineButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Home();
-                      }));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Home();
+                          },
+                        ),
+                      );
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
@@ -174,15 +178,16 @@ class _SignInState extends State<SignIn> {
               child: Center(
                 child: RichText(
                   text: TextSpan(
-                      text: 'Don\'t have an account?',
-                      style: TextStyle(color: Colors.grey),
-                      children: [
-                        TextSpan(
-                          text: ' Sign Up',
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        )
-                      ]),
+                    text: 'Don\'t have an account?',
+                    style: TextStyle(color: Colors.grey),
+                    children: [
+                      TextSpan(
+                        text: ' Sign Up',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

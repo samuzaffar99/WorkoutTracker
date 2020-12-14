@@ -26,25 +26,51 @@ class _HomeState extends State<Home> {
               setState(
                 () {
                   index = i;
-                  if (index==0)
-                    {
-
-                    }
-                  else if(index==1)
-                    {
-
-                    }
-                  else if(index==2)
-                  {
-
-                  }
-                  else if(index==3)
-                  {
-
-                  }
-                  else if(index==4)
-                  {
-
+                  if (index == 0) {
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) {
+                    //       return Home();
+                    //     },
+                    //   ),
+                    // );
+                  } else if (index == 1) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return;
+                        },
+                      ),
+                    );
+                  } else if (index == 2) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return;
+                        },
+                      ),
+                    );
+                  } else if (index == 3) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return;
+                        },
+                      ),
+                    );
+                  } else if (index == 4) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return;
+                        },
+                      ),
+                    );
                   }
                 },
               );
@@ -103,10 +129,14 @@ class _HomeState extends State<Home> {
                   minWidth: 275.0,
                   child: OutlineButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return;
-                      }));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return;
+                          },
+                        ),
+                      );
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
@@ -147,10 +177,14 @@ class _HomeState extends State<Home> {
                   minWidth: 275.0,
                   child: OutlineButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return;
-                      }));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return;
+                          },
+                        ),
+                      );
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),

@@ -53,32 +53,47 @@ class _ChoosePlanState extends State<ChoosePlan> {
                   minWidth: 10,
                   child: ToggleButtons(
                     children: [
-                      OutlineButton(
-                        child: Text("M", style: TextStyle(color: Colors.white.withAlpha(200),)),
+                      MaterialButton(
+                        child: Text("M",
+                            style: TextStyle(
+                              color: Colors.white.withAlpha(200),
+                            )),
                         onPressed: null,
                       ),
-                      OutlineButton(
-                        child: Text("T", style: TextStyle(color: Colors.white.withAlpha(200))),
+                      MaterialButton(
+                        child: Text("T",
+                            style:
+                                TextStyle(color: Colors.white.withAlpha(200))),
                         onPressed: null,
                       ),
-                      OutlineButton(
-                        child: Text("W", style: TextStyle(color: Colors.white.withAlpha(200))),
+                      MaterialButton(
+                        child: Text("W",
+                            style:
+                                TextStyle(color: Colors.white.withAlpha(200))),
                         onPressed: null,
                       ),
-                      OutlineButton(
-                        child: Text("T", style: TextStyle(color: Colors.white.withAlpha(200))),
+                      MaterialButton(
+                        child: Text("T",
+                            style:
+                                TextStyle(color: Colors.white.withAlpha(200))),
                         onPressed: null,
                       ),
-                      OutlineButton(
-                        child: Text("F", style: TextStyle(color: Colors.white.withAlpha(200))),
+                      MaterialButton(
+                        child: Text("F",
+                            style:
+                                TextStyle(color: Colors.white.withAlpha(200))),
                         onPressed: null,
                       ),
-                      OutlineButton(
-                        child: Text("S", style: TextStyle(color: Colors.white.withAlpha(200))),
+                      MaterialButton(
+                        child: Text("S",
+                            style:
+                                TextStyle(color: Colors.white.withAlpha(200))),
                         onPressed: null,
                       ),
-                      OutlineButton(
-                        child: Text("S", style: TextStyle(color: Colors.white.withAlpha(200))),
+                      MaterialButton(
+                        child: Text("S",
+                            style:
+                                TextStyle(color: Colors.white.withAlpha(200))),
                         onPressed: null,
                       ),
                     ],
@@ -86,19 +101,12 @@ class _ChoosePlanState extends State<ChoosePlan> {
                     borderColor: Colors.white.withAlpha(200),
                     color: Colors.white.withAlpha(200),
                     selectedColor: Colors.white.withAlpha(200),
+                    fillColor: Colors.white.withAlpha(150),
                     isSelected: isSelected,
                     onPressed: (int index) {
                       setState(
                         () {
-                          for (int indexBtn = 0;
-                              indexBtn < isSelected.length;
-                              indexBtn++) {
-                            if (indexBtn == index) {
-                              isSelected[indexBtn] = true;
-                            } else {
-                              isSelected[indexBtn] = false;
-                            }
-                          }
+                          isSelected[index] = !isSelected[index];
                         },
                       );
                     },
@@ -115,41 +123,41 @@ class _ChoosePlanState extends State<ChoosePlan> {
                 RotatedBox(
                   quarterTurns: 1,
                   child: ToggleButtons(
+                    selectedBorderColor: Colors.white.withAlpha(200),
+                    borderRadius: BorderRadius.circular(10),
+                    borderColor: Colors.white.withAlpha(180),
+                    fillColor: Colors.white.withAlpha(150),
                     children: [
                       RotatedBox(
                         quarterTurns: 3,
-                        child: OutlineButton(
-                          child: Text("Home Exercise", style: TextStyle(color: Colors.white.withAlpha(200))),
+                        child: MaterialButton(
+                          child: Text("Home Exercise",
+                              style: TextStyle(
+                                  color: Colors.white.withAlpha(200))),
                           onPressed: null,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
                         ),
                       ),
                       RotatedBox(
                         quarterTurns: 3,
-                        child: OutlineButton(
-                          child: Text("Power Lifting", style: TextStyle(color: Colors.white.withAlpha(200))),
+                        child: MaterialButton(
+                          child: Text("Power Lifting",
+                              style: TextStyle(
+                                  color: Colors.white.withAlpha(200))),
                           onPressed: null,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
                         ),
                       ),
                       RotatedBox(
                         quarterTurns: 3,
-                        child: OutlineButton(
-                          child: Text("Body Building", style: TextStyle(color: Colors.white.withAlpha(200)),),
+                        child: MaterialButton(
+                          child: Text(
+                            "Body Building",
+                            style:
+                                TextStyle(color: Colors.white.withAlpha(200)),
+                          ),
                           onPressed: null,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0),
                           ),
                         ),
-                      ),
                     ],
-                    selectedBorderColor: Colors.white.withAlpha(200),
-                    borderColor: Colors.white.withAlpha(200),
-                    selectedColor: Colors.white,
                     isSelected: isSelected2,
                     onPressed: (int index) {
                       setState(
@@ -170,7 +178,9 @@ class _ChoosePlanState extends State<ChoosePlan> {
                 )
               ],
             ),
-            SizedBox(height: 25,),
+            SizedBox(
+              height: 25,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -182,10 +192,14 @@ class _ChoosePlanState extends State<ChoosePlan> {
                       minWidth: 130.0,
                       child: OutlineButton(
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                                return ChoosePlan();
-                              }));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return;
+                              },
+                            ),
+                          );
                         },
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
@@ -225,10 +239,14 @@ class _ChoosePlanState extends State<ChoosePlan> {
                   minWidth: 130.0,
                   child: OutlineButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                            return ChoosePlan();
-                          }));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return;
+                          },
+                        ),
+                      );
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
