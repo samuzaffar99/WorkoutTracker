@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_details.dart';
+//import '../src/api.dart';
+import '../src/model.dart';
 
 class SignUp extends StatefulWidget {
+  //final Api _api = Api();
   @override
   _SignUpState createState() => _SignUpState();
 }
 
 class _SignUpState extends State<SignUp> {
+  String username;
+  String password;
+  String email;
+  //bool loading = false;
+  var _formKey = GlobalKey<FormState>();
+
+  List drivers = [];
+  String fetch;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -14,14 +26,15 @@ class _SignUpState extends State<SignUp> {
         backgroundColor: Color(0xFF141414),
         body: ListView(
           children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset('assets/images/logo.png',
-                width: 260,
-              ),
-            ],
-          ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/logo.png',
+                  width: 260,
+                ),
+              ],
+            ),
             Text(
               'Create a New Account',
               textAlign: TextAlign.center,
@@ -40,113 +53,155 @@ class _SignUpState extends State<SignUp> {
             SizedBox(
               height: 5,
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: <Widget>[
-                  IconTheme(
-                    child: Icon(Icons.person),
-                    data: IconThemeData(color: Colors.white),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(right: 20, left: 10),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )
-                          ),
-                          hintText: 'Username',
-                          filled: true,
-                          fillColor: Colors.white.withAlpha(200),
+            Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: <Widget>[
+                        IconTheme(
+                          child: Icon(Icons.person),
+                          data: IconThemeData(color: Colors.white),
                         ),
-                      ),
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(right: 20, left: 10),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                    )),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                    )),
+                                hintText: 'Username',
+                                filled: true,
+                                fillColor: Colors.white.withAlpha(200),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return "Username cannot be left blank";
+                                } //else if (loading == false) {
+                                //   return "Name already exists";
+                                // }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                username = value;
+                              },
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-                  )
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: <Widget>[
+                        IconTheme(
+                          child: Icon(Icons.lock),
+                          data: IconThemeData(color: Colors.white),
+                        ),
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(right: 20, left: 10),
+                            child: TextFormField(
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                    )),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                    )),
+                                hintText: 'Password',
+                                filled: true,
+                                fillColor: Colors.white.withAlpha(200),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return "This field cannot be left empty";
+                                } //else if (loading == false) {
+                                //   return "Name already exists";
+                                // }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                password = value;
+                              },
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: <Widget>[
+                        IconTheme(
+                          child: Icon(Icons.mail),
+                          data: IconThemeData(color: Colors.white),
+                        ),
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(right: 20, left: 10),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                    )),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                    )),
+                                hintText: 'Email',
+                                filled: true,
+                                fillColor: Colors.white.withAlpha(200),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return "Please enter your email address";
+                                } //else if (loading == false) {
+                                //   return "Name already exists";
+                                // }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                email = value;
+                              },
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: <Widget>[
-                  IconTheme(
-                    child: Icon(Icons.lock),
-                    data: IconThemeData(color: Colors.white),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(right: 20, left: 10),
-                      child: TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )
-                          ),
-                          hintText: 'Password',
-                          filled: true,
-                          fillColor: Colors.white.withAlpha(200),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+            SizedBox(
+              height: 12,
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: <Widget>[
-                  IconTheme(
-                    child: Icon(Icons.mail),
-                    data: IconThemeData(color: Colors.white),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(right: 20, left: 10),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )
-                          ),
-                          hintText: 'Email',
-                          filled: true,
-                          fillColor: Colors.white.withAlpha(200),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(height: 12,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -155,10 +210,13 @@ class _SignUpState extends State<SignUp> {
                   minWidth: 200.0,
                   child: OutlineButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                            return Details();
-                          }));
+                      if (_formKey.currentState.validate()) {
+                        _formKey.currentState.save();
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return Details(username, password, email);
+                        }));
+                      }
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
@@ -218,5 +276,3 @@ class _SignUpState extends State<SignUp> {
     );
   }
 }
-
-
