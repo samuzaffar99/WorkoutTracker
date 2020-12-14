@@ -11,21 +11,24 @@ void start() async {
 
   final driverColl = db.collection('Users');
 
-  // serv.get(
-  //   '/:name',
-  //   [
-  //     (ServRequest req, ServResponse res) async {
-  //       //print(request.response);
-  //       final drivers =
-  //           await driverColl.findOne(where.eq('name', req.params['name']));
-  //       print("You are inside drivers $drivers");
-  //       //where.eq('name', name)
-  //       return res.status(200).json(
-  //         {'driver': drivers},
-  //       );
-  //     },
-  //   ],
-  // );
+  serv.get(
+    '/:username',
+    [
+      (ServRequest req, ServResponse res) async {
+        //print(request.response);
+        final driver = await driverColl
+            .findOne(where.eq('username', req.params['username']));
+        print("You are inside drivers $driver");
+        // if (driver == null) {
+        //   return driver
+        // }
+        // //where.eq('name', name)
+        return res.status(200).json(
+          {'driver': driver},
+        );
+      },
+    ],
+  );
 
   // serv.get(
   //   '/:password',

@@ -259,11 +259,11 @@ class _DetailsState extends State<Details> {
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();
                         _registerUser();
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return Goals();
+                        }));
                       }
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Goals();
-                      }));
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),

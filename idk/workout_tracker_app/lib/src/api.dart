@@ -7,9 +7,14 @@ class Api {
     BaseOptions(baseUrl: 'http://localhost:3000/'),
   );
 
-  Future<Driver> getDrivers(String name) async {
+  Future<Driver> getDriver(String username) async {
     //print('...inside getDrivers()');
-    final response = await _dio.get('/$name');
+    print('await done');
+    final response = await _dio.get('/$username');
+    if (response.data['driver'] == null) {
+      return null;
+    }
+    //print(response.data['driver']);
     //print('...response $response');
     return Driver.fromJson(response.data['driver']);
   }

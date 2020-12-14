@@ -1,12 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_home.dart';
+import '../src/api.dart';
 
 class SignIn extends StatefulWidget {
+  final Api _api = Api();
   @override
   _SignInState createState() => _SignInState();
 }
 
 class _SignInState extends State<SignIn> {
+  String username;
+  String password;
+  var _formKey = GlobalKey<FormState>();
+  final Api _api = Api();
+  void _loginUser() {
+    widget._api.getDriver(username).then((value) {
+      if (value == null) {
+        print("USer Not Found");
+      } else {
+        print(value.username);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -47,74 +63,107 @@ class _SignInState extends State<SignIn> {
             SizedBox(
               height: 10,
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
+            Form(
+              key: _formKey,
+              child: Column(
                 children: [
-                  IconTheme(
-                    child: Icon(Icons.person),
-                    data: IconThemeData(color: Colors.white),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(right: 20, left: 10),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                            ),
-                          ),
-                          hintText: 'Username',
-                          filled: true,
-                          fillColor: Colors.white.withAlpha(200),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: [
+                        IconTheme(
+                          child: Icon(Icons.person),
+                          data: IconThemeData(color: Colors.white),
                         ),
-                      ),
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(right: 20, left: 10),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                ),
+                                hintText: 'Username',
+                                filled: true,
+                                fillColor: Colors.white.withAlpha(200),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return "Username cannot be left blank";
+                                } //else if (loading == false) {
+                                //   return "Name already exists";
+                                // }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                username = value;
+                              },
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: [
-                  IconTheme(
-                    child: Icon(Icons.lock),
-                    data: IconThemeData(color: Colors.white),
                   ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(right: 20, left: 10),
-                      child: TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                            ),
-                          ),
-                          hintText: 'Password',
-                          filled: true,
-                          fillColor: Colors.white.withAlpha(200),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: [
+                        IconTheme(
+                          child: Icon(Icons.lock),
+                          data: IconThemeData(color: Colors.white),
                         ),
-                      ),
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(right: 20, left: 10),
+                            child: TextFormField(
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                ),
+                                hintText: 'Password',
+                                filled: true,
+                                fillColor: Colors.white.withAlpha(200),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return "Password cannot be left blank";
+                                } //else if (loading == false) {
+                                //   return "Name already exists";
+                                // }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                password = value;
+                              },
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -129,14 +178,18 @@ class _SignInState extends State<SignIn> {
                   minWidth: 200.0,
                   child: OutlineButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return Home();
-                          },
-                        ),
-                      );
+                      if (_formKey.currentState.validate()) {
+                        _formKey.currentState.save();
+                        _loginUser();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return Home();
+                            },
+                          ),
+                        );
+                      }
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
