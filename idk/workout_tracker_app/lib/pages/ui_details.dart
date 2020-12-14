@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
+import 'package:workout_tracker_app/pages/ui_goals.dart';
 
-class SignIn extends StatefulWidget {
+class Details extends StatefulWidget {
   @override
-  _SignInState createState() => _SignInState();
+  _DetailsState createState() => _DetailsState();
 }
 
-class _SignInState extends State<SignIn> {
+class _DetailsState extends State<Details> {
+  DateTime _dateTime;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -13,23 +17,20 @@ class _SignInState extends State<SignIn> {
         backgroundColor: Color(0xFF141414),
         body: ListView(
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/logo.png',
+                  width: 260,
+                ),
+              ],
+            ),
             SizedBox(
               height: 10,
             ),
-            Container(
-              height: 320,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.contain,
-                  image: AssetImage('assets/images/logo.png'),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
             Text(
-              'Welcome Back',
+              'Enter Details',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 25,
@@ -44,37 +45,27 @@ class _SignInState extends State<SignIn> {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 20,
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Row(
-                children: [
-                  IconTheme(
-                    child: Icon(Icons.person),
-                    data: IconThemeData(color: Colors.white),
-                  ),
+                children: <Widget>[
                   Expanded(
                     child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white.withAlpha(200),
+                          borderRadius: BorderRadius.circular(20)),
                       margin: EdgeInsets.only(right: 20, left: 10),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )),
-                          hintText: 'Username',
-                          filled: true,
-                          fillColor: Colors.white.withAlpha(200),
-                        ),
+                      child: DropdownButton(
+                        items: <String>['Male', 'Female', 'Other']
+                            .map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (_) {},
                       ),
                     ),
                   )
@@ -85,15 +76,35 @@ class _SignInState extends State<SignIn> {
               padding: const EdgeInsets.all(10.0),
               child: Row(
                 children: [
-                  IconTheme(
-                    child: Icon(Icons.lock),
-                    data: IconThemeData(color: Colors.white),
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.only(right: 20, left: 10),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                              )),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                              ),),
+                          hintText: 'Weight',
+                          filled: true,
+                          fillColor: Colors.white.withAlpha(200),
+                        ),
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
                   ),
                   Expanded(
                     child: Container(
                       margin: EdgeInsets.only(right: 20, left: 10),
                       child: TextField(
-                        obscureText: true,
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
                               borderRadius:
@@ -107,7 +118,39 @@ class _SignInState extends State<SignIn> {
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                               )),
-                          hintText: 'Password',
+                          hintText: 'Height',
+                          filled: true,
+                          fillColor: Colors.white.withAlpha(200),
+                        ),
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.only(right: 20, left: 10),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                              )),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                              )),
+                          hintText: 'Date Of Birth',
                           filled: true,
                           fillColor: Colors.white.withAlpha(200),
                         ),
@@ -118,7 +161,7 @@ class _SignInState extends State<SignIn> {
               ),
             ),
             SizedBox(
-              height: 12,
+              height: 22,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -130,7 +173,7 @@ class _SignInState extends State<SignIn> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return;
+                        return Goals();
                       }));
                     },
                     shape: RoundedRectangleBorder(
@@ -145,7 +188,7 @@ class _SignInState extends State<SignIn> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Log In",
+                          "Next",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white.withAlpha(230),
@@ -162,28 +205,6 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
               ],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, 'Sign Up');
-              },
-              child: Center(
-                child: RichText(
-                  text: TextSpan(
-                      text: 'Don\'t have an account?',
-                      style: TextStyle(color: Colors.grey),
-                      children: [
-                        TextSpan(
-                          text: ' Sign Up',
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        )
-                      ]),
-                ),
-              ),
             ),
           ],
         ),
