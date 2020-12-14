@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workout_tracker_app/pages/ui_home.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -92,7 +93,7 @@ class _SignInState extends State<SignIn> {
                   Expanded(
                     child: Container(
                       margin: EdgeInsets.only(right: 20, left: 10),
-                      child: TextField(
+                      child: TextFormField(
                         obscureText: true,
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
@@ -130,7 +131,7 @@ class _SignInState extends State<SignIn> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return;
+                        return Home();
                       }));
                     },
                     shape: RoundedRectangleBorder(
