@@ -108,9 +108,9 @@ class _DetailsState extends State<Details> {
                                   child: Text(value),
                                 );
                               }).toList(),
-                              onChanged: (_) {
+                              onChanged: (String data) {
                                 setState(() {
-                                  gender =;
+                                  gender = data;
                                 });
                                 //gender = value;
                               },
