@@ -16,7 +16,7 @@ class _SignInState extends State<SignIn> {
   void _loginUser() {
     widget._api.getDriver(username).then((value) {
       if (value == null) {
-        print("USer Not Found");
+        print("User Not Found");
       } else {
         print(value.username);
       }
@@ -181,6 +181,7 @@ class _SignInState extends State<SignIn> {
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();
                         _loginUser();
+                        Navigator.popUntil(context, ModalRoute.withName('/ui_home'));
                         Navigator.push(
                           context,
                           MaterialPageRoute(

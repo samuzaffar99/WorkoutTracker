@@ -253,7 +253,7 @@ class _SignUpState extends State<SignUp> {
             ),
             InkWell(
               onTap: () {
-                Navigator.pushNamed(context, 'Sign In');
+                Navigator.pop(context);
               },
               child: Center(
                 child: RichText(
