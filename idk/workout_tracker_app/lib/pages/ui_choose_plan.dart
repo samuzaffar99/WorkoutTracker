@@ -179,7 +179,7 @@ class _ChoosePlanState extends State<ChoosePlan> {
                   children: [
                     ButtonTheme(
                       height: 45.0,
-                      minWidth: 170.0,
+                      minWidth: 130.0,
                       child: OutlineButton(
                         onPressed: () {
                           Navigator.push(context,
@@ -218,11 +218,11 @@ class _ChoosePlanState extends State<ChoosePlan> {
                   ],
                 ),
                 SizedBox(
-                  width: 30,
+                  width: 25,
                 ),
                 ButtonTheme(
                   height: 45.0,
-                  minWidth: 170.0,
+                  minWidth: 130.0,
                   child: OutlineButton(
                     onPressed: () {
                       Navigator.push(context,

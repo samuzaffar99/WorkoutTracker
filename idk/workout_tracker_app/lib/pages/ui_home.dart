@@ -6,7 +6,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int index=0;
+  int index = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,11 +18,37 @@ class _HomeState extends State<Home> {
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
-              canvasColor: Colors.white.withAlpha(200),
+            canvasColor: Colors.white.withAlpha(200),
           ),
           child: BottomNavigationBar(
             currentIndex: index,
-            onTap: (int i){setState((){index = i;});},
+            onTap: (int i) {
+              setState(
+                () {
+                  index = i;
+                  if (index==0)
+                    {
+
+                    }
+                  else if(index==1)
+                    {
+
+                    }
+                  else if(index==2)
+                  {
+
+                  }
+                  else if(index==3)
+                  {
+
+                  }
+                  else if(index==4)
+                  {
+
+                  }
+                },
+              );
+            },
             fixedColor: Colors.black,
             showUnselectedLabels: false,
             unselectedItemColor: Colors.black,
@@ -36,16 +62,16 @@ class _HomeState extends State<Home> {
                 label: 'Diet',
               ),
               BottomNavigationBarItem(
-                  icon: Image.asset('assets/images/food-fork-drink.png'),
-                  label: 'Exercise',
+                icon: Image.asset('assets/images/food-fork-drink.png'),
+                label: 'Exercise',
               ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.article_outlined),
-                  label: 'Routine',
+                icon: Icon(Icons.article_outlined),
+                label: 'Routine',
               ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.person_pin),
-                  label: 'Profile',
+                icon: Icon(Icons.person_pin),
+                label: 'Profile',
               )
             ],
           ),
@@ -123,8 +149,8 @@ class _HomeState extends State<Home> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                            return;
-                          }));
+                        return;
+                      }));
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
