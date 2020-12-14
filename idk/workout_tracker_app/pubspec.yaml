@@ -34,6 +34,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   mdi: ^4.0.0
   customtogglebuttons: ^0.0.5
+  pie_chart: ^4.0.1
 
 dev_dependencies:
   flutter_test:
