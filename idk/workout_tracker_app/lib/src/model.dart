@@ -34,9 +34,11 @@ class Driver {
       'password': password,
       'email': email,
       'gender': gender,
-      'weight': weight,
-      'height': height,
-      'date': date
+      'date': date,
+      'stats': {
+        'weight': weight,
+        'height': height,
+      }
     };
   }
 }
