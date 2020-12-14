@@ -12,11 +12,11 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   String name;
   String password;
-  bool loading = false;
-  bool check = false;
+  //bool loading = false;
   var _formKey = GlobalKey<FormState>();
 
   List drivers = [];
+  String fetch;
 
   void _registerUser() {
     // print("inside regerster user");
@@ -44,46 +44,48 @@ class _SignUpState extends State<SignUp> {
   @override
   void initState() {
     super.initState();
-    _loadDriver();
+    //_loadDriver();
     // widget._api.getDrivers().then((value) {
     //   drivers = value;
-    //   // for (int i = 0; i < drivers.length; i++) {
-    //   //   print('${drivers[i].name} ${drivers[i].password}');
-    //   // }
-    // }
-    // );
+    //   for (int i = 0; i < drivers.length; i++) {
+    //     print('${drivers[i].name} ${drivers[i].password}');
+    //   }
+    // });
   }
 
   void _loadDriver([bool showSpinner = false]) {
-    if (showSpinner) {
-      for (int i = 0; i < drivers.length; i++) {
-        if (name == drivers[i].name) {
-          print('${drivers[i].name} ${drivers[i].password}');
-          setState(() {
-            loading = true;
-          });
-        }
-      }
-      if (loading == false) {
-        print('User Not Found!');
-
-        // setState(() {
-        //   SignUp();
-        // });
-      }
-    }
-
-    widget._api.getDrivers().then((data) {
-      setState(() {
-        drivers = data;
-        loading = false;
-      });
+    widget._api.getDrivers(name).then((data) {
+      //print(data.name);
+      // fetch = data.name;
+      // setState(() {
+      //   fetch = data.name;
+      //   loading = false;
+      // });
     });
+    // if (showSpinner) {
+    //   //print('$fetch');
+    //   // for (int i = 0; i < drivers.length; i++) {
+    //   //   print('${fetch.name} ${fetch.password}');
+    //   //   if (name == fetch.name) {
+    //   //     // print('${drivers[i].name} ${drivers[i].password}');
+    //   setState(() {
+    //     loading = true;
+    //   });
+    //   //   }
+    //   // }
+    //   if (loading == false) {
+    //     print('User Not Found!');
+
+    //     // setState(() {
+    //     //   SignUp();
+    //     // });
+    //   }
+    // }
   }
 
   Widget trySignIn() {
     return FutureBuilder(
-        future: widget._api.getDriver(controllerUN.text, controllerPW.text),
+        future: widget._api.getDrivers(controllerUN.text),
         builder: (buildContext, AsyncSnapshot snapshot) {
           if (snapshot.hasError)
             throw snapshot.error;

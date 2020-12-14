@@ -12,10 +12,14 @@ void start() async {
   final driverColl = db.collection('driver');
 
   serv.get(
-    '/',
+    '/:name',
     [
       (ServRequest req, ServResponse res) async {
-        final drivers = await driverColl.find().toList();
+        //print(request.response);
+        final drivers =
+            await driverColl.findOne(where.eq('name', req.params['name']));
+        print("You are inside drivers $drivers");
+        //where.eq('name', name)
         return res.status(200).json(
           {'driver': drivers},
         );
