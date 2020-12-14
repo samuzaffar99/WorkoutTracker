@@ -1,14 +1,53 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:workout_tracker_app/pages/ui_goals.dart';
+import '../src/api.dart';
+import '../src/model.dart';
 
 class Details extends StatefulWidget {
+  String username;
+  String password;
+  String email;
+  final Api _api = Api();
+  Details(this.username, this.password, this.email);
   @override
   _DetailsState createState() => _DetailsState();
 }
 
 class _DetailsState extends State<Details> {
+  //final Api _api = Api();
   DateTime _dateTime;
+  // String username;
+  // String password;
+  // String email;
+  String gender;
+  String weight;
+  String height;
+  String date;
+
+  //_DetailsState(String username, String password, String email) : super(username,password,email);
+
+  var _formKey = GlobalKey<FormState>();
+
+  void _registerUser() {
+    // print("inside regerster user");
+    Driver newDriver = Driver.fromJson({
+      'username': widget.username,
+      'password': widget.password,
+      'email': widget.email,
+      'gender': gender,
+      'weight': weight,
+      'height': height,
+      'date': date
+    });
+    //print('...${newDriver.name}');
+    widget._api.postDriver(newDriver).then(
+      (value) {
+        //print(value.username);
+      },
+    );
+    return;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,11 +127,11 @@ class _DetailsState extends State<Details> {
                                 color: Colors.transparent,
                               )),
                           enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              ),),
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                            ),
+                          ),
                           hintText: 'Weight',
                           filled: true,
                           fillColor: Colors.white.withAlpha(200),
@@ -173,6 +212,7 @@ class _DetailsState extends State<Details> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
+                        _registerUser();
                         return Goals();
                       }));
                     },
