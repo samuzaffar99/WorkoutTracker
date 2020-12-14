@@ -86,116 +86,162 @@ class _DetailsState extends State<Details> {
             SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white.withAlpha(200),
-                          borderRadius: BorderRadius.circular(20)),
-                      margin: EdgeInsets.only(right: 20, left: 10),
-                      child: DropdownButton(
-                        items: <String>['Male', 'Female', 'Other']
-                            .map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (_) {},
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
+            Form(
+              key: _formKey,
+              child: Column(
                 children: [
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(right: 20, left: 10),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white.withAlpha(200),
+                                borderRadius: BorderRadius.circular(20)),
+                            margin: EdgeInsets.only(right: 20, left: 10),
+                            child: DropdownButton(
+                              items: <String>['Male', 'Female', 'Other']
+                                  .map((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                              onChanged: (_) {
+                                setState(() {
+                                  gender =;
+                                });
+                                //gender = value;
+                              },
                             ),
                           ),
-                          hintText: 'Weight',
-                          filled: true,
-                          fillColor: Colors.white.withAlpha(200),
-                        ),
-                        keyboardType: TextInputType.number,
-                      ),
+                        )
+                      ],
                     ),
                   ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(right: 20, left: 10),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )),
-                          hintText: 'Height',
-                          filled: true,
-                          fillColor: Colors.white.withAlpha(200),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(right: 20, left: 10),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                    )),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                ),
+                                hintText: 'Weight',
+                                filled: true,
+                                fillColor: Colors.white.withAlpha(200),
+                              ),
+                              keyboardType: TextInputType.number,
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return "Please enter your weight";
+                                } //else if (loading == false) {
+                                //   return "Name already exists";
+                                // }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                weight = value;
+                              },
+                            ),
+                          ),
                         ),
-                        keyboardType: TextInputType.number,
-                      ),
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(right: 20, left: 10),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                    )),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                    )),
+                                hintText: 'Height',
+                                filled: true,
+                                fillColor: Colors.white.withAlpha(200),
+                              ),
+                              keyboardType: TextInputType.number,
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return "Please enter your height";
+                                } //else if (loading == false) {
+                                //   return "Name already exists";
+                                // }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                height = value;
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(right: 20, left: 10),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                              )),
-                          hintText: 'Date Of Birth',
-                          filled: true,
-                          fillColor: Colors.white.withAlpha(200),
-                        ),
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(right: 20, left: 10),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                    )),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                    )),
+                                hintText: 'Date Of Birth',
+                                filled: true,
+                                fillColor: Colors.white.withAlpha(200),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return "Please enter your email address";
+                                } //else if (loading == false) {
+                                //   return "Name already exists";
+                                // }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                date = value;
+                              },
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -210,9 +256,12 @@ class _DetailsState extends State<Details> {
                   minWidth: 200.0,
                   child: OutlineButton(
                     onPressed: () {
+                      if (_formKey.currentState.validate()) {
+                        _formKey.currentState.save();
+                        _registerUser();
+                      }
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        _registerUser();
                         return Goals();
                       }));
                     },
