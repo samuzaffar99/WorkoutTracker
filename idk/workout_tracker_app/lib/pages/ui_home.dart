@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:workout_tracker_app/pages/ui_profile.dart';
+import 'package:workout_tracker_app/pages/log.dart';
+import 'package:workout_tracker_app/pages/ui_workout.dart';
+import 'package:workout_tracker_app/pages/ui_diet.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -15,92 +19,23 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           backgroundColor: Color(0xFF141414),
           title: Text("Home"),
+          actions: [
+            Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                      Icons.settings
+                  ),
+                )
+            ),
+          ],
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
             canvasColor: Colors.white.withAlpha(200),
           ),
-          child: BottomNavigationBar(
-            currentIndex: index,
-            onTap: (int i) {
-              setState(
-                () {
-                  index = i;
-                  if (index == 0) {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) {
-                    //       return Home();
-                    //     },
-                    //   ),
-                    // );
-                  } else if (index == 1) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return;
-                        },
-                      ),
-                    );
-                  } else if (index == 2) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return;
-                        },
-                      ),
-                    );
-                  } else if (index == 3) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return;
-                        },
-                      ),
-                    );
-                  } else if (index == 4) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return;
-                        },
-                      ),
-                    );
-                  }
-                },
-              );
-            },
-            fixedColor: Colors.black,
-            showUnselectedLabels: false,
-            unselectedItemColor: Colors.black,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Image.asset('assets/images/dumbbell.png'),
-                label: 'Diet',
-              ),
-              BottomNavigationBarItem(
-                icon: Image.asset('assets/images/food-fork-drink.png'),
-                label: 'Exercise',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.article_outlined),
-                label: 'Routine',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person_pin),
-                label: 'Profile',
-              )
-            ],
-          ),
+          child: NavigationBar(index),
         ),
         body: ListView(
           children: [
@@ -129,6 +64,7 @@ class _HomeState extends State<Home> {
                   minWidth: 275.0,
                   child: OutlineButton(
                     onPressed: () {
+                      Navigator.pop(context);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -222,3 +158,105 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+class NavigationBar extends StatefulWidget {
+  int index;
+  NavigationBar(this.index);
+  @override
+  _NavigationBarState createState() => _NavigationBarState();
+}
+
+class _NavigationBarState extends State<NavigationBar> {
+
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      currentIndex: widget.index,
+      onTap: (int i) {
+        setState(
+              () {
+            widget.index = i;
+            if (widget.index == 0) {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Home();
+                  },
+                ),
+              );
+            } else if (widget.index == 1) {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Diet();
+                  },
+                ),
+              );
+            } else if (widget.index == 2) {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Workout();
+                  },
+                ),
+              );
+            } else if (widget.index == 3) {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Log();
+                  },
+                ),
+              );
+            } else if (widget.index == 4) {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Profile();
+                  },
+                ),
+              );
+            }
+          },
+        );
+      },
+      fixedColor: Colors.black,
+      showUnselectedLabels: false,
+      unselectedItemColor: Colors.black,
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Image.asset('assets/images/food-fork-drink.png'),
+          label: 'Diet',
+        ),
+        BottomNavigationBarItem(
+          icon: Image.asset('assets/images/dumbbell.png'),
+          label: 'Exercise',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.article_outlined),
+          label: 'Log',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person_pin),
+          label: 'Profile',
+        )
+      ],
+    );
+  }
+}
+
