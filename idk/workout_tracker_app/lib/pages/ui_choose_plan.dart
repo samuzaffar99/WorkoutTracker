@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workout_tracker_app/pages/ui_plan_diet.dart';
 
 class ChoosePlan extends StatefulWidget {
   @override
@@ -196,7 +197,7 @@ class _ChoosePlanState extends State<ChoosePlan> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return;
+                                return PlanDiet();
                               },
                             ),
                           );
@@ -243,7 +244,7 @@ class _ChoosePlanState extends State<ChoosePlan> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return;
+                            return PlanDiet();
                           },
                         ),
                       );
