@@ -3,6 +3,8 @@ import 'package:workout_tracker_app/pages/ui_profile.dart';
 import 'package:workout_tracker_app/pages/log.dart';
 import 'package:workout_tracker_app/pages/ui_workout.dart';
 import 'package:workout_tracker_app/pages/ui_diet.dart';
+import 'package:workout_tracker_app/pages/ui_signin.dart';
+//import '../src/model.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -10,6 +12,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  //Driver driver;
   int index = 0;
   @override
   Widget build(BuildContext context) {
@@ -24,11 +27,8 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
                   onTap: () {},
-                  child: Icon(
-                      Icons.settings
-                  ),
-                )
-            ),
+                  child: Icon(Icons.settings),
+                )),
           ],
         ),
         bottomNavigationBar: Theme(
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
           children: [
             SizedBox(height: 20),
             Text(
-              'Hey <name>\nExplore your Daily Routines',
+              'Hey $username \nExplore your Daily Routines',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 25,
@@ -167,15 +167,13 @@ class NavigationBar extends StatefulWidget {
 }
 
 class _NavigationBarState extends State<NavigationBar> {
-
-
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: widget.index,
       onTap: (int i) {
         setState(
-              () {
+          () {
             widget.index = i;
             if (widget.index == 0) {
               Navigator.pop(context);
@@ -259,4 +257,3 @@ class _NavigationBarState extends State<NavigationBar> {
     );
   }
 }
-

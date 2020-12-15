@@ -11,8 +11,10 @@ class SignIn extends StatefulWidget {
   _SignInState createState() => _SignInState();
 }
 
+String username;
+
 class _SignInState extends State<SignIn> {
-  String username;
+  // String username;
   String password;
   bool check = null;
   var _formKey = GlobalKey<FormState>();
