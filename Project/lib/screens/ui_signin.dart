@@ -118,6 +118,14 @@ class _SignInPageState extends State<SignInPage> {
                                     border: OutlineInputBorder(),
                                     hintText: 'Username',
                                   ),
+                                  validator: (value) {
+                                    if (value.isEmpty) {
+                                      return "Username cannot be left blank";
+                                    } //else if (loading == false) {
+                                    //   return "Name already exists";
+                                    // }
+                                    return null;
+                                  },
                                 ),
                               ],
                             ),
