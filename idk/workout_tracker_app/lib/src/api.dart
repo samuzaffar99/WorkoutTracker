@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_launcher_icons/constants.dart';
+import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'model.dart';
 
@@ -11,9 +13,9 @@ class Api {
     //print('...inside getDrivers()');
     print('await done');
     final response = await _dio.get('/$username');
-    if (response.data['driver'] == null) {
-      return null;
-    }
+    // if (response.data['driver'] == null) {
+    //   return response.data;
+    // }
     //print(response.data['driver']);
     //print('...response $response');
     return Driver.fromJson(response.data['driver']);

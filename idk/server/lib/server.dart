@@ -19,9 +19,13 @@ void start() async {
         final driver = await driverColl
             .findOne(where.eq('username', req.params['username']));
         print("You are inside drivers $driver");
-        // if (driver == null) {
-        //   return driver
-        // }
+        if (driver == null) {
+          final driver =
+              await driverColl.findOne(where.eq('username', 'default'));
+          return res.status(200).json(
+            {'driver': driver},
+          );
+        }
         // //where.eq('name', name)
         return res.status(200).json(
           {'driver': driver},

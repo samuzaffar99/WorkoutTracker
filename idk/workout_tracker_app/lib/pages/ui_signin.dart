@@ -1,3 +1,6 @@
+//import 'dart:html';
+import 'dart:io';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_home.dart';
 import '../src/api.dart';
@@ -11,16 +14,43 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   String username;
   String password;
+  bool check = null;
   var _formKey = GlobalKey<FormState>();
   final Api _api = Api();
-  void _loginUser() {
-    widget._api.getDriver(username).then((value) {
-      if (value == null) {
-        print("User Not Found");
-      } else {
-        print(value.username);
-      }
-    });
+  // bool _loginUser() {
+  //   widget._api.getDriver(username).then((value) {
+  //     //sleep(Duration(seconds: 5));
+  //     if (value == null) {
+  //       print("User Not Found");
+  //       check = false;
+  //     } else {
+  //       //print('mein aage jaarah hun hogaya');
+  //       print(value.username);
+  //       check = true;
+  //     }
+  //   });
+  // }
+
+  Widget trySignIn() {
+    return FutureBuilder(
+        future: widget._api.getDriver(username),
+        builder: (buildContext, AsyncSnapshot snapshot) {
+          if (snapshot.hasError) {
+            print('konnichiwa:)');
+            throw snapshot.error;
+          } else if (!snapshot.hasData) {
+            return Container(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          } else if (snapshot.data.username == username) {
+            return Home();
+          } else if (snapshot.data.username == 'default') {
+            check = false;
+            return SignIn();
+          }
+        });
   }
 
   @override
@@ -101,7 +131,21 @@ class _SignInState extends State<SignIn> {
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "Username cannot be left blank";
-                                } //else if (loading == false) {
+                                }
+                                // else {
+                                //   // _formKey.currentState.save();
+                                //   // _loginUser();
+                                //   // Future.delayed(const Duration(seconds: 2),
+                                //   //     () {
+                                //   print('value of check is $check');
+                                //   // });
+                                if (check == false) {
+                                  return "invalid user";
+                                }
+                                //}
+                                //check = true;
+                                //}
+                                //else if (loading == false) {
                                 //   return "Name already exists";
                                 // }
                                 return null;
@@ -150,7 +194,8 @@ class _SignInState extends State<SignIn> {
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "Password cannot be left blank";
-                                } //else if (loading == false) {
+                                }
+                                //else if (loading == false) {
                                 //   return "Name already exists";
                                 // }
                                 return null;
@@ -180,13 +225,30 @@ class _SignInState extends State<SignIn> {
                     onPressed: () {
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();
-                        _loginUser();
-                        Navigator.popUntil(context, ModalRoute.withName('/ui_home'));
+
+                        //_loginUser();
+                        // if (check == false) {
+                        //   Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //       builder: (context) {
+                        //         return SignIn();
+                        //       },
+                        //     ),
+                        //   );
+                        // }
+
+                        //_formKey.currentState.validate();
+                        // _formKey.currentState.save();
+                        //print('1');
+
+                        Navigator.popUntil(
+                            context, ModalRoute.withName('/ui_home'));
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return Home();
+                              return trySignIn();
                             },
                           ),
                         );
