@@ -1,0 +1,197 @@
+load("C:/Users/cools/Desktop/GitHub/WorkoutTracker/Database/Scripts/.js")
+
+db.Users.insertOne({
+  "Username": "Sam",
+  "FullName": "Mister Meister",
+  "DateOfBirth": "06/11/1999",
+  "Gender": "M",
+  "Stats":
+    {
+      "UserID": "U0001",
+      "Height": "171",
+      "Weight": "80",
+      "BodyFat": "25",
+      "BMI": ""
+    }
+}) 
+
+db.Users.insertMany([
+{
+  "Username": "Sam",
+  "FullName": "Syed Abdullah Muzaffar",
+  "DateOfBirth": "06/11/1999",
+  "Gender": "Male",
+  "Stats":
+    {
+      "Height": "171",
+      "Weight": "80",
+      "BodyFat": "22",
+    }
+},{
+  "Username": "Remolox",
+  "FullName": "Rahim Muhammad Syed",
+  "DateOfBirth": "12/11/1999",
+  "Gender": "Male",
+  "Stats":
+    {
+      "Height": "183",
+      "Weight": "60",
+      "BodyFat": "15",
+    }
+},{
+  "Username": "MegasXG",
+  "FullName": "Muhammad Ahmed Khan",
+  "DateOfBirth": "05/07/1999",
+  "Gender": "Female",
+  "Stats":
+    {
+      "Height": "176",
+      "Weight": "62",
+      "BodyFat": "16",
+    }
+},{
+  "Username": "JohnnyJJ",
+  "FullName": "Haroon Khalid Janjua",
+  "DateOfBirth": "08/10/1999",
+  "Gender": "Male",
+  "Stats":
+    {
+      "Height": "178",
+      "Weight": "85",
+      "BodyFat": "25",
+    }
+},{
+  "Username": "neet",
+  "FullName": "Kazuma Sato",
+  "DateOfBirth": "09/01/1997",
+  "Gender": "Male",
+  "Stats":
+    {
+      "Height": "165",
+      "Weight": "64",
+      "BodyFat": "17",
+    }
+},{
+  "Username": "exxproshun",
+  "FullName": "Megumin",
+  "DateOfBirth": "09/06/2002",
+  "Gender": "Female",
+  "Stats":
+    {
+      "Height": "152",
+      "Weight": "52",
+      "BodyFat": "18",
+    }
+},{
+  "Username": "Zainricardo",
+  "FullName": "Zain Mehdi",
+  "DateOfBirth": "15/09/1998",
+  "Gender": "Male",
+  "Stats":
+    {
+      "Height": "174",
+      "Weight": "67",
+      "BodyFat": "20",
+    }
+},{
+  "Username": "metapicker",
+  "FullName": "Sobhan Sheikh",
+  "DateOfBirth": "12/12/1998",
+  "Gender": "Male",
+  "Stats":
+    {
+      "Height": "167",
+      "Weight": "82",
+      "BodyFat": "26",
+    }
+},{
+  "Username": "thepotato",
+  "FullName": "Muhammad Abbas",
+  "DateOfBirth": "14/08/2000",
+  "Gender": "Male",
+  "Stats":
+    {
+      "Height": "185",
+      "Weight": "74",
+      "BodyFat": "13",
+    }
+},{
+  "Username": "Darkness",
+  "FullName": "Dustiness Ford Lalatina",
+  "DateOfBirth": "12/06/1995",
+  "Gender": "Female",
+  "Stats":
+    {
+      "Height": "177",
+      "Weight": "76",
+      "BodyFat": "22",
+    }
+}
+]);
+
+uid
+username
+pwdhash
+email
+dob
+gender
+stats:
+	height
+	weight
+	bf
+log:
+curr_workout:
+curr_diet:
+
+db.Exercises.insertMany([
+{
+    "name": "Close-Grip Bench Press",
+    "info": "Push bar away from chest, bring to chest",
+    "difficulty": 5,
+    "target": ["Triceps", "Chest"]
+},
+{
+    "name": "Lat Pulldowns",
+    "info": "Pull bar to chest, contracting your shoulders",
+    "difficulty": 3.2,
+    "target": ["Biceps", "Back"]
+}
+])
+
+//exercise
+id
+name
+info
+targetmuscles[]
+difficulty
+
+workout:
+	name
+	time
+	day(valid monday,tuesday,wednesday,thursday,friday,saturday):
+		[
+			exercise:
+				set[reps]
+		]
+
+{   
+    "name": "Banana",
+    "carbs": 31,
+    "protein": 1.5,
+    "fat": 0.4,
+    "calories": 136,
+    "tags": ["sugar"]
+}
+
+//food
+name
+carbs
+protein
+fat
+calories
+tags[sugar,lactose,sodium]
+
+
+diet:
+	meals[]
+		food[foodid]

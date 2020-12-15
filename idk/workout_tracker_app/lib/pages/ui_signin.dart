@@ -16,7 +16,7 @@ String username;
 class _SignInState extends State<SignIn> {
   // String username;
   String password;
-  bool check = null;
+  bool check;
   var _formKey = GlobalKey<FormState>();
   final Api _api = Api();
   // bool _loginUser() {
