@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_details.dart';
-//import '../src/api.dart';
+import '../src/api.dart';
 import '../src/model.dart';
 
 class SignUp extends StatefulWidget {
-  //final Api _api = Api();
+  final Api _api = Api();
   @override
   _SignUpState createState() => _SignUpState();
 }
@@ -18,6 +18,28 @@ class _SignUpState extends State<SignUp> {
 
   List drivers = [];
   String fetch;
+
+  Widget trySignUp() {
+    return FutureBuilder(
+        future: widget._api.getDriver(username),
+        builder: (buildContext, AsyncSnapshot snapshot) {
+          if (snapshot.hasError) {
+            print('konnichiwa:)');
+            throw snapshot.error;
+          } else if (!snapshot.hasData) {
+            return Container(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          } else if (snapshot.data.username == username) {
+            return SignUp();
+          } else {
+            return Details(username, password, email);
+            //check = false;
+          }
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -214,7 +236,7 @@ class _SignUpState extends State<SignUp> {
                         _formKey.currentState.save();
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return Details(username, password, email);
+                          return trySignUp();
                         }));
                       }
                     },
