@@ -10,8 +10,7 @@ db.Users.insertOne({
       "UserID": "U0001",
       "Height": "171",
       "Weight": "80",
-      "BodyFat": "25",
-      "BMI": ""
+      "BodyFat": "25"
     }
 }) 
 
@@ -25,7 +24,7 @@ db.Users.insertMany([
     {
       "Height": "171",
       "Weight": "80",
-      "BodyFat": "22",
+      "BodyFat": "22"
     }
 },{
   "Username": "Remolox",
@@ -36,7 +35,7 @@ db.Users.insertMany([
     {
       "Height": "183",
       "Weight": "60",
-      "BodyFat": "15",
+      "BodyFat": "15"
     }
 },{
   "Username": "MegasXG",
@@ -47,7 +46,7 @@ db.Users.insertMany([
     {
       "Height": "176",
       "Weight": "62",
-      "BodyFat": "16",
+      "BodyFat": "16"
     }
 },{
   "Username": "JohnnyJJ",
@@ -58,7 +57,7 @@ db.Users.insertMany([
     {
       "Height": "178",
       "Weight": "85",
-      "BodyFat": "25",
+      "BodyFat": "25"
     }
 },{
   "Username": "neet",
@@ -69,7 +68,7 @@ db.Users.insertMany([
     {
       "Height": "165",
       "Weight": "64",
-      "BodyFat": "17",
+      "BodyFat": "17"
     }
 },{
   "Username": "exxproshun",
@@ -80,7 +79,7 @@ db.Users.insertMany([
     {
       "Height": "152",
       "Weight": "52",
-      "BodyFat": "18",
+      "BodyFat": "18"
     }
 },{
   "Username": "Zainricardo",
@@ -91,7 +90,7 @@ db.Users.insertMany([
     {
       "Height": "174",
       "Weight": "67",
-      "BodyFat": "20",
+      "BodyFat": "20"
     }
 },{
   "Username": "metapicker",
@@ -102,7 +101,7 @@ db.Users.insertMany([
     {
       "Height": "167",
       "Weight": "82",
-      "BodyFat": "26",
+      "BodyFat": "26"
     }
 },{
   "Username": "thepotato",
@@ -113,7 +112,7 @@ db.Users.insertMany([
     {
       "Height": "185",
       "Weight": "74",
-      "BodyFat": "13",
+      "BodyFat": "13"
     }
 },{
   "Username": "Darkness",
@@ -124,11 +123,32 @@ db.Users.insertMany([
     {
       "Height": "177",
       "Weight": "76",
-      "BodyFat": "22",
+      "BodyFat": "22"
     }
 }
 ]);
 
+{
+  "username": "Darkness",
+  "name": "Dustiness Ford Lalatina",
+  "email": "dustiness@ksuba.jp",
+  "birthdate": "12/06/1995",
+  "gender": "Female",
+  "stats":
+  {
+  "Height": "177",
+  "Weight": "76",
+  "BodyFat": "22"
+  },
+  "log":[
+  {
+  "date": "12-11-2020",
+  "workout":{"wid":null,"ex":[{"id":"ex1","reps":[1,3,4],"weight":[4,3,6]},{"id":"ex2","reps":[13,3]},{"id":"ex2","dur":[13]}]}
+  }
+  ],
+  "curr_workout": null,
+  "curr_diet": null
+}
 uid
 username
 pwdhash
