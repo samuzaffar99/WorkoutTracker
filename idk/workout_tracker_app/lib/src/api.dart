@@ -18,7 +18,8 @@ class Api {
     // }
     //print(response.data['driver']);
     //print('...response $response');
-    return Driver.fromJson(response.data['driver']);
+     return Driver.fromJson(response.data['driver']);
+    // return (response.data['driver'] as List).map<Driver>((json) => Driver.fromJson(json)).toList();
   }
 
   Future<Driver> getPassword(String password) async {

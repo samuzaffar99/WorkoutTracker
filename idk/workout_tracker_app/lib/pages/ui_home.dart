@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workout_tracker_app/user_data.dart';
 import 'package:workout_tracker_app/pages/ui_profile.dart';
 import 'package:workout_tracker_app/pages/log.dart';
 import 'package:workout_tracker_app/pages/ui_workout.dart';
@@ -12,10 +13,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  //Driver driver;
   int index = 0;
   @override
   Widget build(BuildContext context) {
+    // final UserDetails object = ModalRoute.of(context).settings.arguments;
+    // object.setUserDetails();
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFF141414),
@@ -41,7 +43,7 @@ class _HomeState extends State<Home> {
           children: [
             SizedBox(height: 20),
             Text(
-              'Hey $username \nExplore your Daily Routines',
+              'Hey ${userDetails.username} \nExplore your Daily Routines',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 25,
@@ -161,6 +163,7 @@ class _HomeState extends State<Home> {
 
 class NavigationBar extends StatefulWidget {
   int index;
+  String username;
   NavigationBar(this.index);
   @override
   _NavigationBarState createState() => _NavigationBarState();
@@ -177,14 +180,7 @@ class _NavigationBarState extends State<NavigationBar> {
             widget.index = i;
             if (widget.index == 0) {
               Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return Home();
-                  },
-                ),
-              );
+              Navigator.pushNamed(context, 'Home');
             } else if (widget.index == 1) {
               Navigator.pop(context);
               Navigator.push(

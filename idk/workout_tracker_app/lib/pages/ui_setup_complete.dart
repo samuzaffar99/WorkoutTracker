@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:workout_tracker_app/pages/ui_home.dart';
+import 'package:workout_tracker_app/pages/ui_signin.dart';
 
 class SetupComplete extends StatelessWidget {
   @override
@@ -62,10 +62,10 @@ class SetupComplete extends StatelessWidget {
                 minWidth: 200.0,
                 child: OutlineButton(
                   onPressed: () {
-                    Navigator.popUntil(context, ModalRoute.withName('/ui_home'));
+                    Navigator.popUntil(context, ModalRoute.withName('/ui_signin'));
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                          return Home();
+                          return SignIn();
                         },),);
                   },
                   shape: RoundedRectangleBorder(

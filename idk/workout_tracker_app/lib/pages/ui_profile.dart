@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_home.dart';
+import 'package:workout_tracker_app/pages/ui_signin.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -37,7 +38,7 @@ class _ProfileState extends State<Profile> {
           children: [
             SizedBox(height: 20),
             Text(
-              '<name>',
+              "${userDetails.username} ",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 25,
@@ -80,7 +81,7 @@ class _ProfileState extends State<Profile> {
                                   ),
                                   children: [
                                     TextSpan(
-                                        text: "80.0 kg\n",
+                                        text: "${userDetails.weight} kg\n",
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold)),
                                     TextSpan(

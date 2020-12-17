@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:workout_tracker_app/pages/ui_goals.dart';
+import 'package:workout_tracker_app/user_data.dart';
 import '../src/api.dart';
 import '../src/model.dart';
 

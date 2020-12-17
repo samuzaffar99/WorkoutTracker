@@ -1,9 +1,10 @@
-//import 'dart:html';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_home.dart';
+import 'package:workout_tracker_app/user_data.dart';
 import '../src/api.dart';
+import '../src/model.dart';
 
 class SignIn extends StatefulWidget {
   final Api _api = Api();
@@ -11,48 +12,34 @@ class SignIn extends StatefulWidget {
   _SignInState createState() => _SignInState();
 }
 
-String username;
+UserDetails userDetails;
 
 class _SignInState extends State<SignIn> {
-  // String username;
+  String username;
   String password;
-  bool check;
+  Driver drivers;
+  bool check=true;
   var _formKey = GlobalKey<FormState>();
   final Api _api = Api();
-  // bool _loginUser() {
-  //   widget._api.getDriver(username).then((value) {
-  //     //sleep(Duration(seconds: 5));
-  //     if (value == null) {
-  //       print("User Not Found");
-  //       check = false;
-  //     } else {
-  //       //print('mein aage jaarah hun hogaya');
-  //       print(value.username);
-  //       check = true;
-  //     }
-  //   });
-  // }
 
-  Widget trySignIn() {
-    return FutureBuilder(
-        future: widget._api.getDriver(username),
-        builder: (buildContext, AsyncSnapshot snapshot) {
-          if (snapshot.hasError) {
-            print('konnichiwa:)');
-            throw snapshot.error;
-          } else if (!snapshot.hasData) {
-            return Container(
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          } else if (snapshot.data.username == username) {
-            return Home();
-          } else if (snapshot.data.username == 'default') {
-            check = false;
-            return SignIn();
-          }
-        });
+  Future<bool> _loginUser() async {
+    await widget._api.getDriver(username).then((value) {
+      setState(
+        () {
+          drivers = value;
+          print('...$value');
+        },
+      );
+    });
+    if (drivers == null) {
+      return false;
+    } else {
+      if (drivers.password == password) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
 
   @override
@@ -112,16 +99,9 @@ class _SignInState extends State<SignIn> {
                             margin: EdgeInsets.only(right: 20, left: 10),
                             child: TextFormField(
                               decoration: InputDecoration(
-                                focusedBorder: OutlineInputBorder(
+                                border: OutlineInputBorder(
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
+                                  BorderRadius.all(Radius.circular(20)),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                   ),
@@ -134,22 +114,10 @@ class _SignInState extends State<SignIn> {
                                 if (value.isEmpty) {
                                   return "Username cannot be left blank";
                                 }
-                                // else {
-                                //   // _formKey.currentState.save();
-                                //   // _loginUser();
-                                //   // Future.delayed(const Duration(seconds: 2),
-                                //   //     () {
-                                //   print('value of check is $check');
-                                //   // });
-                                if (check == false) {
-                                  return "invalid user";
-                                }
-                                //}
-                                //check = true;
-                                //}
-                                //else if (loading == false) {
-                                //   return "Name already exists";
-                                // }
+                                else if (check==false)
+                                  {
+                                    return "Username or password is wrong";
+                                  }
                                 return null;
                               },
                               onSaved: (value) {
@@ -175,16 +143,9 @@ class _SignInState extends State<SignIn> {
                             child: TextFormField(
                               obscureText: true,
                               decoration: InputDecoration(
-                                focusedBorder: OutlineInputBorder(
+                                border: OutlineInputBorder(
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
+                                  BorderRadius.all(Radius.circular(20)),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                   ),
@@ -197,9 +158,13 @@ class _SignInState extends State<SignIn> {
                                 if (value.isEmpty) {
                                   return "Password cannot be left blank";
                                 }
-                                //else if (loading == false) {
-                                //   return "Name already exists";
-                                // }
+                                else if (check==false)
+                                {
+                                  setState(() {
+                                    check=true;
+                                  });
+                                  return "";
+                                }
                                 return null;
                               },
                               onSaved: (value) {
@@ -224,35 +189,25 @@ class _SignInState extends State<SignIn> {
                   height: 45.0,
                   minWidth: 200.0,
                   child: OutlineButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();
-
-                        //_loginUser();
-                        // if (check == false) {
-                        //   Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //       builder: (context) {
-                        //         return SignIn();
-                        //       },
-                        //     ),
-                        //   );
-                        // }
-
-                        //_formKey.currentState.validate();
-                        // _formKey.currentState.save();
-                        //print('1');
-
-                        Navigator.popUntil(
-                            context, ModalRoute.withName('/ui_home'));
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return trySignIn();
-                            },
-                          ),
+                        await _loginUser().then(
+                          (value) {
+                            print('$value');
+                            if (value == true) {
+                              Navigator.popUntil(
+                                  context, ModalRoute.withName('/ui_home'));
+                              userDetails=UserDetails(username: username);
+                              Navigator.pushNamed(context, 'Home');
+                            }
+                            else {
+                              setState(() {
+                                check=false;
+                                _formKey.currentState.validate();
+                              });
+                            }
+                          },
                         );
                       }
                     },

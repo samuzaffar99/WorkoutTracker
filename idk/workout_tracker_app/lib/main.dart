@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'pages/ui_welcome.dart';
 import 'package:workout_tracker_app/pages/ui_signup.dart';
 import 'package:workout_tracker_app/pages/ui_signin.dart';
+import 'package:workout_tracker_app/pages/ui_home.dart';
 
 void main() {
   return runApp(MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'Sign Up': (context) => SignUp(),
         'Sign In': (context) => SignIn(),
+        'Home': (context) => Home(),
       },
     );
   }
