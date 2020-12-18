@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_choose_plan.dart';
-import 'dart:async';
 
 class Goals extends StatefulWidget {
   @override
@@ -53,19 +52,24 @@ class _GoalsState extends State<Goals> {
               children: <Widget>[
                 Expanded(
                   child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white.withAlpha(200),
-                        borderRadius: BorderRadius.circular(20)),
                     margin: EdgeInsets.only(right: 20, left: 10),
-                    child: DropdownButton(
-                      items: <String>['Male', 'Female', 'Other']
-                          .map((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                      onChanged: (_) {},
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius:
+                          BorderRadius.all(Radius.circular(20)),
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                          ),
+                        ),
+                          hintText: 'Target Date',
+                        filled: true,
+                        fillColor: Colors.white.withAlpha(200),
+                      ),
+                      keyboardType: TextInputType.datetime,
+                      onSaved: (value) {
+
+                      },
                     ),
                   ),
                 )
@@ -92,7 +96,7 @@ class _GoalsState extends State<Goals> {
                             color: Colors.transparent,
                           ),
                         ),
-                        hintText: 'Weight',
+                        hintText: 'Weight (kg)',
                         filled: true,
                         fillColor: Colors.white.withAlpha(200),
                       ),
@@ -117,7 +121,7 @@ class _GoalsState extends State<Goals> {
                             color: Colors.transparent,
                           ),
                         ),
-                        hintText: 'BodyFat',
+                        hintText: 'BodyFat (%)',
                         filled: true,
                         fillColor: Colors.white.withAlpha(200),
                       ),

@@ -131,7 +131,7 @@ class _DetailsState extends State<Details> {
                                     color: Colors.transparent,
                                   ),
                                 ),
-                                hintText: 'Weight',
+                                hintText: 'Weight (kg)',
                                 filled: true,
                                 fillColor: Colors.white.withAlpha(200),
                               ),
@@ -160,7 +160,7 @@ class _DetailsState extends State<Details> {
                                     color: Colors.transparent,
                                   ),
                                 ),
-                                hintText: 'Height',
+                                hintText: 'Height (cm)',
                                 filled: true,
                                 fillColor: Colors.white.withAlpha(200),
                               ),
@@ -200,6 +200,7 @@ class _DetailsState extends State<Details> {
                                 filled: true,
                                 fillColor: Colors.white.withAlpha(200),
                               ),
+                              keyboardType: TextInputType.datetime,
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "Please enter your date of birth";
