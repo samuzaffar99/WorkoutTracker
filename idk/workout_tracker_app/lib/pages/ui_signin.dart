@@ -18,12 +18,13 @@ class _SignInState extends State<SignIn> {
   String username;
   String password;
   Driver drivers;
-  bool check=true;
+  bool check = true;
   var _formKey = GlobalKey<FormState>();
   final Api _api = Api();
 
   Future<bool> _loginUser() async {
     await widget._api.getDriver(username).then((value) {
+      print("value is $value");
       setState(
         () {
           drivers = value;
@@ -101,7 +102,7 @@ class _SignInState extends State<SignIn> {
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                   borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
+                                      BorderRadius.all(Radius.circular(20)),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                   ),
@@ -113,11 +114,12 @@ class _SignInState extends State<SignIn> {
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "Username cannot be left blank";
+                                } else if (check == false && drivers == null) {
+                                  setState(() {
+                                    check = true;
+                                  });
+                                  return "Username is incorrect";
                                 }
-                                else if (check==false)
-                                  {
-                                    return "Username or password is wrong";
-                                  }
                                 return null;
                               },
                               onSaved: (value) {
@@ -145,7 +147,7 @@ class _SignInState extends State<SignIn> {
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                   borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
+                                      BorderRadius.all(Radius.circular(20)),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                   ),
@@ -157,13 +159,12 @@ class _SignInState extends State<SignIn> {
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "Password cannot be left blank";
-                                }
-                                else if (check==false)
-                                {
+                                } else if (check == false && drivers != null) {
+                                  print(drivers.username);
                                   setState(() {
-                                    check=true;
+                                    check = true;
                                   });
-                                  return "";
+                                  return "Password is incorrect";
                                 }
                                 return null;
                               },
@@ -198,12 +199,11 @@ class _SignInState extends State<SignIn> {
                             if (value == true) {
                               Navigator.popUntil(
                                   context, ModalRoute.withName('/ui_home'));
-                              userDetails=UserDetails(username: username);
+                              userDetails = UserDetails(username: username);
                               Navigator.pushNamed(context, 'Home');
-                            }
-                            else {
+                            } else {
                               setState(() {
-                                check=false;
+                                check = false;
                                 _formKey.currentState.validate();
                               });
                             }

@@ -13,12 +13,13 @@ class Api {
     //print('...inside getDrivers()');
     print('await done');
     final response = await _dio.get('/$username');
-    // if (response.data['driver'] == null) {
-    //   return response.data;
-    // }
+    if (response.data['driver'] == null) {
+      print("im here");
+      return null;
+    }
     //print(response.data['driver']);
     //print('...response $response');
-     return Driver.fromJson(response.data['driver']);
+    return Driver.fromJson(response.data['driver']);
     // return (response.data['driver'] as List).map<Driver>((json) => Driver.fromJson(json)).toList();
   }
 
