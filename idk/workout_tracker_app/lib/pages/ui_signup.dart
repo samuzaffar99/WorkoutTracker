@@ -13,32 +13,47 @@ class _SignUpState extends State<SignUp> {
   String username;
   String password;
   String email;
-  //bool loading = false;
+  bool checku = true;
+  bool checkm = true;
   var _formKey = GlobalKey<FormState>();
+  Driver drivers;
 
-  List drivers = [];
-  String fetch;
+  Future<bool> _signupUser() async {
+    await widget._api.getDriver(username).then(
+      (value) {
+        print("value is $value");
+        setState(
+          () {
+            drivers = value;
+            print('...$value');
+          },
+        );
+      },
+    );
+    if (drivers == null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-  Widget trySignUp() {
-    return FutureBuilder(
-        future: widget._api.getDriver(username),
-        builder: (buildContext, AsyncSnapshot snapshot) {
-          if (snapshot.hasError) {
-            print('konnichiwa:)');
-            throw snapshot.error;
-          } else if (!snapshot.hasData) {
-            return Container(
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          } else if (snapshot.data.username == username) {
-            return SignUp();
-          } else {
-            return Details(username, password, email);
-            //check = false;
-          }
-        });
+  Future<bool> _signupMail() async {
+    await widget._api.getDriver(email).then(
+      (value) {
+        print("value is $value");
+        setState(
+          () {
+            drivers = value;
+            print('...$value');
+          },
+        );
+      },
+    );
+    if (drivers == null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @override
@@ -92,18 +107,13 @@ class _SignUpState extends State<SignUp> {
                             margin: EdgeInsets.only(right: 20, left: 10),
                             child: TextFormField(
                               decoration: InputDecoration(
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                    )),
-                                enabledBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                    )),
+                                border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                ),
                                 hintText: 'Username',
                                 filled: true,
                                 fillColor: Colors.white.withAlpha(200),
@@ -111,9 +121,14 @@ class _SignUpState extends State<SignUp> {
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "Username cannot be left blank";
-                                } //else if (loading == false) {
-                                //   return "Name already exists";
-                                // }
+                                } else if (checku == false) {
+                                  setState(
+                                    () {
+                                      checku = true;
+                                    },
+                                  );
+                                  return "Username already exists";
+                                }
                                 return null;
                               },
                               onSaved: (value) {
@@ -139,18 +154,13 @@ class _SignUpState extends State<SignUp> {
                             child: TextFormField(
                               obscureText: true,
                               decoration: InputDecoration(
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                    )),
-                                enabledBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                    )),
+                                border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                ),
                                 hintText: 'Password',
                                 filled: true,
                                 fillColor: Colors.white.withAlpha(200),
@@ -158,9 +168,7 @@ class _SignUpState extends State<SignUp> {
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "This field cannot be left empty";
-                                } //else if (loading == false) {
-                                //   return "Name already exists";
-                                // }
+                                }
                                 return null;
                               },
                               onSaved: (value) {
@@ -185,18 +193,13 @@ class _SignUpState extends State<SignUp> {
                             margin: EdgeInsets.only(right: 20, left: 10),
                             child: TextFormField(
                               decoration: InputDecoration(
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                    )),
-                                enabledBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                    )),
+                                border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                ),
                                 hintText: 'Email',
                                 filled: true,
                                 fillColor: Colors.white.withAlpha(200),
@@ -204,9 +207,14 @@ class _SignUpState extends State<SignUp> {
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "Please enter your email address";
-                                } //else if (loading == false) {
-                                //   return "Name already exists";
-                                // }
+                                } else if (checkm == false) {
+                                  setState(
+                                    () {
+                                      checkm = true;
+                                    },
+                                  );
+                                  return "Email already exists";
+                                }
                                 return null;
                               },
                               onSaved: (value) {
@@ -231,14 +239,48 @@ class _SignUpState extends State<SignUp> {
                   height: 45.0,
                   minWidth: 200.0,
                   child: OutlineButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return trySignUp();
-                        }));
+                        await _signupUser().then(
+                          (value) {
+                            print('$value');
+                            if (value == true) {
+                            } else {
+                              setState(
+                                () {
+                                  checku = false;
+                                },
+                              );
+                            }
+                          },
+                        );
+                        await _signupMail().then(
+                          (value) {
+                            print('$value');
+                            if (value == true) {
+                            } else {
+                              setState(
+                                () {
+                                  checkm = false;
+                                },
+                              );
+                            }
+                          },
+                        );
+                        if (checku == true && checkm == true) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return Details(username, password, email);
+                              },
+                            ),
+                          );
+                        }
+                        _formKey.currentState.validate();
                       }
+
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),

@@ -10,23 +10,17 @@ class Api {
   );
 
   Future<Driver> getDriver(String username) async {
-    //print('...inside getDrivers()');
     print('await done');
     final response = await _dio.get('/$username');
     if (response.data['driver'] == null) {
       print("im here");
       return null;
     }
-    //print(response.data['driver']);
-    //print('...response $response');
     return Driver.fromJson(response.data['driver']);
-    // return (response.data['driver'] as List).map<Driver>((json) => Driver.fromJson(json)).toList();
   }
 
   Future<Driver> getPassword(String password) async {
-    //print('...inside getDrivers()');
     final response = await _dio.get('/$password');
-    //print('...response $response');
     return Driver.fromJson(response.data['driver']);
   }
 

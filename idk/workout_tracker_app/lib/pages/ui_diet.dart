@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:workout_tracker_app/pages/ui_home.dart';
+import 'package:workout_tracker_app/navigation.dart';
 
 class Diet extends StatefulWidget {
   @override
@@ -21,9 +21,7 @@ class _DietState extends State<Diet> {
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
                   onTap: () {},
-                  child: Icon(
-                      Icons.settings
-                  ),
+                  child: Icon(Icons.dehaze_rounded)
                 )
             ),
           ],

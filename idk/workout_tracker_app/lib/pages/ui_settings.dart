@@ -1,31 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:workout_tracker_app/pages/ui_home.dart';
+import 'package:workout_tracker_app/navigation.dart';
 
-class Log extends StatefulWidget {
+class Settings extends StatefulWidget {
   @override
-  _LogState createState() => _LogState();
+  _SettingsState createState() => _SettingsState();
 }
 
-class _LogState extends State<Log> {
+class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
-    int index = 3;
+    int index=4;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFF141414),
         appBar: AppBar(
           backgroundColor: Color(0xFF141414),
-          title: Text("Log"),
+          title: Text("Settings"),
           actions: [
             Padding(
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
-                  onTap: () {},
-                  child: Icon(
-                      Icons.settings
-                  ),
-                )
-            ),
+                    onTap: () {}, child: Icon(Icons.dehaze_rounded))),
           ],
         ),
         bottomNavigationBar: Theme(
@@ -33,9 +28,6 @@ class _LogState extends State<Log> {
             canvasColor: Colors.white.withAlpha(200),
           ),
           child: NavigationBar(index),
-        ),
-        body: ListView(
-          children: [],
         ),
       ),
     );

@@ -6,7 +6,6 @@ class Driver {
   final String weight;
   final String height;
   final String date;
-  //final String id;
 
   const Driver._(
       {this.username,
@@ -19,13 +18,14 @@ class Driver {
 
   factory Driver.fromJson(Map json) {
     return Driver._(
-        username: json['username'],
-        password: json['password'],
-        email: json['email'],
-        gender: json['gender'],
-        weight: json['weight'],
-        height: json['height'],
-        date: json['date']);
+      username: json['username'],
+      password: json['password'],
+      email: json['email'],
+      gender: json['gender'],
+      weight: json['weight'],
+      height: json['height'],
+      date: json['date'],
+    );
   }
 
   Map toJson() {
@@ -35,10 +35,8 @@ class Driver {
       'email': email,
       'gender': gender,
       'date': date,
-      'stats': {
-        'weight': weight,
-        'height': height,
-      }
+      'weight': weight,
+      'height': height,
     };
   }
 }

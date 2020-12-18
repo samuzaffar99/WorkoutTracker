@@ -16,32 +16,26 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
-  //final Api _api = Api();
   DateTime _dateTime;
-  // String username;
-  // String password;
-  // String email;
   String gender;
   String weight;
   String height;
   String date;
 
-  //_DetailsState(String username, String password, String email) : super(username,password,email);
-
   var _formKey = GlobalKey<FormState>();
 
   void _registerUser() {
-    // print("inside regerster user");
-    Driver newDriver = Driver.fromJson({
-      'username': widget.username,
-      'password': widget.password,
-      'email': widget.email,
-      'gender': gender,
-      'weight': weight,
-      'height': height,
-      'date': date
-    });
-    //print('...${newDriver.name}');
+    Driver newDriver = Driver.fromJson(
+      {
+        'username': widget.username,
+        'password': widget.password,
+        'email': widget.email,
+        'gender': gender,
+        'weight': weight,
+        'height': height,
+        'date': date
+      },
+    );
     widget._api.postDriver(newDriver).then(
       (value) {
         //print(value.username);
@@ -130,15 +124,9 @@ class _DetailsState extends State<Details> {
                             margin: EdgeInsets.only(right: 20, left: 10),
                             child: TextFormField(
                               decoration: InputDecoration(
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                    )),
-                                enabledBorder: OutlineInputBorder(
+                                border: OutlineInputBorder(
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
+                                  BorderRadius.all(Radius.circular(20)),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                   ),
@@ -151,9 +139,7 @@ class _DetailsState extends State<Details> {
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "Please enter your weight";
-                                } //else if (loading == false) {
-                                //   return "Name already exists";
-                                // }
+                                }
                                 return null;
                               },
                               onSaved: (value) {
@@ -167,18 +153,13 @@ class _DetailsState extends State<Details> {
                             margin: EdgeInsets.only(right: 20, left: 10),
                             child: TextFormField(
                               decoration: InputDecoration(
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                    )),
-                                enabledBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                    )),
+                                border: OutlineInputBorder(
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                ),
                                 hintText: 'Height',
                                 filled: true,
                                 fillColor: Colors.white.withAlpha(200),
@@ -187,9 +168,7 @@ class _DetailsState extends State<Details> {
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "Please enter your height";
-                                } //else if (loading == false) {
-                                //   return "Name already exists";
-                                // }
+                                }
                                 return null;
                               },
                               onSaved: (value) {
@@ -210,28 +189,21 @@ class _DetailsState extends State<Details> {
                             margin: EdgeInsets.only(right: 20, left: 10),
                             child: TextFormField(
                               decoration: InputDecoration(
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                    )),
-                                enabledBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                    )),
+                                border: OutlineInputBorder(
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                ),
                                 hintText: 'Date Of Birth',
                                 filled: true,
                                 fillColor: Colors.white.withAlpha(200),
                               ),
                               validator: (value) {
                                 if (value.isEmpty) {
-                                  return "Please enter your email address";
-                                } //else if (loading == false) {
-                                //   return "Name already exists";
-                                // }
+                                  return "Please enter your date of birth";
+                                }
                                 return null;
                               },
                               onSaved: (value) {
@@ -260,10 +232,14 @@ class _DetailsState extends State<Details> {
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();
                         _registerUser();
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return Goals();
-                        }));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return Goals();
+                            },
+                          ),
+                        );
                       }
                     },
                     shape: RoundedRectangleBorder(
