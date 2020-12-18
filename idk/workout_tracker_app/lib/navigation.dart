@@ -77,11 +77,11 @@ class _NavigationBarState extends State<NavigationBar> {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Image.asset('assets/images/food-fork-drink.png'),
+          icon:  Icon(Icons.local_dining),
           label: 'Diet',
         ),
         BottomNavigationBarItem(
-          icon: Image.asset('assets/images/dumbbell.png'),
+          icon:  Icon(Icons.fitness_center),
           label: 'Exercise',
         ),
         BottomNavigationBarItem(
@@ -89,7 +89,7 @@ class _NavigationBarState extends State<NavigationBar> {
           label: 'Log',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person_pin),
+          icon: Icon(Icons.account_circle),
           label: 'Profile',
         )
       ],
