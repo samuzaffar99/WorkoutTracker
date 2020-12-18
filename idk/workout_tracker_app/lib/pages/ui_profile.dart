@@ -141,7 +141,7 @@ class _ProfileState extends State<Profile> {
                                                 style: TextStyle(
                                                     fontWeight: FontWeight.bold)),
                                             TextSpan(
-                                              text: "FMI",
+                                              text: "BMI",
                                             )
                                           ]),
                                     ),
