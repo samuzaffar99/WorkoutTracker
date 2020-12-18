@@ -130,6 +130,7 @@ db.Users.insertMany([
 
 {
   "username": "Darkness",
+  "hash": aedae32wafda
   "name": "Dustiness Ford Lalatina",
   "email": "dustiness@ksuba.jp",
   "birthdate": "12/06/1995",
@@ -219,7 +220,7 @@ workout:
     "protein": 1.5,
     "fat": 0.4,
     "calories": 136,
-    "tags": ["sugar"]
+    "tags": ["sugar","fruit"]
 }
 
 //food
