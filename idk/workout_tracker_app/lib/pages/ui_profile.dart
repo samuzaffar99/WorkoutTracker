@@ -22,9 +22,7 @@ class _ProfileState extends State<Profile> {
             Padding(
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
-                  onTap: () {},
-                  child: Icon(Icons.dehaze_rounded)
-                )),
+                    onTap: () {}, child: Icon(Icons.dehaze_rounded))),
           ],
         ),
         bottomNavigationBar: Theme(
@@ -35,23 +33,36 @@ class _ProfileState extends State<Profile> {
         ),
         body: ListView(
           children: [
-            SizedBox(height: 20),
-            Text(
-              "${userDetails.username} ",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 25,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                shadows: <Shadow>[
-                  Shadow(
-                      offset: Offset(1.5, 1.5),
-                      blurRadius: 5.0,
-                      color: Color.fromARGB(255, 0, 0, 0))
-                ],
-              ),
+            SizedBox(height: 5),
+            Row(
+              children: [
+                SizedBox(width: 20,),
+                CircleAvatar(
+                  radius: 54,
+                  backgroundColor: Colors.white,
+                  child: CircleAvatar(
+                    radius: 50,
+                    backgroundImage: AssetImage('assets/images/logo.png'),
+                  ),
+                ),
+                SizedBox(width: 10,),
+                Text(
+                  "${userDetails.username} ",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    shadows: <Shadow>[
+                      Shadow(
+                          offset: Offset(1.5, 1.5),
+                          blurRadius: 5.0,
+                          color: Color.fromARGB(255, 0, 0, 0))
+                    ],
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 20),
             Opacity(
               opacity: 0.5,
               child: Expanded(
@@ -64,7 +75,7 @@ class _ProfileState extends State<Profile> {
                   child: Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Container(
-                      height: 400,
+                      height: 370,
                       child: Column(
                         children: [
                           Row(
@@ -85,9 +96,11 @@ class _ProfileState extends State<Profile> {
                                           ),
                                           children: [
                                             TextSpan(
-                                                text: "${userDetails.weight} kg\n",
+                                                text:
+                                                    "${userDetails.weight} kg\n",
                                                 style: TextStyle(
-                                                    fontWeight: FontWeight.bold)),
+                                                    fontWeight:
+                                                        FontWeight.bold)),
                                             TextSpan(
                                               text: "Weight",
                                             )
@@ -113,7 +126,8 @@ class _ProfileState extends State<Profile> {
                                             TextSpan(
                                                 text: "15.0 %\n",
                                                 style: TextStyle(
-                                                    fontWeight: FontWeight.bold)),
+                                                    fontWeight:
+                                                        FontWeight.bold)),
                                             TextSpan(
                                               text: "BodyFat",
                                             )
@@ -139,7 +153,8 @@ class _ProfileState extends State<Profile> {
                                             TextSpan(
                                                 text: "22.0\n",
                                                 style: TextStyle(
-                                                    fontWeight: FontWeight.bold)),
+                                                    fontWeight:
+                                                        FontWeight.bold)),
                                             TextSpan(
                                               text: "BMI",
                                             )
@@ -150,7 +165,9 @@ class _ProfileState extends State<Profile> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 80,),
+                          SizedBox(
+                            height: 50,
+                          ),
                           Text(
                             'Your Goals',
                             textAlign: TextAlign.center,
@@ -160,7 +177,9 @@ class _ProfileState extends State<Profile> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -179,9 +198,11 @@ class _ProfileState extends State<Profile> {
                                           ),
                                           children: [
                                             TextSpan(
-                                                text: "${userDetails.weight} kg\n",
+                                                text:
+                                                    "${userDetails.weight} kg\n",
                                                 style: TextStyle(
-                                                    fontWeight: FontWeight.bold)),
+                                                    fontWeight:
+                                                        FontWeight.bold)),
                                             TextSpan(
                                               text: "Weight",
                                             )
@@ -207,7 +228,8 @@ class _ProfileState extends State<Profile> {
                                             TextSpan(
                                                 text: "15.0 %\n",
                                                 style: TextStyle(
-                                                    fontWeight: FontWeight.bold)),
+                                                    fontWeight:
+                                                        FontWeight.bold)),
                                             TextSpan(
                                               text: "BodyFat",
                                             )
@@ -233,7 +255,8 @@ class _ProfileState extends State<Profile> {
                                             TextSpan(
                                                 text: "      22\n",
                                                 style: TextStyle(
-                                                    fontWeight: FontWeight.bold)),
+                                                    fontWeight:
+                                                        FontWeight.bold)),
                                             TextSpan(
                                               text: "Days Rem",
                                             )
@@ -244,7 +267,9 @@ class _ProfileState extends State<Profile> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 30,),
+                          SizedBox(
+                            height: 30,
+                          ),
                           Text(
                             '7 Day Streak',
                             textAlign: TextAlign.center,
@@ -262,32 +287,54 @@ class _ProfileState extends State<Profile> {
                             child: Center(
                               child: RichText(
                                 text: TextSpan(
-                                    text: 'View last session',
-                                    style: TextStyle(color: Colors.blue),
-                                    ),
+                                  text: 'View last session',
+                                  style: TextStyle(color: Colors.blue),
+                                ),
                               ),
                             ),
                           ),
-                          SizedBox(height: 15,),
+                          SizedBox(
+                            height: 15,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              IconButton(icon: Icon(Icons.settings),
-                                  onPressed: (){
-                                Navigator.pop(context);
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context){
-                                      return Settings();
-                                    }
-                                ),);
-                                  }),
-                              Text(
-                                'Settings',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
+                              IconButton(
+                                icon: Icon(Icons.settings),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return Settings();
+                                      },
+                                    ),
+                                  );
+                                },
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return Settings();
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: Center(
+                                  child: RichText(
+                                    text: TextSpan(
+                                      text: 'Settings',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
