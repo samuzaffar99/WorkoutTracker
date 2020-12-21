@@ -1,0 +1,1121 @@
+[{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf80"
+  },
+  "Name": "1 Leg Pushup",
+  "Targeted Muscle": " Chest",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf81"
+  },
+  "Name": "90 90 Hamstring",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf82"
+  },
+  "Name": "Abdominal Pendulum",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf83"
+  },
+  "Name": "Air Bike",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf84"
+  },
+  "Name": "Alternate Heel Touchers",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf85"
+  },
+  "Name": "Alternate Leg Diagonal Bound",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf86"
+  },
+  "Name": "Alternate Reach and Catch",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf87"
+  },
+  "Name": "Alternating Arm Cobra",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf88"
+  },
+  "Name": "Ankle Circles",
+  "Targeted Muscle": " Lower Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf89"
+  },
+  "Name": "Ankle On The Knee",
+  "Targeted Muscle": " Glutes",
+  "Type": " StretchingArm Circles"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf8a"
+  },
+  "Name": "Behind Head Chest Stretch",
+  "Targeted Muscle": " Chest",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf8b"
+  },
+  "Name": "Bent Knee Hip Raise",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf8c"
+  },
+  "Name": "Bent Knee Side Angle Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf8d"
+  },
+  "Name": "Boat Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf8e"
+  },
+  "Name": "Bodyweight Side Lunge",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf8f"
+  },
+  "Name": "Bodyweight Standing Calf Raise",
+  "Targeted Muscle": " Lower Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf90"
+  },
+  "Name": "Bodyweight Walking Lunge",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf91"
+  },
+  "Name": "Bridge",
+  "Targeted Muscle": " Glutes",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf92"
+  },
+  "Name": "Butt-Ups",
+  "Targeted Muscle": " Abs",
+  "Type": " StrengthC-Curve"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf93"
+  },
+  "Name": "Calf Stretch With Hands Against Wall",
+  "Targeted Muscle": " Lower Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf94"
+  },
+  "Name": "Camel Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf95"
+  },
+  "Name": "Cat Stretch",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf96"
+  },
+  "Name": "Child's Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf97"
+  },
+  "Name": "Cobra",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf98"
+  },
+  "Name": "Crescent Moon Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf99"
+  },
+  "Name": "Cross Body Crunch",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf9a"
+  },
+  "Name": "Cross Legged Erector Spinae",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf9b"
+  },
+  "Name": "Cross Legged Lying Side Stretch",
+  "Targeted Muscle": " Abs",
+  "Type": " StretchingCross Legged Twist"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf9c"
+  },
+  "Name": "Cross-Legged Forward Fold",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf9d"
+  },
+  "Name": "Crunch with Hands Overhead",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf9e"
+  },
+  "Name": "Crunches",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bf9f"
+  },
+  "Name": "Dancer's Stretch",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfa0"
+  },
+  "Name": "Depth Jump Leap",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfa1"
+  },
+  "Name": "Dorsiflexion",
+  "Targeted Muscle": " Glutes",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfa2"
+  },
+  "Name": "Double Leg Butt Kick",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfa3"
+  },
+  "Name": "Double Leg Stretch",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfa4"
+  },
+  "Name": "Downward Facing Dog",
+  "Targeted Muscle": " Abs",
+  "Type": " StretchingDownward Facing Puppy Dog"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfa5"
+  },
+  "Name": "Dynamic Back Stretch",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfa6"
+  },
+  "Name": "Dynamic Chest Stretch",
+  "Targeted Muscle": " Chest",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfa7"
+  },
+  "Name": "Eagle Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfa8"
+  },
+  "Name": "Elbow Circles",
+  "Targeted Muscle": " Shoulders",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfa9"
+  },
+  "Name": "Elbows Back Stretch",
+  "Targeted Muscle": " Chest",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfaa"
+  },
+  "Name": "Extended Arm Child Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfab"
+  },
+  "Name": "Fish Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfac"
+  },
+  "Name": "Flutter Kick",
+  "Targeted Muscle": " Glutes",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfad"
+  },
+  "Name": "Front Leg Raises",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " StretchingGlute Kickback"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfae"
+  },
+  "Name": "Hare Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfaf"
+  },
+  "Name": "Hero Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfb0"
+  },
+  "Name": "Hug Knees to Chest",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfb1"
+  },
+  "Name": "Hundreds",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfb2"
+  },
+  "Name": "Isometric Chest Squeeze",
+  "Targeted Muscle": " Chest",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfb3"
+  },
+  "Name": "Jackknife Sit up",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfb4"
+  },
+  "Name": "Janda Sit Up",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfb5"
+  },
+  "Name": "Knee Across The Body",
+  "Targeted Muscle": " Glutes",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfb6"
+  },
+  "Name": "Knee Circles",
+  "Targeted Muscle": " Lower Legs",
+  "Type": " StretchingKnee Draw In"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfb7"
+  },
+  "Name": "Knee Tuck Jump",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfb8"
+  },
+  "Name": "Kneeling Forearm Stretch",
+  "Targeted Muscle": " Forearm",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfb9"
+  },
+  "Name": "Kneeling Hip Flexor",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfba"
+  },
+  "Name": "Kneeling Hip Flexor",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfbb"
+  },
+  "Name": "Kneeling Lat Stretch",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfbc"
+  },
+  "Name": "Kneeling Side Bend",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfbd"
+  },
+  "Name": "Leg Lift",
+  "Targeted Muscle": " Glutes",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfbe"
+  },
+  "Name": "Leg Pull In",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfbf"
+  },
+  "Name": "Leg Raise",
+  "Targeted Muscle": " Abs",
+  "Type": " StrengthLeg Slide"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfc0"
+  },
+  "Name": "Leg Slide with One Leg",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfc1"
+  },
+  "Name": "Leg-Up Hamstring Stretch",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfc2"
+  },
+  "Name": "Locust Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfc3"
+  },
+  "Name": "Looking At Ceiling",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfc4"
+  },
+  "Name": "Lower Abdominal Hip Roll",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfc5"
+  },
+  "Name": "Lower Back Curl",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfc6"
+  },
+  "Name": "Lying Alternate Floor Leg Raise",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfc7"
+  },
+  "Name": "Lying Alternate Knee Raise",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfc8"
+  },
+  "Name": "Lying Floor Knee Raise",
+  "Targeted Muscle": " Abs",
+  "Type": " StrengthLying Heel Touches"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfc9"
+  },
+  "Name": "Lying Hip Flexor",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfca"
+  },
+  "Name": "Middle Back Stretch",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfcb"
+  },
+  "Name": "Mighty Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfcc"
+  },
+  "Name": "Modified Push Up to Forearms",
+  "Targeted Muscle": " Forearm",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfcd"
+  },
+  "Name": "Mountain Climbers",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfce"
+  },
+  "Name": "Oblique Crunches",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfcf"
+  },
+  "Name": "On Your Side Quad Stretch",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfd0"
+  },
+  "Name": "One Arm Against Wall",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfd1"
+  },
+  "Name": "One Half Locust",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " StretchingOne Knee to Chest"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfd2"
+  },
+  "Name": "One Leg Bodyweight Squat",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfd3"
+  },
+  "Name": "One Leg Floor Calf Raise",
+  "Targeted Muscle": " Lower Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfd4"
+  },
+  "Name": "Opening Out Twist",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfd5"
+  },
+  "Name": "Overhead Stretch",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfd6"
+  },
+  "Name": "Passive Opening Out Twist",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfd7"
+  },
+  "Name": "Pilates",
+  "Targeted Muscle": " Cardio",
+  "Type": " Cardio"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfd8"
+  },
+  "Name": "Plank",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfd9"
+  },
+  "Name": "Plyo Push-Up",
+  "Targeted Muscle": " Chest",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfda"
+  },
+  "Name": "Posterior Capsule",
+  "Targeted Muscle": " Shoulders",
+  "Type": " StretchingPrisoner Squat"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfdb"
+  },
+  "Name": "Push Up",
+  "Targeted Muscle": " Chest",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfdc"
+  },
+  "Name": "Quad Stretch",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfdd"
+  },
+  "Name": "Reach and Catch",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfde"
+  },
+  "Name": "Rear Bodyweight Lunge",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfdf"
+  },
+  "Name": "Rear Leg Raises",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfe0"
+  },
+  "Name": "Reclining Big Toe Pose",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfe1"
+  },
+  "Name": "Reverse Crunch",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfe2"
+  },
+  "Name": "Revolved Abdomen Pose Sequence",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfe3"
+  },
+  "Name": "Rocket Jump",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " StrengthRoll Downs"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfe4"
+  },
+  "Name": "Rolling",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfe5"
+  },
+  "Name": "Runner's Stretch",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfe6"
+  },
+  "Name": "Running",
+  "Targeted Muscle": " Cardio",
+  "Type": " Cardio"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfe7"
+  },
+  "Name": "Sage Twist 1",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfe8"
+  },
+  "Name": "Scalene",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfe9"
+  },
+  "Name": "Scissor Kick",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfea"
+  },
+  "Name": "Scissors Jump",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfeb"
+  },
+  "Name": "Seated Calf Stretch",
+  "Targeted Muscle": " Lower Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfec"
+  },
+  "Name": "Seated Floor Hamstring Stretch",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " StretchingSeated Overhead Stretch"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfed"
+  },
+  "Name": "Shell Stretch",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfee"
+  },
+  "Name": "Shoulder Circles",
+  "Targeted Muscle": " Shoulders",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfef"
+  },
+  "Name": "Shoulder Stretch",
+  "Targeted Muscle": " Shoulders",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bff0"
+  },
+  "Name": "Side Bridge",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bff1"
+  },
+  "Name": "Side Hop-Sprint",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bff2"
+  },
+  "Name": "Side Jackknife",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bff3"
+  },
+  "Name": "Side Wrist Pull",
+  "Targeted Muscle": " Shoulders",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bff4"
+  },
+  "Name": "Side-Lying Floor Stretch",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bff5"
+  },
+  "Name": "Single Leg Butt Kick",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " StrengthSingle Leg Glute Bridge"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bff6"
+  },
+  "Name": "Single Leg Stride Jump",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bff7"
+  },
+  "Name": "Sit Squat",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bff8"
+  },
+  "Name": "Sit Up",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bff9"
+  },
+  "Name": "Sphinx",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bffa"
+  },
+  "Name": "Spine Stretch",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bffb"
+  },
+  "Name": "Spine Twist",
+  "Targeted Muscle": " Back",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bffc"
+  },
+  "Name": "Split Jump",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bffd"
+  },
+  "Name": "Staff Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bffe"
+  },
+  "Name": "Standing Adductor",
+  "Targeted Muscle": " Glutes",
+  "Type": " StrengthStanding Biceps Stretch"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418bfff"
+  },
+  "Name": "Standing Gastrocnemius",
+  "Targeted Muscle": " Lower Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c000"
+  },
+  "Name": "Standing Glute Kickback",
+  "Targeted Muscle": " Glutes",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c001"
+  },
+  "Name": "Standing Half Moon",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c002"
+  },
+  "Name": "Standing Hip Flexors",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c003"
+  },
+  "Name": "Standing Lateral Stretch",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c004"
+  },
+  "Name": "Standing Long Jump",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c005"
+  },
+  "Name": "Standing One Leg Bodyweight Calf Raise",
+  "Targeted Muscle": " Lower Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c006"
+  },
+  "Name": "Standing Pelvic Tilt",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c007"
+  },
+  "Name": "Standing Quadriceps Stretch",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " StretchingStanding Soleus And Achilles Stretch"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c008"
+  },
+  "Name": "Standing Toe Touches",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c009"
+  },
+  "Name": "Star Jump",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c00a"
+  },
+  "Name": "Straddle Stretch",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c00b"
+  },
+  "Name": "Straight Leg Heel on Toe",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c00c"
+  },
+  "Name": "Straight Leg Outer Hip Abductor",
+  "Targeted Muscle": " Glutes",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c00d"
+  },
+  "Name": "Sun Salutation",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c00e"
+  },
+  "Name": "Superman",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c00f"
+  },
+  "Name": "Supine Hamstring Stretch",
+  "Targeted Muscle": " Upper Legs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c010"
+  },
+  "Name": "Swimming",
+  "Targeted Muscle": " Cardio",
+  "Type": " CardioToe Touchers"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c011"
+  },
+  "Name": "Tricep Side Stretch",
+  "Targeted Muscle": " Triceps",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c012"
+  },
+  "Name": "Tricep Stretch",
+  "Targeted Muscle": " Triceps",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c013"
+  },
+  "Name": "Tuck Crunch",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c014"
+  },
+  "Name": "Turtle Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c015"
+  },
+  "Name": "Twisting Floor Crunch",
+  "Targeted Muscle": " Abs",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c016"
+  },
+  "Name": "Upper Back Stretch",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c017"
+  },
+  "Name": "Upward Facing Dog",
+  "Targeted Muscle": " Back",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c018"
+  },
+  "Name": "Upward Stretch",
+  "Targeted Muscle": " Shoulders",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c019"
+  },
+  "Name": "Warrior 2 Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " StretchingWarrior 3 Pose"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c01a"
+  },
+  "Name": "Warrior Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c01b"
+  },
+  "Name": "Wide Hand Pushup",
+  "Targeted Muscle": " Chest",
+  "Type": " Strength"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c01c"
+  },
+  "Name": "Wide Leg Stretch",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c01d"
+  },
+  "Name": "Wrist Circles",
+  "Targeted Muscle": " Forearm",
+  "Type": " Stretching"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c01e"
+  },
+  "Name": "Yoga",
+  "Targeted Muscle": " Cardio",
+  "Type": " Cardio"
+},{
+  "_id": {
+    "$oid": "5fd345b2c243711c1418c01f"
+  },
+  "Name": "Z Pose",
+  "Targeted Muscle": " Abs",
+  "Type": " Stretching"
+}]

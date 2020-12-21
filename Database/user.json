@@ -1,0 +1,212 @@
+[{
+  "_id": {
+    "$oid": "5fe05cfcb271d358089313d7"
+  },
+  "username": "Sam",
+  "name": "Syed Abdullah Muzaffar",
+  "birthdate": "06/11/1999",
+  "gender": "Male",
+  "stats": {
+    "height": "171",
+    "weight": "80",
+    "bodyfat": "22"
+  }
+},{
+  "_id": {
+    "$oid": "5fe05cfcb271d358089313d8"
+  },
+  "username": "Remolox",
+  "name": "Rahim Muhammad Syed",
+  "birthdate": "12/11/1999",
+  "gender": "Male",
+  "stats": {
+    "height": "183",
+    "weight": "60",
+    "bodyfat": "15"
+  }
+},{
+  "_id": {
+    "$oid": "5fe05cfcb271d358089313d9"
+  },
+  "username": "MegasXG",
+  "name": "Muhammad Ahmed Khan",
+  "birthdate": "05/07/1999",
+  "gender": "Female",
+  "stats": {
+    "height": "176",
+    "weight": "62",
+    "bodyfat": "16"
+  }
+},{
+  "_id": {
+    "$oid": "5fe05cfcb271d358089313da"
+  },
+  "username": "JohnnyJJ",
+  "name": "Haroon Khalid Janjua",
+  "birthdate": "08/10/1999",
+  "gender": "Male",
+  "stats": {
+    "height": "178",
+    "weight": "85",
+    "bodyfat": "25"
+  }
+},{
+  "_id": {
+    "$oid": "5fe05cfcb271d358089313db"
+  },
+  "username": "neet",
+  "name": "Kazuma Sato",
+  "birthdate": "09/01/1997",
+  "gender": "Male",
+  "stats": {
+    "height": "165",
+    "weight": "64",
+    "bodyfat": "17"
+  }
+},{
+  "_id": {
+    "$oid": "5fe05cfcb271d358089313dc"
+  },
+  "username": "exxproshun",
+  "name": "Megumin",
+  "birthdate": "09/06/2002",
+  "gender": "Female",
+  "stats": {
+    "height": "152",
+    "weight": "52",
+    "bodyfat": "18"
+  }
+},{
+  "_id": {
+    "$oid": "5fe05cfcb271d358089313dd"
+  },
+  "username": "Zainricardo",
+  "name": "Zain Mehdi",
+  "birthdate": "15/09/1998",
+  "gender": "Male",
+  "stats": {
+    "height": "174",
+    "weight": "67",
+    "bodyfat": "20"
+  },
+  "curr_workout": null,
+  "curr_diet": null
+},{
+  "_id": {
+    "$oid": "5fe05cfcb271d358089313de"
+  },
+  "username": "metapicker",
+  "name": "Sobhan Sheikh",
+  "birthdate": "12/12/1998",
+  "gender": "Male",
+  "stats": {
+    "height": "167",
+    "weight": "82",
+    "bodyfat": "26"
+  },
+  "curr_workout": null,
+  "curr_diet": null
+},{
+  "_id": {
+    "$oid": "5fe05cfcb271d358089313df"
+  },
+  "username": "thepotato",
+  "hash": null,
+  "name": "Muhammad Abbas",
+  "birthdate": "14/08/2000",
+  "gender": "Male",
+  "stats": {
+    "height": "185",
+    "weight": "74",
+    "bodyfat": "13"
+  },
+  "curr_workout": null,
+  "curr_diet": null
+},{
+  "_id": {
+    "$oid": "5fe05cfcb271d358089313e0"
+  },
+  "username": "default",
+  "hash": null,
+  "password": "default",
+  "email": "default",
+  "gender": "Male",
+  "date": "0",
+  "stats": {
+    "height": 0,
+    "weight": 0,
+    "bodyfat": 0
+  },
+  "curr_workout": null,
+  "curr_diet": null
+},{
+  "_id": {
+    "$oid": "5fe05cfcb271d358089313e1"
+  },
+  "username": "istabraq101",
+  "password": "iamlord",
+  "hash": null,
+  "email": "iamlord101@mail.com",
+  "gender": "Male",
+  "birthdate": "12/56/12",
+  "stats": {
+    "height": 153,
+    "weight": 12,
+    "bodyfat": 11.5
+  },
+  "curr_workout": null,
+  "curr_diet": null
+},{
+  "_id": {
+    "$oid": "5fe05cfcb271d358089313e2"
+  },
+  "username": "Darkness",
+  "hash": null,
+  "name": "Dustiness Ford Lalatina",
+  "email": "dustiness@ksuba.jp",
+  "birthdate": "12/06/1995",
+  "gender": "Female",
+  "stats": {
+    "height": 177,
+    "weight": 76,
+    "bodyfat": 22
+  },
+  "log": [
+    {
+      "date": "12-11-2020",
+      "workout": {
+        "wid": null,
+        "ex": [
+          {
+            "id": "ex1",
+            "reps": [
+              1,
+              3,
+              4
+            ],
+            "weight": [
+              4,
+              3,
+              6
+            ]
+          },
+          {
+            "id": "ex2",
+            "reps": [
+              13,
+              3
+            ]
+          },
+          {
+            "id": "ex2",
+            "dur": [
+              13
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "curr_workout": null,
+  "curr_diet": null
+}]
