@@ -1,0 +1,89 @@
+[{
+  "_id": {
+    "$oid": "5fdb17dfaec3eb3c70b801d3"
+  },
+  "name": "Power Lifting 3 Day",
+  "author": {
+    "$oid": "5fd7bcb78fa8ae0b603930c5"
+  },
+  "monday": {
+    "time": "3:00",
+    "workout": [
+      {
+        "id": {
+          "$oid": "5fe03a88b271d358089313cd"
+        },
+        "reps": [
+          1,
+          3,
+          4
+        ]
+      }
+    ]
+  },
+  "tuesday": {
+    "time": "3:00",
+    "workout": [
+      {
+        "id": {
+          "$oid": "5fe03a88b271d358089313cd"
+        },
+        "reps": [
+          1,
+          3,
+          4
+        ]
+      },
+      {
+        "id": {
+          "$oid": "5fe03b6db271d358089313d6"
+        },
+        "reps": [
+          13,
+          3
+        ]
+      }
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "5fdb18b8aec3eb3c70b801d4"
+  },
+  "name": "Power Lifting 4 Day",
+  "author": null,
+  "days": {
+    "monday": {
+      "time": "3:00",
+      "workout": [
+        {
+          "id": "ex1",
+          "reps": [
+            1,
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    "tuesday": {
+      "time": "3:00",
+      "workout": [
+        {
+          "id": "ex1",
+          "reps": [
+            1,
+            3,
+            4
+          ]
+        },
+        {
+          "id": "ex2",
+          "reps": [
+            13,
+            3
+          ]
+        }
+      ]
+    }
+  }
+}]
