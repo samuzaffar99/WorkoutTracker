@@ -82,7 +82,7 @@ class _NavigationBarState extends State<NavigationBar> {
         ),
         BottomNavigationBarItem(
           icon:  Icon(Icons.fitness_center),
-          label: 'Exercise',
+          label: 'Workout',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.article_outlined),

@@ -7,11 +7,11 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  bool toggleDark = false;
+  bool toggleAlarm = false;
   @override
   Widget build(BuildContext context) {
     int index = 4;
-    bool toggleMode = false;
-    bool toggleAlarm = false;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFF141414),
@@ -32,20 +32,18 @@ class _SettingsState extends State<Settings> {
           ),
           child: NavigationBar(index),
         ),
-        body: ListView(
+        body: Column(
           children: [
-            SizedBox(
-              height: 40,
-            ),
-            Opacity(
-              opacity: 0.5,
-              child: Expanded(
+            SizedBox(height: 10),
+            Expanded(
+              child: Opacity(
+                opacity: 0.5,
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
                   elevation: 5,
-                  margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+                  margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 32.0),
                   child: Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Container(
@@ -71,10 +69,10 @@ class _SettingsState extends State<Settings> {
                                   inactiveThumbColor: Colors.white,
                                   activeTrackColor: Colors.green[10],
                                   activeColor: Colors.green,
-                                  value: toggleMode,
+                                  value: toggleDark,
                                   onChanged: (value) {
                                     setState(() {
-                                      toggleMode=value;
+                                      toggleDark=value;
                                     });
                                   },
                                 ),
