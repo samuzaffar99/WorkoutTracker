@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9be83c22-38f8-4b74-a646-dd231fffd7d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/navigation.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_settings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_workout.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_workout.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/user_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/user_data.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
