@@ -50,16 +50,31 @@ class _WorkoutState extends State<Workout> {
                           var currentItem =
                               snapshot.data["days"][1]["routine"][index];
                           print(currentItem["exid"]);
-                          //return Text(currentItem["exid"].toString());
-                          return Container(
-                              //padding: EdgeInsets.symmetric(horizontal: 10),
-                              child: Row(
+                          return Card(
+                              child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
-                                    Text(currentItem["exid"].toString()),
-                                    Text("Reps: ${currentItem["reps"][0]}")
-                                  ]));
+                                Text(
+                                    'Exercise Name : ${currentItem["exid"].toString()}'),
+                                Expanded(
+                                  child: ListView.builder(
+                                      itemCount: snapshot
+                                          .data["days"][1]["routine"][index]
+                                              ["reps"]
+                                          .length,
+                                      //shrinkWrap: true,
+                                      itemBuilder: (context, index2) {
+                                        print(index2);
+                                        var currentItem2 = snapshot.data["days"]
+                                                [1]["routine"][index]["reps"]
+                                            [index2];
+                                        return Container(
+                                            child: Text(
+                                                "Reps: ${currentItem2[index2]}"));
+                                      }),
+                                ),
+                              ]));
                         }),
                   )
                 ]);

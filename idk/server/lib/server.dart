@@ -3,7 +3,7 @@ import 'package:sevr/sevr.dart';
 
 void start() async {
   final db = await Db.create(
-      "mongodb+srv://Admin:admin@cluster0.ejodh.mongodb.net/WorkoutTracker");
+      'mongodb+srv://Admin:admin@cluster0.ejodh.mongodb.net/WorkoutTracker');
   await db.open();
 
   const port = 3000;
@@ -18,7 +18,7 @@ void start() async {
         //print(request.response);
         final driver = await driverColl
             .findOne(where.eq('username', req.params['username']));
-        print("You are inside drivers $driver");
+        print('You are inside drivers $driver');
         // if (driver == null) {
         //   // final driver =
         //   //     await driverColl.findOne(where.eq('username', 'default'));
