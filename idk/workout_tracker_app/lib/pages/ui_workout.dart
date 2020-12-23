@@ -44,7 +44,7 @@ class _WorkoutState extends State<Workout> {
                   Expanded(
                     child: ListView.builder(
                         itemCount: snapshot.data["days"][1]["routine"].length,
-                        //shrinkWrap: true,
+                        shrinkWrap: true,
                         itemBuilder: (context, index) {
                           print(index);
                           var currentItem =
@@ -57,23 +57,19 @@ class _WorkoutState extends State<Workout> {
                                   children: <Widget>[
                                 Text(
                                     'Exercise Name : ${currentItem["exid"].toString()}'),
-                                Expanded(
-                                  child: ListView.builder(
-                                      itemCount: snapshot
-                                          .data["days"][1]["routine"][index]
-                                              ["reps"]
-                                          .length,
-                                      //shrinkWrap: true,
-                                      itemBuilder: (context, index2) {
-                                        print(index2);
-                                        var currentItem2 = snapshot.data["days"]
-                                                [1]["routine"][index]["reps"]
-                                            [index2];
-                                        return Container(
-                                            child: Text(
-                                                "Reps: ${currentItem2[index2]}"));
-                                      }),
-                                ),
+                                ListView.builder(
+                                    itemCount: snapshot
+                                        .data["days"][1]["routine"][index]
+                                            ["reps"]
+                                        .length,
+                                    shrinkWrap: true,
+                                    itemBuilder: (context, index2) {
+                                      print(index2);
+                                      var currentItem2 =
+                                          currentItem["reps"][index2];
+                                      return Text(
+                                          "Reps: ${currentItem2}");
+                                    }),
                               ]));
                         }),
                   )
