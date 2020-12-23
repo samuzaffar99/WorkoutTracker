@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_choose_plan.dart';
+import 'package:date_time_picker/date_time_picker.dart';
+import 'package:flutter/services.dart';
 
 class Goals extends StatefulWidget {
   @override
@@ -7,7 +9,21 @@ class Goals extends StatefulWidget {
 }
 
 class _GoalsState extends State<Goals> {
-  DateTime _dateTime;
+  DateTime selectedDate = DateTime.now();
+  var myFormat = DateFormat('dd/MM/yyyy');
+
+  _selectDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(), // Refer step 1
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2025),
+    );
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+      });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,23 +69,30 @@ class _GoalsState extends State<Goals> {
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.only(right: 20, left: 10),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius:
-                          BorderRadius.all(Radius.circular(20)),
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () => _selectDate(context),
+                      child: IgnorePointer(
+                        child: TextFormField(
+                          onTap: () {
+                            FocusScope.of(context).requestFocus(new FocusNode());
+                          },
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius:
+                              BorderRadius.all(Radius.circular(20)),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                              ),
+                            ),
+                            hintText: 'Target Date',
+                            filled: true,
+                            fillColor: Colors.white.withAlpha(200),
+                          ),
+                          controller: TextEditingController(
+                              text: '${myFormat.format(selectedDate)}'
                           ),
                         ),
-                          hintText: 'Target Date',
-                        filled: true,
-                        fillColor: Colors.white.withAlpha(200),
                       ),
-                      keyboardType: TextInputType.datetime,
-                      onSaved: (value) {
-
-                      },
                     ),
                   ),
                 )
@@ -100,6 +123,9 @@ class _GoalsState extends State<Goals> {
                         filled: true,
                         fillColor: Colors.white.withAlpha(200),
                       ),
+                      inputFormatters: [
+                        LengthLimitingTextInputFormatter(3),
+                      ],
                       keyboardType: TextInputType.number,
                     ),
                   ),
@@ -125,6 +151,9 @@ class _GoalsState extends State<Goals> {
                         filled: true,
                         fillColor: Colors.white.withAlpha(200),
                       ),
+                      inputFormatters: [
+                        LengthLimitingTextInputFormatter(3),
+                      ],
                       keyboardType: TextInputType.number,
                     ),
                   ),

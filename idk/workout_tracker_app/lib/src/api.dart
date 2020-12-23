@@ -3,6 +3,7 @@ import 'package:flutter_launcher_icons/constants.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'model.dart';
+import 'users.dart';
 
 class Api {
   final _dio = Dio(
@@ -17,6 +18,16 @@ class Api {
       return null;
     }
     return Driver.fromJson(response.data['driver']);
+  }
+
+  Future<Users> getUsers(String username) async {
+    print('await done');
+    final response = await _dio.get('/$username');
+    if (response.data['driver'] == null) {
+      print("im here");
+      return null;
+    }
+    return Users.fromJson(response.data['driver']);
   }
 
   Future<Driver> getPassword(String password) async {

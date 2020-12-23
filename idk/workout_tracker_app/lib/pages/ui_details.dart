@@ -4,6 +4,8 @@ import 'package:workout_tracker_app/pages/ui_goals.dart';
 import 'package:workout_tracker_app/user_data.dart';
 import '../src/api.dart';
 import '../src/model.dart';
+import 'package:date_time_picker/date_time_picker.dart';
+import 'package:flutter/services.dart';
 
 class Details extends StatefulWidget {
   String username;
@@ -16,11 +18,10 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
-  DateTime _dateTime;
   String gender;
   String weight;
   String height;
-  String date;
+  DateTime date;
 
   var _formKey = GlobalKey<FormState>();
 
@@ -42,6 +43,33 @@ class _DetailsState extends State<Details> {
       },
     );
     return;
+  }
+
+  String selectGender;
+  DateTime selectedDate=DateTime.now();
+  var myFormat = DateFormat('dd/MM/yyyy');
+
+  List<DropdownMenuItem<String>> genderDropdown() {
+    List<String> ddl = ["Male", "Female", "Others"];
+    return ddl
+        .map((value) => DropdownMenuItem(
+              value: value,
+              child: Text(value),
+            ))
+        .toList();
+  }
+
+  _selectDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(), // Refer step 1
+      firstDate: DateTime(1930),
+      lastDate: DateTime.now(),
+    );
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+      });
   }
 
   @override
@@ -91,24 +119,30 @@ class _DetailsState extends State<Details> {
                       children: <Widget>[
                         Expanded(
                           child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.white.withAlpha(200),
-                                borderRadius: BorderRadius.circular(20)),
                             margin: EdgeInsets.only(right: 20, left: 10),
-                            child: DropdownButton(
-                              items: <String>['Male', 'Female', 'Other']
-                                  .map((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                              onChanged: (String data) {
+                            child: DropdownButtonFormField(
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                ),
+                                filled: true,
+                                fillColor: Colors.white.withAlpha(200),
+                              ),
+                              value: selectGender,
+                              items: genderDropdown(),
+                                validator: (value) => value == null
+                                    ? 'Please select your gender': null,
+                              onChanged: (value) {
+                                selectGender = value;
                                 setState(() {
-                                  gender = data;
+                                  gender = value;
                                 });
-                                //gender = value;
                               },
+                              hint: Text("Gender"),
                             ),
                           ),
                         )
@@ -126,7 +160,7 @@ class _DetailsState extends State<Details> {
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                   borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
+                                      BorderRadius.all(Radius.circular(20)),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                   ),
@@ -135,6 +169,9 @@ class _DetailsState extends State<Details> {
                                 filled: true,
                                 fillColor: Colors.white.withAlpha(200),
                               ),
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(3),
+                              ],
                               keyboardType: TextInputType.number,
                               validator: (value) {
                                 if (value.isEmpty) {
@@ -155,7 +192,7 @@ class _DetailsState extends State<Details> {
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                   borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
+                                      BorderRadius.all(Radius.circular(20)),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                   ),
@@ -164,6 +201,9 @@ class _DetailsState extends State<Details> {
                                 filled: true,
                                 fillColor: Colors.white.withAlpha(200),
                               ),
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(3),
+                              ],
                               keyboardType: TextInputType.number,
                               validator: (value) {
                                 if (value.isEmpty) {
@@ -187,29 +227,36 @@ class _DetailsState extends State<Details> {
                         Expanded(
                           child: Container(
                             margin: EdgeInsets.only(right: 20, left: 10),
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () => _selectDate(context),
+                              child: IgnorePointer(
+                                child: TextFormField(
+                                  onTap: () {
+                                    FocusScope.of(context).requestFocus(new FocusNode());
+                                  },
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(20)),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    hintText: 'Date Of Birth',
+                                    filled: true,
+                                    fillColor: Colors.white.withAlpha(200),
+                                  ),
+                                  validator: (value) {
+                                    if (value.isEmpty) {
+                                      return "Please enter your date of birth";
+                                    }
+                                    return null;
+                                  },
+                                  controller: TextEditingController(
+                                      text: '${myFormat.format(selectedDate)}'
                                   ),
                                 ),
-                                hintText: 'Date Of Birth',
-                                filled: true,
-                                fillColor: Colors.white.withAlpha(200),
                               ),
-                              keyboardType: TextInputType.datetime,
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return "Please enter your date of birth";
-                                }
-                                return null;
-                              },
-                              onSaved: (value) {
-                                date = value;
-                              },
                             ),
                           ),
                         )
