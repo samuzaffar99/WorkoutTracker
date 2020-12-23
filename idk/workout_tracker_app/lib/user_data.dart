@@ -60,9 +60,11 @@ Future<Map> getExerciseInfo(String exid) async {
       "mongodb+srv://Admin:admin@cluster0.ejodh.mongodb.net/WorkoutTracker");
   var currentExercise = db.collection('exercise');
   await db.open();
-  var exerciseDetails = await currentExercise.findOne(mongo.where.eq('_id', exid));
+  var exerciseDetails = await currentExercise.findOne(mongo.where.id(mongo.ObjectId.fromHexString(exid)));
   await db.close();
+  print('exercise id to find $exid');
   if (exerciseDetails == null) {
+    print('returning null');
     exerciseDetails = {'_id': null};
   }
   return exerciseDetails;

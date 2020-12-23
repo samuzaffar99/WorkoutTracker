@@ -49,14 +49,32 @@ class _WorkoutState extends State<Workout> {
                           print(index);
                           var currentItem =
                               snapshot.data["days"][1]["routine"][index];
-                          print(currentItem["exid"]);
+                          print('ExerciseId: ${currentItem["exid"].toHexString()}');
                           return Card(
                               child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                 Text(
-                                    'Exercise Name : ${currentItem["exid"].toString()}'),
+                                    'ExerciseId : ${currentItem["exid"].toHexString()}'),
+                                FutureBuilder(
+                                    future:
+                                        getExerciseInfo(currentItem["exid"].toHexString()),
+                                    builder:
+                                        (buildContext, AsyncSnapshot snapshot) {
+                                      if (snapshot.hasError) {
+                                        throw snapshot.error;
+                                      } else if (!snapshot.hasData) {
+                                        return Container(
+                                          child: Center(
+                                            child: CircularProgressIndicator(),
+                                          ),
+                                        );
+                                      } else {
+                                        print(snapshot.data);
+                                        return Text(snapshot.data["name"]);
+                                      }
+                                    }),
                                 ListView.builder(
                                     itemCount: snapshot
                                         .data["days"][1]["routine"][index]
@@ -67,8 +85,7 @@ class _WorkoutState extends State<Workout> {
                                       print(index2);
                                       var currentItem2 =
                                           currentItem["reps"][index2];
-                                      return Text(
-                                          "Reps: ${currentItem2}");
+                                      return Text("Reps: ${currentItem2}");
                                     }),
                               ]));
                         }),
