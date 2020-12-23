@@ -46,8 +46,9 @@ class _DetailsState extends State<Details> {
   }
 
   String selectGender;
-  DateTime selectedDate=DateTime.now();
+  DateTime selectedDate = null;
   var myFormat = DateFormat('dd/MM/yyyy');
+  var myController;
 
   List<DropdownMenuItem<String>> genderDropdown() {
     List<String> ddl = ["Male", "Female", "Others"];
@@ -70,8 +71,14 @@ class _DetailsState extends State<Details> {
       setState(() {
         selectedDate = picked;
       });
+    setState(() {
+      myController=TextEditingController(
+          text: '${myFormat.format(selectedDate)}');
+    });
   }
 
+  // final myController = TextEditingController(
+  //     text: '${myFormat.format(selectedDate)}');
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -124,7 +131,7 @@ class _DetailsState extends State<Details> {
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                   borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
+                                      BorderRadius.all(Radius.circular(20)),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                   ),
@@ -134,8 +141,9 @@ class _DetailsState extends State<Details> {
                               ),
                               value: selectGender,
                               items: genderDropdown(),
-                                validator: (value) => value == null
-                                    ? 'Please select your gender': null,
+                              validator: (value) => value == null
+                                  ? 'Please select your gender'
+                                  : null,
                               onChanged: (value) {
                                 selectGender = value;
                                 setState(() {
@@ -228,11 +236,14 @@ class _DetailsState extends State<Details> {
                           child: Container(
                             margin: EdgeInsets.only(right: 20, left: 10),
                             child: InkWell(
-                              onTap: () => _selectDate(context),
+                              onTap: () {
+                                _selectDate(context);
+                              },
                               child: IgnorePointer(
                                 child: TextFormField(
                                   onTap: () {
-                                    FocusScope.of(context).requestFocus(new FocusNode());
+                                    FocusScope.of(context)
+                                        .requestFocus(new FocusNode());
                                   },
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(
@@ -242,7 +253,7 @@ class _DetailsState extends State<Details> {
                                         color: Colors.transparent,
                                       ),
                                     ),
-                                    hintText: 'Date Of Birth',
+                                    hintText: 'Date of Birth',
                                     filled: true,
                                     fillColor: Colors.white.withAlpha(200),
                                   ),
@@ -252,9 +263,7 @@ class _DetailsState extends State<Details> {
                                     }
                                     return null;
                                   },
-                                  controller: TextEditingController(
-                                      text: '${myFormat.format(selectedDate)}'
-                                  ),
+                                  controller: myController,
                                 ),
                               ),
                             ),

@@ -11,6 +11,7 @@ class Goals extends StatefulWidget {
 class _GoalsState extends State<Goals> {
   DateTime selectedDate = DateTime.now();
   var myFormat = DateFormat('dd/MM/yyyy');
+  var myController;
 
   _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
@@ -23,6 +24,10 @@ class _GoalsState extends State<Goals> {
       setState(() {
         selectedDate = picked;
       });
+    setState(() {
+      myController=TextEditingController(
+          text: '${myFormat.format(selectedDate)}');
+    });
   }
 
   @override
@@ -88,9 +93,7 @@ class _GoalsState extends State<Goals> {
                             filled: true,
                             fillColor: Colors.white.withAlpha(200),
                           ),
-                          controller: TextEditingController(
-                              text: '${myFormat.format(selectedDate)}'
-                          ),
+                          controller: myController,
                         ),
                       ),
                     ),
