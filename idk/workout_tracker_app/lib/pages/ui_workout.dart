@@ -8,7 +8,7 @@ class Workout extends StatefulWidget {
 }
 
 class _WorkoutState extends State<Workout> {
-  Widget trySignIn() {
+  Widget getWorkoutView() {
     return FutureBuilder(
         future: getWorkout('5fe0732cb271d358089313e4'),
         builder: (buildContext, AsyncSnapshot snapshot) {
@@ -23,31 +23,47 @@ class _WorkoutState extends State<Workout> {
           } else {
             //print(snapshot);
             print(snapshot.data);
-            print(snapshot.data);
+            print(snapshot.data["days"][0]["routine"][0]["exid"].toString());
+            print(snapshot.data["days"].runtimeType);
+            print(
+                'Num exercises: ${snapshot.data["days"][0]["routine"].length}');
             return Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      snapshot.data["days"][0]["day"],
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ],
-                ),
-              ],
-            );
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        snapshot.data["days"][0]["day"],
+                        style: TextStyle(color: Colors.white),
+                      ),
+
+                      //snapshot.data["days"].map((i) => Text(i["day"])).toList(),
+                    ],
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                        itemCount: snapshot.data["days"][1]["routine"].length,
+                        //shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          print(index);
+                          var currentItem =
+                              snapshot.data["days"][1]["routine"][index];
+                          print(currentItem["exid"]);
+                          //return Text(currentItem["exid"].toString());
+                          return Container(
+                              //padding: EdgeInsets.symmetric(horizontal: 10),
+                              child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text(currentItem["exid"].toString()),
+                                    Text("Reps: ${currentItem["reps"][0]}")
+                                  ]));
+                        }),
+                  )
+                ]);
           }
-          //  else if (snapshot.data["Username"] == controllerUN.text) {
-          //   return DietScreen();
-          // } else if (snapshot.data["Username"] == null) {
-          //   return Container(
-          //     child: Center(
-          //       child: Text("Wrong User"),
-          //     ),
-          //   );
-          // }
         });
   }
 
@@ -76,7 +92,7 @@ class _WorkoutState extends State<Workout> {
         body: Column(
           children: [
             Expanded(
-              child: trySignIn(),
+              child: getWorkoutView(),
               // child: Opacity(
               //   opacity: 0.5,
               //   child: Card(
