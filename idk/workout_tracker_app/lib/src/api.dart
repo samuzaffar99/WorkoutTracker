@@ -27,7 +27,8 @@ class Api {
       print("nahi mila");
       return null;
     }
-    return Users.fromJson(response.data['user']);
+    Map<String, dynamic> map = jsonDecode(response.data['user']);
+    return Users.fromJson(map);
   }
 
   Future<Driver> postDriver(Driver driver) async {
