@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:workout_tracker_app/pages/ui_goals.dart';
-import 'package:workout_tracker_app/user_data.dart';
+import '../src/user.dart';
 import '../src/api.dart';
-import '../src/model.dart';
+import '../src/user.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/services.dart';
 
@@ -21,29 +21,75 @@ class _DetailsState extends State<Details> {
   String gender;
   String weight;
   String height;
-  DateTime date;
+  String date;
 
   var _formKey = GlobalKey<FormState>();
 
-  void _registerUser() {
-    Driver newDriver = Driver.fromJson(
+  void _registerUser()
+  {
+    User useree = User.fromJson(
       {
         'username': widget.username,
         'password': widget.password,
         'email': widget.email,
         'gender': gender,
-        'weight': weight,
-        'height': height,
-        'date': date
-      },
+        'birthdate': date,
+        'stats': {'height':height, 'weight':weight},
+        "goals": {
+          "targetdate": "12/12/2001",
+          "weight": "60",
+          "bodyfat": "24"
+        },
+        "workoutplan": {
+          "days": {
+            "Mon": "true",
+            "Tue": "true",
+            "Wed": "true",
+            "Thu": "true",
+            "Fri": "true",
+            "Sat": "false",
+            "Sun": "false"
+          },
+          "exercisetype": {
+            "homeexercise": "true",
+            "powerlifting": "false",
+            "bodybuilding": "false"
+          }
+        },
+        "dietplan": {
+          "fat": "12",
+          "protein": "12",
+          "carbs": "12"
+        }
+      }
     );
-    widget._api.postDriver(newDriver).then(
-      (value) {
-        //print(value.username);
-      },
-    );
-    return;
+      widget._api.postUser(useree).then(
+        (value) {
+          print(value.username);
+        },
+      );
+      return;
   }
+
+  // void _registerUser() {
+  //   Driver newDriver = Driver.fromJson(
+  //     {
+  //       'username': widget.username,
+  //       'password': widget.password,
+  //       'email': widget.email,
+  //       'gender': gender,
+  //       'weight': weight,
+  //       'height': height,
+  //       'date': myFormat.format(selectedDate).toString(),
+  //     },
+  //   );
+  //   widget._api.postDriver(newDriver).then(
+  //     (value) {
+  //       //print(value.username);
+  //     },
+  //   );
+  //   return;
+  // }
 
   String selectGender;
   DateTime selectedDate = null;
@@ -77,8 +123,6 @@ class _DetailsState extends State<Details> {
     });
   }
 
-  // final myController = TextEditingController(
-  //     text: '${myFormat.format(selectedDate)}');
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -293,7 +337,7 @@ class _DetailsState extends State<Details> {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return Goals();
+                              return WorkoutGoals();
                             },
                           ),
                         );

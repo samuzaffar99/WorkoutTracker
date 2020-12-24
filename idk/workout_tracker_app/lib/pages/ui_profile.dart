@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
 import 'package:workout_tracker_app/pages/ui_signin.dart';
 import 'package:workout_tracker_app/pages/ui_settings.dart';
+import '../src/user.dart';
 
 class Profile extends StatefulWidget {
   @override
+  final User user;
+  Profile(this.user);
   _ProfileState createState() => _ProfileState();
 }
 
@@ -29,7 +32,7 @@ class _ProfileState extends State<Profile> {
           data: Theme.of(context).copyWith(
             canvasColor: Colors.white.withAlpha(200),
           ),
-          child: NavigationBar(index),
+          child: NavigationBar(index,widget.user),
         ),
         body: Column(
           children: [
@@ -51,7 +54,7 @@ class _ProfileState extends State<Profile> {
                   width: 10,
                 ),
                 Text(
-                  "${userDetails.username} ",
+                  "${widget.user.username} ",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 25,
@@ -99,7 +102,7 @@ class _ProfileState extends State<Profile> {
                                         children: [
                                           TextSpan(
                                               text:
-                                                  "${userDetails.weight} kg\n",
+                                                  "${widget.user.stats.weight} kg\n",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           TextSpan(
@@ -198,7 +201,7 @@ class _ProfileState extends State<Profile> {
                                         children: [
                                           TextSpan(
                                               text:
-                                                  "${userDetails.weight} kg\n",
+                                                  "${widget.user.stats.weight} kg\n",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           TextSpan(
@@ -303,7 +306,7 @@ class _ProfileState extends State<Profile> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return Settings();
+                                      return Settings(widget.user);
                                     },
                                   ),
                                 );
@@ -316,7 +319,7 @@ class _ProfileState extends State<Profile> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return Settings();
+                                      return Settings(widget.user);
                                     },
                                   ),
                                 );

@@ -3,7 +3,7 @@ import 'package:flutter_launcher_icons/constants.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'model.dart';
-import 'users.dart';
+import 'user.dart';
 
 class Api {
   final _dio = Dio(
@@ -20,15 +20,27 @@ class Api {
     return Driver.fromJson(response.data['driver']);
   }
 
-  Future<Users> getUser(String username) async {
+  Future<User> getUser(String username) async {
     print('await done');
     final response = await _dio.get('/$username');
-    if (response.data['user'] == null) {
-      print("nahi mila");
-      return null;
-    }
-    Map<String, dynamic> map = jsonDecode(response.data['user']);
-    return Users.fromJson(map);
+    print('out response');
+    //print('....${response.data['username']}');
+    // if (response == null) {
+    //   return null;
+    // }
+    if (response.data!=null)
+      {
+        return User.fromJson(response.data);
+      }
+  }
+
+  Future<User> postUser(User user) async {
+    String toJson = jsonEncode(user);
+    //print("to json...$toJson");
+    final response = await _dio.post('', data: toJson);
+    //print("response...$response");
+    return User.fromJson(response.data);
+    // return response.statusCode;
   }
 
   Future<Driver> postDriver(Driver driver) async {

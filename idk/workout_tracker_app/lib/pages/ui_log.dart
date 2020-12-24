@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
+import '../src/user.dart';
 
 class Log extends StatefulWidget {
+  final User user;
+  Log(this.user);
   @override
   _LogState createState() => _LogState();
 }
@@ -30,7 +33,7 @@ class _LogState extends State<Log> {
           data: Theme.of(context).copyWith(
             canvasColor: Colors.white.withAlpha(200),
           ),
-          child: NavigationBar(index),
+          child: NavigationBar(index,widget.user),
         ),
         body: ListView(
           children: [

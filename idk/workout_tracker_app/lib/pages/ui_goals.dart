@@ -3,12 +3,12 @@ import 'package:workout_tracker_app/pages/ui_choose_plan.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/services.dart';
 
-class Goals extends StatefulWidget {
+class WorkoutGoals extends StatefulWidget {
   @override
-  _GoalsState createState() => _GoalsState();
+  _WorkoutGoalsState createState() => _WorkoutGoalsState();
 }
 
-class _GoalsState extends State<Goals> {
+class _WorkoutGoalsState extends State<WorkoutGoals> {
   DateTime selectedDate = DateTime.now();
   var myFormat = DateFormat('dd/MM/yyyy');
   var myController;

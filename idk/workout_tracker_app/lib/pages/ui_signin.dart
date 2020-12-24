@@ -5,7 +5,7 @@ import 'package:workout_tracker_app/pages/ui_home.dart';
 import 'package:workout_tracker_app/user_data.dart';
 import '../src/api.dart';
 import '../src/model.dart';
-import '../src/users.dart';
+import '../src/user.dart';
 
 class SignIn extends StatefulWidget {
   final Api _api = Api();
@@ -13,38 +13,38 @@ class SignIn extends StatefulWidget {
   _SignInState createState() => _SignInState();
 }
 
-UserDetails userDetails;
-
 class _SignInState extends State<SignIn> {
   String username;
   String password;
-  Users user;
+  User user;
   bool check = true;
   var _formKey = GlobalKey<FormState>();
-  final Api _api = Api();
 
   Future<bool> _loginUser() async {
+    print('...inside _loginUser');
     await widget._api.getUser(username).then((value) {
-      //print(value.username);
       setState(
         () {
           user = value;
-          print('...${value.username}');
+          print('set state ${value}');
         },
       );
     });
-    if (user == null) {
+    if (user==null) {
+      print('user null');
       return false;
     } else {
       if (user.password == password) {
+        print('...returning true');
         return true;
       } else {
+        print('...returning false');
         return false;
       }
     }
   }
 
-  Users users(Users value) => user = value;
+  User users(User value) => user = value;
 
   @override
   Widget build(BuildContext context) {
@@ -202,10 +202,8 @@ class _SignInState extends State<SignIn> {
                           (value) {
                             print('$value');
                             if (value == true) {
-                              Navigator.popUntil(
-                                  context, ModalRoute.withName('/ui_home'));
-                              userDetails = UserDetails(username: username);
-                              Navigator.pushNamed(context, 'Home');
+                              Navigator.popUntil(context, ModalRoute.withName('/ui_home'));
+                              Navigator.pushNamed(context, 'Home', arguments: user);
                             } else {
                               setState(() {
                                 check = false;

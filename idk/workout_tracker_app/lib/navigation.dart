@@ -3,11 +3,12 @@ import 'package:workout_tracker_app/pages/ui_profile.dart';
 import 'package:workout_tracker_app/pages/ui_log.dart';
 import 'package:workout_tracker_app/pages/ui_workout.dart';
 import 'package:workout_tracker_app/pages/ui_diet.dart';
+import 'src/user.dart';
 
 class NavigationBar extends StatefulWidget {
   int index;
-  String username;
-  NavigationBar(this.index);
+  final User user;
+  NavigationBar(this.index, this.user);
   @override
   _NavigationBarState createState() => _NavigationBarState();
 }
@@ -23,14 +24,14 @@ class _NavigationBarState extends State<NavigationBar> {
             widget.index = i;
             if (widget.index == 0) {
               Navigator.pop(context);
-              Navigator.pushNamed(context, 'Home');
+              Navigator.pushNamed(context, 'Home', arguments: widget.user);
             } else if (widget.index == 1) {
               Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return Diet();
+                    return Diet(widget.user);
                   },
                 ),
               );
@@ -40,7 +41,7 @@ class _NavigationBarState extends State<NavigationBar> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return Workout();
+                    return Workout(widget.user);
                   },
                 ),
               );
@@ -50,7 +51,7 @@ class _NavigationBarState extends State<NavigationBar> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return Log();
+                    return Log(widget.user);
                   },
                 ),
               );
@@ -60,7 +61,7 @@ class _NavigationBarState extends State<NavigationBar> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return Profile();
+                    return Profile(widget.user);
                   },
                 ),
               );

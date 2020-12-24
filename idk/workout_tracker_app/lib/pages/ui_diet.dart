@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
+import '../src/user.dart';
 
 class Diet extends StatefulWidget {
+  final User user;
+  Diet(this.user);
   @override
   _DietState createState() => _DietState();
 }
@@ -30,7 +33,7 @@ class _DietState extends State<Diet> {
           data: Theme.of(context).copyWith(
             canvasColor: Colors.white.withAlpha(200),
           ),
-          child: NavigationBar(index),
+          child: NavigationBar(index,widget.user),
         ),
         body: ListView(
           children: [],

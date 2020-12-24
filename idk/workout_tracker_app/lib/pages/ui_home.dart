@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:workout_tracker_app/user_data.dart';
+import '../src/user.dart';
 import 'package:workout_tracker_app/navigation.dart';
-import 'package:workout_tracker_app/pages/ui_signin.dart';
 //import '../src/model.dart';
 
 class Home extends StatefulWidget {
@@ -13,8 +12,7 @@ class _HomeState extends State<Home> {
   int index = 0;
   @override
   Widget build(BuildContext context) {
-    // final UserDetails object = ModalRoute.of(context).settings.arguments;
-     userDetails.setUserDetails();
+    final User user = ModalRoute.of(context).settings.arguments;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFF141414),
@@ -23,24 +21,25 @@ class _HomeState extends State<Home> {
           title: Text("Home"),
           actions: [
             Padding(
-                padding: EdgeInsets.only(right: 20.0),
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Icon(Icons.dehaze_rounded),
-                ),),
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: Icon(Icons.dehaze_rounded),
+              ),
+            ),
           ],
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
             canvasColor: Colors.white.withAlpha(200),
           ),
-          child: NavigationBar(index),
+          child: NavigationBar(index,user),
         ),
         body: ListView(
           children: [
             SizedBox(height: 20),
             Text(
-              'Hey ${userDetails.username} \nExplore your Daily Routines',
+              'Hey ${user.username} \nExplore your Daily Routines',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 25,

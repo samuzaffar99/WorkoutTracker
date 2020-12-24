@@ -15,41 +15,13 @@ void start() async {
     '/:username',
     [
       (ServRequest req, ServResponse res) async {
-        //print(request.response);
         final user = await driverColl
             .findOne(where.eq('username', req.params['username']));
-        print('You are inside drivers $user');
-        // if (driver == null) {
-        //   // final driver =
-        //   //     await driverColl.findOne(where.eq('username', 'default'));
-        //   // return res.status(200).json(
-        //   //   {'driver': driver},
-        //   // );
-        //   return null;
-        // }
-        // //where.eq('name', name)
-        return res.status(200).json(
-          {'user': user},
-        );
+        print('You are inside get $user');
+        return res.status(200).json(user);
       },
     ],
   );
-
-  // serv.get(
-  //   '/:password',
-  //   [
-  //     (ServRequest req, ServResponse res) async {
-  //       //print(request.response);
-  //       final drivers = await driverColl
-  //           .findOne(where.eq('password', req.params['password']));
-  //       //print("You are inside drivers $drivers");
-  //       //where.eq('name', name)
-  //       return res.status(200).json(
-  //         {'driver': drivers},
-  //       );
-  //     },
-  //   ],
-  // );
 
   serv.post(
     '/',
@@ -58,13 +30,7 @@ void start() async {
         await driverColl.save(req.body);
         return res.status(200).json(
               await driverColl.findOne(
-                where.eq(
-                  'username', req.body['username'],
-                  // 'password',
-                  // req.body['password'],
-                ),
-              ),
-            );
+                where.eq('username', req.body['username'])));
       },
     ],
   );
