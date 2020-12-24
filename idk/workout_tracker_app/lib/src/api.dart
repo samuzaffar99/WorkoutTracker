@@ -20,48 +20,15 @@ class Api {
     return Driver.fromJson(response.data['driver']);
   }
 
-  Future<Users> getUsers(String username) async {
+  Future<Users> getUser(String username) async {
     print('await done');
     final response = await _dio.get('/$username');
-    if (response.data['driver'] == null) {
-      print("im here");
+    if (response.data['user'] == null) {
+      print("nahi mila");
       return null;
     }
-    return Users.fromJson(response.data['driver']);
+    return Users.fromJson(response.data['user']);
   }
-
-  Future<Driver> getPassword(String password) async {
-    final response = await _dio.get('/$password');
-    return Driver.fromJson(response.data['driver']);
-  }
-
-  // Future<Driver> getDriver(String un, String pw) async {
-  //   //print('...inside getDrivers()');
-  //   final response = await getDrivers();
-  //   //print('...response $response');
-  //   for (int i = 0; i < response.length; i++) {
-  //     if (response[i].name == un) {
-  //       return response[i];
-  //     }
-  //   }
-  //   return null;
-  // }
-
-  //   Future<Driver> getDriver(String un, String pw) async {
-  //   //print('...inside getDrivers()');
-  //   final response = await _dio.get('');
-  //   //print('...response $response');
-  //   return (response.data['driver'] as List)
-  //       .map<Driver>((json) => Driver.fromJson(json))
-  //       .toList(); ;
-  //   //print('...response $response');
-  //   for (int i = 0; i < response.length; i++) {
-  //     if (response[i].name == un) {
-  //       return response[i];
-  //     }
-  //   }
-  //   return null;
-  // }
 
   Future<Driver> postDriver(Driver driver) async {
     String toJson = jsonEncode(driver);

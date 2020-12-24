@@ -18,31 +18,33 @@ UserDetails userDetails;
 class _SignInState extends State<SignIn> {
   String username;
   String password;
-  Driver drivers;
+  Users user;
   bool check = true;
   var _formKey = GlobalKey<FormState>();
   final Api _api = Api();
 
   Future<bool> _loginUser() async {
-    await widget._api.getDriver(username).then((value) {
-      print("value is $value");
+    await widget._api.getUser(username).then((value) {
+      //print(value.username);
       setState(
         () {
-          drivers = value;
-          print('...$value');
+          user = value;
+          print('...${value.username}');
         },
       );
     });
-    if (drivers == null) {
+    if (user == null) {
       return false;
     } else {
-      if (drivers.password == password) {
+      if (user.password == password) {
         return true;
       } else {
         return false;
       }
     }
   }
+
+  Users users(Users value) => user = value;
 
   @override
   Widget build(BuildContext context) {
@@ -115,10 +117,12 @@ class _SignInState extends State<SignIn> {
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "Username cannot be left blank";
-                                } else if (check == false && drivers == null) {
-                                  setState(() {
-                                    check = true;
-                                  },);
+                                } else if (check == false && user == null) {
+                                  setState(
+                                    () {
+                                      check = true;
+                                    },
+                                  );
                                   return "Username is incorrect";
                                 }
                                 return null;
@@ -160,8 +164,8 @@ class _SignInState extends State<SignIn> {
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return "Password cannot be left blank";
-                                } else if (check == false && drivers != null) {
-                                  print(drivers.username);
+                                } else if (check == false && user != null) {
+                                  print(user.username);
                                   setState(() {
                                     check = true;
                                   });

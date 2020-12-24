@@ -16,9 +16,9 @@ void start() async {
     [
       (ServRequest req, ServResponse res) async {
         //print(request.response);
-        final driver = await driverColl
+        final user = await driverColl
             .findOne(where.eq('username', req.params['username']));
-        print('You are inside drivers $driver');
+        print('You are inside drivers $user');
         // if (driver == null) {
         //   // final driver =
         //   //     await driverColl.findOne(where.eq('username', 'default'));
@@ -29,7 +29,7 @@ void start() async {
         // }
         // //where.eq('name', name)
         return res.status(200).json(
-          {'driver': driver},
+          {'user': user},
         );
       },
     ],

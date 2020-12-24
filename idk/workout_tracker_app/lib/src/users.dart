@@ -1,67 +1,71 @@
 class Users {
-  Id iId;
-  String username;
-  String password;
-  String email;
-  String gender;
-  String birthdate;
-  Stats stats;
-  Goals goals;
-  Workoutplan workoutplan;
-  Dietplan dietplan;
+  final Id iId;
+  final String username;
+  final String password;
+  final String email;
+  final String gender;
+  final String birthdate;
+  final Stats stats;
+  final Goals goals;
+  final Workoutplan workoutplan;
+  final Dietplan dietplan;
 
-  Users(
+  const Users._(
       {this.iId,
-        this.username,
-        this.password,
-        this.email,
-        this.gender,
-        this.birthdate,
-        this.stats,
-        this.goals,
-        this.workoutplan,
-        this.dietplan});
+      this.username,
+      this.password,
+      this.email,
+      this.gender,
+      this.birthdate,
+      this.stats,
+      this.goals,
+      this.workoutplan,
+      this.dietplan});
 
-  Users.fromJson(Map<String, dynamic> json) {
-    iId = json['_id'] != null ? new Id.fromJson(json['_id']) : null;
-    username = json['username'];
-    password = json['password'];
-    email = json['email'];
-    gender = json['gender'];
-    birthdate = json['birthdate'];
-    stats = json['stats'] != null ? new Stats.fromJson(json['stats']) : null;
-    goals = json['goals'] != null ? new Goals.fromJson(json['goals']) : null;
-    workoutplan = json['workoutplan'] != null
-        ? new Workoutplan.fromJson(json['workoutplan'])
-        : null;
-    dietplan = json['dietplan'] != null
-        ? new Dietplan.fromJson(json['dietplan'])
-        : null;
+  factory Users.fromJson(Map json) {
+    return Users._(
+      iId: json['_id'],
+      username: json['username'],
+      password: json['password'],
+      email: json['email'],
+      gender: json['gender'],
+      birthdate: json['birthdate'],
+      stats: json['stats'],
+      goals: json['goals'],
+      workoutplan: json['workoutplan'],
+      dietplan: json['dietplan'],
+    );
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.iId != null) {
-      data['_id'] = this.iId.toJson();
-    }
-    data['username'] = this.username;
-    data['password'] = this.password;
-    data['email'] = this.email;
-    data['gender'] = this.gender;
-    data['birthdate'] = this.birthdate;
-    if (this.stats != null) {
-      data['stats'] = this.stats.toJson();
-    }
-    if (this.goals != null) {
-      data['goals'] = this.goals.toJson();
-    }
-    if (this.workoutplan != null) {
-      data['workoutplan'] = this.workoutplan.toJson();
-    }
-    if (this.dietplan != null) {
-      data['dietplan'] = this.dietplan.toJson();
-    }
-    return data;
+  Map toJson() {
+    return {
+      // '_id': iId.toJson(),
+      'username': username,
+      'password': password,
+    };
+    // final Map data = new Map();
+    // if (this.iId !null) {
+    //   data['_id'] = this.iId.toJson();
+    // }=
+    // data['username'] = this.username;
+    // data['password'] = this.password;
+    // data['email'] = this.email;
+    // data['gender'] = this.gender;
+    // data['birthdate'] = this.birthdate;
+    // if (this.stats != null) {
+    //   data['stats'] = this.stats.toJson();
+    // }
+    // if (this.goals != null) {
+    //   data['goals'] = this.goals.toJson();
+    // }
+    // if (this.workoutplan != null) {
+    //   data['workoutplan'] = this.workoutplan.toJson();
+    // }
+    // if (this.dietplan != null) {
+    //   data['dietplan'] = this.dietplan.toJson();
+    // }
+    // print("im here");
+    // return data;
   }
 }
 

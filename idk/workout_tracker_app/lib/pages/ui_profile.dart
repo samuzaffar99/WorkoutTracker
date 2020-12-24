@@ -36,7 +36,9 @@ class _ProfileState extends State<Profile> {
             SizedBox(height: 5),
             Row(
               children: [
-                SizedBox(width: 20,),
+                SizedBox(
+                  width: 20,
+                ),
                 CircleAvatar(
                   radius: 52.5,
                   backgroundColor: Colors.white,
@@ -45,7 +47,9 @@ class _ProfileState extends State<Profile> {
                     backgroundImage: AssetImage('assets/images/logo.png'),
                   ),
                 ),
-                SizedBox(width: 10,),
+                SizedBox(
+                  width: 10,
+                ),
                 Text(
                   "${userDetails.username} ",
                   textAlign: TextAlign.center,
@@ -81,7 +85,7 @@ class _ProfileState extends State<Profile> {
                           children: [
                             Container(
                               height: 75,
-                              width: 100,
+                              width: 95,
                               child: Card(
                                 color: Colors.grey[300],
                                 elevation: 4,
@@ -97,8 +101,7 @@ class _ProfileState extends State<Profile> {
                                               text:
                                                   "${userDetails.weight} kg\n",
                                               style: TextStyle(
-                                                  fontWeight:
-                                                      FontWeight.bold)),
+                                                  fontWeight: FontWeight.bold)),
                                           TextSpan(
                                             text: "Weight",
                                           )
@@ -109,7 +112,7 @@ class _ProfileState extends State<Profile> {
                             ),
                             Container(
                               height: 75,
-                              width: 100,
+                              width: 95,
                               child: Card(
                                 color: Colors.grey[300],
                                 elevation: 4,
@@ -124,8 +127,7 @@ class _ProfileState extends State<Profile> {
                                           TextSpan(
                                               text: "15.0 %\n",
                                               style: TextStyle(
-                                                  fontWeight:
-                                                      FontWeight.bold)),
+                                                  fontWeight: FontWeight.bold)),
                                           TextSpan(
                                             text: "BodyFat",
                                           )
@@ -136,7 +138,7 @@ class _ProfileState extends State<Profile> {
                             ),
                             Container(
                               height: 75,
-                              width: 100,
+                              width: 95,
                               child: Card(
                                 color: Colors.grey[300],
                                 elevation: 4,
@@ -151,8 +153,7 @@ class _ProfileState extends State<Profile> {
                                           TextSpan(
                                               text: "22.0\n",
                                               style: TextStyle(
-                                                  fontWeight:
-                                                      FontWeight.bold)),
+                                                  fontWeight: FontWeight.bold)),
                                           TextSpan(
                                             text: "BMI",
                                           )
@@ -183,7 +184,7 @@ class _ProfileState extends State<Profile> {
                           children: [
                             Container(
                               height: 75,
-                              width: 100,
+                              width: 95,
                               child: Card(
                                 color: Colors.grey[300],
                                 elevation: 4,
@@ -199,8 +200,7 @@ class _ProfileState extends State<Profile> {
                                               text:
                                                   "${userDetails.weight} kg\n",
                                               style: TextStyle(
-                                                  fontWeight:
-                                                      FontWeight.bold)),
+                                                  fontWeight: FontWeight.bold)),
                                           TextSpan(
                                             text: "Weight",
                                           )
@@ -211,7 +211,7 @@ class _ProfileState extends State<Profile> {
                             ),
                             Container(
                               height: 75,
-                              width: 100,
+                              width: 95,
                               child: Card(
                                 color: Colors.grey[300],
                                 elevation: 4,
@@ -226,8 +226,7 @@ class _ProfileState extends State<Profile> {
                                           TextSpan(
                                               text: "15.0 %\n",
                                               style: TextStyle(
-                                                  fontWeight:
-                                                      FontWeight.bold)),
+                                                  fontWeight: FontWeight.bold)),
                                           TextSpan(
                                             text: "BodyFat",
                                           )
@@ -238,7 +237,7 @@ class _ProfileState extends State<Profile> {
                             ),
                             Container(
                               height: 75,
-                              width: 100,
+                              width: 95,
                               child: Card(
                                 color: Colors.grey[300],
                                 elevation: 4,
@@ -253,8 +252,7 @@ class _ProfileState extends State<Profile> {
                                           TextSpan(
                                               text: "      22\n",
                                               style: TextStyle(
-                                                  fontWeight:
-                                                      FontWeight.bold)),
+                                                  fontWeight: FontWeight.bold)),
                                           TextSpan(
                                             text: "Days Rem",
                                           )
