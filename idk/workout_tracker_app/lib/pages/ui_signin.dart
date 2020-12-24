@@ -6,6 +6,7 @@ import 'package:workout_tracker_app/user_data.dart';
 import '../src/api.dart';
 import '../src/model.dart';
 import '../src/user.dart';
+import 'package:crypt/crypt.dart';
 
 class SignIn extends StatefulWidget {
   final Api _api = Api();
@@ -34,13 +35,22 @@ class _SignInState extends State<SignIn> {
       print('user null');
       return false;
     } else {
-      if (user.password == password) {
+      print(Crypt(user.password));
+      print(password);
+      if (Crypt(user.password).match(password)) {
         print('...returning true');
         return true;
       } else {
         print('...returning false');
         return false;
       }
+      // if (user.password == password) {
+      //   print('...returning true');
+      //   return true;
+      // } else {
+      //   print('...returning false');
+      //   return false;
+      // }
     }
   }
 

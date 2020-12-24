@@ -167,10 +167,10 @@ tags[sugar,lactose,sodium]
 
 {
     "name": "Banana",
-    "carbs": 31,
+    "carbs": 31.3,
     "protein": 1.5,
     "fat": 0.4,
-    "calories": 136,
+    "calories": 136.0,
     "tags": [
         "sugar",
         "fruit"

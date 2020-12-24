@@ -6,6 +6,7 @@ import '../src/api.dart';
 import '../src/user.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/services.dart';
+import 'package:crypt/crypt.dart';
 
 class Details extends StatefulWidget {
   String username;
@@ -30,7 +31,7 @@ class _DetailsState extends State<Details> {
     User useree = User.fromJson(
       {
         'username': widget.username,
-        'password': widget.password,
+        'password': Crypt.sha512(widget.password).toString(),
         'email': widget.email,
         'gender': gender,
         'birthdate': date,
@@ -65,7 +66,7 @@ class _DetailsState extends State<Details> {
     );
       widget._api.postUser(useree).then(
         (value) {
-          print(value.username);
+          print('${value.username} is now registered');
         },
       );
       return;
@@ -92,7 +93,7 @@ class _DetailsState extends State<Details> {
   // }
 
   String selectGender;
-  DateTime selectedDate = null;
+  DateTime selectedDate;
   var myFormat = DateFormat('dd/MM/yyyy');
   var myController;
 
