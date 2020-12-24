@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
+import '../src/user.dart';
 
 class Settings extends StatefulWidget {
+  final User user;
+  Settings(this.user);
   @override
   _SettingsState createState() => _SettingsState();
 }
@@ -30,7 +33,7 @@ class _SettingsState extends State<Settings> {
           data: Theme.of(context).copyWith(
             canvasColor: Colors.white.withAlpha(200),
           ),
-          child: NavigationBar(index),
+          child: NavigationBar(index,widget.user),
         ),
         body: Column(
           children: [

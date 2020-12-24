@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_details.dart';
 import '../src/api.dart';
+import '../src/user.dart';
 import '../src/model.dart';
 
 class SignUp extends StatefulWidget {
@@ -16,21 +17,21 @@ class _SignUpState extends State<SignUp> {
   bool checku = true;
   bool checkm = true;
   var _formKey = GlobalKey<FormState>();
-  Driver drivers;
+  User user;
 
   Future<bool> _signupUser() async {
-    await widget._api.getDriver(username).then(
+    await widget._api.getUser(username).then(
       (value) {
         print("value is $value");
         setState(
           () {
-            drivers = value;
+            user = value;
             print('...$value');
           },
         );
       },
     );
-    if (drivers == null) {
+    if (user == null) {
       return true;
     } else {
       return false;
@@ -38,18 +39,18 @@ class _SignUpState extends State<SignUp> {
   }
 
   Future<bool> _signupMail() async {
-    await widget._api.getDriver(email).then(
+    await widget._api.getUser(email).then(
       (value) {
         print("value is $value");
         setState(
           () {
-            drivers = value;
+            user = value;
             print('...$value');
           },
         );
       },
     );
-    if (drivers == null) {
+    if (user == null) {
       return true;
     } else {
       return false;

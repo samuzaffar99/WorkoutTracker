@@ -2,10 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9be83c22-38f8-4b74-a646-dd231fffd7d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/src/user.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/navigation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_diet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_diet.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_goals.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_goals.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_log.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_log.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_settings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_signin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_signin.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_signup.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_signup.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_workout.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/pages/ui_workout.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/src/api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/src/api.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/src/users.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../workout_tracker_app/lib/user_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../workout_tracker_app/lib/user_data.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
