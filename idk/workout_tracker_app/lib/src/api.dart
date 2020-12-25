@@ -38,7 +38,7 @@ class Api {
     return response.data;
   }
 
-  Future<Map> getExerciseInfo(String exid) async {
+  Future<Map> getExercise(String exid) async {
     final response = await _dio.get('/exercise/_id/$exid');
     return response.data;
   }

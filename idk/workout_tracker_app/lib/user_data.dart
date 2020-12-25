@@ -30,7 +30,7 @@ Future<Map> getWorkout(String wid) async {
   return workoutDetails;
 }
 
-Future<Map> getExerciseInfo(String exid) async {
+Future<Map> getExercise(String exid) async {
   var db = await mongo.Db.create(
       "mongodb+srv://Admin:admin@cluster0.ejodh.mongodb.net/WorkoutTracker");
   var currentExercise = db.collection('exercise');

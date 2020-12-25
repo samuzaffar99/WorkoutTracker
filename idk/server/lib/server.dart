@@ -56,19 +56,20 @@ void start() async {
   );
 
   serv.get(
-    'exercise/_id/:exid',
+    '/exercise/_id/:exid',
     [
           (ServRequest req, ServResponse res) async {
         final exercise = await exerciseColl
             .findOne(where.id(ObjectId.fromHexString(req.params['exid'])));
         print('You are inside get $exercise');
+        print(res);
         return res.status(200).json(exercise);
       },
     ],
   );
 
   serv.get(
-    'workout/_id/:wid',
+    '/workout/_id/:wid',
     [
           (ServRequest req, ServResponse res) async {
         final workout = await workoutColl
