@@ -24,12 +24,22 @@ class _WorkoutState extends State<Workout> {
               ),
             );
           } else {
+            String wday = "Tuesday";
+            int dindex = 0;
+            for (var i = 0; i < snapshot.data["days"].length; i++) {
+              if (snapshot.data["days"][i]["day"] == wday) {
+                print(snapshot.data["days"][i]["day"]);
+                dindex = i;
+                break;
+              }
+            }
             //print(snapshot);
             print(snapshot.data);
-            print(snapshot.data["days"][0]["routine"][0]["exid"].toString());
+            print(
+                snapshot.data["days"][dindex]["routine"][0]["exid"].toString());
             print(snapshot.data["days"].runtimeType);
             print(
-                'Num exercises: ${snapshot.data["days"][0]["routine"].length}');
+                'Num exercises: ${snapshot.data["days"][dindex]["routine"].length}');
             return Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -37,7 +47,7 @@ class _WorkoutState extends State<Workout> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        snapshot.data["days"][0]["day"],
+                        snapshot.data["days"][dindex]["day"],
                         style: TextStyle(color: Colors.white),
                       ),
 
@@ -46,12 +56,12 @@ class _WorkoutState extends State<Workout> {
                   ),
                   Expanded(
                     child: ListView.builder(
-                        itemCount: snapshot.data["days"][1]["routine"].length,
+                        itemCount: snapshot.data["days"][dindex]["routine"].length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           print(index);
                           var currentItem =
-                              snapshot.data["days"][1]["routine"][index];
+                              snapshot.data["days"][dindex]["routine"][index];
                           print(
                               'ExerciseId: ${currentItem["exid"].toHexString()}');
                           return Card(
@@ -82,7 +92,8 @@ class _WorkoutState extends State<Workout> {
                                               return Column(
                                                 children: [
                                                   Text(snapshot.data["name"]),
-                                                  if (snapshot.data["info"]!=null)
+                                                  if (snapshot.data["info"] !=
+                                                      null)
                                                     Text(snapshot.data["info"]),
                                                   ListView.builder(
                                                       itemCount:
@@ -106,7 +117,8 @@ class _WorkoutState extends State<Workout> {
                                               return Column(
                                                 children: [
                                                   Text(snapshot.data["name"]),
-                                                  if (snapshot.data["info"]!=null)
+                                                  if (snapshot.data["info"] !=
+                                                      null)
                                                     Text(snapshot.data["info"]),
                                                   ListView.builder(
                                                       itemCount:
