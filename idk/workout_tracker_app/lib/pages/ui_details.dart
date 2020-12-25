@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:workout_tracker_app/pages/ui_goals.dart';
 import '../src/user.dart';
 import '../src/api.dart';
-import '../src/user.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:crypt/crypt.dart';
@@ -72,25 +71,6 @@ class _DetailsState extends State<Details> {
       return;
   }
 
-  // void _registerUser() {
-  //   Driver newDriver = Driver.fromJson(
-  //     {
-  //       'username': widget.username,
-  //       'password': widget.password,
-  //       'email': widget.email,
-  //       'gender': gender,
-  //       'weight': weight,
-  //       'height': height,
-  //       'date': myFormat.format(selectedDate).toString(),
-  //     },
-  //   );
-  //   widget._api.postDriver(newDriver).then(
-  //     (value) {
-  //       //print(value.username);
-  //     },
-  //   );
-  //   return;
-  // }
 
   String selectGender;
   DateTime selectedDate;

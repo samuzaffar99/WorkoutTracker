@@ -10,16 +10,6 @@ class Api {
     BaseOptions(baseUrl: 'http://localhost:3000/'),
   );
 
-  Future<Driver> getDriver(String username) async {
-    print('await done');
-    final response = await _dio.get('/$username');
-    if (response.data['driver'] == null) {
-      print("im here");
-      return null;
-    }
-    return Driver.fromJson(response.data['driver']);
-  }
-
   Future<User> getUser(String username) async {
     print('await done');
     final response = await _dio.get('/$username');
@@ -28,10 +18,10 @@ class Api {
     // if (response == null) {
     //   return null;
     // }
-    if (response.data!=null)
-      {
-        return User.fromJson(response.data);
-      }
+    if (response.data != null) {
+      return User.fromJson(response.data);
+    }
+    return null;
   }
 
   Future<User> postUser(User user) async {
@@ -43,12 +33,22 @@ class Api {
     // return response.statusCode;
   }
 
-  Future<Driver> postDriver(Driver driver) async {
-    String toJson = jsonEncode(driver);
-    //print("to json...$toJson");
-    final response = await _dio.post('', data: toJson);
-    //print("response...$response");
-    return Driver.fromJson(response.data);
-    // return response.statusCode;
-  }
+  // Future<Driver> getDriver(String username) async {
+  //   print('await done');
+  //   final response = await _dio.get('/$username');
+  //   if (response.data['driver'] == null) {
+  //     print("im here");
+  //     return null;
+  //   }
+  //   return Driver.fromJson(response.data['driver']);
+  // }
+//
+//   Future<Driver> postDriver(Driver driver) async {
+//     String toJson = jsonEncode(driver);
+//     //print("to json...$toJson");
+//     final response = await _dio.post('', data: toJson);
+//     //print("response...$response");
+//     return Driver.fromJson(response.data);
+//     // return response.statusCode;
+//   }
 }

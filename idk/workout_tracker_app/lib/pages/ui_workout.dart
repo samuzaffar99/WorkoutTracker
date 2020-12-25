@@ -75,7 +75,12 @@ class _WorkoutState extends State<Workout> {
                                         );
                                       } else {
                                         print(snapshot.data);
-                                        return Text(snapshot.data["name"]);
+                                        return Column(
+                                          children: [
+                                            Text(snapshot.data["name"]),
+                                            //Text(snapshot.data["info"]),
+                                          ],
+                                        );
                                       }
                                     }),
                                 ListView.builder(
@@ -88,7 +93,7 @@ class _WorkoutState extends State<Workout> {
                                       print(index2);
                                       var currentItem2 =
                                           currentItem["reps"][index2];
-                                      return Text("Reps: ${currentItem2}");
+                                      return Text("Reps: $currentItem2");
                                     }),
                               ]));
                         }),

@@ -20,8 +20,12 @@ class _NavigationBarState extends State<NavigationBar> {
       currentIndex: widget.index,
       onTap: (int i) {
         setState(
-              () {
-            widget.index = i;
+          () {
+            if (widget.index == i) {
+              //do nothing
+              return;
+            } else
+              widget.index = i;
             if (widget.index == 0) {
               Navigator.pop(context);
               Navigator.pushNamed(context, 'Home', arguments: widget.user);
@@ -78,11 +82,11 @@ class _NavigationBarState extends State<NavigationBar> {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon:  Icon(Icons.local_dining),
+          icon: Icon(Icons.local_dining),
           label: 'Diet',
         ),
         BottomNavigationBarItem(
-          icon:  Icon(Icons.fitness_center),
+          icon: Icon(Icons.fitness_center),
           label: 'Workout',
         ),
         BottomNavigationBarItem(

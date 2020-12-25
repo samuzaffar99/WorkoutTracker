@@ -27,7 +27,7 @@ class _SignInState extends State<SignIn> {
       setState(
         () {
           user = value;
-          print('set state ${value}');
+          print('set state $value');
         },
       );
     });

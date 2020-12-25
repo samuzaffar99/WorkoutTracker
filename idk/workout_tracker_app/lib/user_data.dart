@@ -5,7 +5,7 @@ import 'package:mongo_dart/mongo_dart.dart' as mongo;
 
 class UserDetails {
   final Api _api = Api();
-  Driver drivers;
+  // Driver drivers;
   String username;
   // String password;
   // String email;
@@ -16,16 +16,16 @@ class UserDetails {
 
   UserDetails({this.username});
 
-  setUserDetails() async {
-    await _api.getDriver(username).then(
-      (value) {
-        //gender = value.gender;
-        // weight = value.weight;
-        // height = value.height;
-        // date = value.date;
-      },
-    );
-  }
+//   setUserDetails() async {
+//     await _api.getDriver(username).then(
+//       (value) {
+//         //gender = value.gender;
+//         // weight = value.weight;
+//         // height = value.height;
+//         // date = value.date;
+//       },
+//     );
+//   }
 }
 
 Future<Map> getUserInfo(String user) async {
