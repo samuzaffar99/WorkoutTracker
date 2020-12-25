@@ -12,7 +12,7 @@ class Api {
 
   Future<User> getUser(String username) async {
     print('await done');
-    final response = await _dio.get('/$username');
+    final response = await _dio.get('/user/username/$username');
     print('out response');
     //print('....${response.data['username']}');
     // if (response == null) {

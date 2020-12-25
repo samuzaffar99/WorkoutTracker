@@ -3,31 +3,6 @@ import 'src/api.dart';
 import 'src/model.dart';
 import 'package:mongo_dart/mongo_dart.dart' as mongo;
 
-class UserDetails {
-  final Api _api = Api();
-  // Driver drivers;
-  String username;
-  // String password;
-  // String email;
-  //String gender;
-  // String weight;
-  // String height;
-  // String date;
-
-  UserDetails({this.username});
-
-//   setUserDetails() async {
-//     await _api.getDriver(username).then(
-//       (value) {
-//         //gender = value.gender;
-//         // weight = value.weight;
-//         // height = value.height;
-//         // date = value.date;
-//       },
-//     );
-//   }
-}
-
 Future<Map> getUserInfo(String user) async {
   var db = await mongo.Db.create(
       "mongodb+srv://Admin:admin@cluster0.ejodh.mongodb.net/WorkoutTracker");
