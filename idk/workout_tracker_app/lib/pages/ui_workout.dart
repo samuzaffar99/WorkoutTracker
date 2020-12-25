@@ -38,8 +38,6 @@ class _WorkoutState extends State<Workout> {
             }
             print(snapshot.data);
             print(
-                snapshot.data["days"][dindex]["routine"][0]["exid"].runtimeType);
-            print(
                 'Num exercises: ${snapshot.data["days"][dindex]["routine"].length}');
             return Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -72,10 +70,10 @@ class _WorkoutState extends State<Workout> {
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                 Text(
-                                    'ExerciseId : ${currentItem["exid"]}'),
+                                    'ExerciseId : ${currentItem["exid"].substring(10,34)}'),
                                 FutureBuilder(
                                     future: _api.getExercise(
-                                        currentItem["exid"].toHexString()),
+                                        currentItem["exid"].substring(10,34)),
                                     builder:
                                         (buildContext, AsyncSnapshot snapshot) {
                                       if (snapshot.hasError) {
