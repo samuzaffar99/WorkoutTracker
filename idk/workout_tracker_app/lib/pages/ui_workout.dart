@@ -52,7 +52,8 @@ class _WorkoutState extends State<Workout> {
                           print(index);
                           var currentItem =
                               snapshot.data["days"][1]["routine"][index];
-                          print('ExerciseId: ${currentItem["exid"].toHexString()}');
+                          print(
+                              'ExerciseId: ${currentItem["exid"].toHexString()}');
                           return Card(
                               child: Column(
                                   mainAxisAlignment:
@@ -61,8 +62,8 @@ class _WorkoutState extends State<Workout> {
                                 Text(
                                     'ExerciseId : ${currentItem["exid"].toHexString()}'),
                                 FutureBuilder(
-                                    future:
-                                        getExerciseInfo(currentItem["exid"].toHexString()),
+                                    future: getExerciseInfo(
+                                        currentItem["exid"].toHexString()),
                                     builder:
                                         (buildContext, AsyncSnapshot snapshot) {
                                       if (snapshot.hasError) {
@@ -75,26 +76,72 @@ class _WorkoutState extends State<Workout> {
                                         );
                                       } else {
                                         print(snapshot.data);
-                                        return Column(
-                                          children: [
-                                            Text(snapshot.data["name"]),
-                                            //Text(snapshot.data["info"]),
-                                          ],
-                                        );
+                                        switch (snapshot.data["category"]) {
+                                          case "strength":
+                                            {
+                                              return Column(
+                                                children: [
+                                                  Text(snapshot.data["name"]),
+                                                  if (snapshot.data["info"]!=null)
+                                                    Text(snapshot.data["info"]),
+                                                  ListView.builder(
+                                                      itemCount:
+                                                          currentItem["reps"]
+                                                              .length,
+                                                      shrinkWrap: true,
+                                                      itemBuilder:
+                                                          (context, index2) {
+                                                        print(index2);
+                                                        var currentItem2 =
+                                                            currentItem["reps"]
+                                                                [index2];
+                                                        return Text(
+                                                            "Reps: $currentItem2");
+                                                      }),
+                                                ],
+                                              );
+                                            }
+                                          case "endurance":
+                                            {
+                                              return Column(
+                                                children: [
+                                                  Text(snapshot.data["name"]),
+                                                  if (snapshot.data["info"]!=null)
+                                                    Text(snapshot.data["info"]),
+                                                  ListView.builder(
+                                                      itemCount:
+                                                          currentItem["dur"]
+                                                              .length,
+                                                      shrinkWrap: true,
+                                                      itemBuilder:
+                                                          (context, index2) {
+                                                        print(index2);
+                                                        var currentItem2 =
+                                                            currentItem["dur"]
+                                                                [index2];
+                                                        return Text(
+                                                            "Duration: $currentItem2");
+                                                      }),
+                                                ],
+                                              );
+                                            }
+                                        }
+                                        return Text(
+                                            "Invalid Exercise Category!");
                                       }
                                     }),
-                                ListView.builder(
-                                    itemCount: snapshot
-                                        .data["days"][1]["routine"][index]
-                                            ["reps"]
-                                        .length,
-                                    shrinkWrap: true,
-                                    itemBuilder: (context, index2) {
-                                      print(index2);
-                                      var currentItem2 =
-                                          currentItem["reps"][index2];
-                                      return Text("Reps: $currentItem2");
-                                    }),
+                                // ListView.builder(
+                                //     itemCount: snapshot
+                                //         .data["days"][1]["routine"][index]
+                                //             ["reps"]
+                                //         .length,
+                                //     shrinkWrap: true,
+                                //     itemBuilder: (context, index2) {
+                                //       print(index2);
+                                //       var currentItem2 =
+                                //           currentItem["reps"][index2];
+                                //       return Text("Reps: $currentItem2");
+                                //     }),
                               ]));
                         }),
                   )
@@ -123,7 +170,7 @@ class _WorkoutState extends State<Workout> {
           data: Theme.of(context).copyWith(
             canvasColor: Colors.white.withAlpha(200),
           ),
-          child: NavigationBar(index,widget.user),
+          child: NavigationBar(index, widget.user),
         ),
         body: Column(
           children: [
