@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
-import 'package:workout_tracker_app/user_data.dart';
+//import 'package:workout_tracker_app/user_data.dart';
 import '../src/user.dart';
+import '../src/api.dart';
 
 class Workout extends StatefulWidget {
   final User user;
+
   Workout(this.user);
   @override
   _WorkoutState createState() => _WorkoutState();
 }
 
 class _WorkoutState extends State<Workout> {
+  final Api _api = Api();
   Widget getWorkoutView() {
     return FutureBuilder(
-        future: getWorkout('5fe0732cb271d358089313e4'),
+        future: _api.getWorkout('5fe0732cb271d358089313e4'),
         builder: (buildContext, AsyncSnapshot snapshot) {
           if (snapshot.hasError)
             throw snapshot.error;
@@ -72,7 +75,7 @@ class _WorkoutState extends State<Workout> {
                                 Text(
                                     'ExerciseId : ${currentItem["exid"].toHexString()}'),
                                 FutureBuilder(
-                                    future: getExerciseInfo(
+                                    future: _api.getExerciseInfo(
                                         currentItem["exid"].toHexString()),
                                     builder:
                                         (buildContext, AsyncSnapshot snapshot) {

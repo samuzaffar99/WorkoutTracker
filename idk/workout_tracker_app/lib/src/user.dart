@@ -41,20 +41,6 @@ class User {
       workoutplan: Workoutplan.fromJson(json['workoutplan']),
       dietplan: Dietplan.fromJson(json['dietplan']),
     );
-    // iId = json['_id'] != null ? new Id.fromJson(json['_id']) : null;
-    // username = json['username'];
-    // password = json['password'];
-    // email = json['email'];
-    // gender = json['gender'];
-    // birthdate = json['birthdate'];
-    // stats = json['stats'] != null ? new Stats.fromJson(json['stats']) : null;
-    // goals = json['goals'] != null ? new Goals.fromJson(json['goals']) : null;
-    // workoutplan = json['workoutplan'] != null
-    //     ? new Workoutplan.fromJson(json['workoutplan'])
-    //     : null;
-    // dietplan = json['dietplan'] != null
-    //     ? new Dietplan.fromJson(json['dietplan'])
-    //     : null;
   }
 
   Map toJson() {
@@ -84,28 +70,6 @@ class User {
       },
       "dietplan": {"fat": "12", "protein": "12", "carbs": "12"}
     };
-    //   final Map data = new Map();
-    //   if (this.iId != null) {
-    //     data['_id'] = this.iId.toJson();
-    //   }
-    //   data['username'] = this.username;
-    //   data['password'] = this.password;
-    //   data['email'] = this.email;
-    //   data['gender'] = this.gender;
-    //   data['birthdate'] = this.birthdate;
-    //   if (this.stats != null) {
-    //     data['stats'] = this.stats.toJson();
-    //   }
-    //   if (this.goals != null) {
-    //     data['goals'] = this.goals.toJson();
-    //   }
-    //   if (this.workoutplan != null) {
-    //     data['workoutplan'] = this.workoutplan.toJson();
-    //   }
-    //   if (this.dietplan != null) {
-    //     data['dietplan'] = this.dietplan.toJson();
-    //   }
-    //   return data;
   }
 }
 
@@ -113,10 +77,6 @@ class Id {
   String oid;
 
   Id({this.oid});
-
-  // Id.fromJson(Map json) {
-  //   oid = json['$oid'];
-  // }
 
   factory Id.fromJson(String id) {
     return Id(
@@ -137,11 +97,6 @@ class Stats {
 
   Stats({this.height, this.weight});
 
-  // Stats.fromJson(Map json) {
-  //   height = json['height'];
-  //   weight = json['weight'];
-  // }
-
   factory Stats.fromJson(Map json) {
     return Stats(
       height: json['height'],
@@ -149,12 +104,6 @@ class Stats {
     );
   }
 
-  // Map toJson() {
-  //   final Map data = new Map();
-  //   data['height'] = this.height;
-  //   data['weight'] = this.weight;
-  //   return data;
-  // }
 }
 
 class Goals {
@@ -164,11 +113,6 @@ class Goals {
 
   Goals({this.targetdate, this.weight, this.bodyfat});
 
-  // Goals.fromJson(Map json) {
-  //   targetdate = json['targetdate'];
-  //   weight = json['weight'];
-  //   bodyfat = json['bodyfat'];
-  // }
 
   factory Goals.fromJson(Map json) {
     return Goals(
@@ -178,13 +122,6 @@ class Goals {
     );
   }
 
-  // Map toJson() {
-  //   final Map data = new Map();
-  //   data['targetdate'] = this.targetdate;
-  //   data['weight'] = this.weight;
-  //   data['bodyfat'] = this.bodyfat;
-  //   return data;
-  // }
 }
 
 class Workoutplan {
@@ -193,13 +130,6 @@ class Workoutplan {
 
   Workoutplan({this.days, this.exercisetype});
 
-  // Workoutplan.fromJson(Map json) {
-  //   days = json['days'] != null ? new Days.fromJson(json['days']) : null;
-  //   exercisetype = json['exercisetype'] != null
-  //       ? new Exercisetype.fromJson(json['exercisetype'])
-  //       : null;
-  // }
-
   factory Workoutplan.fromJson(Map json) {
     return Workoutplan(
       days: Days.fromJson(json['days']),
@@ -207,16 +137,6 @@ class Workoutplan {
     );
   }
 
-  // Map toJson() {
-  //   final Map data = new Map();
-  //   if (this.days != null) {
-  //     data['days'] = this.days.toJson();
-  //   }
-  //   if (this.exercisetype != null) {
-  //     data['exercisetype'] = this.exercisetype.toJson();
-  //   }
-  //   return data;
-  // }
 }
 
 class Days {
@@ -242,17 +162,6 @@ class Days {
     );
   }
 
-  // Map toJson() {
-  //   final Map data = new Map();
-  //   data['Mon'] = this.mon;
-  //   data['Tue'] = this.tue;
-  //   data['Wed'] = this.wed;
-  //   data['Thu'] = this.thu;
-  //   data['Fri'] = this.fri;
-  //   data['Sat'] = this.sat;
-  //   data['Sun'] = this.sun;
-  //   return data;
-  // }
 }
 
 class Exercisetype {
@@ -262,12 +171,6 @@ class Exercisetype {
 
   Exercisetype({this.homeexercise, this.powerlifting, this.bodybuilding});
 
-  // Exercisetype.fromJson(Map json) {
-  //   homeexercise = json['homeexercise'];
-  //   powerlifting = json['powerlifting'];
-  //   bodybuilding = json['bodybuilding'];
-  // }
-
   factory Exercisetype.fromJson(Map json) {
     return Exercisetype(
       homeexercise: json['homeexercise'],
@@ -276,13 +179,6 @@ class Exercisetype {
     );
   }
 
-  // Map toJson() {
-  //   final Map data = new Map();
-  //   data['homeexercise'] = this.homeexercise;
-  //   data['powerlifting'] = this.powerlifting;
-  //   data['bodybuilding'] = this.bodybuilding;
-  //   return data;
-  // }
 }
 
 class Dietplan {
@@ -292,12 +188,6 @@ class Dietplan {
 
   Dietplan({this.fat, this.protein, this.carbs});
 
-  // Dietplan.fromJson(Map json) {
-  //   fat = json['fat'];
-  //   protein = json['protein'];
-  //   carbs = json['carbs'];
-  // }
-
   factory Dietplan.fromJson(Map json) {
     return Dietplan(
       fat: json['fat'],
@@ -305,12 +195,4 @@ class Dietplan {
       carbs: json['carbs'],
     );
   }
-
-  // Map toJson() {
-  //   final Map data = new Map();
-  //   data['fat'] = this.fat;
-  //   data['protein'] = this.protein;
-  //   data['carbs'] = this.carbs;
-  //   return data;
-  // }
 }

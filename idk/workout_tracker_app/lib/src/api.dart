@@ -33,22 +33,14 @@ class Api {
     // return response.statusCode;
   }
 
-  // Future<Driver> getDriver(String username) async {
-  //   print('await done');
-  //   final response = await _dio.get('/$username');
-  //   if (response.data['driver'] == null) {
-  //     print("im here");
-  //     return null;
-  //   }
-  //   return Driver.fromJson(response.data['driver']);
-  // }
-//
-//   Future<Driver> postDriver(Driver driver) async {
-//     String toJson = jsonEncode(driver);
-//     //print("to json...$toJson");
-//     final response = await _dio.post('', data: toJson);
-//     //print("response...$response");
-//     return Driver.fromJson(response.data);
-//     // return response.statusCode;
-//   }
+  Future<Map> getWorkout(String wid) async {
+    final response = await _dio.get('/workout/_id/$wid');
+    return response.data;
+  }
+
+  Future<Map> getExerciseInfo(String exid) async {
+    final response = await _dio.get('/exercise/_id/$exid');
+    return response.data;
+  }
 }
+

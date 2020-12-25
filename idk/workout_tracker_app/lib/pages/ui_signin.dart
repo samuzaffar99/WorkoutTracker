@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_home.dart';
-import 'package:workout_tracker_app/user_data.dart';
 import '../src/api.dart';
 import '../src/model.dart';
 import '../src/user.dart';
