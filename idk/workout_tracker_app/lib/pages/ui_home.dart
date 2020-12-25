@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workout_tracker_app/pages/ui_explore_exercises.dart';
 import '../src/user.dart';
 import 'package:workout_tracker_app/navigation.dart';
 //import '../src/model.dart';
@@ -62,12 +63,11 @@ class _HomeState extends State<Home> {
                   minWidth: 275.0,
                   child: OutlineButton(
                     onPressed: () {
-                      Navigator.pop(context);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return;
+                            return ExploreExercises();
                           },
                         ),
                       );
