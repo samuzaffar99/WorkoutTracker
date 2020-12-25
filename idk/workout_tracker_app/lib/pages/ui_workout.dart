@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
-//import 'package:workout_tracker_app/user_data.dart';
 import '../src/user.dart';
 import '../src/api.dart';
 
@@ -14,6 +13,7 @@ class Workout extends StatefulWidget {
 
 class _WorkoutState extends State<Workout> {
   final Api _api = Api();
+  @override
   Widget getWorkoutView() {
     return FutureBuilder(
         future: _api.getWorkout('5fe0732cb271d358089313e4'),
@@ -36,11 +36,9 @@ class _WorkoutState extends State<Workout> {
                 break;
               }
             }
-            //print(snapshot);
             print(snapshot.data);
             print(
-                snapshot.data["days"][dindex]["routine"][0]["exid"].toString());
-            print(snapshot.data["days"].runtimeType);
+                snapshot.data["days"][dindex]["routine"][0]["exid"].runtimeType);
             print(
                 'Num exercises: ${snapshot.data["days"][dindex]["routine"].length}');
             return Column(
@@ -53,29 +51,30 @@ class _WorkoutState extends State<Workout> {
                         snapshot.data["days"][dindex]["day"],
                         style: TextStyle(color: Colors.white),
                       ),
-
-                      //snapshot.data["days"].map((i) => Text(i["day"])).toList(),
                     ],
                   ),
                   Expanded(
                     child: ListView.builder(
-                        itemCount: snapshot.data["days"][dindex]["routine"].length,
+                        itemCount:
+                            snapshot.data["days"][dindex]["routine"].length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           print(index);
                           var currentItem =
                               snapshot.data["days"][dindex]["routine"][index];
                           print(
-                              'ExerciseId: ${currentItem["exid"].toHexString()}');
+                              'ExerciseId: ${currentItem["exid"].runtimeType}');
+                          print(
+                              'ExerciseId: ${currentItem["exid"]}');
                           return Card(
                               child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                 Text(
-                                    'ExerciseId : ${currentItem["exid"].toHexString()}'),
+                                    'ExerciseId : ${currentItem["exid"]}'),
                                 FutureBuilder(
-                                    future: _api.getExerciseInfo(
+                                    future: _api.getExercise(
                                         currentItem["exid"].toHexString()),
                                     builder:
                                         (buildContext, AsyncSnapshot snapshot) {
@@ -145,18 +144,6 @@ class _WorkoutState extends State<Workout> {
                                             "Invalid Exercise Category!");
                                       }
                                     }),
-                                // ListView.builder(
-                                //     itemCount: snapshot
-                                //         .data["days"][1]["routine"][index]
-                                //             ["reps"]
-                                //         .length,
-                                //     shrinkWrap: true,
-                                //     itemBuilder: (context, index2) {
-                                //       print(index2);
-                                //       var currentItem2 =
-                                //           currentItem["reps"][index2];
-                                //       return Text("Reps: $currentItem2");
-                                //     }),
                               ]));
                         }),
                   )
