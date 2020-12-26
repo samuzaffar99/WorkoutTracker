@@ -1,6 +1,8 @@
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:sevr/sevr.dart';
 
+//adb reverse tcp:3000 tcp:3000
+
 void start() async {
   final db = await Db.create(
       'mongodb+srv://Admin:admin@cluster0.ejodh.mongodb.net/WorkoutTracker');

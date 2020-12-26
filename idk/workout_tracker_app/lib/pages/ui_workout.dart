@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
 import '../src/user.dart';
 import '../src/api.dart';
+import 'package:intl/intl.dart';
 
 class Workout extends StatefulWidget {
   final User user;
@@ -13,7 +14,7 @@ class Workout extends StatefulWidget {
 
 class _WorkoutState extends State<Workout> {
   final Api _api = Api();
-  @override
+  //@override
   Widget getWorkoutView() {
     return FutureBuilder(
         future: _api.getWorkout('5fe0732cb271d358089313e4'),
@@ -27,7 +28,7 @@ class _WorkoutState extends State<Workout> {
               ),
             );
           } else {
-            String wday = "Tuesday";
+            String wday = "Tuesday";//var date = DateTime.now();print(DateFormat('EEEE').format(date));
             int dindex = 0;
             for (var i = 0; i < snapshot.data["days"].length; i++) {
               if (snapshot.data["days"][i]["day"] == wday) {

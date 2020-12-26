@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_explore_exercises.dart';
 import '../src/user.dart';
 import 'package:workout_tracker_app/navigation.dart';
-import '../src/model.dart';
+//import '../src/model.dart';
 
 class Home extends StatefulWidget {
   @override

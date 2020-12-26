@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_details.dart';
 import '../src/api.dart';
 import '../src/user.dart';
-import '../src/model.dart';
+//import '../src/model.dart';
 
 class SignUp extends StatefulWidget {
   final Api _api = Api();

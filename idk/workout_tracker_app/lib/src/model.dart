@@ -1,7 +1,7 @@
 import 'package:mongo_dart/mongo_dart.dart';
 
 //food
-class food {
+class Food {
   ObjectId iId;
   String name;
   int carbs;
@@ -10,7 +10,7 @@ class food {
   double calories;
   List<String> tags;
 
-  food(
+  Food(
       {this.iId,
         this.name,
         this.carbs,
@@ -19,7 +19,7 @@ class food {
         this.calories,
         this.tags});
 
-  food.fromJson(Map<String, dynamic> json) {
+  Food.fromJson(Map<String, dynamic> json) {
     iId = json['_id'];
     name = json['name'];
     carbs = json['carbs'];
@@ -46,7 +46,7 @@ class food {
 
 
 //exercise
-class exercise {
+class Exercise {
   ObjectId iId;
   String name;
   String info;
@@ -54,7 +54,7 @@ class exercise {
   int difficulty;
   List<String> target;
 
-  exercise(
+  Exercise(
       {this.iId,
         this.name,
         this.info,
@@ -62,7 +62,7 @@ class exercise {
         this.difficulty,
         this.target});
 
-  exercise.fromJson(Map<String, dynamic> json) {
+  Exercise.fromJson(Map<String, dynamic> json) {
     iId = json['_id'];
     name = json['name'];
     info = json['info'];
@@ -85,7 +85,7 @@ class exercise {
 
 
 //user
-class user {
+class User {
   ObjectId iId;
   String username;
   String hash;
@@ -98,7 +98,7 @@ class user {
   ObjectId currWorkout;
   ObjectId currDiet;
 
-  user(
+  User(
       {this.iId,
         this.username,
         this.hash,
@@ -111,7 +111,7 @@ class user {
         this.currWorkout,
         this.currDiet});
 
-  user.fromJson(Map<String, dynamic> json) {
+  User.fromJson(Map<String, dynamic> json) {
     iId = json['_id'];
     username = json['username'];
     hash = json['hash'];
@@ -184,14 +184,14 @@ class Stats {
 
 class Log {
   String date;
-  Workout workout;
+  WorkoutLog workout;
 
   Log({this.date, this.workout});
 
   Log.fromJson(Map<String, dynamic> json) {
     date = json['date'];
     workout =
-    json['workout'] != null ? new Workout.fromJson(json['workout']) : null;
+    json['workout'] != null ? new WorkoutLog.fromJson(json['workout']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -204,13 +204,13 @@ class Log {
   }
 }
 
-class Workout {
+class WorkoutLog {
   ObjectId wid;
   List<Ex> ex;
 
-  Workout({this.wid, this.ex});
+  WorkoutLog({this.wid, this.ex});
 
-  Workout.fromJson(Map<String, dynamic> json) {
+  WorkoutLog.fromJson(Map<String, dynamic> json) {
     wid = json['wid'];
     if (json['ex'] != null) {
       ex = new List<Ex>();
@@ -256,15 +256,15 @@ class Ex {
 
 
 //workout
-class workout {
+class Workout {
   ObjectId iId;
   String name;
   ObjectId author;
   List<Days> days;
 
-  workout({this.iId, this.name, this.author, this.days});
+  Workout({this.iId, this.name, this.author, this.days});
 
-  workout.fromJson(Map<String, dynamic> json) {
+  Workout.fromJson(Map<String, dynamic> json) {
     iId = json['_id'];
     name = json['name'];
     author = json['author'];
@@ -344,7 +344,7 @@ class Routine {
 
 
 //diet
-class diet {
+class Diet {
   ObjectId iId;
   String name;
   List<int> dist;
@@ -352,7 +352,7 @@ class diet {
   ObjectId author;
   List<Dietdays> dietdays;
 
-  diet(
+  Diet(
       {this.iId,
         this.name,
         this.dist,
@@ -360,7 +360,7 @@ class diet {
         this.author,
         this.dietdays});
 
-  diet.fromJson(Map<String, dynamic> json) {
+  Diet.fromJson(Map<String, dynamic> json) {
     iId = json['_id'];
     name = json['name'];
     dist = json['dist'].cast<int>();
