@@ -57,23 +57,20 @@ class _WorkoutState extends State<Workout> {
                             snapshot.data["days"][dindex]["routine"].length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
-                          print(index);
                           var currentItem =
                               snapshot.data["days"][dindex]["routine"][index];
                           print(
                               'ExerciseId: ${currentItem["exid"].runtimeType}');
-                          print(
-                              'ExerciseId: ${currentItem["exid"]}');
+                          print('ExerciseId: ${currentItem["exid"]}');
                           return Card(
                               child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
-                                Text(
-                                    'ExerciseId : $currentItem["exid"]'),
+                                Text('ExerciseId : ${currentItem["exid"]}'),
                                 FutureBuilder(
-                                    future: _api.getExercise(
-                                        currentItem["exid"]),
+                                    future:
+                                        _api.getExercise(currentItem["exid"]),
                                     builder:
                                         (buildContext, AsyncSnapshot snapshot) {
                                       if (snapshot.hasError) {
@@ -102,7 +99,6 @@ class _WorkoutState extends State<Workout> {
                                                       shrinkWrap: true,
                                                       itemBuilder:
                                                           (context, index2) {
-                                                        print(index2);
                                                         var currentItem2 =
                                                             currentItem["reps"]
                                                                 [index2];
@@ -127,7 +123,6 @@ class _WorkoutState extends State<Workout> {
                                                       shrinkWrap: true,
                                                       itemBuilder:
                                                           (context, index2) {
-                                                        print(index2);
                                                         var currentItem2 =
                                                             currentItem["dur"]
                                                                 [index2];
