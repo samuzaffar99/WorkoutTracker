@@ -1,6 +1,4 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:workout_tracker_app/pages/ui_home.dart';
 import '../src/api.dart';
 import '../src/model.dart';
 import '../src/user.dart';

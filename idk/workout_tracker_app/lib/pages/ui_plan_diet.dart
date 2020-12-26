@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_setup_complete.dart';
 import 'package:pie_chart/pie_chart.dart';

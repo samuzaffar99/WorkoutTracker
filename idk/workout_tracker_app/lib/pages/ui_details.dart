@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:workout_tracker_app/pages/ui_goals.dart';
 import '../src/user.dart';
 import '../src/api.dart';
