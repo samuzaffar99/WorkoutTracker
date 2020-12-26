@@ -70,10 +70,10 @@ class _WorkoutState extends State<Workout> {
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                 Text(
-                                    'ExerciseId : ${currentItem["exid"].substring(10,34)}'),
+                                    'ExerciseId : $currentItem["exid"]'),
                                 FutureBuilder(
                                     future: _api.getExercise(
-                                        currentItem["exid"].substring(10,34)),
+                                        currentItem["exid"]),
                                     builder:
                                         (buildContext, AsyncSnapshot snapshot) {
                                       if (snapshot.hasError) {

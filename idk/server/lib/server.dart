@@ -9,7 +9,7 @@ void start() async {
   const port = 3000;
   final serv = Sevr();
 
-  final usersColl = db.collection('Users');
+  final userColl = db.collection('Users');
   final workoutColl = db.collection('workout');
   final exerciseColl = db.collection('exercise');
   final dietColl = db.collection('diet');
@@ -19,7 +19,7 @@ void start() async {
     '/user/username/:username',
     [
       (ServRequest req, ServResponse res) async {
-        final user = await usersColl
+        final user = await userColl
             .findOne(where.eq('username', req.params['username']));
         print('You are inside get $user');
         return res.status(200).json(user);
@@ -29,11 +29,11 @@ void start() async {
 
 
   serv.post(
-    '/',
+    '/user/',
     [
       (ServRequest req, ServResponse res) async {
-        await usersColl.save(req.body);
-        return res.status(200).json(await usersColl
+        await userColl.save(req.body);
+        return res.status(200).json(await userColl
             .findOne(where.eq('username', req.body['username'])));
       },
     ],
@@ -47,7 +47,7 @@ void start() async {
     '/user/_id/:userid',
     [
           (ServRequest req, ServResponse res) async {
-        final user = await usersColl
+        final user = await userColl
             .findOne(where.id(ObjectId.fromHexString(req.params['userid'])));
         print('You are inside get $user');
         return res.status(200).json(user);
@@ -103,4 +103,49 @@ void start() async {
       },
     ],
   );
+
+  serv.post(
+    '/food/',
+    [
+          (ServRequest req, ServResponse res) async {
+        await foodColl.save(req.body);
+        return res.status(200).json(await userColl
+            .findOne(where.eq('name', req.body['name'])));
+      },
+    ],
+  );
+
+  serv.post(
+    '/diet/',
+    [
+          (ServRequest req, ServResponse res) async {
+        await dietColl.save(req.body);
+        return res.status(200).json(await dietColl
+            .findOne(where.eq('name', req.body['name'])));
+      },
+    ],
+  );
+
+  serv.post(
+    '/exercise/',
+    [
+          (ServRequest req, ServResponse res) async {
+        await exerciseColl.save(req.body);
+        return res.status(200).json(await exerciseColl
+            .findOne(where.eq('name', req.body['name'])));
+      },
+    ],
+  );
+
+  serv.post(
+    '/workout/',
+    [
+          (ServRequest req, ServResponse res) async {
+        await workoutColl.save(req.body);
+        return res.status(200).json(await workoutColl
+            .findOne(where.eq('name', req.body['name'])));
+      },
+    ],
+  );
+  
 }
