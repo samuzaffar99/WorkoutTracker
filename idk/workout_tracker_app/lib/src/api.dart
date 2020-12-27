@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'dart:convert';
-//import 'model.dart';
-import 'user.dart';
+//import 'user.dart';
+import 'model.dart';
 
 class Api {
   final _dio = Dio(
@@ -17,6 +17,7 @@ class Api {
     //   return null;
     // }
     if (response.data != null) {
+      print('....${response.data['_id']} , ${response.data['_id'].runtimeType}');
       return User.fromJson(response.data);
     }
     return null;

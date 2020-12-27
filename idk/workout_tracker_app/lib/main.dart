@@ -13,11 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: Welcome(),
+      home: WelcomePage(),
       routes: {
-        'Sign Up': (context) => SignUp(),
-        'Sign In': (context) => SignIn(),
-        'Home': (context) => Home(),
+        'Sign Up': (context) => SignUpPage(),
+        'Sign In': (context) => SignInPage(),
+        'Home': (context) => HomePage(),
       },
     );
   }

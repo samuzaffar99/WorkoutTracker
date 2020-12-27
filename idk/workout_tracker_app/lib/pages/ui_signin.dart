@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import '../src/api.dart';
-//import '../src/model.dart';
-import '../src/user.dart';
+//import '../src/user.dart';
+import '../src/model.dart';
 import 'package:crypt/crypt.dart';
 
-class SignIn extends StatefulWidget {
+class SignInPage extends StatefulWidget {
   final Api _api = Api();
   @override
-  _SignInState createState() => _SignInState();
+  _SignInPageState createState() => _SignInPageState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignInPageState extends State<SignInPage> {
   String username;
   String password;
   User user;
@@ -31,9 +31,9 @@ class _SignInState extends State<SignIn> {
       print('user null');
       return false;
     } else {
-      print(Crypt(user.password));
+      print(Crypt(user.hash));
       print(password);
-      if (Crypt(user.password).match(password)) {
+      if (Crypt(user.hash).match(password)) {
         print('...returning true');
         return true;
       } else {

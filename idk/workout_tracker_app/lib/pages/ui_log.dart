@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
-import '../src/user.dart';
+//import '../src/user.dart';
+import '../src/model.dart';
 
-class Log extends StatefulWidget {
+class LogPage extends StatefulWidget {
   final User user;
-  Log(this.user);
+  LogPage(this.user);
   @override
-  _LogState createState() => _LogState();
+  _LogPageState createState() => _LogPageState();
 }
 
-class _LogState extends State<Log> {
+class _LogPageState extends State<LogPage> {
   @override
   Widget build(BuildContext context) {
     int index = 3;

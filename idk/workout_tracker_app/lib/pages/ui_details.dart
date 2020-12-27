@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_goals.dart';
-import '../src/user.dart';
+//import '../src/user.dart';
+import '../src/model.dart';
 import '../src/api.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:crypt/crypt.dart';
 
-class Details extends StatefulWidget {
+class DetailsPage extends StatefulWidget {
   String username;
   String password;
   String email;
   final Api _api = Api();
-  Details(this.username, this.password, this.email);
+  DetailsPage(this.username, this.password, this.email);
   @override
-  _DetailsState createState() => _DetailsState();
+  _DetailsPageState createState() => _DetailsPageState();
 }
 
-class _DetailsState extends State<Details> {
+class _DetailsPageState extends State<DetailsPage> {
   String gender;
   String weight;
   String height;

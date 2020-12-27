@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_explore_exercises.dart';
-import '../src/user.dart';
+//import '../src/user.dart';
+import '../src/model.dart';
 import 'package:workout_tracker_app/navigation.dart';
-//import '../src/model.dart';
 
-class Home extends StatefulWidget {
+
+class HomePage extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomeState extends State<Home> {
+class _HomePageState extends State<HomePage> {
   int index = 0;
   @override
   Widget build(BuildContext context) {

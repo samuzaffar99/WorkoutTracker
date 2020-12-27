@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
-import '../src/user.dart';
+//import '../src/user.dart';
+import '../src/model.dart';
 import '../src/api.dart';
 import 'package:intl/intl.dart';
 
-class Workout extends StatefulWidget {
+class WorkoutPage extends StatefulWidget {
   final User user;
 
-  Workout(this.user);
+  WorkoutPage(this.user);
   @override
-  _WorkoutState createState() => _WorkoutState();
+  _WorkoutPageState createState() => _WorkoutPageState();
 }
 
-class _WorkoutState extends State<Workout> {
+class _WorkoutPageState extends State<WorkoutPage> {
   final Api _api = Api();
   //@override
   Widget getWorkoutView() {

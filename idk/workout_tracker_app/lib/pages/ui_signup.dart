@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_details.dart';
+//import '../src/user.dart';
+import '../src/model.dart';
 import '../src/api.dart';
-import '../src/user.dart';
-//import '../src/model.dart';
 
-class SignUp extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   final Api _api = Api();
   @override
-  _SignUpState createState() => _SignUpState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpPageState extends State<SignUpPage> {
   String username;
   String password;
   String email;
@@ -274,7 +274,7 @@ class _SignUpState extends State<SignUp> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return Details(username, password, email);
+                                return DetailsPage(username, password, email);
                               },
                             ),
                           );

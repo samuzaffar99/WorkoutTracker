@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
-import '../src/user.dart';
+//import '../src/user.dart';
+import '../src/model.dart';
 
-class Diet extends StatefulWidget {
+class DietPage extends StatefulWidget {
   final User user;
-  Diet(this.user);
+  DietPage(this.user);
   @override
-  _DietState createState() => _DietState();
+  _DietPageState createState() => _DietPageState();
 }
 
-class _DietState extends State<Diet> {
+class _DietPageState extends State<DietPage> {
   @override
   Widget build(BuildContext context) {
     int index = 1;

@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
 import 'package:workout_tracker_app/pages/ui_settings.dart';
-import '../src/user.dart';
+//import '../src/user.dart';
+import '../src/model.dart';
 
-class Profile extends StatefulWidget {
-  @override
+class ProfilePage extends StatefulWidget {
   final User user;
-  Profile(this.user);
-  _ProfileState createState() => _ProfileState();
+  @override
+  ProfilePage(this.user);
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     int index = 4;
@@ -305,7 +306,7 @@ class _ProfileState extends State<Profile> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return Settings(widget.user);
+                                      return SettingsPage(widget.user);
                                     },
                                   ),
                                 );
@@ -318,7 +319,7 @@ class _ProfileState extends State<Profile> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return Settings(widget.user);
+                                      return SettingsPage(widget.user);
                                     },
                                   ),
                                 );

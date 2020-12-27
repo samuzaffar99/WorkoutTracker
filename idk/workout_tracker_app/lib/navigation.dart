@@ -3,7 +3,8 @@ import 'package:workout_tracker_app/pages/ui_profile.dart';
 import 'package:workout_tracker_app/pages/ui_log.dart';
 import 'package:workout_tracker_app/pages/ui_workout.dart';
 import 'package:workout_tracker_app/pages/ui_diet.dart';
-import 'src/user.dart';
+//import 'src/user.dart';
+import 'src/model.dart';
 
 class NavigationBar extends StatefulWidget {
   int index;
@@ -35,7 +36,7 @@ class _NavigationBarState extends State<NavigationBar> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return Diet(widget.user);
+                    return DietPage(widget.user);
                   },
                 ),
               );
@@ -45,7 +46,7 @@ class _NavigationBarState extends State<NavigationBar> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return Workout(widget.user);
+                    return WorkoutPage(widget.user);
                   },
                 ),
               );
@@ -55,7 +56,7 @@ class _NavigationBarState extends State<NavigationBar> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return Log(widget.user);
+                    return LogPage(widget.user);
                   },
                 ),
               );
@@ -65,7 +66,7 @@ class _NavigationBarState extends State<NavigationBar> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return Profile(widget.user);
+                    return ProfilePage(widget.user);
                   },
                 ),
               );

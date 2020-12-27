@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
-import '../src/user.dart';
+//import '../src/user.dart';
+import '../src/model.dart';
 
-class Settings extends StatefulWidget {
+class SettingsPage extends StatefulWidget {
   final User user;
-  Settings(this.user);
+  SettingsPage(this.user);
   @override
-  _SettingsState createState() => _SettingsState();
+  _SettingsPageState createState() => _SettingsPageState();
 }
 
-class _SettingsState extends State<Settings> {
+class _SettingsPageState extends State<SettingsPage> {
   bool toggleDark = false;
   bool toggleAlarm = false;
   @override

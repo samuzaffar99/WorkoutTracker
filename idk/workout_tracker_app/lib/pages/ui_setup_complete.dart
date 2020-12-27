@@ -65,7 +65,7 @@ class SetupComplete extends StatelessWidget {
                     Navigator.popUntil(context, ModalRoute.withName('/ui_signin'));
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                          return SignIn();
+                          return SignInPage();
                         },),);
                   },
                   shape: RoundedRectangleBorder(

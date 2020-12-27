@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ui_signin.dart';
 
-class Welcome extends StatelessWidget {
+class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -62,7 +62,7 @@ class Welcome extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return SignIn();
+                            return SignInPage();
                           },
                         ),
                       );
