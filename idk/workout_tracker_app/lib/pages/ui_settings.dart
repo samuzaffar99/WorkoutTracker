@@ -144,7 +144,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                 ElevatedButton(
                                   child: Text('Save'),
                                   onPressed: () {
-                                    widget.user.name= nameController.toString();
+                                    widget.user.name= nameController.text;
                                     widget._api.putUser(widget.user);
                                   },
                                 ),
