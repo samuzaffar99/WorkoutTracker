@@ -29,7 +29,8 @@ class _WorkoutPageState extends State<WorkoutPage> {
               ),
             );
           } else {
-            String wday = "Tuesday";//var date = DateTime.now();print(DateFormat('EEEE').format(date));
+            String wday =
+                "Tuesday"; //var date = DateTime.now();print(DateFormat('EEEE').format(date));
             int dindex = 0;
             for (var i = 0; i < snapshot.data["days"].length; i++) {
               if (snapshot.data["days"][i]["day"] == wday) {
@@ -171,6 +172,43 @@ class _WorkoutPageState extends State<WorkoutPage> {
         ),
         body: Column(
           children: [
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                    child: Container(
+                  height: 140,
+                  decoration: BoxDecoration(
+                      color: Colors.white70, shape: BoxShape.circle),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "     00:00",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 35,
+                        ),
+                      ),
+                      IconButton(
+                        color: Colors.white70,
+                        alignment: Alignment(10,10),
+                          icon: Icon(Icons.pause,color: Colors.white70,),
+                          onPressed: (){
+                          print("done");
+                          }),
+                    ],
+                  ),
+                ))
+              ],
+            ),
+            SizedBox(
+              height: 50,
+            ),
             Expanded(
               child: getWorkoutView(),
               // child: Opacity(
