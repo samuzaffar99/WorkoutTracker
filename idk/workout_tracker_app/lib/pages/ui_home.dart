@@ -38,6 +38,7 @@ class _HomePageState extends State<HomePage> {
           child: NavigationBar(index,user),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: 20),
             Text(
@@ -151,6 +152,34 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
+            Expanded(
+                child: Opacity(
+                  opacity: 0.5,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    elevation: 5,
+                    margin: EdgeInsets.fromLTRB(16, 32, 16, 32),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Container(
+                        height: 400,
+                        width: 275,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Center(
+                                child: Text("Yay! No Workout Today",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500),),)
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),)
           ],
         ),
       ),
