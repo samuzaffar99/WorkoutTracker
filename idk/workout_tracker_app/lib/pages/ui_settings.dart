@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
 //import '../src/user.dart';
 import '../src/model.dart';
+import '../src/api.dart';
 
 class SettingsPage extends StatefulWidget {
   final User user;
+  final Api _api = Api();
   SettingsPage(this.user);
   @override
   _SettingsPageState createState() => _SettingsPageState();
@@ -13,6 +15,15 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   bool toggleDark = false;
   bool toggleAlarm = false;
+  final nameController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    nameController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     int index = 4;
@@ -34,7 +45,7 @@ class _SettingsPageState extends State<SettingsPage> {
           data: Theme.of(context).copyWith(
             canvasColor: Colors.white.withAlpha(200),
           ),
-          child: NavigationBar(index,widget.user),
+          child: NavigationBar(index, widget.user),
         ),
         body: Column(
           children: [
@@ -76,7 +87,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                   value: toggleDark,
                                   onChanged: (value) {
                                     setState(() {
-                                      toggleDark=value;
+                                      toggleDark = value;
                                     });
                                   },
                                 ),
@@ -86,7 +97,6 @@ class _SettingsPageState extends State<SettingsPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
-
                                   children: [
                                     Text(
                                       "   Workout Alarm",
@@ -105,10 +115,45 @@ class _SettingsPageState extends State<SettingsPage> {
                                   value: toggleAlarm,
                                   onChanged: (value) {
                                     setState(() {
-                                      toggleAlarm=value;
+                                      toggleAlarm = value;
                                     });
                                   },
                                 ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: TextField(
+                                      controller: nameController,
+                                      decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(20)),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    hintText: 'Enter Name',
+                                    filled: true,
+                                    fillColor: Colors.white.withAlpha(200),
+
+                                  )),
+                                ),
+                                ElevatedButton(
+                                  child: Text('Save'),
+                                  onPressed: () {
+                                    widget.user.name= nameController.toString();
+                                    widget._api.putUser(widget.user);
+                                  },
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("Name: ${widget.user.name}"),
                               ],
                             ),
                             SizedBox(
