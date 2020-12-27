@@ -201,14 +201,14 @@ void start() async {
     [
           (ServRequest req, ServResponse res) async {
       print('called this ${req.body}');
-        // var Obj = await workoutColl
-        //     .findOne(where.id(ObjectId.fromHexString(req.body['_id'])));
+        //var Obj = await userColl.findOne(where.id(ObjectId.fromHexString(req.body['_id'])));
         // for(var in req.params){
         //   Obj["field"]=req.params["value"]
         // }
-        //Obj["field"] = req.params["value"];
-        await workoutColl.save(req.body);
-        return res.status(200).json(req.body);
+        //Obj["name"] = "abdullah";
+        var obj = await userColl.save(req.body);
+        print(obj);
+        return res.status(200).json(obj);
       },
     ],
   );
