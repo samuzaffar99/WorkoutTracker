@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
           ),
           child: NavigationBar(index,user),
         ),
-        body: ListView(
+        body: Column(
           children: [
             SizedBox(height: 20),
             Text(
