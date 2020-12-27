@@ -3,91 +3,142 @@
     "$oid": "5fe05cfcb271d358089313d7"
   },
   "username": "Sam",
+  "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
+  "email": "sam123@mail.com",
   "name": "Syed Abdullah Muzaffar",
-  "birthdate": "06/11/1999",
   "gender": "Male",
+  "birthdate": "06/11/1999",
   "stats": {
-    "height": "171",
-    "weight": "80",
-    "bodyfat": "22"
+    "height": 171,
+    "weight": 80,
+    "bodyfat": 22
+  },
+  "goals": {
+    "targetdate": "12/12/2001",
+    "weight": 60,
+    "bodyfat": 24
+  },
+  "curr_workout": {
+    "$oid": "5fe0732cb271d358089313e4"
+  },
+  "curr_diet": {
+    "$oid": "5fe07621b271d358089313e5"
   }
 },{
   "_id": {
     "$oid": "5fe05cfcb271d358089313d8"
   },
   "username": "Remolox",
+  "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
+  "email": "remolox@mail.com",
   "name": "Rahim Muhammad Syed",
-  "birthdate": "12/11/1999",
   "gender": "Male",
+  "birthdate": "12/11/1999",
   "stats": {
-    "height": "183",
-    "weight": "60",
-    "bodyfat": "15"
+    "height": 183,
+    "weight": 60,
+    "bodyfat": 15
+  },
+  "curr_workout": {
+    "$oid": "5fe0732cb271d358089313e4"
+  },
+  "curr_diet": {
+    "$oid": "5fe07621b271d358089313e5"
   }
 },{
   "_id": {
     "$oid": "5fe05cfcb271d358089313d9"
   },
   "username": "MegasXG",
+  "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
+  "email": "megasxg@mail.com",
   "name": "Muhammad Ahmed Khan",
+  "gender": "Male",
   "birthdate": "05/07/1999",
-  "gender": "Female",
   "stats": {
-    "height": "176",
-    "weight": "62",
-    "bodyfat": "16"
+    "height": 176,
+    "weight": 62,
+    "bodyfat": 16
+  },
+  "curr_workout": {
+    "$oid": "5fe0732cb271d358089313e4"
+  },
+  "curr_diet": {
+    "$oid": "5fe07621b271d358089313e5"
   }
 },{
   "_id": {
     "$oid": "5fe05cfcb271d358089313da"
   },
   "username": "JohnnyJJ",
+  "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
+  "email": "sinns@mail.com",
   "name": "Haroon Khalid Janjua",
-  "birthdate": "08/10/1999",
   "gender": "Male",
+  "birthdate": "08/10/1999",
   "stats": {
-    "height": "178",
-    "weight": "85",
-    "bodyfat": "25"
+    "height": 178,
+    "weight": 85,
+    "bodyfat": 25
+  },
+  "curr_workout": {
+    "$oid": "5fe0732cb271d358089313e4"
+  },
+  "curr_diet": {
+    "$oid": "5fe07621b271d358089313e5"
   }
 },{
   "_id": {
     "$oid": "5fe05cfcb271d358089313db"
   },
   "username": "neet",
+  "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
+  "email": "neet@ksuba.jp",
   "name": "Kazuma Sato",
-  "birthdate": "09/01/1997",
   "gender": "Male",
+  "birthdate": "09/01/1997",
   "stats": {
-    "height": "165",
-    "weight": "64",
-    "bodyfat": "17"
+    "height": 165,
+    "weight": 64,
+    "bodyfat": 17
+  },
+  "curr_workout": {
+    "$oid": "5fe0732cb271d358089313e4"
+  },
+  "curr_diet": {
+    "$oid": "5fe07621b271d358089313e5"
   }
 },{
   "_id": {
     "$oid": "5fe05cfcb271d358089313dc"
   },
   "username": "exxproshun",
+  "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
+  "email": "exprosshun@ksuba.jp",
   "name": "Megumin",
-  "birthdate": "09/06/2002",
   "gender": "Female",
+  "birthdate": "09/06/2002",
   "stats": {
-    "height": "152",
-    "weight": "52",
-    "bodyfat": "18"
-  }
+    "height": 152,
+    "weight": 52,
+    "bodyfat": 18
+  },
+  "curr_workout": null,
+  "curr_diet": null
 },{
   "_id": {
     "$oid": "5fe05cfcb271d358089313dd"
   },
   "username": "Zainricardo",
+  "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
+  "email": "ricardo96@mail.com",
   "name": "Zain Mehdi",
-  "birthdate": "15/09/1998",
   "gender": "Male",
+  "birthdate": "15/09/1998",
   "stats": {
-    "height": "174",
-    "weight": "67",
-    "bodyfat": "20"
+    "height": 174,
+    "weight": 67,
+    "bodyfat": 20
   },
   "curr_workout": null,
   "curr_diet": null
@@ -96,13 +147,15 @@
     "$oid": "5fe05cfcb271d358089313de"
   },
   "username": "metapicker",
+  "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
+  "email": "sobmeta@mail.com",
   "name": "Sobhan Sheikh",
-  "birthdate": "12/12/1998",
   "gender": "Male",
+  "birthdate": "12/12/1998",
   "stats": {
-    "height": "167",
-    "weight": "82",
-    "bodyfat": "26"
+    "height": 167,
+    "weight": 82,
+    "bodyfat": 26
   },
   "curr_workout": null,
   "curr_diet": null
@@ -111,31 +164,15 @@
     "$oid": "5fe05cfcb271d358089313df"
   },
   "username": "thepotato",
-  "hash": null,
+  "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
+  "email": "abbas@mail.com",
   "name": "Muhammad Abbas",
+  "gender": "Male",
   "birthdate": "14/08/2000",
-  "gender": "Male",
   "stats": {
-    "height": "185",
-    "weight": "74",
-    "bodyfat": "13"
-  },
-  "curr_workout": null,
-  "curr_diet": null
-},{
-  "_id": {
-    "$oid": "5fe05cfcb271d358089313e0"
-  },
-  "username": "default",
-  "hash": null,
-  "password": "default",
-  "email": "default",
-  "gender": "Male",
-  "date": "0",
-  "stats": {
-    "height": 0,
-    "weight": 0,
-    "bodyfat": 0
+    "height": 185,
+    "weight": 74.2,
+    "bodyfat": 13
   },
   "curr_workout": null,
   "curr_diet": null
@@ -145,7 +182,7 @@
   },
   "username": "istabraq101",
   "password": "iamlord",
-  "hash": null,
+  "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
   "email": "iamlord101@mail.com",
   "gender": "Male",
   "birthdate": "12/56/12",
@@ -161,11 +198,11 @@
     "$oid": "5fe05cfcb271d358089313e2"
   },
   "username": "Darkness",
-  "hash": null,
-  "name": "Dustiness Ford Lalatina",
+  "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
   "email": "dustiness@ksuba.jp",
-  "birthdate": "12/06/1995",
+  "name": "Dustiness Ford Lalatina",
   "gender": "Female",
+  "birthdate": "12/06/1995",
   "stats": {
     "height": 177,
     "weight": 76,
@@ -175,10 +212,14 @@
     {
       "date": "12-11-2020",
       "workout": {
-        "wid": null,
+        "wid": {
+          "$oid": "5fe0732cb271d358089313e4"
+        },
         "ex": [
           {
-            "id": "ex1",
+            "id": {
+              "$oid": "5fe03a88b271d358089313cd"
+            },
             "reps": [
               1,
               3,
@@ -191,14 +232,18 @@
             ]
           },
           {
-            "id": "ex2",
+            "id": {
+              "$oid": "5fe03a88b271d358089313cd"
+            },
             "reps": [
               13,
               3
             ]
           },
           {
-            "id": "ex2",
+            "id": {
+              "$oid": "5fe03a88b271d358089313cd"
+            },
             "dur": [
               13
             ]
@@ -207,6 +252,10 @@
       }
     }
   ],
-  "curr_workout": null,
-  "curr_diet": null
+  "curr_workout": {
+    "$oid": "5fe0732cb271d358089313e4"
+  },
+  "curr_diet": {
+    "$oid": "5fe07621b271d358089313e5"
+  }
 }]
