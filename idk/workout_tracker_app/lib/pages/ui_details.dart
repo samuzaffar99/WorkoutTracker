@@ -19,58 +19,66 @@ class DetailsPage extends StatefulWidget {
 
 class _DetailsPageState extends State<DetailsPage> {
   String gender;
-  String weight;
-  String height;
+  double weight;
+  double height;
   String date;
 
   var _formKey = GlobalKey<FormState>();
 
-  void _registerUser()
-  {
-    User useree = User.fromJson(
-      {
-        'username': widget.username,
-        'password': Crypt.sha512(widget.password).toString(),
-        'email': widget.email,
-        'gender': gender,
-        'birthdate': date,
-        'stats': {'height':height, 'weight':weight},
-        "goals": {
-          "targetdate": "12/12/2001",
-          "weight": "60",
-          "bodyfat": "24"
-        },
-        "workoutplan": {
-          "days": {
-            "Mon": "true",
-            "Tue": "true",
-            "Wed": "true",
-            "Thu": "true",
-            "Fri": "true",
-            "Sat": "false",
-            "Sun": "false"
-          },
-          "exercisetype": {
-            "homeexercise": "true",
-            "powerlifting": "false",
-            "bodybuilding": "false"
-          }
-        },
-        "dietplan": {
-          "fat": "12",
-          "protein": "12",
-          "carbs": "12"
-        }
-      }
+  void _registerUser() {
+    print('called registeruser');
+    User useree = User.fromJson({
+      'username': widget.username,
+      'hash': Crypt.sha512(widget.password).toString(),
+      'email': widget.email,
+      'gender': gender,
+      'birthdate': date,
+      'stats': {'height': height, 'weight': weight},
+      "goals": {"targetdate": "12/12/2001", "weight": 60.0, "bodyfat": 24.0}
+    }
+        // 'username': widget.username,
+        // 'password': Crypt.sha512(widget.password).toString(),
+        // 'email': widget.email,
+        // 'gender': gender,
+        // 'birthdate': date,
+        // 'stats': {'height':height, 'weight':weight},
+        // "goals": {
+        //   "targetdate": "12/12/2001",
+        //   "weight": "60",
+        //   "bodyfat": "24"
+        // },
+        // "workoutplan": {
+        //   "days": {
+        //     "Mon": "true",
+        //     "Tue": "true",
+        //     "Wed": "true",
+        //     "Thu": "true",
+        //     "Fri": "true",
+        //     "Sat": "false",
+        //     "Sun": "false"
+        //   },
+        //   "exercisetype": {
+        //     "homeexercise": "true",
+        //     "powerlifting": "false",
+        //     "bodybuilding": "false"
+        //   }
+        // },
+        // "dietplan": {
+        //   "fat": "12",
+        //   "protein": "12",
+        //   "carbs": "12"
+        // }
+        // }
+        );
+    print('new User to add: ${useree.toJson()}');
+    widget._api.postUser(useree).then(
+      (value) {
+        print('${value.username} is now registered');
+      },
     );
-      widget._api.postUser(useree).then(
-        (value) {
-          print('${value.username} is now registered');
-        },
-      );
-      return;
+    print('returning from register user');
+    return;
   }
-
 
   String selectGender;
   DateTime selectedDate;
@@ -99,8 +107,8 @@ class _DetailsPageState extends State<DetailsPage> {
         selectedDate = picked;
       });
     setState(() {
-      myController=TextEditingController(
-          text: '${myFormat.format(selectedDate)}');
+      myController =
+          TextEditingController(text: '${myFormat.format(selectedDate)}');
     });
   }
 
@@ -213,7 +221,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                 return null;
                               },
                               onSaved: (value) {
-                                weight = value;
+                                weight = double.parse(value);
                               },
                             ),
                           ),
@@ -245,7 +253,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                 return null;
                               },
                               onSaved: (value) {
-                                height = value;
+                                height = double.parse(value);
                               },
                             ),
                           ),

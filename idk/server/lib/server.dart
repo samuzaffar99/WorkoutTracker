@@ -23,7 +23,7 @@ void start() async {
       (ServRequest req, ServResponse res) async {
         final user = await userColl
             .findOne(where.eq('username', req.params['username']));
-        print('You are inside get $user');
+        print('called get /user/username/:username $user');
         return res.status(200).json(user);
       },
     ],
@@ -31,7 +31,7 @@ void start() async {
 
 
   serv.post(
-    '/user/',
+    '/user',
     [
       (ServRequest req, ServResponse res) async {
         await userColl.save(req.body);
@@ -51,7 +51,7 @@ void start() async {
           (ServRequest req, ServResponse res) async {
         final user = await userColl
             .findOne(where.id(ObjectId.fromHexString(req.params['userid'])));
-        print('You are inside get $user');
+        print('called get /user/_id/:userid $user');
         return res.status(200).json(user);
       },
     ],
@@ -63,7 +63,7 @@ void start() async {
           (ServRequest req, ServResponse res) async {
         final exercise = await exerciseColl
             .findOne(where.id(ObjectId.fromHexString(req.params['exid'])));
-        print('You are inside get $exercise');
+        print('called get /exercise/_id/:exid $exercise');
         print(res);
         return res.status(200).json(exercise);
       },
@@ -76,7 +76,7 @@ void start() async {
           (ServRequest req, ServResponse res) async {
         final workout = await workoutColl
             .findOne(where.id(ObjectId.fromHexString(req.params['wid'])));
-        print('You are inside get $workout');
+        print('called get /workout/_id/:wid $workout');
         return res.status(200).json(workout);
       },
     ],
@@ -88,7 +88,7 @@ void start() async {
           (ServRequest req, ServResponse res) async {
         final diet = await dietColl
             .findOne(where.id(ObjectId.fromHexString(req.params['dietid'])));
-        print('You are inside get $diet');
+        print('called get /diet/_id/:dietid $diet');
         return res.status(200).json(diet);
       },
     ],
@@ -100,7 +100,7 @@ void start() async {
           (ServRequest req, ServResponse res) async {
         final food = await foodColl
             .findOne(where.id(ObjectId.fromHexString(req.params['foodid'])));
-        print('You are inside get $food');
+        print('called get /food/_id/:foodid $food');
         return res.status(200).json(food);
       },
     ],
