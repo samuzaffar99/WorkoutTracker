@@ -27,7 +27,7 @@ class Api {
   Future<User> postUser(User user) async {
     String toJson = jsonEncode(user);
     //print("to json...$toJson");
-    final response = await _dio.post('/user/', data: toJson);
+    final response = await _dio.post('/user', data: toJson);
     //print("response...$response");
     return User.fromJson(response.data);
     // return response.statusCode;
@@ -50,7 +50,7 @@ class Api {
   Future<Map> postUserM(User user) async {
     String userJson = jsonEncode(user);
     print(userJson);
-    final response = await _dio.post('/user/', data: userJson);
+    final response = await _dio.post('/user', data: userJson);
     return response.data;
   }
 
@@ -84,5 +84,11 @@ class Api {
     }
     final response = await _dio.get('/diet/_id/$dietid');
     return response.data;
+  }
+
+  Future<User> putUser(User user) async {
+    String userJson = jsonEncode(user);
+    final response = await _dio.put('/user/${user.iId}',data: userJson);
+    return User.fromJson(response.data);
   }
 }

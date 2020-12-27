@@ -1,4 +1,8 @@
 import 'package:mongo_dart/mongo_dart.dart';
+//formula
+double calcBMI(){
+  return 0;
+}
 
 //food
 class Food {

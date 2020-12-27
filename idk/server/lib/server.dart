@@ -30,7 +30,7 @@ void start() async {
   );
 
   serv.post(
-    '/user/',
+    '/user',
     [
       (ServRequest req, ServResponse res) async {
         await userColl.save(req.body);
@@ -106,7 +106,7 @@ void start() async {
   );
 
   serv.post(
-    '/food/',
+    '/food',
     [
       (ServRequest req, ServResponse res) async {
         await foodColl.save(req.body);
@@ -118,7 +118,7 @@ void start() async {
   );
 
   serv.post(
-    '/diet/',
+    '/diet',
     [
       (ServRequest req, ServResponse res) async {
         await dietColl.save(req.body);
@@ -130,7 +130,7 @@ void start() async {
   );
 
   serv.post(
-    '/exercise/',
+    '/exercise',
     [
       (ServRequest req, ServResponse res) async {
         await exerciseColl.save(req.body);
@@ -141,7 +141,7 @@ void start() async {
   );
 
   serv.post(
-    '/workout/',
+    '/workout',
     [
       (ServRequest req, ServResponse res) async {
         await workoutColl.save(req.body);
@@ -165,11 +165,13 @@ void start() async {
     ],
   );
 
+
+
   //update
   serv.put(
     '/workout/:_id',
     [
-      (ServRequest req, ServResponse res) async {
+          (ServRequest req, ServResponse res) async {
         var Obj = await workoutColl
             .findOne(where.id(ObjectId.fromHexString(req.body['_id'])));
         // for(var in req.params){
@@ -181,7 +183,6 @@ void start() async {
       },
     ],
   );
-
   //delete
   serv.delete(
     '/workout/:_id',
@@ -190,6 +191,38 @@ void start() async {
         await workoutColl
             .remove(where.id(ObjectId.fromHexString(req.body['_id'])));
         return res.status(200);
+      },
+    ],
+  );
+
+  //update
+  serv.put(
+    '/user/:_id',
+    [
+          (ServRequest req, ServResponse res) async {
+      print('called this ${req.body}');
+        // var Obj = await workoutColl
+        //     .findOne(where.id(ObjectId.fromHexString(req.body['_id'])));
+        // for(var in req.params){
+        //   Obj["field"]=req.params["value"]
+        // }
+        //Obj["field"] = req.params["value"];
+        await workoutColl.save(req.body);
+        return res.status(200).json(req.body);
+      },
+    ],
+  );
+
+  //modify
+  serv.patch(
+    '/user/:_id',
+    [
+          (ServRequest req, ServResponse res) async {
+        await workoutColl.update(
+            where.id(ObjectId.fromHexString(req.params['_id'])),
+            modify.set('name', 31));
+        return res.status(200).json(await workoutColl
+            .findOne(where.id(ObjectId.fromHexString(req.params['_id']))));
       },
     ],
   );

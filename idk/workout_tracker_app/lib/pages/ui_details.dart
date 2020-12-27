@@ -27,7 +27,7 @@ class _DetailsPageState extends State<DetailsPage> {
 
   void _registerUser() {
     print('called registeruser');
-    User useree = User.fromJson({
+    User newUser = User.fromJson({
       'username': widget.username,
       'hash': Crypt.sha512(widget.password).toString(),
       'email': widget.email,
@@ -46,32 +46,11 @@ class _DetailsPageState extends State<DetailsPage> {
         //   "targetdate": "12/12/2001",
         //   "weight": "60",
         //   "bodyfat": "24"
-        // },
-        // "workoutplan": {
-        //   "days": {
-        //     "Mon": "true",
-        //     "Tue": "true",
-        //     "Wed": "true",
-        //     "Thu": "true",
-        //     "Fri": "true",
-        //     "Sat": "false",
-        //     "Sun": "false"
-        //   },
-        //   "exercisetype": {
-        //     "homeexercise": "true",
-        //     "powerlifting": "false",
-        //     "bodybuilding": "false"
-        //   }
-        // },
-        // "dietplan": {
-        //   "fat": "12",
-        //   "protein": "12",
-        //   "carbs": "12"
         // }
         // }
         );
-    print('new User to add: ${useree.toJson()}');
-    widget._api.postUser(useree).then(
+    print('new User to add: ${newUser.toJson()}');
+    widget._api.postUser(newUser).then(
       (value) {
         print('${value.username} is now registered');
       },
