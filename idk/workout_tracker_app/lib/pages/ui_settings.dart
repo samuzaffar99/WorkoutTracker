@@ -125,23 +125,28 @@ class _SettingsPageState extends State<SettingsPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Expanded(
-                                  child: TextField(
-                                      controller: nameController,
-                                      decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(20)),
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
+                                  child: Padding(
+                                    padding: EdgeInsets.fromLTRB(10, 10, 30, 10),
+                                    child: TextField(
+                                        controller: nameController,
+                                        decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.all(Radius.circular(20)),
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                        ),
                                       ),
-                                    ),
-                                    hintText: 'Enter Name',
-                                    filled: true,
-                                    fillColor: Colors.white.withAlpha(200),
-
-                                  )),
+                                      hintText: 'Enter Name',
+                                      filled: true,
+                                      fillColor: Colors.white.withAlpha(200),
+                                    )),
+                                  ),
                                 ),
-                                ElevatedButton(
+                                MaterialButton(
+                                  minWidth: 5,
+                                  height: 40,
+                                  color: Colors.blue[400],
                                   child: Text('Save'),
                                   onPressed: () {
                                     widget.user.name= nameController.text;
@@ -150,14 +155,14 @@ class _SettingsPageState extends State<SettingsPage> {
                                 ),
                               ],
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Name: ${widget.user.name}"),
-                              ],
-                            ),
+                            // Row(
+                            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            //   children: [
+                            //     Text("Name: ${widget.user.name}"),
+                            //   ],
+                            // ),
                             SizedBox(
-                              height: 110,
+                              height: 80,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
