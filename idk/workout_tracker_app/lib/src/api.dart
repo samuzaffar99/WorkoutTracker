@@ -17,7 +17,8 @@ class Api {
     //   return null;
     // }
     if (response.data != null) {
-      print('....${response.data['_id']} , ${response.data['_id'].runtimeType}');
+      print(
+          '....${response.data['_id']} , ${response.data['_id'].runtimeType}');
       return User.fromJson(response.data);
     }
     return null;
@@ -26,7 +27,7 @@ class Api {
   Future<User> postUser(User user) async {
     String toJson = jsonEncode(user);
     //print("to json...$toJson");
-    final response = await _dio.post('/user', data: toJson);
+    final response = await _dio.post('/user/', data: toJson);
     //print("response...$response");
     return User.fromJson(response.data);
     // return response.statusCode;
@@ -49,7 +50,7 @@ class Api {
   Future<Map> postUserM(User user) async {
     String userJson = jsonEncode(user);
     print(userJson);
-    final response = await _dio.post('/user', data: userJson);
+    final response = await _dio.post('/user/', data: userJson);
     return response.data;
   }
 

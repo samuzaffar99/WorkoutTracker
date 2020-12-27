@@ -29,14 +29,13 @@ void start() async {
     ],
   );
 
-
   serv.post(
-    '/user',
+    '/user/',
     [
       (ServRequest req, ServResponse res) async {
         await userColl.save(req.body);
-        return res.status(200).json(await userColl
-            .findOne(where.eq('username', req.body['username'])));
+        return res.status(200).json(
+            await userColl.findOne(where.eq('username', req.body['username'])));
       },
     ],
   );
@@ -48,7 +47,7 @@ void start() async {
   serv.get(
     '/user/_id/:userid',
     [
-          (ServRequest req, ServResponse res) async {
+      (ServRequest req, ServResponse res) async {
         final user = await userColl
             .findOne(where.id(ObjectId.fromHexString(req.params['userid'])));
         print('called get /user/_id/:userid $user');
@@ -60,7 +59,7 @@ void start() async {
   serv.get(
     '/exercise/_id/:exid',
     [
-          (ServRequest req, ServResponse res) async {
+      (ServRequest req, ServResponse res) async {
         final exercise = await exerciseColl
             .findOne(where.id(ObjectId.fromHexString(req.params['exid'])));
         print('called get /exercise/_id/:exid $exercise');
@@ -73,7 +72,7 @@ void start() async {
   serv.get(
     '/workout/_id/:wid',
     [
-          (ServRequest req, ServResponse res) async {
+      (ServRequest req, ServResponse res) async {
         final workout = await workoutColl
             .findOne(where.id(ObjectId.fromHexString(req.params['wid'])));
         print('called get /workout/_id/:wid $workout');
@@ -85,7 +84,7 @@ void start() async {
   serv.get(
     '/diet/_id/:dietid',
     [
-          (ServRequest req, ServResponse res) async {
+      (ServRequest req, ServResponse res) async {
         final diet = await dietColl
             .findOne(where.id(ObjectId.fromHexString(req.params['dietid'])));
         print('called get /diet/_id/:dietid $diet');
@@ -97,7 +96,7 @@ void start() async {
   serv.get(
     '/food/_id/:foodid',
     [
-          (ServRequest req, ServResponse res) async {
+      (ServRequest req, ServResponse res) async {
         final food = await foodColl
             .findOne(where.id(ObjectId.fromHexString(req.params['foodid'])));
         print('called get /food/_id/:foodid $food');
@@ -109,10 +108,11 @@ void start() async {
   serv.post(
     '/food/',
     [
-          (ServRequest req, ServResponse res) async {
+      (ServRequest req, ServResponse res) async {
         await foodColl.save(req.body);
-        return res.status(200).json(await userColl
-            .findOne(where.eq('name', req.body['name'])));
+        return res
+            .status(200)
+            .json(await userColl.findOne(where.eq('name', req.body['name'])));
       },
     ],
   );
@@ -120,10 +120,11 @@ void start() async {
   serv.post(
     '/diet/',
     [
-          (ServRequest req, ServResponse res) async {
+      (ServRequest req, ServResponse res) async {
         await dietColl.save(req.body);
-        return res.status(200).json(await dietColl
-            .findOne(where.eq('name', req.body['name'])));
+        return res
+            .status(200)
+            .json(await dietColl.findOne(where.eq('name', req.body['name'])));
       },
     ],
   );
@@ -131,10 +132,10 @@ void start() async {
   serv.post(
     '/exercise/',
     [
-          (ServRequest req, ServResponse res) async {
+      (ServRequest req, ServResponse res) async {
         await exerciseColl.save(req.body);
-        return res.status(200).json(await exerciseColl
-            .findOne(where.eq('name', req.body['name'])));
+        return res.status(200).json(
+            await exerciseColl.findOne(where.eq('name', req.body['name'])));
       },
     ],
   );
@@ -142,12 +143,54 @@ void start() async {
   serv.post(
     '/workout/',
     [
-          (ServRequest req, ServResponse res) async {
+      (ServRequest req, ServResponse res) async {
         await workoutColl.save(req.body);
-        return res.status(200).json(await workoutColl
-            .findOne(where.eq('name', req.body['name'])));
+        return res.status(200).json(
+            await workoutColl.findOne(where.eq('name', req.body['name'])));
       },
     ],
   );
 
+  //modify
+  serv.patch(
+    '/workout/',
+    [
+      (ServRequest req, ServResponse res) async {
+        await workoutColl.update(
+            where.id(ObjectId.fromHexString(req.params['_id'])),
+            modify.set('name', 31));
+        return res.status(200).json(await workoutColl
+            .findOne(where.id(ObjectId.fromHexString(req.params['_id']))));
+      },
+    ],
+  );
+
+  //update
+  serv.put(
+    '/workout/:_id',
+    [
+      (ServRequest req, ServResponse res) async {
+        var Obj = await workoutColl
+            .findOne(where.id(ObjectId.fromHexString(req.body['_id'])));
+        // for(var in req.params){
+        //   Obj["field"]=req.params["value"]
+        // }
+        Obj["field"] = req.params["value"];
+        await workoutColl.save(Obj);
+        return res.status(200).json(Obj);
+      },
+    ],
+  );
+
+  //delete
+  serv.delete(
+    '/workout/:_id',
+    [
+      (ServRequest req, ServResponse res) async {
+        await workoutColl
+            .remove(where.id(ObjectId.fromHexString(req.body['_id'])));
+        return res.status(200);
+      },
+    ],
+  );
 }
