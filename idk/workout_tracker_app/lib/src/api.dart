@@ -7,6 +7,7 @@ class Api {
     BaseOptions(baseUrl: 'http://localhost:3000/'),
   );
 
+  //get
   Future<User> getUser(String username) async {
     print('await done');
     final response = await _dio.get('/user/username/$username');
@@ -23,16 +24,6 @@ class Api {
     return null;
   }
 
-  Future<User> postUser(User user) async {
-    String toJson = jsonEncode(user);
-    //print("to json...$toJson");
-    final response = await _dio.post('/user', data: toJson);
-    print("response...$response");
-    return User.fromJson(response.data);
-    // return response.statusCode;
-  }
-
-  //////////////////////////////////////////////////
   Future<Map> getUserM(String userid) async {
     if (userid.length > 24) {
       userid = userid.substring(10, 34);
@@ -43,13 +34,6 @@ class Api {
 
   Future<Map> getUserNM(String username) async {
     final response = await _dio.get('/user/username/$username');
-    return response.data;
-  }
-
-  Future<Map> postUserM(User user) async {
-    String userJson = jsonEncode(user);
-    print(userJson);
-    final response = await _dio.post('/user', data: userJson);
     return response.data;
   }
 
@@ -69,14 +53,6 @@ class Api {
     return response.data;
   }
 
-  Future<Map> getFood(String foodid) async {
-    if (foodid.length > 24) {
-      foodid = foodid.substring(10, 34);
-    }
-    final response = await _dio.get('/food/_id/$foodid');
-    return response.data;
-  }
-
   Future<Map> getDiet(String dietid) async {
     if (dietid.length > 24) {
       dietid = dietid.substring(10, 34);
@@ -85,9 +61,40 @@ class Api {
     return response.data;
   }
 
-  Future<User> putUser(User user) async {
-    String userJson = jsonEncode(user);
-    final response = await _dio.put('/user/${user.iId}', data: userJson);
+  Future<Map> getFood(String foodid) async {
+    if (foodid.length > 24) {
+      foodid = foodid.substring(10, 34);
+    }
+    final response = await _dio.get('/food/_id/$foodid');
+    return response.data;
+  }
+
+  //post
+  Future<User> postUser(User user) async {
+    String toJson = jsonEncode(user);
+    //print("to json...$toJson");
+    final response = await _dio.post('/user', data: toJson);
+    print("response...$response");
     return User.fromJson(response.data);
+    // return response.statusCode;
+  }
+
+
+  Future<Map> postUserM(User user) async {
+    String userJson = jsonEncode(user);
+    print(userJson);
+    final response = await _dio.post('/user', data: userJson);
+    return response.data;
+  }
+
+
+  //put
+  Future<void> putUser(User user) async {
+    print(user.iId.runtimeType);
+    String userJson = jsonEncode(user);
+    print(user.iId);
+    final response = await _dio.put('/user/${user.iId}', data: userJson);
+    print(response.data);
+    //return User.fromJson(response.data);
   }
 }
