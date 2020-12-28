@@ -20,15 +20,15 @@ class _LogPageState extends State<LogPage> {
         appBar: AppBar(
           backgroundColor: Color(0xFF141414),
           title: Text("Log"),
-          actions: [
-            Padding(
-                padding: EdgeInsets.only(right: 20.0),
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Icon(Icons.dehaze_rounded)
-                )
-            ),
-          ],
+          // actions: [
+          // //   Padding(
+          // //       padding: EdgeInsets.only(right: 20.0),
+          // //       child: GestureDetector(
+          // //         onTap: () {},
+          // //         child: Icon(Icons.dehaze_rounded)
+          // //       )
+          // //   ),
+          // // ],
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(

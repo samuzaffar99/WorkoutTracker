@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
+import 'package:workout_tracker_app/pages/ui_profile.dart';
 //import '../src/user.dart';
 import '../src/model.dart';
 import '../src/api.dart';
@@ -33,13 +34,23 @@ class _SettingsPageState extends State<SettingsPage> {
         appBar: AppBar(
           backgroundColor: Color(0xFF141414),
           title: Text("Settings"),
-          actions: [
-            Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                  onTap: () {}, child: Icon(Icons.dehaze_rounded)),
-            ),
-          ],
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_rounded),
+            onPressed: (){
+              Navigator.pop(context);
+              Navigator.push(context,
+              MaterialPageRoute(builder: (context) {
+               return ProfilePage(widget.user);
+              }));
+            },
+          ),
+          // actions: [
+          //   Padding(
+          //     padding: EdgeInsets.only(right: 20.0),
+          //     child: GestureDetector(
+          //         onTap: () {}, child: Icon(Icons.dehaze_rounded)),
+          //   ),
+          // ],
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
