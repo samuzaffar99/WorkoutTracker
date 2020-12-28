@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_setup_complete.dart';
 import 'package:pie_chart/pie_chart.dart';
 
-
 class PlanDiet extends StatefulWidget {
   @override
   _PlanDietState createState() => _PlanDietState();
@@ -50,41 +49,72 @@ class _PlanDietState extends State<PlanDiet> {
             SizedBox(
               height: 25,
             ),
-        //Insert Pie chart here
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text("Fat", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),),
-            Text("|", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),),
-            Text("Protein", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),),
-            Text("|", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),),
-            Text("Carbs", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),),
-          ],
-        ),
-        SliderTheme(
-          data: SliderThemeData(
-              trackHeight: 25,
-              rangeThumbShape: RoundRangeSliderThumbShape(
-                  enabledThumbRadius: 18,
-                  pressedElevation: 20,
-                  elevation: 30),
-              showValueIndicator: ShowValueIndicator.never,
-          ),
-          child: RangeSlider(
-            divisions: 6,
-            values: _values,
-            min: 0,
-            max: 1000,
-            labels: RangeLabels('${_values.start.round()}', '${_values.end.round()}'),
-            inactiveColor: Colors.white.withAlpha(220),
-            activeColor: Colors.white,
-            onChanged: (RangeValues values) {
-              setState(() {
-                _values = values;
-              });
-            },
-          ),
-        ),
+            //Insert Pie chart here
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  "Fat",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20),
+                ),
+                Text(
+                  "|",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20),
+                ),
+                Text(
+                  "Protein",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20),
+                ),
+                Text(
+                  "|",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20),
+                ),
+                Text(
+                  "Carbs",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20),
+                ),
+              ],
+            ),
+            SliderTheme(
+              data: SliderThemeData(
+                trackHeight: 25,
+                rangeThumbShape: RoundRangeSliderThumbShape(
+                    enabledThumbRadius: 18,
+                    pressedElevation: 20,
+                    elevation: 30),
+                showValueIndicator: ShowValueIndicator.never,
+              ),
+              child: RangeSlider(
+                divisions: 6,
+                values: _values,
+                min: 0,
+                max: 1000,
+                labels: RangeLabels(
+                    '${_values.start.round()}', '${_values.end.round()}'),
+                inactiveColor: Colors.white.withAlpha(220),
+                activeColor: Colors.white,
+                onChanged: (RangeValues values) {
+                  setState(() {
+                    _values = values;
+                  });
+                },
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -108,7 +138,7 @@ class _PlanDietState extends State<PlanDiet> {
                   value: toggleLactose,
                   onChanged: (value) {
                     setState(() {
-                      toggleLactose=value;
+                      toggleLactose = value;
                     });
                   },
                 ),
@@ -137,7 +167,7 @@ class _PlanDietState extends State<PlanDiet> {
                   value: toggleSugar,
                   onChanged: (value) {
                     setState(() {
-                      toggleSugar=value;
+                      toggleSugar = value;
                     });
                   },
                 ),

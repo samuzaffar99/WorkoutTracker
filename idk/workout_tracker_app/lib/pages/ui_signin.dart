@@ -27,7 +27,7 @@ class _SignInPageState extends State<SignInPage> {
         },
       );
     });
-    if (user==null) {
+    if (user == null) {
       print('user null');
       return false;
     } else {
@@ -210,8 +210,10 @@ class _SignInPageState extends State<SignInPage> {
                             (value) {
                               print('$value');
                               if (value == true) {
-                                Navigator.popUntil(context, ModalRoute.withName('/ui_home'));
-                                Navigator.pushNamed(context, 'Home', arguments: user);
+                                Navigator.popUntil(
+                                    context, ModalRoute.withName('/ui_home'));
+                                Navigator.pushNamed(context, 'Home',
+                                    arguments: user);
                               } else {
                                 setState(() {
                                   check = false;

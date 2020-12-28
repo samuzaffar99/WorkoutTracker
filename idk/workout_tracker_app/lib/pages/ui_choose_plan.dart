@@ -156,8 +156,8 @@ class _ChoosePlanState extends State<ChoosePlan> {
                                 TextStyle(color: Colors.white.withAlpha(200)),
                           ),
                           onPressed: null,
-                          ),
                         ),
+                      ),
                     ],
                     isSelected: isSelected2,
                     onPressed: (int index) {

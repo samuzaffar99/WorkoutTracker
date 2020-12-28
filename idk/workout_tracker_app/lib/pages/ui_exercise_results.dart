@@ -14,26 +14,27 @@ class _ExerciseResultsState extends State<ExerciseResults> {
         backgroundColor: Color(0xFF141414),
         appBar: AppBar(
           automaticallyImplyLeading: true,
-          leading: IconButton(icon: Icon(Icons.arrow_back_rounded),
-            onPressed: (){
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_rounded),
+            onPressed: () {
               Navigator.pop(context);
-            },),
+            },
+          ),
           backgroundColor: Color(0xFF141414),
           title: Text("Explore"),
           actions: [
             Padding(
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
-                    onTap: () {},
-                    child: Icon(Icons.dehaze_rounded)
-                )
-            ),
+                    onTap: () {}, child: Icon(Icons.dehaze_rounded))),
           ],
         ),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 40,),
+              SizedBox(
+                height: 40,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -43,8 +44,7 @@ class _ExerciseResultsState extends State<ExerciseResults> {
                       child: TextFormField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
-                            borderRadius:
-                            BorderRadius.all(Radius.circular(10)),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
                             borderSide: BorderSide(
                               color: Colors.transparent,
                             ),
@@ -58,7 +58,9 @@ class _ExerciseResultsState extends State<ExerciseResults> {
                   ),
                 ],
               ),
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -99,7 +101,9 @@ class _ExerciseResultsState extends State<ExerciseResults> {
                   ),
                 ],
               ),
-              SizedBox(height: 50,),
+              SizedBox(
+                height: 50,
+              ),
             ],
           ),
         ),

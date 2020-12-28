@@ -36,11 +36,10 @@ class _SettingsPageState extends State<SettingsPage> {
           title: Text("Settings"),
           leading: IconButton(
             icon: Icon(Icons.arrow_back_rounded),
-            onPressed: (){
+            onPressed: () {
               Navigator.pop(context);
-              Navigator.push(context,
-              MaterialPageRoute(builder: (context) {
-               return ProfilePage(widget.user);
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return ProfilePage(widget.user);
               }));
             },
           ),
@@ -78,7 +77,8 @@ class _SettingsPageState extends State<SettingsPage> {
                           child: Column(
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
@@ -106,7 +106,8 @@ class _SettingsPageState extends State<SettingsPage> {
                                 ],
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
@@ -134,25 +135,28 @@ class _SettingsPageState extends State<SettingsPage> {
                                 ],
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsets.fromLTRB(10, 10, 30, 10),
+                                      padding:
+                                          EdgeInsets.fromLTRB(10, 10, 30, 10),
                                       child: TextField(
                                           controller: nameController,
                                           decoration: InputDecoration(
-                                        border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.all(Radius.circular(20)),
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                          ),
-                                        ),
-                                        hintText: 'Enter Name',
-                                        filled: true,
-                                        fillColor: Colors.white.withAlpha(200),
-                                      )),
+                                            border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20)),
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                              ),
+                                            ),
+                                            hintText: 'Enter Name',
+                                            filled: true,
+                                            fillColor:
+                                                Colors.white.withAlpha(200),
+                                          )),
                                     ),
                                   ),
                                   MaterialButton(
@@ -161,7 +165,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                     color: Colors.blue[400],
                                     child: Text('Save'),
                                     onPressed: () {
-                                      widget.user.name= nameController.text;
+                                      widget.user.name = nameController.text;
                                       widget._api.putUser(widget.user);
                                     },
                                   ),
@@ -188,7 +192,8 @@ class _SettingsPageState extends State<SettingsPage> {
                                         Navigator.pushNamed(context, 'Sign In');
                                       },
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(30.0),
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
                                       ),
                                       color: Colors.transparent,
                                       textColor: Colors.white,

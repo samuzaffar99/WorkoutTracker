@@ -4,7 +4,6 @@ import 'package:workout_tracker_app/pages/ui_explore_exercises.dart';
 import '../src/model.dart';
 import 'package:workout_tracker_app/navigation.dart';
 
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -35,7 +34,7 @@ class _HomePageState extends State<HomePage> {
           data: Theme.of(context).copyWith(
             canvasColor: Colors.white.withAlpha(200),
           ),
-          child: NavigationBar(index,user),
+          child: NavigationBar(index, user),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -153,33 +152,36 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             Expanded(
-                child: Opacity(
-                  opacity: 0.5,
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    elevation: 5,
-                    margin: EdgeInsets.fromLTRB(16, 32, 16, 32),
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Container(
-                        height: 400,
-                        width: 275,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Center(
-                                child: Text("Yay! No Workout Today",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500),),)
-                          ],
-                        ),
+              child: Opacity(
+                opacity: 0.5,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  elevation: 5,
+                  margin: EdgeInsets.fromLTRB(16, 32, 16, 32),
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: 400,
+                      width: 275,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Center(
+                            child: Text(
+                              "Yay! No Workout Today",
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w500),
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ),
-                ),)
+                ),
+              ),
+            )
           ],
         ),
       ),

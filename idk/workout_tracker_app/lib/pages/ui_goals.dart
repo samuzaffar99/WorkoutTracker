@@ -25,8 +25,8 @@ class _WorkoutGoalsState extends State<WorkoutGoals> {
         selectedDate = picked;
       });
     setState(() {
-      myController=TextEditingController(
-          text: '${myFormat.format(selectedDate)}');
+      myController =
+          TextEditingController(text: '${myFormat.format(selectedDate)}');
     });
   }
 
@@ -79,12 +79,13 @@ class _WorkoutGoalsState extends State<WorkoutGoals> {
                       child: IgnorePointer(
                         child: TextFormField(
                           onTap: () {
-                            FocusScope.of(context).requestFocus(new FocusNode());
+                            FocusScope.of(context)
+                                .requestFocus(new FocusNode());
                           },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius:
-                              BorderRadius.all(Radius.circular(20)),
+                                  BorderRadius.all(Radius.circular(20)),
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                               ),

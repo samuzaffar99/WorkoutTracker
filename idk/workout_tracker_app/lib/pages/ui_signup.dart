@@ -281,7 +281,6 @@ class _SignUpPageState extends State<SignUpPage> {
                         }
                         _formKey.currentState.validate();
                       }
-
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),

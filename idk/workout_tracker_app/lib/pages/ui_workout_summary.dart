@@ -2,22 +2,24 @@ import 'package:flutter/material.dart';
 import '../src/model.dart';
 
 class WorkoutSummary extends StatelessWidget {
-final User user;
-WorkoutSummary(this.user);
+  final User user;
+  WorkoutSummary(this.user);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          backgroundColor: Color(0xFF141414),
-          appBar: AppBar(
-            backgroundColor: Color(0xFF141414),
-            title: Text("Summary"),
-          ),
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+      backgroundColor: Color(0xFF141414),
+      appBar: AppBar(
+        backgroundColor: Color(0xFF141414),
+        title: Text("Summary"),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-            SizedBox(height: 50,),
-            Row(
+          SizedBox(
+            height: 50,
+          ),
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(

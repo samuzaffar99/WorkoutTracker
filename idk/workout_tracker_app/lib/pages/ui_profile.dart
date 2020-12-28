@@ -32,7 +32,7 @@ class _ProfilePageState extends State<ProfilePage> {
           data: Theme.of(context).copyWith(
             canvasColor: Colors.white.withAlpha(200),
           ),
-          child: NavigationBar(index,widget.user),
+          child: NavigationBar(index, widget.user),
         ),
         body: Column(
           children: [

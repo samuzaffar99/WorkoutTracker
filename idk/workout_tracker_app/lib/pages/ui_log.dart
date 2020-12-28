@@ -34,11 +34,13 @@ class _LogPageState extends State<LogPage> {
           data: Theme.of(context).copyWith(
             canvasColor: Colors.white.withAlpha(200),
           ),
-          child: NavigationBar(index,widget.user),
+          child: NavigationBar(index, widget.user),
         ),
         body: ListView(
           children: [
-            SizedBox(height: 50,),
+            SizedBox(
+              height: 50,
+            ),
             Text(
               'No Logs',
               textAlign: TextAlign.center,

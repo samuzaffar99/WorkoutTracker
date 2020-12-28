@@ -88,7 +88,7 @@ class Api {
 
   Future<User> putUser(User user) async {
     String userJson = jsonEncode(user);
-    final response = await _dio.put('/user/${user.iId}',data: userJson);
+    final response = await _dio.put('/user/${user.iId}', data: userJson);
     return User.fromJson(response.data);
   }
 }

@@ -8,8 +8,8 @@ class ExploreExercises extends StatefulWidget {
 }
 
 class _ExploreExercisesState extends State<ExploreExercises> {
-  bool toggleCardio=false;
-  bool toggleEquipment=false;
+  bool toggleCardio = false;
+  bool toggleEquipment = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -17,26 +17,27 @@ class _ExploreExercisesState extends State<ExploreExercises> {
         backgroundColor: Color(0xFF141414),
         appBar: AppBar(
           automaticallyImplyLeading: true,
-          leading: IconButton(icon: Icon(Icons.arrow_back_rounded),
-            onPressed: (){
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_rounded),
+            onPressed: () {
               Navigator.pop(context);
-            },),
+            },
+          ),
           backgroundColor: Color(0xFF141414),
           title: Text("Explore"),
           actions: [
             Padding(
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
-                    onTap: () {},
-                    child: Icon(Icons.dehaze_rounded)
-                )
-            ),
+                    onTap: () {}, child: Icon(Icons.dehaze_rounded))),
           ],
         ),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 40,),
+              SizedBox(
+                height: 40,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -46,8 +47,7 @@ class _ExploreExercisesState extends State<ExploreExercises> {
                       child: TextFormField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
-                            borderRadius:
-                            BorderRadius.all(Radius.circular(10)),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
                             borderSide: BorderSide(
                               color: Colors.transparent,
                             ),
@@ -61,7 +61,9 @@ class _ExploreExercisesState extends State<ExploreExercises> {
                   ),
                 ],
               ),
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -70,10 +72,11 @@ class _ExploreExercisesState extends State<ExploreExercises> {
                     minWidth: 150.0,
                     child: OutlineButton(
                       onPressed: () {
-                        Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                          return ExerciseResults();
-                        },));
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return ExerciseResults();
+                          },
+                        ));
                       },
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
@@ -105,7 +108,9 @@ class _ExploreExercisesState extends State<ExploreExercises> {
                   ),
                 ],
               ),
-              SizedBox(height: 50,),
+              SizedBox(
+                height: 50,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -115,8 +120,7 @@ class _ExploreExercisesState extends State<ExploreExercises> {
                       child: TextFormField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
-                            borderRadius:
-                            BorderRadius.all(Radius.circular(10)),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
                             borderSide: BorderSide(
                               color: Colors.transparent,
                             ),
@@ -130,7 +134,9 @@ class _ExploreExercisesState extends State<ExploreExercises> {
                   ),
                 ],
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -154,7 +160,7 @@ class _ExploreExercisesState extends State<ExploreExercises> {
                     value: toggleCardio,
                     onChanged: (value) {
                       setState(() {
-                        toggleCardio=value;
+                        toggleCardio = value;
                       });
                     },
                   ),
@@ -183,13 +189,15 @@ class _ExploreExercisesState extends State<ExploreExercises> {
                     value: toggleEquipment,
                     onChanged: (value) {
                       setState(() {
-                        toggleEquipment=value;
+                        toggleEquipment = value;
                       });
                     },
                   ),
                 ],
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -199,8 +207,7 @@ class _ExploreExercisesState extends State<ExploreExercises> {
                       child: TextFormField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
-                            borderRadius:
-                            BorderRadius.all(Radius.circular(10)),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
                             borderSide: BorderSide(
                               color: Colors.transparent,
                             ),

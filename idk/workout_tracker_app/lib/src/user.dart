@@ -1,4 +1,3 @@
-
 class User {
   Id iId;
   String username;
@@ -50,7 +49,11 @@ class User {
       'gender': gender,
       'birthdate': birthdate,
       'stats': {'height': stats.height, 'weight': stats.weight},
-      "goals": {"targetdate": goals.targetdate, "weight": goals.weight, "bodyfat": goals.bodyfat},
+      "goals": {
+        "targetdate": goals.targetdate,
+        "weight": goals.weight,
+        "bodyfat": goals.bodyfat
+      },
       "workoutplan": {
         "days": {
           "Mon": workoutplan.days.mon,
@@ -102,7 +105,6 @@ class Stats {
       weight: json['weight'],
     );
   }
-
 }
 
 class Goals {
@@ -112,7 +114,6 @@ class Goals {
 
   Goals({this.targetdate, this.weight, this.bodyfat});
 
-
   factory Goals.fromJson(Map json) {
     return Goals(
       targetdate: json['targetdate'],
@@ -120,7 +121,6 @@ class Goals {
       bodyfat: json['bodyfat'],
     );
   }
-
 }
 
 class Workoutplan {
@@ -135,7 +135,6 @@ class Workoutplan {
       exercisetype: Exercisetype.fromJson(json['exercisetype']),
     );
   }
-
 }
 
 class Days {
@@ -160,7 +159,6 @@ class Days {
       sun: json['Sun'],
     );
   }
-
 }
 
 class Exercisetype {
@@ -177,7 +175,6 @@ class Exercisetype {
       bodybuilding: json['bodybuilding'],
     );
   }
-
 }
 
 class Dietplan {
