@@ -3,7 +3,6 @@ import 'package:workout_tracker_app/pages/ui_profile.dart';
 import 'package:workout_tracker_app/pages/ui_log.dart';
 import 'package:workout_tracker_app/pages/ui_workout.dart';
 import 'package:workout_tracker_app/pages/ui_diet.dart';
-//import 'src/user.dart';
 import 'src/model.dart';
 
 class NavigationBar extends StatefulWidget {

@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'dart:convert';
-//import 'user.dart';
 import 'model.dart';
 
 class Api {

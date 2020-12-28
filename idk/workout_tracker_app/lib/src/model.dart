@@ -382,7 +382,7 @@ class Diet {
     iId = new ObjectId.fromHexString(json['_id'].substring(10, 34));
     name = json['name'];
     //author = json['author'] != null ? new Id.fromJson(json['author']) : null;
-    author = new ObjectId.fromHexString(json['author'].substring(10, 34));
+    author = json['author'] != null ? new ObjectId.fromHexString(json['author'].substring(10, 34)) : null;
     calories = json['calories'];
     dist = json['dist'] != null ? new Dist.fromJson(json['dist']) : null;
     if (json['days'] != null) {
