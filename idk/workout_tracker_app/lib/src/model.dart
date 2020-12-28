@@ -1,159 +1,107 @@
 import 'package:mongo_dart/mongo_dart.dart';
 
-//formula
-double calcBMI() {
-  return 0;
-}
+//ObjectId
+class Id {
+  String oid;
 
-//food
-class Food {
-  String iId;
-  String name;
-  double carbs;
-  double protein;
-  double fat;
-  double calories;
-  List<String> tags;
+  Id({this.oid});
 
-  Food(
-      {this.iId,
-      this.name,
-      this.carbs,
-      this.protein,
-      this.fat,
-      this.calories,
-      this.tags});
-
-  Food.fromJson(Map<String, dynamic> json) {
-    iId = json['_id'];
-    name = json['name'];
-    carbs = json['carbs'];
-    protein = json['protein'];
-    fat = json['fat'];
-    calories = json['calories'];
-    tags = json['tags'].cast<String>();
+  Id.fromJson(Map<String, dynamic> json) {
+    oid = json['$oid'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.iId != null) {
-      data['_id'] = this.iId;
-    }
-    data['name'] = this.name;
-    data['carbs'] = this.carbs;
-    data['protein'] = this.protein;
-    data['fat'] = this.fat;
-    data['calories'] = this.calories;
-    data['tags'] = this.tags;
+    data['$oid'] = this.oid;
     return data;
   }
 }
 
-//exercise
-class Exercise {
-  String iId;
-  String name;
-  String info;
-  String category;
-  int difficulty;
-  List<String> target;
-
-  Exercise(
-      {this.iId,
-      this.name,
-      this.info,
-      this.category,
-      this.difficulty,
-      this.target});
-
-  Exercise.fromJson(Map<String, dynamic> json) {
-    iId = json['_id'];
-    name = json['name'];
-    info = json['info'];
-    category = json['category'];
-    difficulty = json['difficulty'];
-    target = json['target'].cast<String>();
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.iId;
-    data['name'] = this.name;
-    data['info'] = this.info;
-    data['category'] = this.category;
-    data['difficulty'] = this.difficulty;
-    data['target'] = this.target;
-    return data;
-  }
-}
-
-//user
+//User
 class User {
-  String iId;
+  ObjectId iId;
   String username;
   String hash;
-  String name;
   String email;
-  String birthdate;
+  String name;
   String gender;
+  String birthdate;
   Stats stats;
+  Goals goals;
   List<Log> log;
-  String currWorkout;
-  String currDiet;
+  ObjectId currWorkout;
+  ObjectId currDiet;
 
   User(
       {this.iId,
       this.username,
       this.hash,
-      this.name,
       this.email,
-      this.birthdate,
+      this.name,
       this.gender,
+      this.birthdate,
       this.stats,
+      this.goals,
       this.log,
       this.currWorkout,
       this.currDiet});
 
   User.fromJson(Map<String, dynamic> json) {
-    iId = json['_id'];
+    //iId = json['_id'] != null ? new Id.fromJson(json['_id']) : null;
+    iId = new ObjectId.fromHexString(json['_id'].substring(10, 34));
     username = json['username'];
     hash = json['hash'];
-    name = json['name'];
     email = json['email'];
-    birthdate = json['birthdate'];
+    name = json['name'];
     gender = json['gender'];
+    birthdate = json['birthdate'];
     stats = json['stats'] != null ? new Stats.fromJson(json['stats']) : null;
+    goals = json['goals'] != null ? new Goals.fromJson(json['goals']) : null;
     if (json['log'] != null) {
       log = new List<Log>();
       json['log'].forEach((v) {
         log.add(new Log.fromJson(v));
       });
     }
-    currWorkout = json['curr_workout'];
-    currDiet = json['curr_diet'];
+    // currWorkout = json['curr_workout'] != null
+    //     ? new Id.fromJson(json['curr_workout'])
+    //     : null;
+    // currDiet =
+    //     json['curr_diet'] != null ? new Id.fromJson(json['curr_diet']) : null;
+    currWorkout = json['curr_workout'] != null
+        ? new ObjectId.fromHexString(json['curr_workout'].substring(10, 34))
+        : null;
+    currDiet = json['curr_diet'] != null
+        ? new ObjectId.fromHexString(json['curr_diet'].substring(10, 34))
+        : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.iId != null) {
-      data['_id'] = this.iId;
-    } else {
-      data['_id'] = ObjectId().toHexString();
+      data['_id'] = this.iId.toJson();
     }
     data['username'] = this.username;
     data['hash'] = this.hash;
-    data['name'] = this.name;
     data['email'] = this.email;
-    data['birthdate'] = this.birthdate;
+    data['name'] = this.name;
     data['gender'] = this.gender;
+    data['birthdate'] = this.birthdate;
     if (this.stats != null) {
       data['stats'] = this.stats.toJson();
+    }
+    if (this.goals != null) {
+      data['goals'] = this.goals.toJson();
     }
     if (this.log != null) {
       data['log'] = this.log.map((v) => v.toJson()).toList();
     }
-    data['curr_workout'] = this.currWorkout;
-    data['curr_diet'] = this.currDiet;
+    if (this.currWorkout != null) {
+      data['curr_workout'] = this.currWorkout.toJson();
+    }
+    if (this.currDiet != null) {
+      data['curr_diet'] = this.currDiet.toJson();
+    }
     return data;
   }
 }
@@ -174,6 +122,28 @@ class Stats {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['height'] = this.height;
+    data['weight'] = this.weight;
+    data['bodyfat'] = this.bodyfat;
+    return data;
+  }
+}
+
+class Goals {
+  String targetdate;
+  double weight;
+  double bodyfat;
+
+  Goals({this.targetdate, this.weight, this.bodyfat});
+
+  Goals.fromJson(Map<String, dynamic> json) {
+    targetdate = json['targetdate'];
+    weight = json['weight'];
+    bodyfat = json['bodyfat'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['targetdate'] = this.targetdate;
     data['weight'] = this.weight;
     data['bodyfat'] = this.bodyfat;
     return data;
@@ -204,13 +174,15 @@ class Log {
 }
 
 class WorkoutLog {
-  String wid;
+  ObjectId wid;
   List<Ex> ex;
 
   WorkoutLog({this.wid, this.ex});
 
   WorkoutLog.fromJson(Map<String, dynamic> json) {
-    wid = json['wid'];
+    //wid = json['wid'] != null ? new Id.fromJson(json['wid']) : null;
+    wid = new ObjectId.fromHexString(json['wid'].substring(10, 34));
+
     if (json['ex'] != null) {
       ex = new List<Ex>();
       json['ex'].forEach((v) {
@@ -221,7 +193,9 @@ class WorkoutLog {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['wid'] = this.wid;
+    if (this.wid != null) {
+      data['wid'] = this.wid.toJson();
+    }
     if (this.ex != null) {
       data['ex'] = this.ex.map((v) => v.toJson()).toList();
     }
@@ -230,7 +204,7 @@ class WorkoutLog {
 }
 
 class Ex {
-  String id;
+  ObjectId id;
   List<int> reps;
   List<double> weight;
   List<double> dur;
@@ -238,14 +212,18 @@ class Ex {
   Ex({this.id, this.reps, this.weight, this.dur});
 
   Ex.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    //id = json['id'] != null ? new Id.fromJson(json['id']) : null;
+    id = new ObjectId.fromHexString(json['id'].substring(10, 34));
     reps = json['reps'].cast<int>();
     weight = json['weight'].cast<double>();
     dur = json['dur'].cast<double>();
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
+    if (this.id != null) {
+      data['id'] = this.id.toJson();
+    }
     data['reps'] = this.reps;
     data['weight'] = this.weight;
     data['dur'] = this.dur;
@@ -253,32 +231,38 @@ class Ex {
   }
 }
 
-//workout
+//Workout
 class Workout {
-  String iId;
+  ObjectId iId;
   String name;
-  String author;
-  List<Days> days;
+  ObjectId author;
+  List<WDays> days;
 
   Workout({this.iId, this.name, this.author, this.days});
 
   Workout.fromJson(Map<String, dynamic> json) {
-    iId = json['_id'];
+    //iId = json['_id'] != null ? new Id.fromJson(json['_id']) : null;
+    iId = new ObjectId.fromHexString(json['_id'].substring(10, 34));
     name = json['name'];
-    author = json['author'];
+    //author = json['author'] != null ? new Id.fromJson(json['author']) : null;
+    author = json['author'] != null ? new ObjectId.fromHexString(json['author'].substring(10, 34)) : null;
     if (json['days'] != null) {
-      days = new List<Days>();
+      days = new List<WDays>();
       json['days'].forEach((v) {
-        days.add(new Days.fromJson(v));
+        days.add(new WDays.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.iId;
+    if (this.iId != null) {
+      data['_id'] = this.iId.toJson();
+    }
     data['name'] = this.name;
-    data['author'] = this.author;
+    if (this.author != null) {
+      data['author'] = this.author.toJson();
+    }
     if (this.days != null) {
       data['days'] = this.days.map((v) => v.toJson()).toList();
     }
@@ -286,14 +270,14 @@ class Workout {
   }
 }
 
-class Days {
+class WDays {
   String day;
   String time;
   List<Routine> routine;
 
-  Days({this.day, this.time, this.routine});
+  WDays({this.day, this.time, this.routine});
 
-  Days.fromJson(Map<String, dynamic> json) {
+  WDays.fromJson(Map<String, dynamic> json) {
     day = json['day'];
     time = json['time'];
     if (json['routine'] != null) {
@@ -316,91 +300,156 @@ class Days {
 }
 
 class Routine {
-  String exid;
+  ObjectId exid;
   List<int> reps;
   List<double> dur;
+
   Routine({this.exid, this.reps, this.dur});
 
   Routine.fromJson(Map<String, dynamic> json) {
-    exid = json['exid'];
+    //exid = json['exid'] != null ? new Id.fromJson(json['exid']) : null;
+    exid = new ObjectId.fromHexString(json['exid'].substring(10, 34));
     reps = json['reps'].cast<int>();
-    dur = json['reps'].cast<double>();
+    dur = json['dur'].cast<double>();
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['exid'] = this.exid;
-    if (this.reps != null) {
-      data['reps'] = this.reps;
+    if (this.exid != null) {
+      data['exid'] = this.exid.toJson();
     }
-    if (this.dur != null) {
-      data['dur'] = this.dur;
-    }
+    data['reps'] = this.reps;
+    data['dur'] = this.dur;
     return data;
   }
 }
 
-//diet
-class Diet {
-  String iId;
+//Exercise
+class Exercise {
+  ObjectId iId;
   String name;
-  String author;
-  List<int> dist;
-  int calories;
-  List<Dietdays> dietdays;
+  String category;
+  String info;
+  double difficulty;
+  List<String> target;
 
-  Diet(
+  Exercise(
       {this.iId,
       this.name,
-      this.author,
-      this.dist,
-      this.calories,
-      this.dietdays});
+      this.category,
+      this.info,
+      this.difficulty,
+      this.target});
 
-  Diet.fromJson(Map<String, dynamic> json) {
-    iId = json['_id'];
-    author = json['author'];
+  Exercise.fromJson(Map<String, dynamic> json) {
+    //iId = json['_id'] != null ? new Id.fromJson(json['_id']) : null;
+    iId = new ObjectId.fromHexString(json['_id'].substring(10, 34));
     name = json['name'];
-    dist = json['dist'].cast<int>();
-    calories = json['calories'];
-    if (json['dietdays'] != null) {
-      dietdays = new List<Dietdays>();
-      json['dietdays'].forEach((v) {
-        dietdays.add(new Dietdays.fromJson(v));
-      });
-    }
+    category = json['category'];
+    info = json['info'];
+    difficulty = json['difficulty'];
+    target = json['target'].cast<String>();
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.iId != null) {
-      data['_id'] = this.iId;
+      data['_id'] = this.iId.toJson();
     }
     data['name'] = this.name;
-    data['dist'] = this.dist;
-    data['calories'] = this.calories;
-    if (this.author != null) {
-      data['author'] = this.author;
+    data['category'] = this.category;
+    data['info'] = this.info;
+    data['difficulty'] = this.difficulty;
+    data['target'] = this.target;
+    return data;
+  }
+}
+
+//Diet
+class Diet {
+  ObjectId iId;
+  String name;
+  ObjectId author;
+  double calories;
+  Dist dist;
+  List<Days> days;
+  List<String> tags;
+
+  Diet({this.iId, this.name, this.author, this.calories, this.dist, this.days});
+
+  Diet.fromJson(Map<String, dynamic> json) {
+    //iId = json['_id'] != null ? new Id.fromJson(json['_id']) : null;
+    iId = new ObjectId.fromHexString(json['_id'].substring(10, 34));
+    name = json['name'];
+    //author = json['author'] != null ? new Id.fromJson(json['author']) : null;
+    author = new ObjectId.fromHexString(json['author'].substring(10, 34));
+    calories = json['calories'];
+    dist = json['dist'] != null ? new Dist.fromJson(json['dist']) : null;
+    if (json['days'] != null) {
+      days = new List<Days>();
+      json['days'].forEach((v) {
+        days.add(new Days.fromJson(v));
+      });
     }
-    if (this.dietdays != null) {
-      data['dietdays'] = this.dietdays.map((v) => v.toJson()).toList();
+    tags = json['tags'].cast<String>();
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.iId != null) {
+      data['_id'] = this.iId.toJson();
+    }
+    data['name'] = this.name;
+    if (this.author != null) {
+      data['author'] = this.author.toJson();
+    }
+    data['calories'] = this.calories;
+    if (this.dist != null) {
+      data['dist'] = this.dist.toJson();
+    }
+
+    if (this.days != null) {
+      data['days'] = this.days.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
-class Dietdays {
+class Dist {
+  double carbs;
+  double protein;
+  double fat;
+
+  Dist({this.carbs, this.protein, this.fat});
+
+  Dist.fromJson(Map<String, dynamic> json) {
+    carbs = json['carbs'];
+    protein = json['protein'];
+    fat = json['fat'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['carbs'] = this.carbs;
+    data['protein'] = this.protein;
+    data['fat'] = this.fat;
+    return data;
+  }
+}
+
+class Days {
   String day;
-  List<String> meals;
+  List<ObjectId> meals;
 
-  Dietdays({this.day, this.meals});
+  Days({this.day, this.meals});
 
-  Dietdays.fromJson(Map<String, dynamic> json) {
+  Days.fromJson(Map<String, dynamic> json) {
     day = json['day'];
     if (json['meals'] != null) {
-      meals = new List<String>();
+      meals = new List<ObjectId>();
       json['meals'].forEach((v) {
-        meals.add(v);
+        //meals.add(new Id.fromJson(v));
+        meals.add(new ObjectId.fromHexString(v.substring(10, 34)));
       });
     }
   }
@@ -409,8 +458,53 @@ class Dietdays {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['day'] = this.day;
     if (this.meals != null) {
-      data['meals'] = this.meals.map((v) => v).toList();
+      data['meals'] = this.meals.map((v) => v.toJson()).toList();
     }
+    return data;
+  }
+}
+
+//Food
+class Food {
+  ObjectId iId;
+  String name;
+  double calories;
+  double carbs;
+  double protein;
+  double fat;
+  List<String> tags;
+
+  Food(
+      {this.iId,
+      this.name,
+      this.calories,
+      this.carbs,
+      this.protein,
+      this.fat,
+      this.tags});
+
+  Food.fromJson(Map<String, dynamic> json) {
+    //iId = json['_id'] != null ? new Id.fromJson(json['_id']) : null;
+    iId = new ObjectId.fromHexString(json['_id'].substring(10, 34));
+    name = json['name'];
+    calories = json['calories'];
+    carbs = json['carbs'];
+    protein = json['protein'];
+    fat = json['fat'];
+    tags = json['tags'].cast<String>();
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.iId != null) {
+      data['_id'] = this.iId.toJson();
+    }
+    data['name'] = this.name;
+    data['calories'] = this.calories;
+    data['carbs'] = this.carbs;
+    data['protein'] = this.protein;
+    data['fat'] = this.fat;
+    data['tags'] = this.tags;
     return data;
   }
 }

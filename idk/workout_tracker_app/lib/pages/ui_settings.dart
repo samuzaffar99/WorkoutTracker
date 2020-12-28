@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
 import 'package:workout_tracker_app/pages/ui_profile.dart';
-//import '../src/user.dart';
 import '../src/model.dart';
 import '../src/api.dart';
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
-//import '../src/user.dart';
 import '../src/model.dart';
 
 class LogPage extends StatefulWidget {
