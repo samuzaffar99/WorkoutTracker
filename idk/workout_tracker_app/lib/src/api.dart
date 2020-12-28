@@ -28,7 +28,7 @@ class Api {
     String toJson = jsonEncode(user);
     //print("to json...$toJson");
     final response = await _dio.post('/user', data: toJson);
-    //print("response...$response");
+    print("response...$response");
     return User.fromJson(response.data);
     // return response.statusCode;
   }
