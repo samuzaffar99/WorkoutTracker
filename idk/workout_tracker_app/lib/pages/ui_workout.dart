@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
+import 'package:workout_tracker_app/pages/ui_edit_workout.dart';
 import 'package:workout_tracker_app/pages/ui_in_workout.dart';
 //import '../src/user.dart';
 import '../src/model.dart';
@@ -161,7 +162,12 @@ class _WorkoutPageState extends State<WorkoutPage> {
             Padding(
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(
-                    onTap: () {}, child: Icon(Icons.edit))),
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                            return EditWorkout(widget.user);
+                          }));
+                    }, child: Icon(Icons.edit))),
           ],
         ),
         bottomNavigationBar: Theme(
