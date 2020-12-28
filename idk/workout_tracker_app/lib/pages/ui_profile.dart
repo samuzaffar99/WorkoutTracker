@@ -21,12 +21,12 @@ class _ProfilePageState extends State<ProfilePage> {
         appBar: AppBar(
           backgroundColor: Color(0xFF141414),
           title: Text("Profile"),
-          actions: [
-            Padding(
-                padding: EdgeInsets.only(right: 20.0),
-                child: GestureDetector(
-                    onTap: () {}, child: Icon(Icons.dehaze_rounded))),
-          ],
+          // actions: [
+          //   Padding(
+          //       padding: EdgeInsets.only(right: 20.0),
+          //       child: GestureDetector(
+          //           onTap: () {}, child: Icon(Icons.dehaze_rounded))),
+          // ],
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
@@ -167,8 +167,10 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 50,
+                        Expanded(
+                          child: SizedBox(
+                            height: 50,
+                          ),
                         ),
                         Text(
                           'Your Goals',
@@ -266,8 +268,10 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 30,
+                        Expanded(
+                          child: SizedBox(
+                            height: 30,
+                          ),
                         ),
                         Text(
                           '7 Day Streak',
