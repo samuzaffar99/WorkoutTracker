@@ -77,90 +77,93 @@ class _DietPageState extends State<DietPage> {
                                       elevation: 4,
                                       child: Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          RichText(
-                                            text: TextSpan(
-                                                style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.black,
-                                                ),
-                                                children: [
-                                                  TextSpan(
-                                                      text:
-                                                          "    ${snapshot.data["name"]}",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold)),
-                                                ]),
+                                          SizedBox(
+                                            child: RichText(
+                                              text: TextSpan(
+                                                  style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.black,
+                                                  ),
+                                                  children: [
+                                                    TextSpan(
+                                                        text:
+                                                            "    ${snapshot.data["name"]}",
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.bold)),
+                                                  ]),
+                                            ),
+                                            width: 100,
                                           ),
                                           Row(
                                             children: [
                                               SizedBox(
-                                                width: 50,
-                                              ),
-                                              RichText(
-                                                text: TextSpan(
-                                                    children: [
-                                                      TextSpan(
-                                                        text: "    \n",
-                                                      ),
-                                                      TextSpan(
-                                                        text: "    Fat\n",
-                                                      ),
-                                                      TextSpan(
-                                                        text: "    Proteins\n",
-                                                      ),
-                                                      TextSpan(
-                                                        text: "    Carbs\n",
-                                                      ),
-                                                      TextSpan(
-                                                        text: "    Calories",
-                                                      ),
-                                                    ],
-                                                    style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Colors.black,
-                                                    )),
+                                                child: RichText(
+                                                  text: TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: "    \n",
+                                                        ),
+                                                        TextSpan(
+                                                          text: "    Fat\n",
+                                                        ),
+                                                        TextSpan(
+                                                          text: "    Proteins\n",
+                                                        ),
+                                                        TextSpan(
+                                                          text: "    Carbs\n",
+                                                        ),
+                                                        TextSpan(
+                                                          text: "    Calories",
+                                                        ),
+                                                      ],
+                                                      style: TextStyle(
+                                                        fontSize: 15,
+                                                        color: Colors.black,
+                                                      )),
+                                                ),
+                                                width: 100,
                                               )
                                             ],
                                           ),
                                           Row(
                                             children: [
                                               SizedBox(
-                                                width: 40,
-                                              ),
-                                              RichText(
-                                                text: TextSpan(
-                                                    children: [
-                                                      TextSpan(
-                                                        text: "Amount (g)\n",
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                      ),
-                                                      TextSpan(
-                                                        text:
-                                                            "    ${snapshot.data["fat"]}\n",
-                                                      ),
-                                                      TextSpan(
-                                                        text:
-                                                            "    ${snapshot.data["protein"]}\n",
-                                                      ),
-                                                      TextSpan(
-                                                        text:
-                                                            "    ${snapshot.data["carbs"]}\n",
-                                                      ),
-                                                      TextSpan(
-                                                        text:
-                                                            "    ${snapshot.data["calories"]}",
-                                                      ),
-                                                    ],
-                                                    style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Colors.black,
-                                                    )),
+                                                child: RichText(
+                                                  text: TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: "Amount (g)\n",
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
+                                                        TextSpan(
+                                                          text:
+                                                              "    ${snapshot.data["fat"]}\n",
+                                                        ),
+                                                        TextSpan(
+                                                          text:
+                                                              "    ${snapshot.data["protein"]}\n",
+                                                        ),
+                                                        TextSpan(
+                                                          text:
+                                                              "    ${snapshot.data["carbs"]}\n",
+                                                        ),
+                                                        TextSpan(
+                                                          text:
+                                                              "    ${snapshot.data["calories"]}",
+                                                        ),
+                                                      ],
+                                                      style: TextStyle(
+                                                        fontSize: 15,
+                                                        color: Colors.black,
+                                                      )),
+                                                ),
+                                                width: 100,
                                               )
                                             ],
                                           ),
