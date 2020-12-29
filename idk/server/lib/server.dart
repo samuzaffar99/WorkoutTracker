@@ -11,7 +11,7 @@ void start() async {
   const port = 3000;
   final serv = Sevr();
 
-  final userColl = db.collection('Users');
+  final userColl = db.collection('user');
   final workoutColl = db.collection('workout');
   final exerciseColl = db.collection('exercise');
   final dietColl = db.collection('diet');
@@ -19,11 +19,11 @@ void start() async {
 
   //get
   serv.get(
-    '/user/username/:username',
+    '/user/username/:param',
     [
       (ServRequest req, ServResponse res) async {
         final user = await userColl
-            .findOne(where.eq('username', req.params['username']));
+            .findOne(where.eq('username', req.params['param']));
         print('called get /user/username/:username $user');
         return res.status(200).json(user);
       },
@@ -35,24 +35,24 @@ void start() async {
   });
 
   serv.get(
-    '/user/_id/:userid',
+    '/user/_id/:param',
     [
       (ServRequest req, ServResponse res) async {
         final user = await userColl
-            .findOne(where.id(ObjectId.fromHexString(req.params['userid'])));
-        print('called get /user/_id/:userid $user');
+            .findOne(where.eq('_id', req.params['param']));
+        print('called get /user/_id/:param $user');
         return res.status(200).json(user);
       },
     ],
   );
 
   serv.get(
-    '/exercise/_id/:exid',
+    '/exercise/_id/:param',
     [
       (ServRequest req, ServResponse res) async {
         final exercise = await exerciseColl
-            .findOne(where.id(ObjectId.fromHexString(req.params['exid'])));
-        print('called get /exercise/_id/:exid $exercise');
+            .findOne(where.eq('_id', req.params['param']));
+        print('called get /exercise/_id/:param $exercise');
         print(res);
         return res.status(200).json(exercise);
       },
@@ -60,36 +60,36 @@ void start() async {
   );
 
   serv.get(
-    '/workout/_id/:wid',
+    '/workout/_id/:param',
     [
       (ServRequest req, ServResponse res) async {
         final workout = await workoutColl
-            .findOne(where.id(ObjectId.fromHexString(req.params['wid'])));
-        print('called get /workout/_id/:wid $workout');
+            .findOne(where.eq('_id', req.params['param']));
+        print('called get /workout/_id/:param $workout');
         return res.status(200).json(workout);
       },
     ],
   );
 
   serv.get(
-    '/diet/_id/:dietid',
+    '/diet/_id/:param',
     [
       (ServRequest req, ServResponse res) async {
         final diet = await dietColl
-            .findOne(where.id(ObjectId.fromHexString(req.params['dietid'])));
-        print('called get /diet/_id/:dietid $diet');
+            .findOne(where.eq('_id', req.params['param']));
+        print('called get /diet/_id/:param $diet');
         return res.status(200).json(diet);
       },
     ],
   );
 
   serv.get(
-    '/food/_id/:foodid',
+    '/food/_id/:param',
     [
       (ServRequest req, ServResponse res) async {
         final food = await foodColl
-            .findOne(where.id(ObjectId.fromHexString(req.params['foodid'])));
-        print('called get /food/_id/:foodid $food');
+            .findOne(where.eq('_id', req.params['param']));
+        print('called get /food/_id/:param $food');
         return res.status(200).json(food);
       },
     ],
@@ -100,9 +100,11 @@ void start() async {
     '/user',
     [
       (ServRequest req, ServResponse res) async {
-        final user = await userColl.save(req.body);
+        req.body['_id'] = ObjectId().toHexString();
+        final user = await userColl.insertOne(req.body);
+        //final user = await userColl.save(req.body);
         return res.status(200).json(
-            await userColl.findOne(where.eq('username', req.body['username'])));
+            await userColl.findOne(where.eq('_id', user["upserted"])));
         //print('user is $json(user)');
         //return res.status(200).json(user);
         // return res.status(200).json(
@@ -115,6 +117,7 @@ void start() async {
     '/workout',
     [
       (ServRequest req, ServResponse res) async {
+        req.body["_id"] = ObjectId().toHexString();
         await workoutColl.save(req.body);
         return res.status(200).json(
             await workoutColl.findOne(where.eq('name', req.body['name'])));
@@ -126,6 +129,7 @@ void start() async {
     '/exercise',
     [
       (ServRequest req, ServResponse res) async {
+        req.body["_id"] = ObjectId().toHexString();
         await exerciseColl.save(req.body);
         return res.status(200).json(
             await exerciseColl.findOne(where.eq('name', req.body['name'])));
@@ -137,6 +141,7 @@ void start() async {
     '/diet',
     [
       (ServRequest req, ServResponse res) async {
+        req.body["_id"] = ObjectId().toHexString();
         await dietColl.save(req.body);
         return res
             .status(200)
@@ -149,6 +154,7 @@ void start() async {
     '/food',
     [
       (ServRequest req, ServResponse res) async {
+        req.body["_id"] = ObjectId().toHexString();
         await foodColl.save(req.body);
         return res
             .status(200)
@@ -220,11 +226,11 @@ void start() async {
     '/user/:_id',
     [
       (ServRequest req, ServResponse res) async {
-        await userColl.update(
-            where.id(ObjectId.fromHexString(req.params['_id'])),
+        await userColl.update((
+            where.eq('_id', req.params['_id'])),
             modify.set('name', 31));
         return res.status(200).json(await userColl
-            .findOne(where.id(ObjectId.fromHexString(req.params['_id']))));
+            .findOne(where.eq('_id', req.params['_id'])));
       },
     ],
   );
@@ -233,11 +239,11 @@ void start() async {
     '/workout/:_id',
     [
       (ServRequest req, ServResponse res) async {
-        await workoutColl.update(
-            where.id(ObjectId.fromHexString(req.params['_id'])),
+        await workoutColl.update((
+            where.eq('_id', req.params['_id'])),
             modify.set('name', 31));
         return res.status(200).json(await workoutColl
-            .findOne(where.id(ObjectId.fromHexString(req.params['_id']))));
+            .findOne(where.eq('_id', req.params['_id'])));
       },
     ],
   );
@@ -248,7 +254,7 @@ void start() async {
     [
       (ServRequest req, ServResponse res) async {
         await userColl
-            .remove(where.id(ObjectId.fromHexString(req.body['_id'])));
+            .remove(where.eq('_id', req.body['_id']));
         return res.status(200);
       },
     ],

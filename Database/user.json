@@ -1,7 +1,5 @@
 [{
-  "_id": {
-    "$oid": "5fe05cfcb271d358089313d7"
-  },
+  "_id": "5fe05cfcb271d358089313d7",
   "username": "Sam",
   "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
   "email": "sam123@mail.com",
@@ -18,16 +16,10 @@
     "weight": 60,
     "bodyfat": 24
   },
-  "curr_workout": {
-    "$oid": "5fe0732cb271d358089313e4"
-  },
-  "curr_diet": {
-    "$oid": "5fe07621b271d358089313e5"
-  }
+  "curr_workout": "5fe0732cb271d358089313e4",
+  "curr_diet": "5fe07621b271d358089313e5"
 },{
-  "_id": {
-    "$oid": "5fe05cfcb271d358089313d8"
-  },
+  "_id": "5fe05cfcb271d358089313d8",
   "username": "Remolox",
   "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
   "email": "remolox@mail.com",
@@ -39,16 +31,10 @@
     "weight": 60,
     "bodyfat": 15
   },
-  "curr_workout": {
-    "$oid": "5fe0732cb271d358089313e4"
-  },
-  "curr_diet": {
-    "$oid": "5fe07621b271d358089313e5"
-  }
+  "curr_workout": "5fe0732cb271d358089313e4",
+  "curr_diet": "5fe07621b271d358089313e5"
 },{
-  "_id": {
-    "$oid": "5fe05cfcb271d358089313d9"
-  },
+  "_id": "5fe05cfcb271d358089313d9",
   "username": "MegasXG",
   "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
   "email": "megasxg@mail.com",
@@ -60,16 +46,10 @@
     "weight": 62,
     "bodyfat": 16
   },
-  "curr_workout": {
-    "$oid": "5fe0732cb271d358089313e4"
-  },
-  "curr_diet": {
-    "$oid": "5fe07621b271d358089313e5"
-  }
+  "curr_workout": "5fe0732cb271d358089313e4",
+  "curr_diet": "5fe07621b271d358089313e5"
 },{
-  "_id": {
-    "$oid": "5fe05cfcb271d358089313da"
-  },
+  "_id": "5fe05cfcb271d358089313da",
   "username": "JohnnyJJ",
   "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
   "email": "sinns@mail.com",
@@ -81,16 +61,10 @@
     "weight": 85,
     "bodyfat": 25
   },
-  "curr_workout": {
-    "$oid": "5fe0732cb271d358089313e4"
-  },
-  "curr_diet": {
-    "$oid": "5fe07621b271d358089313e5"
-  }
+  "curr_workout": "5fe0732cb271d358089313e4",
+  "curr_diet": "5fe07621b271d358089313e5"
 },{
-  "_id": {
-    "$oid": "5fe05cfcb271d358089313db"
-  },
+  "_id": "5fe05cfcb271d358089313db",
   "username": "neet",
   "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
   "email": "neet@ksuba.jp",
@@ -102,16 +76,10 @@
     "weight": 64,
     "bodyfat": 17
   },
-  "curr_workout": {
-    "$oid": "5fe0732cb271d358089313e4"
-  },
-  "curr_diet": {
-    "$oid": "5fe07621b271d358089313e5"
-  }
+  "curr_workout": "5fe0732cb271d358089313e4",
+  "curr_diet": "5fe07621b271d358089313e5"
 },{
-  "_id": {
-    "$oid": "5fe05cfcb271d358089313dc"
-  },
+  "_id": "5fe05cfcb271d358089313dc",
   "username": "exxproshun",
   "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
   "email": "exprosshun@ksuba.jp",
@@ -126,9 +94,7 @@
   "curr_workout": null,
   "curr_diet": null
 },{
-  "_id": {
-    "$oid": "5fe05cfcb271d358089313dd"
-  },
+  "_id": "5fe05cfcb271d358089313dd",
   "username": "Zainricardo",
   "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
   "email": "ricardo96@mail.com",
@@ -143,9 +109,7 @@
   "curr_workout": null,
   "curr_diet": null
 },{
-  "_id": {
-    "$oid": "5fe05cfcb271d358089313de"
-  },
+  "_id": "5fe05cfcb271d358089313de",
   "username": "metapicker",
   "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
   "email": "sobmeta@mail.com",
@@ -160,9 +124,7 @@
   "curr_workout": null,
   "curr_diet": null
 },{
-  "_id": {
-    "$oid": "5fe05cfcb271d358089313df"
-  },
+  "_id": "5fe05cfcb271d358089313df",
   "username": "thepotato",
   "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
   "email": "abbas@mail.com",
@@ -177,9 +139,7 @@
   "curr_workout": null,
   "curr_diet": null
 },{
-  "_id": {
-    "$oid": "5fe05cfcb271d358089313e1"
-  },
+  "_id": "5fe05cfcb271d358089313e1",
   "username": "istabraq101",
   "password": "iamlord",
   "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
@@ -194,9 +154,7 @@
   "curr_workout": null,
   "curr_diet": null
 },{
-  "_id": {
-    "$oid": "5fe05cfcb271d358089313e2"
-  },
+  "_id": "5fe05cfcb271d358089313e2",
   "username": "Darkness",
   "hash": "$6$mHabWT8Hc6sxORGY$.svNi7kK3oeBR3s1hmdKpjRSceflR6fzlMKLgrvxMVloiiU6sXj188jVF1C2Vlxdli4RQKCsfa.jPUgourVia0",
   "email": "dustiness@ksuba.jp",
@@ -208,18 +166,19 @@
     "weight": 76,
     "bodyfat": 22
   },
+  "goals": {
+    "targetdate": "12/12/2001",
+    "weight": 60,
+    "bodyfat": 24
+  },
   "log": [
     {
       "date": "12-11-2020",
       "workout": {
-        "wid": {
-          "$oid": "5fe0732cb271d358089313e4"
-        },
+        "wid": "5fe0732cb271d358089313e4",
         "ex": [
           {
-            "id": {
-              "$oid": "5fe03a88b271d358089313cd"
-            },
+            "id": "5fe03a88b271d358089313cd",
             "reps": [
               1,
               3,
@@ -232,18 +191,14 @@
             ]
           },
           {
-            "id": {
-              "$oid": "5fe03a88b271d358089313cd"
-            },
+            "id": "5fe03a88b271d358089313cd",
             "reps": [
               13,
               3
             ]
           },
           {
-            "id": {
-              "$oid": "5fe03a88b271d358089313cd"
-            },
+            "id": "5fe03a88b271d358089313cd",
             "dur": [
               13
             ]
@@ -252,10 +207,99 @@
       }
     }
   ],
-  "curr_workout": {
-    "$oid": "5fe0732cb271d358089313e4"
+  "curr_workout": "5fe0732cb271d358089313e4",
+  "curr_diet": "5fe07621b271d358089313e5"
+},{
+  "_id": "5fe9fc5d430b08ac5fb8f828",
+  "username": "workoutguy",
+  "hash": "$6$Hy8iGFIytbdFcmaO$PBwEXen/.3nzM5pCnxO5mNTtb/ydvCsiECVsf0jyo/EtDBkqlsIckFpwYziCz0vILgZbGilAtKVFJLEH.YWmg.",
+  "name": "WorkoutGuy",
+  "email": "workout@gmail.com",
+  "birthdate": null,
+  "gender": "Male",
+  "stats": {
+    "height": 255,
+    "weight": 123,
+    "bodyfat": null
   },
-  "curr_diet": {
-    "$oid": "5fe07621b271d358089313e5"
+  "curr_workout": null,
+  "curr_diet": null
+},{
+  "_id": "5fe9feb90b7a983ee87bc818",
+  "username": "miku",
+  "hash": "$6$LxG3BXTUfVoiQNXL$8L8Leq/LPc16BDQiQdxNpwSx6oG2qg6sErnOj3a94n5.LSjpChHAhylfDuHQpr6Wc90EFXBujqmnr4TZDSY/S/",
+  "name": null,
+  "email": "miku.h@mmd.jp",
+  "birthdate": null,
+  "gender": "Female",
+  "stats": {
+    "height": 140,
+    "weight": 75,
+    "bodyfat": null
+  },
+  "curr_workout": null,
+  "curr_diet": null
+},{
+  "_id": "5fe9ff250b7a983ee87bc81a",
+  "username": "vegeta",
+  "hash": "$6$fWL2fqsg3AtxaKvy$vFrtZJ/FTNXasoFFb7usBIXIyFYmHkB5sTeewXs487RncqMOuf30qAUpNUWzmwr1.ZvYl71HTvAyvypDAipI20",
+  "name": null,
+  "email": "prince@saiyans.com",
+  "birthdate": null,
+  "gender": "Male",
+  "stats": {
+    "height": 140,
+    "weight": 80,
+    "bodyfat": null
+  },
+  "curr_workout": null,
+  "curr_diet": null
+},{
+  "_id": "5fea03720b7a983ee87bc81c",
+  "username": "omniknight",
+  "hash": "$6$suKWuguy6PpDhFAO$qeLf1Zy06DjVzmY7iSUP7x1T.KNx5UuqiYM8PSERjApDGQb/8bd66KgHD4OkMReDJWtj5aIROalEOSzdV.qUQ1",
+  "name": null,
+  "email": "holy@dota.com",
+  "birthdate": null,
+  "gender": "Male",
+  "stats": {
+    "height": 160,
+    "weight": 90,
+    "bodyfat": null
+  },
+  "curr_workout": null,
+  "curr_diet": null
+},{
+  "_id": "5fea080f0b7a983ee87bc81e",
+  "username": "nappa",
+  "hash": "$6$aOWrUX5OJqZkONjb$S3djtfAaZo3dAeLLX/aBffZrGMmMi/H94GFKp8awoBMxzUxm1NIcL/pmTFFEDb6V6yzYdtzFiwQkIaGcOtoIa0",
+  "name": null,
+  "email": "nappa@bald.head",
+  "birthdate": null,
+  "gender": "Male",
+  "stats": {
+    "height": 180,
+    "weight": 120,
+    "bodyfat": null
+  },
+  "curr_workout": null,
+  "curr_diet": null
+},{
+  "_id": "5fe521bd84740413e593a72d",
+  "username": "sam123",
+  "hash": "$6$qad7di3aMml8ej4F$GfCgva/rGrhVaBu31PywAAztsi8oEy/q7cgQ.sw1jIH9rbwlHqRr7dL0aYsI8D8kOG.WMXxDrzVNetDtNRq710",
+  "email": "sam@mail.com",
+  "name": "abdullah",
+  "gender": "Male",
+  "birthdate": null,
+  "stats": {
+    "height": 171,
+    "weight": 75,
+    "bodyfat": 12
+  },
+  "goals": {
+    "targetdate": "12/12/2001",
+    "weight": 60,
+    "bodyfat": 24
   }
 }]

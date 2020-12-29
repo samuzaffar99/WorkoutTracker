@@ -1,25 +1,11 @@
-import 'package:mongo_dart/mongo_dart.dart';
-
-//ObjectId
-class Id {
-  String oid;
-
-  Id({this.oid});
-
-  Id.fromJson(Map<String, dynamic> json) {
-    oid = json['$oid'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['$oid'] = this.oid;
-    return data;
-  }
+//formula
+double calcBMI() {
+  return 0;
 }
 
 //User
 class User {
-  ObjectId iId;
+  String iId;
   String username;
   String hash;
   String email;
@@ -29,8 +15,8 @@ class User {
   Stats stats;
   Goals goals;
   List<Log> log;
-  ObjectId currWorkout;
-  ObjectId currDiet;
+  String currWorkout;
+  String currDiet;
 
   User(
       {this.iId,
@@ -48,7 +34,7 @@ class User {
 
   User.fromJson(Map<String, dynamic> json) {
     //iId = json['_id'] != null ? new Id.fromJson(json['_id']) : null;
-    iId = new ObjectId.fromHexString(json['_id'].substring(10, 34));
+    iId = json['_id'];
     username = json['username'];
     hash = json['hash'];
     email = json['email'];
@@ -68,18 +54,14 @@ class User {
     //     : null;
     // currDiet =
     //     json['curr_diet'] != null ? new Id.fromJson(json['curr_diet']) : null;
-    currWorkout = json['curr_workout'] != null
-        ? new ObjectId.fromHexString(json['curr_workout'].substring(10, 34))
-        : null;
-    currDiet = json['curr_diet'] != null
-        ? new ObjectId.fromHexString(json['curr_diet'].substring(10, 34))
-        : null;
+    currWorkout = json['curr_workout'];
+    currDiet = json['curr_diet'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.iId != null) {
-      data['_id'] = this.iId.toJson();
+      data['_id'] = this.iId;
     }
     data['username'] = this.username;
     data['hash'] = this.hash;
@@ -97,10 +79,10 @@ class User {
       data['log'] = this.log.map((v) => v.toJson()).toList();
     }
     if (this.currWorkout != null) {
-      data['curr_workout'] = this.currWorkout.toJson();
+      data['curr_workout'] = this.currWorkout;
     }
     if (this.currDiet != null) {
-      data['curr_diet'] = this.currDiet.toJson();
+      data['curr_diet'] = this.currDiet;
     }
     return data;
   }
@@ -114,9 +96,9 @@ class Stats {
   Stats({this.height, this.weight, this.bodyfat});
 
   Stats.fromJson(Map<String, dynamic> json) {
-    height = json['height'];
-    weight = json['weight'];
-    bodyfat = json['bodyfat'];
+    height = json['height'].toDouble();
+    weight = json['weight'].toDouble();
+    bodyfat = json['bodyfat'].toDouble();
   }
 
   Map<String, dynamic> toJson() {
@@ -137,8 +119,8 @@ class Goals {
 
   Goals.fromJson(Map<String, dynamic> json) {
     targetdate = json['targetdate'];
-    weight = json['weight'];
-    bodyfat = json['bodyfat'];
+    weight = json['weight'].toDouble();
+    bodyfat = json['bodyfat'].toDouble();
   }
 
   Map<String, dynamic> toJson() {
@@ -174,14 +156,14 @@ class Log {
 }
 
 class WorkoutLog {
-  ObjectId wid;
+  String wid;
   List<Ex> ex;
 
   WorkoutLog({this.wid, this.ex});
 
   WorkoutLog.fromJson(Map<String, dynamic> json) {
     //wid = json['wid'] != null ? new Id.fromJson(json['wid']) : null;
-    wid = new ObjectId.fromHexString(json['wid'].substring(10, 34));
+    wid = json['wid'];
 
     if (json['ex'] != null) {
       ex = new List<Ex>();
@@ -193,9 +175,7 @@ class WorkoutLog {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.wid != null) {
-      data['wid'] = this.wid.toJson();
-    }
+    data['wid'] = this.wid;
     if (this.ex != null) {
       data['ex'] = this.ex.map((v) => v.toJson()).toList();
     }
@@ -204,7 +184,7 @@ class WorkoutLog {
 }
 
 class Ex {
-  ObjectId id;
+  String id;
   List<int> reps;
   List<double> weight;
   List<double> dur;
@@ -213,17 +193,15 @@ class Ex {
 
   Ex.fromJson(Map<String, dynamic> json) {
     //id = json['id'] != null ? new Id.fromJson(json['id']) : null;
-    id = new ObjectId.fromHexString(json['id'].substring(10, 34));
+    id = json['id'];
     reps = json['reps'].cast<int>();
-    weight = json['weight'].cast<double>();
-    dur = json['dur'].cast<double>();
+    weight = json['weight'].toDouble();
+    dur = json['dur'].toDouble();
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.id != null) {
-      data['id'] = this.id.toJson();
-    }
+    data['id'] = this.id;
     data['reps'] = this.reps;
     data['weight'] = this.weight;
     data['dur'] = this.dur;
@@ -233,19 +211,19 @@ class Ex {
 
 //Workout
 class Workout {
-  ObjectId iId;
+  String iId;
   String name;
-  ObjectId author;
+  String author;
   List<WDays> days;
 
   Workout({this.iId, this.name, this.author, this.days});
 
   Workout.fromJson(Map<String, dynamic> json) {
     //iId = json['_id'] != null ? new Id.fromJson(json['_id']) : null;
-    iId = new ObjectId.fromHexString(json['_id'].substring(10, 34));
+    iId = json['_id'];
     name = json['name'];
     //author = json['author'] != null ? new Id.fromJson(json['author']) : null;
-    author = json['author'] != null ? new ObjectId.fromHexString(json['author'].substring(10, 34)) : null;
+    author = json['author'];
     if (json['days'] != null) {
       days = new List<WDays>();
       json['days'].forEach((v) {
@@ -257,11 +235,11 @@ class Workout {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.iId != null) {
-      data['_id'] = this.iId.toJson();
+      data['_id'] = this.iId;
     }
     data['name'] = this.name;
     if (this.author != null) {
-      data['author'] = this.author.toJson();
+      data['author'] = this.author;
     }
     if (this.days != null) {
       data['days'] = this.days.map((v) => v.toJson()).toList();
@@ -300,7 +278,7 @@ class WDays {
 }
 
 class Routine {
-  ObjectId exid;
+  String exid;
   List<int> reps;
   List<double> dur;
 
@@ -308,16 +286,14 @@ class Routine {
 
   Routine.fromJson(Map<String, dynamic> json) {
     //exid = json['exid'] != null ? new Id.fromJson(json['exid']) : null;
-    exid = new ObjectId.fromHexString(json['exid'].substring(10, 34));
+    exid = json['exid'];
     reps = json['reps'].cast<int>();
-    dur = json['dur'].cast<double>();
+    dur = json['dur'].toDouble();
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.exid != null) {
-      data['exid'] = this.exid.toJson();
-    }
+    data['exid'] = this.exid;
     data['reps'] = this.reps;
     data['dur'] = this.dur;
     return data;
@@ -326,7 +302,7 @@ class Routine {
 
 //Exercise
 class Exercise {
-  ObjectId iId;
+  String iId;
   String name;
   String category;
   String info;
@@ -343,18 +319,18 @@ class Exercise {
 
   Exercise.fromJson(Map<String, dynamic> json) {
     //iId = json['_id'] != null ? new Id.fromJson(json['_id']) : null;
-    iId = new ObjectId.fromHexString(json['_id'].substring(10, 34));
+    iId = json['_id'];
     name = json['name'];
     category = json['category'];
     info = json['info'];
-    difficulty = json['difficulty'];
+    difficulty = json['difficulty'].toDouble();
     target = json['target'].cast<String>();
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.iId != null) {
-      data['_id'] = this.iId.toJson();
+      data['_id'] = this.iId;
     }
     data['name'] = this.name;
     data['category'] = this.category;
@@ -367,9 +343,9 @@ class Exercise {
 
 //Diet
 class Diet {
-  ObjectId iId;
+  String iId;
   String name;
-  ObjectId author;
+  String author;
   double calories;
   Dist dist;
   List<Days> days;
@@ -379,11 +355,11 @@ class Diet {
 
   Diet.fromJson(Map<String, dynamic> json) {
     //iId = json['_id'] != null ? new Id.fromJson(json['_id']) : null;
-    iId = new ObjectId.fromHexString(json['_id'].substring(10, 34));
+    iId = json['_id'];
     name = json['name'];
     //author = json['author'] != null ? new Id.fromJson(json['author']) : null;
-    author = json['author'] != null ? new ObjectId.fromHexString(json['author'].substring(10, 34)) : null;
-    calories = json['calories'];
+    author = json['author'];
+    calories = json['calories'].toDouble();
     dist = json['dist'] != null ? new Dist.fromJson(json['dist']) : null;
     if (json['days'] != null) {
       days = new List<Days>();
@@ -397,11 +373,11 @@ class Diet {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.iId != null) {
-      data['_id'] = this.iId.toJson();
+      data['_id'] = this.iId;
     }
     data['name'] = this.name;
     if (this.author != null) {
-      data['author'] = this.author.toJson();
+      data['author'] = this.author;
     }
     data['calories'] = this.calories;
     if (this.dist != null) {
@@ -423,9 +399,9 @@ class Dist {
   Dist({this.carbs, this.protein, this.fat});
 
   Dist.fromJson(Map<String, dynamic> json) {
-    carbs = json['carbs'];
-    protein = json['protein'];
-    fat = json['fat'];
+    carbs = json['carbs'].toDouble();
+    protein = json['protein'].toDouble();
+    fat = json['fat'].toDouble();
   }
 
   Map<String, dynamic> toJson() {
@@ -439,17 +415,17 @@ class Dist {
 
 class Days {
   String day;
-  List<ObjectId> meals;
+  List<String> meals;
 
   Days({this.day, this.meals});
 
   Days.fromJson(Map<String, dynamic> json) {
     day = json['day'];
     if (json['meals'] != null) {
-      meals = new List<ObjectId>();
+      meals = new List<String>();
       json['meals'].forEach((v) {
         //meals.add(new Id.fromJson(v));
-        meals.add(new ObjectId.fromHexString(v.substring(10, 34)));
+        meals.add(v);
       });
     }
   }
@@ -458,7 +434,7 @@ class Days {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['day'] = this.day;
     if (this.meals != null) {
-      data['meals'] = this.meals.map((v) => v.toJson()).toList();
+      data['meals'] = this.meals.map((v) => v).toList();
     }
     return data;
   }
@@ -466,7 +442,7 @@ class Days {
 
 //Food
 class Food {
-  ObjectId iId;
+  String iId;
   String name;
   double calories;
   double carbs;
@@ -485,19 +461,19 @@ class Food {
 
   Food.fromJson(Map<String, dynamic> json) {
     //iId = json['_id'] != null ? new Id.fromJson(json['_id']) : null;
-    iId = new ObjectId.fromHexString(json['_id'].substring(10, 34));
+    iId = json['_id'];
     name = json['name'];
-    calories = json['calories'];
-    carbs = json['carbs'];
-    protein = json['protein'];
-    fat = json['fat'];
+    calories = json['calories'].toDouble();
+    carbs = json['carbs'].toDouble();
+    protein = json['protein'].toDouble();
+    fat = json['fat'].toDouble();
     tags = json['tags'].cast<String>();
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.iId != null) {
-      data['_id'] = this.iId.toJson();
+      data['_id'] = this.iId;
     }
     data['name'] = this.name;
     data['calories'] = this.calories;

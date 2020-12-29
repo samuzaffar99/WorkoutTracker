@@ -18,7 +18,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
   //@override
   Widget getWorkoutView() {
     return FutureBuilder(
-        future: _api.getWorkout('5fe0732cb271d358089313e4'),
+        future: _api.getWorkout(widget.user.currWorkout),
         builder: (buildContext, AsyncSnapshot snapshot) {
           if (snapshot.hasError)
             throw snapshot.error;
@@ -148,7 +148,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
         });
   }
 
-  Widget WorkoutCard()
+  Widget workoutCard()
   {
     return Container(
       height: 120,
@@ -289,7 +289,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                             //get number of exercises for this person and
                             //iterate each using a for loop
                             //get respective data according to the iteration number/id
-                            WorkoutCard(),
+                            workoutCard(),
                           ],
                         ),
                       ),
