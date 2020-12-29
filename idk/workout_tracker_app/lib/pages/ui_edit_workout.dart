@@ -8,8 +8,7 @@ class EditWorkout extends StatefulWidget {
   _EditWorkoutState createState() => _EditWorkoutState();
 }
 
-Widget EditExerciseCard()
-{
+Widget editExerciseCard() {
   return Container(
     height: 120,
     width: 349,
@@ -28,8 +27,7 @@ Widget EditExerciseCard()
                 children: [
                   TextSpan(
                       text: "    Exercise",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold)),
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                 ]),
           ),
           Row(
@@ -42,9 +40,7 @@ Widget EditExerciseCard()
                     children: [
                       TextSpan(
                           text: "    Reps\n",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold)
-                      ),
+                          style: TextStyle(fontWeight: FontWeight.bold)),
                       TextSpan(
                         text: "      1\n",
                       ),
@@ -72,11 +68,11 @@ Widget EditExerciseCard()
                     children: [
                       TextSpan(
                         text: "Difficulty\n",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold),
+                        style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       TextSpan(
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 30),
                         text: "10.0\n",
                       ),
                     ],
@@ -109,8 +105,7 @@ class _EditWorkoutState extends State<EditWorkout> {
             opacity: 0.5,
             child: Card(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30)
-              ),
+                  borderRadius: BorderRadius.circular(30)),
               elevation: 5,
               margin: EdgeInsets.fromLTRB(16, 10, 16, 10),
               child: Padding(
@@ -122,7 +117,7 @@ class _EditWorkoutState extends State<EditWorkout> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        EditExerciseCard(),
+                        editExerciseCard(),
                       ],
                     ),
                   ),
@@ -130,7 +125,9 @@ class _EditWorkoutState extends State<EditWorkout> {
               ),
             ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
