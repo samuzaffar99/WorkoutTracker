@@ -148,7 +148,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
         });
   }
 
-  Widget workoutCard()
+  Widget ExerciseCard()
   {
     return Container(
       height: 120,
@@ -289,7 +289,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                             //get number of exercises for this person and
                             //iterate each using a for loop
                             //get respective data according to the iteration number/id
-                            workoutCard(),
+                            ExerciseCard(),
                           ],
                         ),
                       ),
