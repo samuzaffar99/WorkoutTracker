@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
 import '../src/model.dart';
+import '../src/api.dart';
 
 class DietPage extends StatefulWidget {
   final User user;
@@ -10,6 +11,170 @@ class DietPage extends StatefulWidget {
 }
 
 class _DietPageState extends State<DietPage> {
+  final Api _api = Api();
+  Widget getDietView() {
+    return FutureBuilder(
+        future: _api.getDiet('5fe07621b271d358089313e5'),
+        builder: (buildContext, AsyncSnapshot snapshot) {
+          if (snapshot.hasError)
+            throw snapshot.error;
+          else if (!snapshot.hasData) {
+            return Container(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          } else {
+            String dday =
+                "monday"; //var date = DateTime.now();print(DateFormat('EEEE').format(date));
+            int dindex = 0;
+            for (var i = 0; i < snapshot.data["dietdays"].length; i++) {
+              if (snapshot.data["dietdays"][i]["day"] == dday) {
+                print(snapshot.data["dietdays"][i]["day"]);
+                dindex = i;
+                break;
+              }
+            }
+            var currentDietDay = snapshot.data["dietdays"][dindex];
+            print(snapshot.data);
+            // print(
+            //     'Num exercises: ${snapshot.data["days"][dindex]["routine"].length}');
+            return Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        currentDietDay["day"],
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                      child: ListView.builder(
+                          itemCount: currentDietDay["meals"].length,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            var currentMeal = currentDietDay["meals"][index];
+                            print('FoodId: ${currentMeal.runtimeType}');
+                            print('FoodId: $currentMeal');
+                            return FutureBuilder(
+                                future: _api.getFood(currentMeal),
+                                builder:
+                                    (buildContext, AsyncSnapshot snapshot) {
+                                  if (snapshot.hasError) {
+                                    throw snapshot.error;
+                                  } else if (!snapshot.hasData) {
+                                    return Container(
+                                      child: Center(
+                                        child: CircularProgressIndicator(),
+                                      ),
+                                    );
+                                  } else {
+                                    return Card(
+                                      color: Colors.grey[300],
+                                      elevation: 4,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          RichText(
+                                            text: TextSpan(
+                                                style: TextStyle(
+                                                  fontSize: 15,
+                                                  color: Colors.black,
+                                                ),
+                                                children: [
+                                                  TextSpan(
+                                                      text:
+                                                          "    ${snapshot.data["name"]}",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold)),
+                                                ]),
+                                          ),
+                                          Row(
+                                            children: [
+                                              SizedBox(
+                                                width: 50,
+                                              ),
+                                              RichText(
+                                                text: TextSpan(
+                                                    children: [
+                                                      TextSpan(
+                                                        text: "    \n",
+                                                      ),
+                                                      TextSpan(
+                                                        text: "    Fat\n",
+                                                      ),
+                                                      TextSpan(
+                                                        text: "    Proteins\n",
+                                                      ),
+                                                      TextSpan(
+                                                        text: "    Carbs\n",
+                                                      ),
+                                                      TextSpan(
+                                                        text: "    Calories",
+                                                      ),
+                                                    ],
+                                                    style: TextStyle(
+                                                      fontSize: 15,
+                                                      color: Colors.black,
+                                                    )),
+                                              )
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              SizedBox(
+                                                width: 40,
+                                              ),
+                                              RichText(
+                                                text: TextSpan(
+                                                    children: [
+                                                      TextSpan(
+                                                        text: "Amount (g)\n",
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                      TextSpan(
+                                                        text:
+                                                            "    ${snapshot.data["fat"]}\n",
+                                                      ),
+                                                      TextSpan(
+                                                        text:
+                                                            "    ${snapshot.data["protein"]}\n",
+                                                      ),
+                                                      TextSpan(
+                                                        text:
+                                                            "    ${snapshot.data["carbs"]}\n",
+                                                      ),
+                                                      TextSpan(
+                                                        text:
+                                                            "    ${snapshot.data["calories"]}",
+                                                      ),
+                                                    ],
+                                                    style: TextStyle(
+                                                      fontSize: 15,
+                                                      color: Colors.black,
+                                                    )),
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  }
+                                });
+                          }))
+                ]);
+          }
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     int index = 1;
@@ -45,287 +210,7 @@ class _DietPageState extends State<DietPage> {
                 margin: EdgeInsets.fromLTRB(16, 10, 16, 10),
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    height: 400,
-                    width: 275,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: 120,
-                            width: 349,
-                            child: Card(
-                              color: Colors.grey[300],
-                              elevation: 4,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  RichText(
-                                    text: TextSpan(
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.black,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                              text: "    Banana",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                        ]),
-                                  ),
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 50,
-                                      ),
-                                      RichText(
-                                        text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: "    \n",
-                                              ),
-                                              TextSpan(
-                                                text: "    Fat\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    Proteins\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    Carbs\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    Calories",
-                                              ),
-                                            ],
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            )),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 40,
-                                      ),
-                                      RichText(
-                                        text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: "Amount (g)\n",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.bold),
-                                              ),
-                                              TextSpan(
-                                                text: "    31\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    1.5\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    0.4\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    136.2",
-                                              ),
-                                            ],
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            )),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: 120,
-                            width: 349,
-                            child: Card(
-                              color: Colors.grey[300],
-                              elevation: 4,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  RichText(
-                                    text: TextSpan(
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.black,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                              text: "    Oyesters",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                        ]),
-                                  ),
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 50,
-                                      ),
-                                      RichText(
-                                        text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: "    \n",
-                                              ),
-                                              TextSpan(
-                                                text: "    Fat\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    Proteins\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    Carbs\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    Calories",
-                                              ),
-                                            ],
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            )),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 40,
-                                      ),
-                                      RichText(
-                                        text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: "Amount (g)\n",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.bold),
-                                              ),
-                                              TextSpan(
-                                                text: "    4\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    10\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    6\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    100",
-                                              ),
-                                            ],
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            )),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: 120,
-                            width: 349,
-                            child: Card(
-                              color: Colors.grey[300],
-                              elevation: 4,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  RichText(
-                                    text: TextSpan(
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.black,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                              text: "    Brocolli",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                        ]),
-                                  ),
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 50,
-                                      ),
-                                      RichText(
-                                        text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: "    \n",
-                                              ),
-                                              TextSpan(
-                                                text: "    Fat\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    Proteins\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    Carbs\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    Calories",
-                                              ),
-                                            ],
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            )),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 40,
-                                      ),
-                                      RichText(
-                                        text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: "Amount (g)\n",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.bold),
-                                              ),
-                                              TextSpan(
-                                                text: "    0.5\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    4\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    8\n",
-                                              ),
-                                              TextSpan(
-                                                text: "    45",
-                                              ),
-                                            ],
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            )),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                  child: getDietView()
                 ),
               ),
             )),

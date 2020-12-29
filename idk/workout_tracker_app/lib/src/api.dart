@@ -79,7 +79,6 @@ class Api {
     // return response.statusCode;
   }
 
-
   Future<Map> postUserM(User user) async {
     String userJson = jsonEncode(user);
     print(userJson);
