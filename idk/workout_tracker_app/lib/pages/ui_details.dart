@@ -18,8 +18,9 @@ class DetailsPage extends StatefulWidget {
 
 class _DetailsPageState extends State<DetailsPage> {
   String gender;
-  double weight;
   double height;
+  double weight;
+  double bodyfat;
   String date;
 
   var _formKey = GlobalKey<FormState>();
@@ -32,7 +33,7 @@ class _DetailsPageState extends State<DetailsPage> {
       'email': widget.email,
       'gender': gender,
       'birthdate': date,
-      'stats': {'height': height, 'weight': weight},
+      'stats': {'height': height, 'weight': weight,"bodyfat": 0},
       "goals": {"targetdate": "12/12/2001", "weight": 60.0, "bodyfat": 24.0}
     }
         // 'username': widget.username,
@@ -64,7 +65,7 @@ class _DetailsPageState extends State<DetailsPage> {
   var myController;
 
   List<DropdownMenuItem<String>> genderDropdown() {
-    List<String> ddl = ["Male", "Female", "Others"];
+    List<String> ddl = ["Male", "Female"];
     return ddl
         .map((value) => DropdownMenuItem(
               value: value,

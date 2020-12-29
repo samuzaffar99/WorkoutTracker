@@ -17,6 +17,10 @@ void start() async {
   final dietColl = db.collection('diet');
   final foodColl = db.collection('food');
 
+  serv.listen(port, callback: () {
+    return print('Server started on port $port');
+  });
+
   //get
   serv.get(
     '/user/username/:param',
@@ -29,10 +33,6 @@ void start() async {
       },
     ],
   );
-
-  serv.listen(port, callback: () {
-    return print('Server started on port $port');
-  });
 
   serv.get(
     '/user/_id/:param',
@@ -47,6 +47,18 @@ void start() async {
   );
 
   serv.get(
+    '/workout/_id/:param',
+    [
+          (ServRequest req, ServResponse res) async {
+        final workout = await workoutColl
+            .findOne(where.eq('_id', req.params['param']));
+        print('called get /workout/_id/:param $workout');
+        return res.status(200).json(workout);
+      },
+    ],
+  );
+
+  serv.get(
     '/exercise/_id/:param',
     [
       (ServRequest req, ServResponse res) async {
@@ -55,18 +67,6 @@ void start() async {
         print('called get /exercise/_id/:param $exercise');
         print(res);
         return res.status(200).json(exercise);
-      },
-    ],
-  );
-
-  serv.get(
-    '/workout/_id/:param',
-    [
-      (ServRequest req, ServResponse res) async {
-        final workout = await workoutColl
-            .findOne(where.eq('_id', req.params['param']));
-        print('called get /workout/_id/:param $workout');
-        return res.status(200).json(workout);
       },
     ],
   );
@@ -89,7 +89,7 @@ void start() async {
       (ServRequest req, ServResponse res) async {
         final food = await foodColl
             .findOne(where.eq('_id', req.params['param']));
-        print('called get /food/_id/:param $food');
+        print('called get /food/_id/:param ${req.params['param']} $food');
         return res.status(200).json(food);
       },
     ],
@@ -101,7 +101,7 @@ void start() async {
     [
       (ServRequest req, ServResponse res) async {
         req.body['_id'] = ObjectId().toHexString();
-        final user = await userColl.insertOne(req.body);
+        final user = await userColl.save(req.body);
         //final user = await userColl.save(req.body);
         return res.status(200).json(
             await userColl.findOne(where.eq('_id', user["upserted"])));

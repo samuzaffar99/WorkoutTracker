@@ -1,0 +1,99 @@
+[{
+  "_id": {
+    "$oid": "5fe063f5b271d358089313e3"
+  },
+  "name": "Banana",
+  "carbs": 31,
+  "protein": 1.5,
+  "fat": 0.4,
+  "calories": 136.2,
+  "tags": [
+    "sugar",
+    "fruit"
+  ]
+},{
+  "_id": {
+    "$oid": "5fe8c3a92a7adc3488b6e7f5"
+  },
+  "name": "Oysters",
+  "calories": 100,
+  "carbs": 6,
+  "protein": 10,
+  "fat": 4,
+  "tags": [
+    "seafood"
+  ]
+},{
+  "_id": {
+    "$oid": "5fe8c3a92a7adc3488b6e7f6"
+  },
+  "name": "Brocolli",
+  "calories": 45,
+  "carbs": 8,
+  "protein": 4,
+  "fat": 0.5,
+  "tags": [
+    "sugar",
+    "fruit"
+  ]
+},{
+  "_id": {
+    "$oid": "5fe8c3a92a7adc3488b6e7f7"
+  },
+  "name": "Pecans, 100g",
+  "calories": 691,
+  "carbs": 14,
+  "protein": 9,
+  "fat": 72,
+  "tags": [
+    "nuts"
+  ]
+},{
+  "_id": {
+    "$oid": "5fe8c3a92a7adc3488b6e7f8"
+  },
+  "name": "Walnuts, 100g",
+  "calories": 654,
+  "carbs": 14,
+  "protein": 15,
+  "fat": 65,
+  "tags": [
+    "nuts"
+  ]
+},{
+  "_id": {
+    "$oid": "5fe8c3a92a7adc3488b6e7f9"
+  },
+  "name": "Hazelnuts, 100g",
+  "calories": 628,
+  "carbs": 17,
+  "protein": 15,
+  "fat": 61,
+  "tags": [
+    "nuts"
+  ]
+},{
+  "_id": {
+    "$oid": "5fe8c3a92a7adc3488b6e7fa"
+  },
+  "name": "Almonds, 100g",
+  "calories": 575,
+  "carbs": 22,
+  "protein": 21,
+  "fat": 49,
+  "tags": [
+    "nuts"
+  ]
+},{
+  "_id": {
+    "$oid": "5fe8c3a92a7adc3488b6e7fb"
+  },
+  "name": "Garlic, 100g",
+  "calories": 149,
+  "carbs": 33,
+  "protein": 6,
+  "fat": 0,
+  "tags": [
+    "vegetable"
+  ]
+}]
