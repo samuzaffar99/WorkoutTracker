@@ -13,6 +13,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    var _formKey = GlobalKey<FormState>();
     int index = 4;
     return SafeArea(
       child: Scaffold(
@@ -20,12 +21,142 @@ class _ProfilePageState extends State<ProfilePage> {
         appBar: AppBar(
           backgroundColor: Color(0xFF141414),
           title: Text("Profile"),
-          // actions: [
-          //   Padding(
-          //       padding: EdgeInsets.only(right: 20.0),
-          //       child: GestureDetector(
-          //           onTap: () {}, child: Icon(Icons.dehaze_rounded))),
-          // ],
+          actions: [
+            Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                    onTap: () {
+                      showDialog(context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          backgroundColor: Colors.grey[350],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)
+                          ),
+                          title: Text('Edit Profile',
+                            style: TextStyle(fontSize: 23),),
+                          content: Form(
+                            key: _formKey,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text('Enter your current weight'),
+                                  ],
+                                ),
+                                SizedBox(height: 5,),
+                                TextFormField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    hintText: '75.0kg',
+                                    filled: true,
+                                    fillColor: Colors.grey[300],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    Text('Enter your current bodyfat'),
+                                  ],
+                                ),
+                                SizedBox(height: 5,),
+                                TextFormField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    hintText: '15.0 %',
+                                    filled: true,
+                                    fillColor: Colors.grey[300],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    Text('Enter your desired weight'),
+                                  ],
+                                ),
+                                SizedBox(height: 5,),
+                                TextFormField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    hintText: '50.0 kg',
+                                    filled: true,
+                                    fillColor: Colors.grey[300],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    Text('Enter your desired bodyfat'),
+                                  ],
+                                ),
+                                SizedBox(height: 5,),
+                                TextFormField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    hintText: '10.0 %',
+                                    filled: true,
+                                    fillColor: Colors.grey[300],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    MaterialButton(
+                                      minWidth: 100,
+                                      height: 50,
+                                      color: Colors.grey,
+                                      child: Text('Save'),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20.0),
+                                      ),
+                                      onPressed: () {
+
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          );
+                      });
+                    },
+                    child: Icon(Icons.edit))),
+          ],
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
@@ -167,9 +298,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ],
                         ),
                         Expanded(
-                          child: SizedBox(
-                            height: 50,
-                          ),
+                          child: SizedBox(),
                         ),
                         Text(
                           'Your Goals',
