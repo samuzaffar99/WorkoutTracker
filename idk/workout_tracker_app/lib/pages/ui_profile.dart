@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
 import 'package:workout_tracker_app/pages/ui_settings.dart';
 import '../src/model.dart';
+import '../src/api.dart';
+import 'package:intl/intl.dart';
 
 class ProfilePage extends StatefulWidget {
   final User user;
@@ -11,11 +13,21 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final Api _api = Api();
   final weightController = TextEditingController();
   final bodyfatController = TextEditingController();
   final weightgController = TextEditingController();
   final bodyfatgController = TextEditingController();
 
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    weightController.dispose();
+    bodyfatController.dispose();
+    weightgController.dispose();
+    bodyfatgController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     var _formKey = GlobalKey<FormState>();
@@ -153,6 +165,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                         borderRadius: BorderRadius.circular(20.0),
                                       ),
                                       onPressed: () {
+                                        widget.user.stats.weight=double.parse(weightController.text);
+                                        widget.user.stats.bodyfat=double.parse(bodyfatController.text);
+                                        widget.user.goals.weight=double.parse(weightgController.text);
+                                        widget.user.goals.bodyfat=double.parse(bodyfatgController.text);
+                                        _api.putUser(widget.user);
                                         Navigator.of(context).pop();
                                       },
                                     ),
@@ -267,7 +284,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         ),
                                         children: [
                                           TextSpan(
-                                              text: "15.0 %\n",
+                                              text: "${widget.user.stats.bodyfat} %\n",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           TextSpan(
@@ -293,7 +310,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         ),
                                         children: [
                                           TextSpan(
-                                              text: "22.0\n",
+                                              text: "${calcBMI(widget.user.stats.height,widget.user.stats.weight)}\n",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           TextSpan(
@@ -340,7 +357,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         children: [
                                           TextSpan(
                                               text:
-                                                  "${widget.user.stats.weight} kg\n",
+                                                  "${widget.user.goals.weight} kg\n",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           TextSpan(
@@ -366,7 +383,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         ),
                                         children: [
                                           TextSpan(
-                                              text: "15.0 %\n",
+                                              text: "${widget.user.goals.bodyfat} %\n",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           TextSpan(
@@ -392,7 +409,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         ),
                                         children: [
                                           TextSpan(
-                                              text: "      22\n",
+                                              text: "      ${DateTime.now().difference(DateFormat('dd/MM/yyyy').parse(widget.user.goals.targetdate)).inDays}\n",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           TextSpan(
