@@ -144,7 +144,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         borderRadius: BorderRadius.circular(20.0),
                                       ),
                                       onPressed: () {
-
+                                        Navigator.of(context).pop();
                                       },
                                     ),
                                   ],
