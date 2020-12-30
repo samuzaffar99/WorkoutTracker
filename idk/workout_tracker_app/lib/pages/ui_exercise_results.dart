@@ -40,7 +40,6 @@ class _ExerciseResultsState extends State<ExerciseResults> {
                           if (currentItem["info"] != null)
                             Text("Info: ${currentItem["info"]}"),
                         ]));
-                    return new Center(child: Text(currentItem.toString()));
                   }),
             );
           }

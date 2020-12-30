@@ -18,6 +18,7 @@ class Api {
   }
   Future<List> getExercises() async {
     final response = await _dio.get('/exercise');
+    //print(jsonDecode(response.data).runtimeType);
     return jsonDecode(response.data);
   }
   Future<List> getDiets() async {
