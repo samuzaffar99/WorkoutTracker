@@ -11,6 +11,11 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final weightController = TextEditingController();
+  final bodyfatController = TextEditingController();
+  final weightgController = TextEditingController();
+  final bodyfatgController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var _formKey = GlobalKey<FormState>();
@@ -47,6 +52,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                                 SizedBox(height: 5,),
                                 TextFormField(
+                                  controller: weightController,
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                       borderRadius:
@@ -70,6 +76,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                                 SizedBox(height: 5,),
                                 TextFormField(
+                                    controller: bodyfatController,
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                       borderRadius:
@@ -93,6 +100,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                                 SizedBox(height: 5,),
                                 TextFormField(
+                                  controller: weightgController,
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                       borderRadius:
@@ -116,6 +124,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                                 SizedBox(height: 5,),
                                 TextFormField(
+                                    controller: bodyfatgController,
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                       borderRadius:
