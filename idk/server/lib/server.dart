@@ -1,5 +1,6 @@
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:sevr/sevr.dart';
+import 'dart:convert';
 
 //adb reverse tcp:3000 tcp:3000
 
@@ -26,12 +27,9 @@ void start() async {
     '/user',
     [
           (ServRequest req, ServResponse res) async {
-        final snapshot = await userColl
-            .find({}).toList();
-        print('called get /user $snapshot');
-        print(res);
-        //return res.send(snapshot);
-        //return res.status(200).json(snapshot);
+        var snapshot = await userColl
+            .find().toList();
+        return res.status(200).send(jsonEncode(snapshot));
       },
     ],
   );
@@ -39,11 +37,10 @@ void start() async {
     '/workout',
     [
           (ServRequest req, ServResponse res) async {
-        final snapshot = await exerciseColl
-            .findOne(where.eq('_id', req.params['param']));
-        print('called get /workout $snapshot');
-        print(res);
-        return res.status(200).json(snapshot);
+        final snapshot = await workoutColl
+            .find().toList();
+        print(snapshot);
+        return res.status(200).send(jsonEncode(snapshot));
       },
     ],
   );
@@ -52,10 +49,9 @@ void start() async {
     [
           (ServRequest req, ServResponse res) async {
         final snapshot = await exerciseColl
-            .findOne(where.eq('_id', req.params['param']));
-        print('called get /exercise $snapshot');
-        print(res);
-        return res.status(200).json(snapshot);
+            .find().toList();
+        print(snapshot);
+        return res.status(200).send(jsonEncode(snapshot));
       },
     ],
   );
@@ -63,11 +59,10 @@ void start() async {
     '/diet',
     [
           (ServRequest req, ServResponse res) async {
-        final snapshot = await exerciseColl
-            .findOne(where.eq('_id', req.params['param']));
-        print('called get /diet $snapshot');
-        print(res);
-        return res.status(200).json(snapshot);
+        final snapshot = await dietColl
+            .find().toList();
+        print(snapshot);
+        return res.status(200).send(jsonEncode(snapshot));
       },
     ],
   );
@@ -76,11 +71,10 @@ void start() async {
     '/food',
     [
           (ServRequest req, ServResponse res) async {
-        final snapshot = await exerciseColl
-            .findOne(where.eq('_id', req.params['param']));
-        print('called get /food $snapshot');
-        print(res);
-        return res.status(200).json(snapshot);
+        final snapshot = await foodColl
+            .find().toList();
+        print(snapshot);
+        return res.status(200).send(jsonEncode(snapshot));
       },
     ],
   );
