@@ -8,27 +8,27 @@ class Api {
   );
 
   //get
-  Future<Map> getUsers() async {
+  Future<List> getUsers() async {
     final response = await _dio.get('/user');
     return response.data;
   }
-  Future<Map> getWorkouts() async {
+  Future<List> getWorkouts() async {
     final response = await _dio.get('/workout');
     return response.data;
   }
-  Future<Map> getExercises() async {
+  Future<List> getExercises() async {
     final response = await _dio.get('/exercise');
-    return response.data;
+    return jsonDecode(response.data);
   }
-  Future<Map> getDiets() async {
+  Future<List> getDiets() async {
     final response = await _dio.get('/diet');
     return response.data;
   }
-  Future<Map> getFoods() async {
+  Future<List> getFoods() async {
     final response = await _dio.get('/food');
     return response.data;
   }
-  
+
   Future<User> getUser(String username) async {
     print('await done');
     final response = await _dio.get('/user/username/$username');

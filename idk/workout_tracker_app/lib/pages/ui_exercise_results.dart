@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../src/api.dart';
 
 class ExerciseResults extends StatefulWidget {
   @override
@@ -7,6 +8,45 @@ class ExerciseResults extends StatefulWidget {
 }
 
 class _ExerciseResultsState extends State<ExerciseResults> {
+  final Api _api = Api();
+  Widget getExerciseResults() {
+    return FutureBuilder(
+        future: _api.getExercises(),
+        builder: (buildContext, AsyncSnapshot snapshot) {
+          if (snapshot.hasError)
+            throw snapshot.error;
+          else if (!snapshot.hasData) {
+            return Container(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          } else {
+            print(snapshot.data);
+            return Scrollbar(
+              child: ListView.builder(
+                  padding: EdgeInsets.all(5),
+                  itemCount: snapshot.data.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    var currentItem = snapshot.data[index];
+                    return Card(
+                        color: Colors.grey[300],
+                        elevation: 4,
+                        child: Column(children: [
+                          Text(currentItem["name"]),
+                          Text(currentItem["difficulty"].toString()),
+                          Text(currentItem["category"]),
+                          if (currentItem["info"] != null)
+                            Text("Info: ${currentItem["info"]}"),
+                        ]));
+                    return new Center(child: Text(currentItem.toString()));
+                  }),
+            );
+          }
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -104,6 +144,7 @@ class _ExerciseResultsState extends State<ExerciseResults> {
               SizedBox(
                 height: 50,
               ),
+              getExerciseResults(),
             ],
           ),
         ),
