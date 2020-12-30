@@ -23,13 +23,76 @@ void start() async {
 
   //get
   serv.get(
+    '/user',
+    [
+          (ServRequest req, ServResponse res) async {
+        final snapshot = await userColl
+            .find({}).toList();
+        print('called get /user $snapshot');
+        print(res);
+        //return res.send(snapshot);
+        //return res.status(200).json(snapshot);
+      },
+    ],
+  );
+  serv.get(
+    '/workout',
+    [
+          (ServRequest req, ServResponse res) async {
+        final snapshot = await exerciseColl
+            .findOne(where.eq('_id', req.params['param']));
+        print('called get /workout $snapshot');
+        print(res);
+        return res.status(200).json(snapshot);
+      },
+    ],
+  );
+  serv.get(
+    '/exercise',
+    [
+          (ServRequest req, ServResponse res) async {
+        final snapshot = await exerciseColl
+            .findOne(where.eq('_id', req.params['param']));
+        print('called get /exercise $snapshot');
+        print(res);
+        return res.status(200).json(snapshot);
+      },
+    ],
+  );
+  serv.get(
+    '/diet',
+    [
+          (ServRequest req, ServResponse res) async {
+        final snapshot = await exerciseColl
+            .findOne(where.eq('_id', req.params['param']));
+        print('called get /diet $snapshot');
+        print(res);
+        return res.status(200).json(snapshot);
+      },
+    ],
+  );
+
+  serv.get(
+    '/food',
+    [
+          (ServRequest req, ServResponse res) async {
+        final snapshot = await exerciseColl
+            .findOne(where.eq('_id', req.params['param']));
+        print('called get /food $snapshot');
+        print(res);
+        return res.status(200).json(snapshot);
+      },
+    ],
+  );
+
+  serv.get(
     '/user/username/:param',
     [
       (ServRequest req, ServResponse res) async {
-        final user = await userColl
+        final snapshot = await userColl
             .findOne(where.eq('username', req.params['param']));
-        print('called get /user/username/:username $user');
-        return res.status(200).json(user);
+        print('called get /user/username/:username $snapshot');
+        return res.status(200).json(snapshot);
       },
     ],
   );
@@ -38,10 +101,10 @@ void start() async {
     '/user/_id/:param',
     [
       (ServRequest req, ServResponse res) async {
-        final user = await userColl
+        final snapshot = await userColl
             .findOne(where.eq('_id', req.params['param']));
-        print('called get /user/_id/:param $user');
-        return res.status(200).json(user);
+        print('called get /user/_id/:param $snapshot');
+        return res.status(200).json(snapshot);
       },
     ],
   );
@@ -50,10 +113,10 @@ void start() async {
     '/workout/_id/:param',
     [
           (ServRequest req, ServResponse res) async {
-        final workout = await workoutColl
+        final snapshot = await workoutColl
             .findOne(where.eq('_id', req.params['param']));
-        print('called get /workout/_id/:param $workout');
-        return res.status(200).json(workout);
+        print('called get /workout/_id/:param $snapshot');
+        return res.status(200).json(snapshot);
       },
     ],
   );
@@ -62,11 +125,11 @@ void start() async {
     '/exercise/_id/:param',
     [
       (ServRequest req, ServResponse res) async {
-        final exercise = await exerciseColl
+        final snapshot = await exerciseColl
             .findOne(where.eq('_id', req.params['param']));
-        print('called get /exercise/_id/:param $exercise');
+        print('called get /exercise/_id/:param $snapshot');
         print(res);
-        return res.status(200).json(exercise);
+        return res.status(200).json(snapshot);
       },
     ],
   );
@@ -75,10 +138,10 @@ void start() async {
     '/diet/_id/:param',
     [
       (ServRequest req, ServResponse res) async {
-        final diet = await dietColl
+        final snapshot = await dietColl
             .findOne(where.eq('_id', req.params['param']));
-        print('called get /diet/_id/:param $diet');
-        return res.status(200).json(diet);
+        print('called get /diet/_id/:param $snapshot');
+        return res.status(200).json(snapshot);
       },
     ],
   );
@@ -87,10 +150,10 @@ void start() async {
     '/food/_id/:param',
     [
       (ServRequest req, ServResponse res) async {
-        final food = await foodColl
+        final snapshot = await foodColl
             .findOne(where.eq('_id', req.params['param']));
-        print('called get /food/_id/:param ${req.params['param']} $food');
-        return res.status(200).json(food);
+        print('called get /food/_id/:param ${req.params['param']} $snapshot');
+        return res.status(200).json(snapshot);
       },
     ],
   );
@@ -101,10 +164,10 @@ void start() async {
     [
       (ServRequest req, ServResponse res) async {
         req.body['_id'] = ObjectId().toHexString();
-        final user = await userColl.save(req.body);
+        final snapshot = await userColl.save(req.body);
         //final user = await userColl.save(req.body);
         return res.status(200).json(
-            await userColl.findOne(where.eq('_id', user["upserted"])));
+            await userColl.findOne(where.eq('_id', snapshot['upserted'])));
         //print('user is $json(user)');
         //return res.status(200).json(user);
         // return res.status(200).json(
@@ -117,7 +180,7 @@ void start() async {
     '/workout',
     [
       (ServRequest req, ServResponse res) async {
-        req.body["_id"] = ObjectId().toHexString();
+        req.body['_id'] = ObjectId().toHexString();
         await workoutColl.save(req.body);
         return res.status(200).json(
             await workoutColl.findOne(where.eq('name', req.body['name'])));
@@ -129,7 +192,7 @@ void start() async {
     '/exercise',
     [
       (ServRequest req, ServResponse res) async {
-        req.body["_id"] = ObjectId().toHexString();
+        req.body['_id'] = ObjectId().toHexString();
         await exerciseColl.save(req.body);
         return res.status(200).json(
             await exerciseColl.findOne(where.eq('name', req.body['name'])));
@@ -141,7 +204,7 @@ void start() async {
     '/diet',
     [
       (ServRequest req, ServResponse res) async {
-        req.body["_id"] = ObjectId().toHexString();
+        req.body['_id'] = ObjectId().toHexString();
         await dietColl.save(req.body);
         return res
             .status(200)
@@ -154,7 +217,7 @@ void start() async {
     '/food',
     [
       (ServRequest req, ServResponse res) async {
-        req.body["_id"] = ObjectId().toHexString();
+        req.body['_id'] = ObjectId().toHexString();
         await foodColl.save(req.body);
         return res
             .status(200)
@@ -174,9 +237,9 @@ void start() async {
         //   Obj["field"]=req.params["value"]
         // }
         //Obj["name"] = "abdullah";
-        var obj = await userColl.save(req.body);
-        print(obj);
-        return res.status(200).json(obj);
+        var snapshot = await userColl.save(req.body);
+        print(snapshot);
+        return res.status(200).json(snapshot);
       },
     ],
   );
@@ -185,8 +248,8 @@ void start() async {
     '/workout/:_id',
     [
       (ServRequest req, ServResponse res) async {
-        var obj = await workoutColl.save(req.body);
-        return res.status(200).json(obj);
+        var snapshot = await workoutColl.save(req.body);
+        return res.status(200).json(snapshot);
       },
     ],
   );
@@ -195,8 +258,8 @@ void start() async {
     '/exercise/:_id',
     [
       (ServRequest req, ServResponse res) async {
-        var obj = await exerciseColl.save(req.body);
-        return res.status(200).json(obj);
+        var snapshot = await exerciseColl.save(req.body);
+        return res.status(200).json(snapshot);
       },
     ],
   );
@@ -205,8 +268,8 @@ void start() async {
     '/diet/:_id',
     [
       (ServRequest req, ServResponse res) async {
-        var obj = await dietColl.save(req.body);
-        return res.status(200).json(obj);
+        var snapshot = await dietColl.save(req.body);
+        return res.status(200).json(snapshot);
       },
     ],
   );
@@ -215,8 +278,8 @@ void start() async {
     '/food/:_id',
     [
       (ServRequest req, ServResponse res) async {
-        var obj = await foodColl.save(req.body);
-        return res.status(200).json(obj);
+        var snapshot = await foodColl.save(req.body);
+        return res.status(200).json(snapshot);
       },
     ],
   );
