@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
 import '../src/model.dart';
+import '../src/api.dart';
 
 class LogPage extends StatefulWidget {
   final User user;
@@ -10,6 +11,7 @@ class LogPage extends StatefulWidget {
 }
 
 class _LogPageState extends State<LogPage> {
+  final Api _api = Api();
   @override
   Widget build(BuildContext context) {
     int index = 3;
@@ -82,15 +84,17 @@ class _LogPageState extends State<LogPage> {
                   minWidth: 150.0,
                   child: OutlineButton(
                     onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return;
-                          },
-                        ),
-                      );
+                      widget.user.log=null;
+                      _api.putUser(widget.user);
+                      // Navigator.pop(context);
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) {
+                      //       return;
+                      //     },
+                      //   ),
+                      // );
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
