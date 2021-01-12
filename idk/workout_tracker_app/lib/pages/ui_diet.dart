@@ -183,46 +183,16 @@ class _DietPageState extends State<DietPage> {
     int index = 1;
     return SafeArea(
       child: Scaffold(
-        endDrawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                child: Center(
-                  child: Text('Choose Your Diet', style: TextStyle(
-                    fontSize: 20
-                  ),),
-                ),
-                decoration: BoxDecoration(
-
-                  color: Colors.grey[350]
-                ),
-              ),
-              ListTile(
-                title: Text('Diet 1', style: TextStyle(
-                  fontSize: 15
-                ),),
-                trailing: Icon(Icons.lunch_dining),
-                onTap: (){
-
-                },
-              ),
-              ListTile(
-                title: Text('Diet 2', style: TextStyle(
-                    fontSize: 15
-                ),),
-                trailing: Icon(Icons.lunch_dining),
-                onTap: (){
-
-                },
-              ),
-            ],
-          ),
-        ),
         backgroundColor: Color(0xFF141414),
         appBar: AppBar(
           backgroundColor: Color(0xFF141414),
           title: Text("Diet"),
+          actions: [
+            Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                    onTap: () {}, child: Icon(Icons.dehaze_rounded))),
+          ],
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(

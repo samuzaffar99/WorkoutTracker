@@ -1,5 +1,5 @@
 //formula
-double calcBMI(double height,double weight) {
+double calcBMI() {
   return 0;
 }
 

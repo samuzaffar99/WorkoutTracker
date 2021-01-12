@@ -13,7 +13,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  bool toggleDark = true;
+  bool toggleDark = false;
   bool toggleAlarm = false;
   final nameController = TextEditingController();
 
