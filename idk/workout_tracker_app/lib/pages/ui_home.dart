@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workout_tracker_app/pages/ui_choose_new_workout_plan.dart';
 import 'package:workout_tracker_app/pages/ui_explore_exercises.dart';
 import '../src/model.dart';
 import 'package:workout_tracker_app/navigation.dart';
@@ -115,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return;
+                            return ChooseNewWorkoutPlan();
                           },
                         ),
                       );

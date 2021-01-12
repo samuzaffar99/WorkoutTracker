@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
 import 'package:workout_tracker_app/pages/ui_settings.dart';
 import '../src/model.dart';
+import '../src/api.dart';
+import 'package:intl/intl.dart';
 
 class ProfilePage extends StatefulWidget {
   final User user;
@@ -11,8 +13,24 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final Api _api = Api();
+  final weightController = TextEditingController();
+  final bodyfatController = TextEditingController();
+  final weightgController = TextEditingController();
+  final bodyfatgController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    weightController.dispose();
+    bodyfatController.dispose();
+    weightgController.dispose();
+    bodyfatgController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
+    var _formKey = GlobalKey<FormState>();
     int index = 4;
     return SafeArea(
       child: Scaffold(
@@ -20,12 +38,151 @@ class _ProfilePageState extends State<ProfilePage> {
         appBar: AppBar(
           backgroundColor: Color(0xFF141414),
           title: Text("Profile"),
-          // actions: [
-          //   Padding(
-          //       padding: EdgeInsets.only(right: 20.0),
-          //       child: GestureDetector(
-          //           onTap: () {}, child: Icon(Icons.dehaze_rounded))),
-          // ],
+          actions: [
+            Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                    onTap: () {
+                      showDialog(context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          backgroundColor: Colors.grey[350],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)
+                          ),
+                          title: Text('Edit Profile',
+                            style: TextStyle(fontSize: 23),),
+                          content: Form(
+                            key: _formKey,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text('Enter your current weight'),
+                                  ],
+                                ),
+                                SizedBox(height: 5,),
+                                TextFormField(
+                                  controller: weightController,
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    hintText: '75.0kg',
+                                    filled: true,
+                                    fillColor: Colors.grey[300],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    Text('Enter your current bodyfat'),
+                                  ],
+                                ),
+                                SizedBox(height: 5,),
+                                TextFormField(
+                                    controller: bodyfatController,
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    hintText: '15.0 %',
+                                    filled: true,
+                                    fillColor: Colors.grey[300],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    Text('Enter your desired weight'),
+                                  ],
+                                ),
+                                SizedBox(height: 5,),
+                                TextFormField(
+                                  controller: weightgController,
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    hintText: '50.0 kg',
+                                    filled: true,
+                                    fillColor: Colors.grey[300],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    Text('Enter your desired bodyfat'),
+                                  ],
+                                ),
+                                SizedBox(height: 5,),
+                                TextFormField(
+                                    controller: bodyfatgController,
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    hintText: '10.0 %',
+                                    filled: true,
+                                    fillColor: Colors.grey[300],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    MaterialButton(
+                                      minWidth: 100,
+                                      height: 50,
+                                      color: Colors.grey,
+                                      child: Text('Save'),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20.0),
+                                      ),
+                                      onPressed: () {
+                                        widget.user.stats.weight=double.parse(weightController.text);
+                                        widget.user.stats.bodyfat=double.parse(bodyfatController.text);
+                                        widget.user.goals.weight=double.parse(weightgController.text);
+                                        widget.user.goals.bodyfat=double.parse(bodyfatgController.text);
+                                        _api.putUser(widget.user);
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          );
+                      });
+                    },
+                    child: Icon(Icons.edit))),
+          ],
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
@@ -127,7 +284,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         ),
                                         children: [
                                           TextSpan(
-                                              text: "15.0 %\n",
+                                              text: "${widget.user.stats.bodyfat} %\n",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           TextSpan(
@@ -153,7 +310,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         ),
                                         children: [
                                           TextSpan(
-                                              text: "22.0\n",
+                                              text: "${calcBMI(widget.user.stats.height,widget.user.stats.weight)}\n",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           TextSpan(
@@ -167,9 +324,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ],
                         ),
                         Expanded(
-                          child: SizedBox(
-                            height: 50,
-                          ),
+                          child: SizedBox(),
                         ),
                         Text(
                           'Your Goals',
@@ -202,7 +357,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         children: [
                                           TextSpan(
                                               text:
-                                                  "${widget.user.stats.weight} kg\n",
+                                                  "${widget.user.goals.weight} kg\n",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           TextSpan(
@@ -228,7 +383,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         ),
                                         children: [
                                           TextSpan(
-                                              text: "15.0 %\n",
+                                              text: "${widget.user.goals.bodyfat} %\n",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           TextSpan(
@@ -254,7 +409,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         ),
                                         children: [
                                           TextSpan(
-                                              text: "      22\n",
+                                              text: "      ${DateTime.now().difference(DateFormat('dd/MM/yyyy').parse(widget.user.goals.targetdate)).inDays}\n",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           TextSpan(
