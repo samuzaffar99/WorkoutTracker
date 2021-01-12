@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
 import 'package:workout_tracker_app/pages/ui_edit_workout.dart';
@@ -17,8 +18,11 @@ class _WorkoutPageState extends State<WorkoutPage> {
   final Api _api = Api();
   //@override
   Widget getWorkoutView() {
+    // if (widget.user.currWorkout == null) {
+    //   return Text('User is not following a workout plan!');
+    // }
     return FutureBuilder(
-        future: _api.getWorkout(widget.user.currWorkout),
+        future: _api.getWorkout('5febed37775c8a5c445e0743'),
         builder: (buildContext, AsyncSnapshot snapshot) {
           if (snapshot.hasError)
             throw snapshot.error;
@@ -66,81 +70,192 @@ class _WorkoutPageState extends State<WorkoutPage> {
                               'ExerciseId: ${currentItem["exid"].runtimeType}');
                           print('ExerciseId: ${currentItem["exid"]}');
                           return Card(
+                              color: Colors.grey[300],
+                              elevation: 4,
                               child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
-                                Text('ExerciseId : ${currentItem["exid"]}'),
-                                FutureBuilder(
-                                    future:
-                                        _api.getExercise(currentItem["exid"]),
-                                    builder:
-                                        (buildContext, AsyncSnapshot snapshot) {
-                                      if (snapshot.hasError) {
-                                        throw snapshot.error;
-                                      } else if (!snapshot.hasData) {
-                                        return Container(
-                                          child: Center(
-                                            child: CircularProgressIndicator(),
-                                          ),
-                                        );
-                                      } else {
-                                        print(snapshot.data);
-                                        switch (snapshot.data["category"]) {
-                                          case "strength":
-                                            {
-                                              return Column(
-                                                children: [
-                                                  Text(snapshot.data["name"]),
-                                                  if (snapshot.data["info"] !=
-                                                      null)
-                                                    Text(snapshot.data["info"]),
-                                                  ListView.builder(
-                                                      itemCount:
-                                                          currentItem["reps"]
-                                                              .length,
-                                                      shrinkWrap: true,
-                                                      itemBuilder:
-                                                          (context, index2) {
-                                                        var currentItem2 =
-                                                            currentItem["reps"]
-                                                                [index2];
-                                                        return Text(
-                                                            "Reps: $currentItem2");
-                                                      }),
-                                                ],
-                                              );
-                                            }
-                                          case "endurance":
-                                            {
-                                              return Column(
-                                                children: [
-                                                  Text(snapshot.data["name"]),
-                                                  if (snapshot.data["info"] !=
-                                                      null)
-                                                    Text(snapshot.data["info"]),
-                                                  ListView.builder(
-                                                      itemCount:
-                                                          currentItem["dur"]
-                                                              .length,
-                                                      shrinkWrap: true,
-                                                      itemBuilder:
-                                                          (context, index2) {
-                                                        var currentItem2 =
-                                                            currentItem["dur"]
-                                                                [index2];
-                                                        return Text(
-                                                            "Duration: $currentItem2");
-                                                      }),
-                                                ],
-                                              );
-                                            }
-                                        }
-                                        return Text(
-                                            "Invalid Exercise Category!");
-                                      }
-                                    }),
-                              ]));
+                                    //Text('ExerciseId : ${currentItem["exid"]}'),
+                                    FutureBuilder(
+                                        future: _api
+                                            .getExercise(currentItem["exid"]),
+                                        builder: (buildContext,
+                                            AsyncSnapshot snapshot) {
+                                          if (snapshot.hasError) {
+                                            throw snapshot.error;
+                                          } else if (!snapshot.hasData) {
+                                            return Container(
+                                              child: Center(
+                                                child:
+                                                    CircularProgressIndicator(),
+                                              ),
+                                            );
+                                          } else {
+                                            print(snapshot.data);
+                                            return Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Row(children: [
+                                                Container(
+                                                  width:80,
+                                                  child: Column(
+                                                    children: [
+                                                      Text(snapshot.data["name"],
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold)),
+                                                      if (snapshot.data["info"] !=
+                                                          null)
+                                                        Text(
+                                                            snapshot.data["info"])
+                                                    ],
+                                                  ),
+                                                ),
+                                                Spacer(),
+                                                Builder(builder: (context) {
+                                                  if (snapshot
+                                                      .data["category"] ==
+                                                  "strength") {
+                                                return Expanded(
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                        border: Border(
+                                                            left: BorderSide(
+                                                                width: 5.0,
+                                                                color: Colors
+                                                                    .white),
+                                                            right: BorderSide(
+                                                                width: 5.0,
+                                                                color: Colors
+                                                                    .white))),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text("Reps",
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold)),
+                                                        ListView.builder(
+                                                            itemCount:
+                                                                currentItem[
+                                                                        "reps"]
+                                                                    .length,
+                                                            shrinkWrap:
+                                                                true,
+                                                            itemBuilder:
+                                                                (context,
+                                                                    index2) {
+                                                              var currentItem2 =
+                                                                  currentItem[
+                                                                          "reps"]
+                                                                      [
+                                                                      index2];
+                                                              return new Center(
+                                                                  child: Text(
+                                                                      currentItem2
+                                                                          .toString()));
+                                                            }),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                );
+                                                  } else if (snapshot
+                                                      .data["category"] ==
+                                                  "endurance") {
+                                                return Expanded(
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                        border: Border(
+                                                            left: BorderSide(
+                                                                width: 5.0,
+                                                                color: Colors
+                                                                    .white),
+                                                            right: BorderSide(
+                                                                width: 5.0,
+                                                                color: Colors
+                                                                    .white))),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text("Duration",
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold)),
+                                                        ListView.builder(
+                                                            itemCount:
+                                                                currentItem[
+                                                                        "dur"]
+                                                                    .length,
+                                                            shrinkWrap:
+                                                                true,
+                                                            itemBuilder:
+                                                                (context,
+                                                                    index2) {
+                                                              var currentItem2 =
+                                                                  currentItem[
+                                                                          "dur"]
+                                                                      [
+                                                                      index2];
+                                                              return new Center(
+                                                                  child: Text(
+                                                                      currentItem2
+                                                                          .toString()));
+                                                            }),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                );
+                                                  }
+                                                  return Text(
+                                                  "Invalid Exercise Category!");
+                                                }),
+                                                Spacer(),
+                                                Expanded(
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                    CrossAxisAlignment
+                                                        .start,
+                                                    mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .start,
+                                                    children: [
+                                                      new Align(
+                                                        alignment:
+                                                        Alignment
+                                                            .topLeft,
+                                                        child: Text(
+                                                            "Difficulty",
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                FontWeight
+                                                                    .bold)),
+                                                      ),
+                                                      Text(
+                                                        "${snapshot.data["difficulty"]}",
+                                                        style: DefaultTextStyle
+                                                            .of(
+                                                            context)
+                                                            .style
+                                                            .apply(
+                                                            fontSizeFactor:
+                                                            2.0),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                )
+                                              ]),
+                                            );
+                                          }
+                                        }),
+                                  ]));
                         }),
                   )
                 ]);
@@ -148,8 +263,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
         });
   }
 
-  Widget workoutCard()
-  {
+  Widget exerciseCard() {
     return Container(
       height: 120,
       width: 349,
@@ -167,9 +281,8 @@ class _WorkoutPageState extends State<WorkoutPage> {
                   ),
                   children: [
                     TextSpan(
-                        text: "    Exercise",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold)),
+                        text: "    Exercisename",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
                   ]),
             ),
             Row(
@@ -181,10 +294,8 @@ class _WorkoutPageState extends State<WorkoutPage> {
                   text: TextSpan(
                       children: [
                         TextSpan(
-                          text: "    Reps\n",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold)
-                        ),
+                            text: "    Reps\n",
+                            style: TextStyle(fontWeight: FontWeight.bold)),
                         TextSpan(
                           text: "      1\n",
                         ),
@@ -212,11 +323,11 @@ class _WorkoutPageState extends State<WorkoutPage> {
                       children: [
                         TextSpan(
                           text: "Difficulty\n",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         TextSpan(
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 30),
                           text: "10.0\n",
                         ),
                       ],
@@ -261,90 +372,93 @@ class _WorkoutPageState extends State<WorkoutPage> {
           ),
           child: NavigationBar(index, widget.user),
         ),
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          child: ListView(
-            children: [
-              // Expanded(
-              //   child:getWorkoutView(),
-              // ),
-              Opacity(
-                opacity: 0.5,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30)
-                  ),
-                  elevation: 5,
-                  margin: EdgeInsets.fromLTRB(16, 10, 16, 10),
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Container(
-                      height: 400,
-                      width: 275,
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 12),
+          child: Container(
+            height: double.infinity,
+            width: double.infinity,
+            child: Column(
+              children: [
+                Expanded(
+                  child: getWorkoutView(),
+                ),
+                // Opacity(
+                //   opacity: 0.5,
+                //   child: Card(
+                //     shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(30)
+                //     ),
+                //     elevation: 5,
+                //     margin: EdgeInsets.fromLTRB(16, 10, 16, 10),
+                //     child: Padding(
+                //       padding: const EdgeInsets.all(15.0),
+                //       child: Container(
+                //         height: 400,
+                //         width: 275,
+                //         child: SingleChildScrollView(
+                //           child: Column(
+                //             mainAxisAlignment: MainAxisAlignment.start,
+                //             children: [
+                //               //get number of exercises for this person and
+                //               //iterate each using a for loop
+                //               //get respective data according to the iteration number/id
+                //               exerciseCard(),
+                //             ],
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ButtonTheme(
+                      height: 45.0,
+                      minWidth: 160.0,
+                      child: OutlineButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return InWorkout(widget.user);
+                              },
+                            ),
+                          );
+                        },
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        color: Colors.transparent,
+                        textColor: Colors.white,
+                        borderSide: BorderSide(
+                            color: Colors.white.withAlpha(200), width: 1.25),
+                        highlightedBorderColor: Colors.white,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            //get number of exercises for this person and
-                            //iterate each using a for loop
-                            //get respective data according to the iteration number/id
-                            workoutCard(),
+                            Text(
+                              "Start Workout",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white.withAlpha(230),
+                                shadows: <Shadow>[
+                                  Shadow(
+                                      offset: Offset(1.5, 1.5),
+                                      blurRadius: 5.0,
+                                      color: Color.fromARGB(255, 0, 0, 0))
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ButtonTheme(
-                    height: 45.0,
-                    minWidth: 160.0,
-                    child: OutlineButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return InWorkout(widget.user);
-                            },
-                          ),
-                        );
-                      },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      color: Colors.transparent,
-                      textColor: Colors.white,
-                      borderSide: BorderSide(
-                          color: Colors.white.withAlpha(200), width: 1.25),
-                      highlightedBorderColor: Colors.white,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Start Workout",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white.withAlpha(230),
-                              shadows: <Shadow>[
-                                Shadow(
-                                    offset: Offset(1.5, 1.5),
-                                    blurRadius: 5.0,
-                                    color: Color.fromARGB(255, 0, 0, 0))
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
