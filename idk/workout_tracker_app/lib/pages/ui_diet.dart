@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/navigation.dart';
 import '../src/model.dart';
 import '../src/api.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class DietPage extends StatefulWidget {
   final User user;
@@ -184,45 +185,52 @@ class _DietPageState extends State<DietPage> {
     return SafeArea(
       child: Scaffold(
         endDrawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                child: Center(
-                  child: Text('Choose Your Diet', style: TextStyle(
-                    fontSize: 20
-                  ),),
-                ),
-                decoration: BoxDecoration(
+          child: Opacity(
+            opacity: 0.8,
+            child: Container(
+              color: Color(0xFF5F3E40),
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  SizedBox(height: 10,),
+                  Center(
+                    child: Text('Choose Your Diet', style: TextStyle(
+                      fontSize: 20,color: Colors.white
+                    ),),
+                  ),
+                  SizedBox(height: 10,),
+                  ListTile(
+                    title: Text('Diet 1', style: TextStyle(
+                      fontSize: 17,color: Colors.white
+                    ),),
+                    trailing: Icon(Icons.lunch_dining,color: Colors.white),
+                    onTap: (){
 
-                  color: Colors.grey[350]
-                ),
-              ),
-              ListTile(
-                title: Text('Diet 1', style: TextStyle(
-                  fontSize: 15
-                ),),
-                trailing: Icon(Icons.lunch_dining),
-                onTap: (){
+                    },
+                  ),
+                  ListTile(
+                    title: Text('Diet 2', style: TextStyle(
+                        fontSize: 17,color: Colors.white
+                    ),),
+                    trailing: Icon(Icons.breakfast_dining,color: Colors.white),
+                    onTap: (){
 
-                },
+                    },
+                  ),
+                ],
               ),
-              ListTile(
-                title: Text('Diet 2', style: TextStyle(
-                    fontSize: 15
-                ),),
-                trailing: Icon(Icons.lunch_dining),
-                onTap: (){
-
-                },
-              ),
-            ],
+            ),
           ),
         ),
         backgroundColor: Color(0xFF141414),
-        appBar: AppBar(
-          backgroundColor: Color(0xFF141414),
-          title: Text("Diet"),
+        appBar: GradientAppBar(
+          backgroundColorStart: Color(0xFF1D4350),
+          backgroundColorEnd: Color(0xFFa43931),
+          title: Text(
+            'Diet',
+            style: TextStyle(color: Color(0xFFFFFFFF)),
+          ),
+          elevation: 5,
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
@@ -231,6 +239,11 @@ class _DietPageState extends State<DietPage> {
           child: NavigationBar(index, widget.user),
         ),
         body: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [Color(0xFFa43931), Color(0xFF1D4350)])),
             height: double.infinity,
             width: double.infinity,
             child: Opacity(

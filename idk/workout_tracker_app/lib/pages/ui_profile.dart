@@ -4,6 +4,7 @@ import 'package:workout_tracker_app/pages/ui_settings.dart';
 import '../src/model.dart';
 import '../src/api.dart';
 import 'package:intl/intl.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class ProfilePage extends StatefulWidget {
   final User user;
@@ -35,8 +36,10 @@ class _ProfilePageState extends State<ProfilePage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFF141414),
-        appBar: AppBar(
-          backgroundColor: Color(0xFF141414),
+        appBar: GradientAppBar(
+          backgroundColorStart: Color(0xFF1D4350),
+          backgroundColorEnd: Color(0xFFa43931),
+          elevation: 5,
           title: Text("Profile"),
           actions: [
             Padding(
@@ -190,319 +193,326 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           child: NavigationBar(index, widget.user),
         ),
-        body: Column(
-          children: [
-            SizedBox(height: 5),
-            Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                CircleAvatar(
-                  radius: 52.5,
-                  backgroundColor: Colors.white,
-                  child: CircleAvatar(
-                    radius: 50,
-                    backgroundImage: AssetImage('assets/images/logo.png'),
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Color(0xFFa43931), Color(0xFF1D4350)])),
+          child: Column(
+            children: [
+              SizedBox(height: 5),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  "${widget.user.username} ",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    shadows: <Shadow>[
-                      Shadow(
-                          offset: Offset(1.5, 1.5),
-                          blurRadius: 5.0,
-                          color: Color.fromARGB(255, 0, 0, 0))
-                    ],
+                  CircleAvatar(
+                    radius: 52.5,
+                    backgroundColor: Colors.white,
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage('assets/images/logo.png'),
+                    ),
                   ),
-                ),
-              ],
-            ),
-            Expanded(
-              child: Opacity(
-                opacity: 0.5,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+                  SizedBox(
+                    width: 10,
                   ),
-                  elevation: 5,
-                  margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 16.0),
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              height: 75,
-                              width: 95,
-                              child: Card(
-                                color: Colors.grey[300],
-                                elevation: 4,
-                                child: Center(
-                                  child: RichText(
-                                    text: TextSpan(
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.black,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                              text:
-                                                  "${widget.user.stats.weight} kg\n",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                          TextSpan(
-                                            text: "Weight",
-                                          )
-                                        ]),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: 75,
-                              width: 95,
-                              child: Card(
-                                color: Colors.grey[300],
-                                elevation: 4,
-                                child: Center(
-                                  child: RichText(
-                                    text: TextSpan(
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.black,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                              text: "${widget.user.stats.bodyfat} %\n",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                          TextSpan(
-                                            text: "BodyFat",
-                                          )
-                                        ]),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: 75,
-                              width: 95,
-                              child: Card(
-                                color: Colors.grey[300],
-                                elevation: 4,
-                                child: Center(
-                                  child: RichText(
-                                    text: TextSpan(
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.black,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                              text: "${calcBMI(widget.user.stats.height,widget.user.stats.weight)}\n",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                          TextSpan(
-                                            text: "BMI",
-                                          )
-                                        ]),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Expanded(
-                          child: SizedBox(),
-                        ),
-                        Text(
-                          'Your Goals',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              height: 75,
-                              width: 95,
-                              child: Card(
-                                color: Colors.grey[300],
-                                elevation: 4,
-                                child: Center(
-                                  child: RichText(
-                                    text: TextSpan(
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.black,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                              text:
-                                                  "${widget.user.goals.weight} kg\n",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                          TextSpan(
-                                            text: "Weight",
-                                          )
-                                        ]),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: 75,
-                              width: 95,
-                              child: Card(
-                                color: Colors.grey[300],
-                                elevation: 4,
-                                child: Center(
-                                  child: RichText(
-                                    text: TextSpan(
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.black,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                              text: "${widget.user.goals.bodyfat} %\n",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                          TextSpan(
-                                            text: "BodyFat",
-                                          )
-                                        ]),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: 75,
-                              width: 95,
-                              child: Card(
-                                color: Colors.grey[300],
-                                elevation: 4,
-                                child: Center(
-                                  child: RichText(
-                                    text: TextSpan(
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.black,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                              text: "      ${DateTime.now().difference(DateFormat('dd/MM/yyyy').parse(widget.user.goals.targetdate)).inDays}\n",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                          TextSpan(
-                                            text: "Days Rem",
-                                          )
-                                        ]),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Expanded(
-                          child: SizedBox(
-                            height: 30,
-                          ),
-                        ),
-                        Text(
-                          '7 Day Streak',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            //Navigator.pop(context);
-                            //Insert new navigation page here
-                          },
-                          child: Center(
-                            child: RichText(
-                              text: TextSpan(
-                                text: 'View last session',
-                                style: TextStyle(color: Colors.blue),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            IconButton(
-                              icon: Icon(Icons.settings),
-                              onPressed: () {
-                                Navigator.pop(context);
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return SettingsPage(widget.user);
-                                    },
-                                  ),
-                                );
-                              },
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.pop(context);
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return SettingsPage(widget.user);
-                                    },
-                                  ),
-                                );
-                              },
-                              child: Center(
-                                child: RichText(
-                                  text: TextSpan(
-                                    text: 'Settings',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
+                  Text(
+                    "${widget.user.username} ",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      shadows: <Shadow>[
+                        Shadow(
+                            offset: Offset(1.5, 1.5),
+                            blurRadius: 5.0,
+                            color: Color.fromARGB(255, 0, 0, 0))
                       ],
+                    ),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: Opacity(
+                  opacity: 0.5,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    elevation: 5,
+                    margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 16.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                height: 75,
+                                width: 95,
+                                child: Card(
+                                  color: Colors.grey[300],
+                                  elevation: 4,
+                                  child: Center(
+                                    child: RichText(
+                                      text: TextSpan(
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black,
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                                text:
+                                                    "${widget.user.stats.weight} kg\n",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold)),
+                                            TextSpan(
+                                              text: "Weight",
+                                            )
+                                          ]),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                height: 75,
+                                width: 95,
+                                child: Card(
+                                  color: Colors.grey[300],
+                                  elevation: 4,
+                                  child: Center(
+                                    child: RichText(
+                                      text: TextSpan(
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black,
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                                text: "${widget.user.stats.bodyfat} %\n",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold)),
+                                            TextSpan(
+                                              text: "BodyFat",
+                                            )
+                                          ]),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                height: 75,
+                                width: 95,
+                                child: Card(
+                                  color: Colors.grey[300],
+                                  elevation: 4,
+                                  child: Center(
+                                    child: RichText(
+                                      text: TextSpan(
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black,
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                                text: "${calcBMI(widget.user.stats.height,widget.user.stats.weight)}\n",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold)),
+                                            TextSpan(
+                                              text: "BMI",
+                                            )
+                                          ]),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                            child: SizedBox(),
+                          ),
+                          Text(
+                            'Your Goals',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                height: 75,
+                                width: 95,
+                                child: Card(
+                                  color: Colors.grey[300],
+                                  elevation: 4,
+                                  child: Center(
+                                    child: RichText(
+                                      text: TextSpan(
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black,
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                                text:
+                                                    "${widget.user.goals.weight} kg\n",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold)),
+                                            TextSpan(
+                                              text: "Weight",
+                                            )
+                                          ]),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                height: 75,
+                                width: 95,
+                                child: Card(
+                                  color: Colors.grey[300],
+                                  elevation: 4,
+                                  child: Center(
+                                    child: RichText(
+                                      text: TextSpan(
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black,
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                                text: "${widget.user.goals.bodyfat} %\n",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold)),
+                                            TextSpan(
+                                              text: "BodyFat",
+                                            )
+                                          ]),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                height: 75,
+                                width: 95,
+                                child: Card(
+                                  color: Colors.grey[300],
+                                  elevation: 4,
+                                  child: Center(
+                                    child: RichText(
+                                      text: TextSpan(
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black,
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                                text: "      ${DateTime.now().difference(DateFormat('dd/MM/yyyy').parse(widget.user.goals.targetdate)).inDays}\n",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold)),
+                                            TextSpan(
+                                              text: "Days Rem",
+                                            )
+                                          ]),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                            child: SizedBox(
+                              height: 30,
+                            ),
+                          ),
+                          Text(
+                            '7 Day Streak',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              //Navigator.pop(context);
+                              //Insert new navigation page here
+                            },
+                            child: Center(
+                              child: RichText(
+                                text: TextSpan(
+                                  text: 'View last session',
+                                  style: TextStyle(color: Colors.blue),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              IconButton(
+                                icon: Icon(Icons.settings),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return SettingsPage(widget.user);
+                                      },
+                                    ),
+                                  );
+                                },
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return SettingsPage(widget.user);
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: Center(
+                                  child: RichText(
+                                    text: TextSpan(
+                                      text: 'Settings',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

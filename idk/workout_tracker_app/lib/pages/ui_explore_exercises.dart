@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_exercise_results.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class ExploreExercises extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _ExploreExercisesState extends State<ExploreExercises> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFF141414),
-        appBar: AppBar(
+        appBar: GradientAppBar(
           automaticallyImplyLeading: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_rounded),
@@ -23,7 +24,9 @@ class _ExploreExercisesState extends State<ExploreExercises> {
               Navigator.pop(context);
             },
           ),
-          backgroundColor: Color(0xFF141414),
+          backgroundColorStart: Color(0xFF1D4350),
+          backgroundColorEnd: Color(0xFFa43931),
+          elevation: 5,
           title: Text("Explore"),
           actions: [
             Padding(
@@ -32,8 +35,13 @@ class _ExploreExercisesState extends State<ExploreExercises> {
                     onTap: () {}, child: Icon(Icons.dehaze_rounded))),
           ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
+        body: Container(
+           decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Color(0xFFa43931), Color(0xFF1D4350)])),
+          child: ListView(
             children: [
               SizedBox(
                 height: 40,

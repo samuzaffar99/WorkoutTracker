@@ -6,6 +6,7 @@ import 'package:workout_tracker_app/pages/ui_in_workout.dart';
 import '../src/model.dart';
 import '../src/api.dart';
 import 'package:intl/intl.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class WorkoutPage extends StatefulWidget {
   final User user;
@@ -350,8 +351,10 @@ class _WorkoutPageState extends State<WorkoutPage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFF141414),
-        appBar: AppBar(
-          backgroundColor: Color(0xFF141414),
+        appBar: GradientAppBar(
+          backgroundColorStart: Color(0xFF1D4350),
+          backgroundColorEnd: Color(0xFFa43931),
+          elevation: 5,
           title: Text("Workout"),
           actions: [
             Padding(
@@ -372,45 +375,50 @@ class _WorkoutPageState extends State<WorkoutPage> {
           ),
           child: NavigationBar(index, widget.user),
         ),
-        body: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 0, 0, 12),
-          child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            child: Column(
-              children: [
-                Expanded(
-                  child: getWorkoutView(),
-                ),
-                // Opacity(
-                //   opacity: 0.5,
-                //   child: Card(
-                //     shape: RoundedRectangleBorder(
-                //       borderRadius: BorderRadius.circular(30)
-                //     ),
-                //     elevation: 5,
-                //     margin: EdgeInsets.fromLTRB(16, 10, 16, 10),
-                //     child: Padding(
-                //       padding: const EdgeInsets.all(15.0),
-                //       child: Container(
-                //         height: 400,
-                //         width: 275,
-                //         child: SingleChildScrollView(
-                //           child: Column(
-                //             mainAxisAlignment: MainAxisAlignment.start,
-                //             children: [
-                //               //get number of exercises for this person and
-                //               //iterate each using a for loop
-                //               //get respective data according to the iteration number/id
-                //               exerciseCard(),
-                //             ],
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                Row(
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Color(0xFFa43931), Color(0xFF1D4350)])),
+          height: double.infinity,
+          width: double.infinity,
+          child: Column(
+            children: [
+              Expanded(
+                child: getWorkoutView(),
+              ),
+              // Opacity(
+              //   opacity: 0.5,
+              //   child: Card(
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(30)
+              //     ),
+              //     elevation: 5,
+              //     margin: EdgeInsets.fromLTRB(16, 10, 16, 10),
+              //     child: Padding(
+              //       padding: const EdgeInsets.all(15.0),
+              //       child: Container(
+              //         height: 400,
+              //         width: 275,
+              //         child: SingleChildScrollView(
+              //           child: Column(
+              //             mainAxisAlignment: MainAxisAlignment.start,
+              //             children: [
+              //               //get number of exercises for this person and
+              //               //iterate each using a for loop
+              //               //get respective data according to the iteration number/id
+              //               exerciseCard(),
+              //             ],
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ButtonTheme(
@@ -457,8 +465,8 @@ class _WorkoutPageState extends State<WorkoutPage> {
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
