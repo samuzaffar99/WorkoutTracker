@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workout_tracker_app/pages/ui_choose_new_workout_plan.dart';
+import 'package:workout_tracker_app/pages/ui_exercise_results.dart';
 import 'package:workout_tracker_app/pages/ui_explore_exercises.dart';
 import '../src/model.dart';
 import 'package:workout_tracker_app/navigation.dart';
@@ -71,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return ExploreExercises();
+                              return ExerciseResults();
                             },
                           ),
                         );
@@ -169,14 +170,11 @@ class _HomePageState extends State<HomePage> {
                         height: 400,
                         width: 275,
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Center(
-                              child: Text(
-                                "Yay! No Workout Today",
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.w500),
-                              ),
+                            Text(
+                              "Todays Exercises\n\nDeadlift   10-8-6\nSquats   12-8\nAb Curls   25-20",
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w500),
                             )
                           ],
                         ),
