@@ -3,6 +3,9 @@ import 'package:workout_tracker_app/navigation.dart';
 import '../src/model.dart';
 import '../src/api.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
+import 'package:intl/intl.dart';
+
+var objdiet="5febf179775c8a5c445e0745";
 
 class DietPage extends StatefulWidget {
   final User user;
@@ -15,7 +18,7 @@ class _DietPageState extends State<DietPage> {
   final Api _api = Api();
   Widget getDietView() {
     return FutureBuilder(
-        future: _api.getDiet('5fe07621b271d358089313e5'),
+        future: _api.getDiet(objdiet),
         builder: (buildContext, AsyncSnapshot snapshot) {
           if (snapshot.hasError)
             throw snapshot.error;
@@ -26,8 +29,9 @@ class _DietPageState extends State<DietPage> {
               ),
             );
           } else {
-            String dday =
-                "monday"; //var date = DateTime.now();print(DateFormat('EEEE').format(date));
+            String dday = "monday";
+            // var dday = DateFormat('EEEE').format(DateTime.now()).toLowerCase();
+            print(dday);
             int dindex = 0;
             for (var i = 0; i < snapshot.data["dietdays"].length; i++) {
               if (snapshot.data["dietdays"][i]["day"] == dday) {
@@ -200,21 +204,39 @@ class _DietPageState extends State<DietPage> {
                   ),
                   SizedBox(height: 10,),
                   ListTile(
-                    title: Text('Diet 1', style: TextStyle(
+                    title: Text('Keto Diet', style: TextStyle(
                       fontSize: 17,color: Colors.white
                     ),),
                     trailing: Icon(Icons.lunch_dining,color: Colors.white),
                     onTap: (){
+                      objdiet="5febf179775c8a5c445e0743";
+                      setState(() {
 
+                      });
                     },
                   ),
                   ListTile(
-                    title: Text('Diet 2', style: TextStyle(
+                    title: Text('Paleo Diet', style: TextStyle(
                         fontSize: 17,color: Colors.white
                     ),),
                     trailing: Icon(Icons.breakfast_dining,color: Colors.white),
                     onTap: (){
+                      objdiet="5febf179775c8a5c445e0744";
+                      setState(() {
 
+                      });
+                    },
+                  ),
+                  ListTile(
+                    title: Text('Macho Diet', style: TextStyle(
+                        fontSize: 17,color: Colors.white
+                    ),),
+                    trailing: Icon(Icons.local_dining_outlined,color: Colors.white),
+                    onTap: (){
+                      objdiet="5febf179775c8a5c445e0745";
+                      setState(() {
+
+                      });
                     },
                   ),
                 ],
